@@ -1,0 +1,10 @@
+{
+  "title": "Sample GitBook",
+  "author": "178518 <178518@gmail.com>",
+  "description": "This is a sample book created by gitbook",
+  "links": {
+    "sidebar": {
+      "178518's Github": "https://github.com/178518"
+    }
+  }
+}

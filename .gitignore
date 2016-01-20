@@ -1,4 +1,5 @@
 #OSX files
 .DS_Store
 Thumbs.db
-book-build
+/_book/
+/node_modules/
