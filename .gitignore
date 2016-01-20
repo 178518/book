@@ -1,0 +1,4 @@
+#OSX files
+.DS_Store
+Thumbs.db
+book-build
