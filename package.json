@@ -1,10 +1,10 @@
 {
-  "name": "book",
+  "name": "gitbook",
   "version": "0.0.1",
-  "description": "book",
+  "description": "gitbook",
   "repository": {
     "type": "git",
-    "url": "https://github.com/178518/book.git"
+    "url": "https://github.com/178518/book"
   },
   "author": "178518 <178518@gmail.com>",
   "scripts": {
