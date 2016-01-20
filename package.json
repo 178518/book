@@ -8,7 +8,7 @@
   },
   "author": "178518 <178518@gmail.com>",
   "scripts": {
-    "publish": "gulp deploy"
+    "publish": "gitbook build && gulp deploy"
   },
   "dependencies": {
     "gulp": "3.6.x",
