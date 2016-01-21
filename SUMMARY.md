@@ -1,2 +1,5 @@
-* [基本安装](react/README.md)
- - [Node.js安装](react/Nodejsinstall.md)
+* [整体架构](2016/jiagou.md)
+* [基本安装](2016/node.md)
+ - [环境配置](2016/setup.md)
+ - [NPM模块发布](2016/npm.md)
+ - [React Native资料](2016/study.md)
