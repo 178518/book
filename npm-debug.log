@@ -1,0 +1,74 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/lib/node_modules/cnpm/node_modules/.bin/npm',
+1 verbose cli   '--userconfig=/Users/yunyi/.cnpmrc',
+1 verbose cli   '--disturl=https://npm.taobao.org/mirrors/node',
+1 verbose cli   '--cache=/Users/yunyi/.cnpm',
+1 verbose cli   '--registry=https://registry.npm.taobao.org',
+1 verbose cli   '--node-gyp=/usr/local/lib/node_modules/cnpm/node_modules/node-gyp/bin/node-gyp.js',
+1 verbose cli   'publish' ]
+2 info using npm@2.14.3
+3 info using node@v5.0.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/yunyi/nodespace/book',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/yunyi/.cnpm/gitbook/0.0.1/package.tgz not in flight; packing
+9 verbose tar pack [ '/Users/yunyi/.cnpm/gitbook/0.0.1/package.tgz',
+9 verbose tar pack   '/Users/yunyi/nodespace/book' ]
+10 verbose tarball /Users/yunyi/.cnpm/gitbook/0.0.1/package.tgz
+11 verbose folder /Users/yunyi/nodespace/book
+12 info prepublish gitbook@0.0.1
+13 verbose addLocalTarball adding from inside cache /Users/yunyi/.cnpm/gitbook/0.0.1/package.tgz
+14 silly cache afterAdd gitbook@0.0.1
+15 verbose afterAdd /Users/yunyi/.cnpm/gitbook/0.0.1/package/package.json not in flight; writing
+16 verbose afterAdd /Users/yunyi/.cnpm/gitbook/0.0.1/package/package.json written
+17 silly publish { name: 'gitbook',
+17 silly publish   version: '0.0.1',
+17 silly publish   description: 'gitbook',
+17 silly publish   repository: { type: 'git', url: 'git+https://github.com/178518/book.git' },
+17 silly publish   author: { name: '178518', email: '178518@gmail.com' },
+17 silly publish   scripts: { publish: 'gitbook build && gulp deploy' },
+17 silly publish   dependencies: { gulp: '3.6.x', 'gulp-gh-pages': '^0.3.3' },
+17 silly publish   devDependencies: { gitbook: '1.5.0' },
+17 silly publish   readme: '![png](assets/lego.png)\n\n### 乐高\n\n> [乐高](http://baike.baidu.com/view/292192.htm)公司创办于丹麦，至今已有80年的发展历史，追本溯源，还得从它的金字招牌LEGO说起。商标“LEGO”的使用是从1934年开始，其语来自丹麦语“LEg GOdt”，意为“play well”（玩得快乐），并且该名字首先迅速成为乐高公司在Billund地区玩具工厂生产的优质玩具的代名词。\n  多年来，“LEGO”图标也变化了多种形式，最新的图标是1998年制作，它是在1973年的版本基础上稍作调整而成，使之更便于在媒体上传播和识别。第一个生产地在丹麦的一所红房子中，那里就是乐高开始的地方。\n  \n### 品牌介绍\n  \n> 乐高积木是儿童喜爱的玩具。这种塑胶积木一头有凸粒，另一头\n  有可嵌入凸粒的孔，形状有1300多种，每一种形状都有12种不同的颜色，以红、黄、蓝、白、黑为主。它靠小朋友自己动脑动手，可以拼插出变化无穷的造型，令人爱不释手，被称为“魔术塑料积木”。乐高积木的故乡就在丹麦比隆。\n  \n### Web Compontents\n> [模块化](http://fex.baidu.com/blog/2014/05/web-components-future-oriented/)是指解决一个复杂问题时自顶向下逐层把系统划分成若干模块的过程，有多种属性，分别反映其内部特性。模块化本体是指具有模块结构的本体（知识库的一种表现形式）。模块化用来分割，组织和打包软件。模块化是一种处理复杂系统分解成为更好的可管理模块的方式。一种是基于非经典语义的逻辑语言扩展，如分布式描述逻辑，E-连接和基于包的描述逻辑；另外一种途径是基于经典描述逻辑语义，但限制对外部符号的使用以保证各模块可安全的合并。\n\n### 元数据\n\n> [元数据](http://baike.baidu.com/view/107838.htm)（Metadata），又称中介数据、中继数据，为描述数据的数据（data about data），主要是描述数据属性（property）的信息，用来支持如指示存储位置、历史数据、资源查找、文件记录等功能。元数据算是一种电子式目录，为了达到编制目录的目的，必须在描述并收藏数据的内容或特色，进而达成协助数据检索的目的。都柏林核心集（Dublin Core Metadata Initiative，DCMI）是元数据的一种应用，是1995年2月由国际图书馆电脑中心（OCLC）和美国国家超级计算应用中心（National Center for Supercomputing Applications，NCSA）所联合赞助的研讨会，在邀请52位来自图书馆员、电脑专家，共同制定规格，创建一套描述网络上电子文件之特征。\n  元数据是关于数据的组织、数据域及其关系的信息，简言之，元数据就是关于数据的数据。\n  \n### 组件化页面\n> 就是我们通过http请求访问的一个具体页面，只是这个页面的元素是由一个或多个“业务组件组”拼凑而成，比如一个查询页面是由一个“查询业务组”和一个“结果集业务组”组合而成。 \n\n### 业务组件组\n> “业务组件组”由一系列“业务组件”和“功能组件”组合而成，可以表示业务上定义的某一类分组，如“查询业务组”需要一些查询过滤条件，而这些过滤条件在页面的具体展现就是一些业务组件或功能组件的组合。\n\n### 业务组件\n\n> 由“功能组件”被赋予具有业务含义的属性，如下拉功能组件，赋予货主数据源、标题和非空校验等属性，就能显示具有“货主下拉数据”、展现标题、表单提交时自动进行非空校验的能力，这样便形成一个具有独立功能、可复用、可沉淀的业务组件。 \n\n### 基础组件\n> 表示某种类型的组件，不同的“基础组件”具有不同的功能和样式，如文本(text)、图片(image)、链接(link)等基础组件。 \n\n### 事件\n> 为页面上的组件和组件、组件和业务组件、组件和页面交互提供一种协同的行为操作。让原本静态的页面，能够拥有动态的展现能力。关于组件化的动作设计我们将在后面的文章详细介绍。',
+17 silly publish   readmeFilename: 'README.md',
+17 silly publish   gitHead: 'b49761b9e35e2ae1dcbcdd76f5dc9f94c2e7a8ca',
+17 silly publish   bugs: { url: 'https://github.com/178518/book/issues' },
+17 silly publish   homepage: 'https://github.com/178518/book#readme',
+17 silly publish   _id: 'gitbook@0.0.1',
+17 silly publish   _shasum: 'd775a669559916f78849de5af3165673ca2782c4',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 silly mapToRegistry name gitbook
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npm.taobao.org/
+22 silly mapToRegistry uri https://registry.npm.taobao.org/gitbook
+23 verbose publish registryBase https://registry.npm.taobao.org/
+24 silly publish uploading /Users/yunyi/.cnpm/gitbook/0.0.1/package.tgz
+25 verbose stack Error: auth required for publishing
+25 verbose stack     at CachingRegistryClient.publish (/usr/local/lib/node_modules/cnpm/node_modules/npm/node_modules/npm-registry-client/lib/publish.js:30:14)
+25 verbose stack     at /usr/local/lib/node_modules/cnpm/node_modules/npm/lib/publish.js:134:14
+25 verbose stack     at mapToRegistry (/usr/local/lib/node_modules/cnpm/node_modules/npm/lib/utils/map-to-registry.js:55:3)
+25 verbose stack     at publish_ (/usr/local/lib/node_modules/cnpm/node_modules/npm/lib/publish.js:104:3)
+25 verbose stack     at Array.<anonymous> (/usr/local/lib/node_modules/cnpm/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+25 verbose stack     at LOOP (/usr/local/lib/node_modules/cnpm/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+25 verbose stack     at LOOP (/usr/local/lib/node_modules/cnpm/node_modules/npm/node_modules/slide/lib/chain.js:14:28)
+25 verbose stack     at chain (/usr/local/lib/node_modules/cnpm/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+25 verbose stack     at /usr/local/lib/node_modules/cnpm/node_modules/npm/lib/publish.js:73:5
+25 verbose stack     at RES (/usr/local/lib/node_modules/cnpm/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+26 verbose cwd /Users/yunyi/nodespace/book
+27 error Darwin 15.0.0
+28 error argv "/usr/local/bin/node" "/usr/local/lib/node_modules/cnpm/node_modules/.bin/npm" "--userconfig=/Users/yunyi/.cnpmrc" "--disturl=https://npm.taobao.org/mirrors/node" "--cache=/Users/yunyi/.cnpm" "--registry=https://registry.npm.taobao.org" "--node-gyp=/usr/local/lib/node_modules/cnpm/node_modules/node-gyp/bin/node-gyp.js" "publish"
+29 error node v5.0.0
+30 error npm  v2.14.3
+31 error code ENEEDAUTH
+32 error need auth auth required for publishing
+32 error need auth You need to authorize this machine using `npm adduser`
+33 verbose exit [ 1, true ]
