@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>之言片语 | 乐高</title>
+        <title>MAC开发 Android USB 真机调试 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../f2e/site.html" />
+    <link rel="next" href="../2016/jiagou.html" />
     
     
-    <link rel="prev" href="../f2e.html" />
+    <link rel="prev" href="../android/android.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="2.1" data-basepath=".." data-revision="1453714815066">
+    <div class="book" data-level="2.4" data-basepath=".." data-revision="1453714815066">
     
 
 <div class="book-summary">
@@ -106,7 +106,7 @@
                 
     
         
-        <li class="chapter active" data-level="2.1" data-path="f2e/book.html">
+        <li class="chapter " data-level="2.1" data-path="f2e/book.html">
             
                 
                     <a href="../f2e/book.html">
@@ -154,7 +154,7 @@
         </li>
     
         
-        <li class="chapter " data-level="2.4" data-path="android/debugger.html">
+        <li class="chapter active" data-level="2.4" data-path="android/debugger.html">
             
                 
                     <a href="../android/debugger.html">
@@ -381,12 +381,54 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_10">
+                    <section class="normal" id="section-gitbook_2">
                     
-                        <h1 id="">之言片语</h1>
-<ul>
-<li><a href="http://www.csdn.net/article/2015-07-17/2825243-alloy-team-leehey" target="_blank">这是前端最好的时代——论前端的“三化”建设</a></li>
-</ul>
+                        <h3 id="mac-android-usb-">MAC开发 Android USB 真机调试</h3>
+<blockquote>
+<p>需要Android版本&gt;=4.4*，不满足的自己刷机可以参考上篇教程</p>
+</blockquote>
+<p><img src="http://yijiebuyi.com/file/6b9e902a2d1813361adece0478e33364" alt="Android"></p>
+<h3 id="-adb-">真机调试需要 ADB 配置</h3>
+<blockquote>
+<p>什么是ADB?
+客户端和服务器端交互的一个程序,你操作的电脑就是客户端,而android设备就是服务器端<br>所以你的第一步需要在你的电脑安装 adb 客户端,这个客户端在sdk里包含了.因为我下的是 android strdio 里面自带sdk,当然也包括 adb 客户端 (没有sdk的先下载)</p>
+</blockquote>
+<p><img src="../assets/android/android-4.png" alt="Android STUDIO"></p>
+<p><a href="http://developer.android.com/intl/zh-cn/sdk/index.html" target="_blank">Android 集成环境</a></p>
+<h3 id="">环境设置</h3>
+<blockquote>
+<p>JDK 7.0以上</p>
+</blockquote>
+<p>环境变量如下配置：</p>
+<pre><code>vi ~/.bash_profile
+
+# java环境变量
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
+# maven内存配置
+export MAVEN_OPTS=&#39;-Xms256m -Xmx1024m&#39;
+# Android SDK配置
+export ANDROID_HOME=/Users/yunyi/Library/Android/sdk
+export PATH=$PATH:/usr/local/mysql/bin
+# maven 路径配置
+export PATH=$PATH:/Users/yunyi/maven-2.2.1/bin
+# android 命令行配置
+export PATH=$PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+# for color
+export CLICOLOR=1
+# \h:\W \u\$
+export PS1=&#39;\[\033[01;33m\]\u@\h\[\033[01;31m\] \W\$\[\033[00m\] &#39;
+# grep
+alias grep=&#39;grep --color=always&#39;
+# nvm快捷方式
+source ~/.nvm/nvm.sh
+</code></pre><h3 id="chrome-">Chrome 真机调试</h3>
+<p><img src="../assets/android/android-5.png" alt="Android Devices"></p>
+<p><img src="../assets/android/android-6.png" alt="Android Developer"></p>
+<p><img src="../assets/android/android-7.png" alt="Android Mobile"></p>
+<h3 id="app-webview">调试App 里面的WebView页面</h3>
+<blockquote>
+<p>通过代理工具可以直接连接手机进行app里面的内嵌WebView页面进行真机调试，支持debugger和JS断点调试，主要不要开模拟器不然速度很慢</p>
+</blockquote>
 
                     
                     </section>
@@ -397,10 +439,10 @@
         </div>
 
         
-        <a href="../f2e.html" class="navigation navigation-prev " aria-label="Previous page: 前端"><i class="fa fa-angle-left"></i></a>
+        <a href="../android/android.html" class="navigation navigation-prev " aria-label="Previous page: SM-900V Note3升级系统"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../f2e/site.html" class="navigation navigation-next " aria-label="Next page: 前端网址导航"><i class="fa fa-angle-right"></i></a>
+        <a href="../2016/jiagou.html" class="navigation navigation-next " aria-label="Next page: 整体架构"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
