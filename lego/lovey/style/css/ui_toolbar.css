@@ -1,0 +1,93 @@
+/**
+*     新增ui_toolbar静态样式   by：宋士杰   sjsong01@wisedu.com   2013-07-09
+*/
+.ui_toolbar {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.ui_toolbar .ui_btn{
+    margin-right: 4px;
+}
+.ui_toolbar  .toolbar_a {
+    position: relative;
+    background: url("../images/icons/panel-btn-l3.gif") top left  no-repeat ;
+    height: 28px;
+    line-height: 25px;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding:0  6px;
+    text-align: center;
+    display: inline-block;
+
+    vertical-align: middle;
+}
+
+.ui_toolbar b {
+    background: url("../images/icons/panel-btn-r.gif") top right  no-repeat;
+    width: 3px;
+    height: 28px;
+    display: block;
+    position: absolute;
+    right:-2px;
+    top:0;
+}
+.ui_toolbar  .toolbar_a:link{
+    text-decoration: none;
+}
+.ui_toolbar  .toolbar_a:hover {
+    background: url("../images/icons/panel-btn-l3-over.gif") top left  no-repeat;
+    text-decoration: none;
+}
+.ui_toolbar  .toolbar_a:hover b {
+    background: url("../images/icons/panel-btn-r-over.gif") top right  no-repeat;
+}
+
+/* 页面顶部小工具栏
+----------------------------------------------------------------------------------------------------*/
+.top_toolbar{
+    height:29px;
+    line-height:29px;
+    background:url(../images/common/toolbar/top_toolbar_bg.gif) repeat-x;
+}
+.top_toolbar li{
+    float: left;
+    line-height: 20px;
+    height:20px;
+    margin: 4px 8px 0 8px;
+
+}
+.top_toolbar li a{
+    width:auto;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color:#555;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0 5px 0 20px;
+    text-shadow:0 1px 0 white;
+}
+.top_toolbar li a:hover{
+    background-color: #e9e9e9;
+}
+.top_toolbar .refresh{
+    background:url(../images/common/toolbar/icon_refresh.png)  no-repeat left;
+}
+.top_toolbar .close{
+    background:url(../images/common/toolbar/icon_close.png)  no-repeat left;
+    opacity: 1;
+    font-weight: normal;
+    float: none;
+}
+.top_toolbar .home{
+    background:url(../images/common/toolbar/icon_home.png)  no-repeat left;
+}
+.top_toolbar .collect{
+    background:url(../images/common/toolbar/icon_star.png)  no-repeat left;
+}
+.top_toolbar .back{
+    background:url(../images/common/toolbar/icon_back.png)  no-repeat left;
+}

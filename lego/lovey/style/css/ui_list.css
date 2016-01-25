@@ -1,0 +1,197 @@
+/* --------------
+
+	   ui_list.css:常用列表样式
+	   author: xiangxu@wisedu.com
+
+ ------------ */
+
+/* 列表
+----------------------------------------------------------------------------------------------------*/
+.ui_list{
+	width:100%;
+}
+.ui_list li{
+	border-bottom:1px solid #eee;
+	line-height: 26px;
+	overflow: hidden;
+	display:inline-block;
+
+	width:100%;
+	padding:2px 0px;
+	font-size:13px;
+}
+.ui_list li a{
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #3163B6;
+	float: left;
+	font-size:13px;
+}
+.ui_list li a:hover {
+    color: #CD0200;
+    text-decoration: underline;
+}
+.ui_list li .pull_right {
+	float:right;
+}
+.ui_list li .pull_left {
+	float:left;
+}
+.ui_list li .number {
+	display:block;
+	background:#FF7E00;
+	border-radius:2px;
+	color: #fff;
+	font-size: 10px;
+	font-weight: bold;
+	height: 12px;
+	line-height: 12px;
+	padding: 0 2px;
+	text-align: center;
+	z-index: 10;
+	float: left;
+}
+.ico_img li,
+.ico_phone li,
+.ico_mail li,
+.ico_spot li,
+.ico_rank{
+	background-image: url(../images/icons/list_type_ico.gif);
+	background-repeat:no-repeat;
+}
+.ico_phone li {
+    background-position: left -22px;
+}
+.ico_spot li {
+    background-position: left -47px;
+}
+.ico_mail li {
+    background-position: left 10px;
+}
+.ico_img li {
+    background-position: left -74px;
+}
+.ico_rank{
+    background-position: 2px -265px;
+}
+.ico_spot li a,
+.ico_phone li a{
+	padding-left:15px;
+}
+.ico_img li a,
+.ico_mail li a{
+	padding-left:20px;
+}
+.ico_rank li a{
+	padding-left:30px;
+}
+
+/*--------------------多行文本------------------------*/
+.item_inner{
+    float:left;
+}
+.item_inner li{
+	height:auto;
+}
+.item_inner a{
+	float:none !important;
+}
+.item_inner p {
+	font-size:12px !important;
+	color:#888;
+	display:block;
+
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	width:300px;
+	margin-bottom:0px !important;
+}
+
+/*--------------------图文混排------------------------*/
+.item_mix_h .img,
+.item_mix_h .text{
+    float:left;
+}
+.item_mix_h .text{
+	margin-left:7px;
+    width:300px;
+}
+.item_mix_h h3{
+	display:inline-block;
+	font-size:14px;
+	line-height:20px;
+	margin:0;
+	font-weight:normal;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.item_mix_h p{
+	font-size:12px !important;
+	color:#666;
+	line-height:18px !important;
+}
+.item_mix_v h3{
+	font-size:14px;
+	line-height:20px;
+	margin:0;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.item_mix_v p{
+	font-size:12px !important;
+	color:#666;
+}
+
+.ui_list_h{
+	display:inline-block;	
+}
+.ui_list_h li{
+	float:left;
+	display:inline;
+	text-align:center;
+    margin:7px 7px 5px 7px;
+}
+.ui_list_h li a{
+	cursor:pointer;
+	color:#3163B6;
+}
+.ui_list_h span{
+	height:25px;
+	line-height:25px;
+	cursor:pointer;
+	display:inline-block;
+	white-space:nowrap;
+}
+
+/*------------------排行榜-------------------*/
+.ui_list_rank .active {
+    height: auto;
+}
+.ui_list_rank .active h3 {
+    font-weight: bold;
+}
+.ui_list_rank .active .text {
+    font-size: 12px !important;
+    height: 84px;
+    line-height: 21px !important;
+}
+.ui_list_rank li {
+    height: 26px;
+}
+.ui_list_rank li h3 {
+    height: 26px;
+    line-height: 26px;
+    margin: 0;
+}
+.ui_list_rank li h3 a {
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    font-weight: normal;
+    padding-left: 5px;
+}
+.ui_list_rank li .content {
+    padding: 5px 30px;
+}

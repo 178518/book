@@ -1,0 +1,142 @@
+/* --------------
+
+	   ui_calendar.css:日历效果样式
+	   author: xiangxu@wisedu.com
+
+ ------------ */
+.ui_calendar{
+    position:relative;
+}
+.ui_calendar .option{
+    position:absolute;
+    right:0;
+    z-index: 99;
+    top:5px;
+}
+.ui_table_calendar{
+    position: relative;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: 100%;
+    border-left:0;
+    width: 100%;
+
+}
+.ui_table_calendar .no_border{
+    border-left:0
+}
+.ui_table_calendar td {
+    border-top: 1px solid #cbd5dd;
+    border-left: 1px solid #cbd5dd;
+    line-height: 20px;
+    padding: 3px;
+    vertical-align: top;
+}
+.ui_table_calendar th {
+    height:25px;
+    line-height: 25px;
+    border-top: 1px solid #9db8d0;
+    border-left: 1px solid #9db8d0;
+    border-bottom: 1px solid #9db8d0;
+    font-weight: bold;
+    text-align: center;
+    background: #fff url(../images/common/calendar/calendar_head.gif) repeat-x bottom;
+}
+.ui_table_calendar th b{
+    margin-left: 4px;
+    font-weight: normal;
+    color:#333;
+}
+.ui_table_calendar caption{
+    font-family: "Microsoft YaHei","微软雅黑","simsun";
+    font-size: 24px;
+    color:#000;
+    text-align: center;
+    padding: 0 0 20px 0;
+}
+.ui_table_calendar .option{
+    position: absolute;
+    right:0;
+}
+.ui_table_calendar .event_inner{
+    width: 100%;
+    background: #2f90eb;
+    color: #fff;
+    border-radius: 3px;
+    line-height: 22px;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+.ui_table_calendar .event_inner:hover{
+    opacity: 0.8;
+    filter:opacity(alpha = 80);
+}
+.ui_table_calendar .event_inner .time{
+    display: block;
+    width: 100%;
+    background: #1b7ad4;
+    border-radius: 3px 3px 0 0;
+    text-indent: 2px;
+}
+.ui_table_calendar .event_inner .content{
+    line-height: 20px;
+    padding: 3px;
+    max-height:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.ui_table_calendar .event_more{
+    display: block;
+    line-height: 25px;
+    width: 100%;
+    border-radius: 3px;
+    background: #e2e2e2;
+    color:#555;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+.ui_table_calendar .event_more:hover{
+    background: #d8d8d8;
+}
+.cluetip-calendar h3{
+    line-height: 25px;
+    color:#fff;
+    text-indent: 10px;
+}
+.cluetip-calendar{
+    background: #fff;
+}
+.cluetip-calendar .cluetip-outer .ui-cluetip-header{
+    background: #1b7ad4;
+}
+.cluetip-calendar .cluetip-arrows{
+    display: none !important;
+}
+/*定义事件内容颜色风格*/
+.ui_table_calendar .event_red{
+    background: #d16364;
+}
+.ui_table_calendar .event_red .time{
+    background: #c54344;
+}
+.ui_table_calendar .event_green{
+    background: #87b760;
+}
+.ui_table_calendar .event_green .time{
+    background: #6e9e48;
+}
+.ui_table_calendar .event_yellow{
+    background: #f9ad3f;
+}
+.ui_table_calendar .event_yellow .time{
+    background: #e68d0e;
+}
+.ui_table_calendar .event_purple{
+    background: #d16364;
+}
+.ui_table_calendar .event_purple .time{
+    background: #c54344;
+}

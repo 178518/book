@@ -1,0 +1,16 @@
+/* --------------
+
+	   ui_chat.css:站内通信
+	   author: xiangxu@wisedu.com
+
+ ------------ */
+
+.ui_chat {
+    position: absolute;
+    right:5px;
+    bottom:40px;
+    width:200px;
+    height:500px;
+    border:1px solid #555;
+    background: #fff;
+}

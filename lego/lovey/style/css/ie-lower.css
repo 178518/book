@@ -1,0 +1,492 @@
+/*ui_btn*/
+.ui_btn {
+    width: auto;       /*解决button在IE6,IE7下无法自适应宽度的问题*/
+}
+.ui_btn_small {
+    _line-height: 28px;
+}
+
+.ui_btn i{
+    *margin-bottom: 5px;
+    *vertical-align: baseline;
+    /*修复IE6文字不居中BUG by sjsong01@wisedu.com 2013.8.22*/
+    _margin:7px 0;
+    _vertical-align: middle;
+}
+.ui_btn_large i{
+    _margin:10px 0;
+}
+.ui_btn_small i{
+    _margin:6px 0;
+}
+.ui_btn_mini i{
+    _margin:4px 0;
+}
+.dropup_btn .caret,
+.dropdown_btn .caret{
+    *height: 10px;
+}
+.dropdown_btn .caret{
+    *background-position:  center;
+}
+.dropup_btn .caret{
+    *background-position:  center;
+}
+.dropdown_btn .caret_black{
+    *background-position:  center;
+}
+.dropup_btn .caret_white{
+    *background-position:  center;
+}
+
+/*
+ for: IE6/7 hack
+ author:ywwei
+ date:2013.4.27
+*/
+.ui_btn,
+.ui_btn:visited{
+    *background:#f0f0f0 url(../images/icons/btn_hack.gif) 0 0 repeat-x;
+    _overflow-y: hidden;
+}
+.ui_btn_large,
+.ui_btn_large:visited{
+    *background:#f0f0f0 url(../images/icons/btn_hack_large.gif) 0 0 repeat-x;
+}
+.ui_btn_small,
+.ui_btn_small:visited{
+    *background:#f0f0f0 url(../images/icons/btn_hack_small.gif) 0 0 repeat-x;
+    *height: 26px;
+    *line-height: 26px;
+}
+.ui_btn_mini,
+.ui_btn_mini:visited{
+    *background:#f0f0f0 url(../images/icons/btn_hack_mini.gif) 0 0 repeat-x;
+}
+.ui_btn_primary,
+.ui_btn_primary:visited{
+    *background-position: 0 -38px;
+    *background-color: #0678cf;
+}
+.ui_btn_info,
+.ui_btn_info:visited{
+    *background-position: 0 -76px;
+    *background-color: #2992de;
+}
+.ui_btn_success,
+.ui_btn_success:visited{
+    *background-position: 0 -114px;
+    *background-color: #53a753;
+}
+.ui_btn_warning,
+.ui_btn_warning:visited{
+    *background-position: 0 -152px;
+    *background-color: #f8970f;
+}
+.ui_btn_danger,
+.ui_btn_danger:visited{
+    *background-position: 0 -190px;
+    *background-color: #c33b34;
+}
+.ui_btn_inverse,
+.ui_btn_inverse:visited{
+    *background-position: 0 -228px;
+    *background-color: #444;
+}
+.ui_btn:hover,
+.ui_btn:active{
+    _text-decoration: none;
+    *background: #f0f0f0;
+}
+.ui_btn_primary:hover,
+.ui_btn_primary:active{
+    *background: #0678cf;
+}
+.ui_btn_info:hover,
+.ui_btn_info:active{
+    *background: #2992de;
+}
+.ui_btn_success:hover,
+.ui_btn_success:active{
+    *background: #53a753;
+}
+.ui_btn_warning:hover,
+.ui_btn_warning:active{
+    *background: #f8970f;
+}
+.ui_btn_danger:hover,
+.ui_btn_danger:active{
+    *background: #c33b34;
+}
+.ui_btn_inverse:hover,
+.ui_btn_inverse:active{
+    *background: #444;
+}
+
+.disabled,
+.disabled:visited,
+.disabled:hover,
+.disabled:active{
+    _cursor: not-allowed  !important;
+    _background: #f4f4f4 !important;
+    _color: #999 !important;
+    _border:#d0d0d0 1px solid  !important;
+}
+
+.ui_btn_group li{
+    *margin-left: -7px !important;
+}
+/*ui_alert.css*/
+.ui_alert .close {
+    _font-size:12px;
+}
+
+/*ui_base.css*/
+body{
+    _height:100%;/* --解决IE6下div高度为100%--*/
+}
+input[type=radio], input[type=checkbox] {
+    *margin-right:1px;
+}
+input{
+    *display: inline;
+    *zoom: 1;
+    *vertical-align: baseline;
+}
+
+/*ui_box.css*/
+.ui_box_background {
+    *display:inline-block;
+    _display:none;
+}
+.ui_box_style03 {
+    _height: 240px;
+}
+.ui_box_style03_background{
+    *display:inline-block;
+    _display:none;
+}
+
+/*ui_form*/
+.inline,.ui_form_inline{
+    zoom: 1;
+    *display: inline;
+}
+.ui_form_inline label{
+    *vertical-align: super;
+    _vertical-align: super;
+}
+.ui_form_inline .simple_query{
+    zoom: 1;
+    *display: inline;
+}
+.ui_form_actions .ui_btn {
+    *margin: 0 2px;
+}
+.input_append .add_on,
+.input_prepend .add_on{
+    _margin-top: 1px;
+}
+.ui_search{
+    zoom: 1;
+    *display: inline;
+}
+
+/*ui_function*/
+.input_block{
+    _width:97%;
+}
+.fixed_top,
+.fixed_bottom,
+.fixed_left,
+.fixed_right{
+    _position: absolute;
+}
+.fixed_top{
+    _bottom: auto;
+    _top: expression(eval(document.documentElement.scrollTop));
+}
+.fixed_bottom{
+    _bottom: auto;
+    _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
+.fixed_left{
+    _left: expression(eval(document.documentElement.scrollLeft));
+}
+.fixed_right{
+    _right: auto;
+    _left: expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-this.offsetWidth)-(parseInt(this.currentStyle.marginLeft,10)||0)-(parseInt(this.currentStyle.marginRight,10)||0));
+}
+*html {
+    background-image: url(about:blank); /* 防止IE6抖动 */
+    background-attachment: fixed;
+}
+
+.shadow{
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.DropShadow(OffX=2, OffY=2, Color=darkgray);
+}
+.shadow_top{
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.DropShadow(OffX=0, OffY=-2, Color=darkgray);
+}
+.shadow_left{
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.DropShadow(OffX=-2, OffY=0, Color=darkgray);
+}
+.shadow_right{
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.DropShadow(OffX=2, OffY=0, Color=darkgray);
+}
+.shadow_bottom{
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.DropShadow(OffX=0, OffY=2, Color=darkgray);
+}
+
+.ui_arrow_top{
+    _color: #FF3FFF;
+    _filter: chroma(color=#FF3FFF);
+}
+.ui_arrow_right{
+    _color: #FF3FFF;
+    _filter: chroma(color=#FF3FFF);
+}
+.ui_arrow_bottom{
+    _color: #FF3FFF;
+    _filter: chroma(color=#FF3FFF);
+}
+.ui_arrow_left{
+    _color: #FF3FFF;
+    _filter: chroma(color=#FF3FFF);
+}
+
+/*ui_gotop*/
+.ui_gotop{
+    _position: absolute;
+    _bottom:auto;
+    _margin-bottom: 10px;
+    _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
+.ui_gotop_txt{
+    _position: absolute;
+    _bottom:auto;
+    _margin-bottom: 10px;
+    _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
+
+/*ui_label.css*/
+.ui_label{
+    *padding: 3px 4px 1px;
+}
+.ui_list .ui_badge,
+.ui_list .ui_label{
+    *margin-top:0;
+}
+
+/*ui_layout.css*/
+.ui_container_fluid{
+    _zoom:1
+}
+.fix_left{
+    _margin-right: -3px;
+}
+.fix_right{
+    _margin-left: -3px;
+}
+.right_1,
+.right_2,
+.right_3,
+.right_4,
+.right_5,
+.right_6,
+.right_7,
+.right_8,
+.right_9,
+.right_10,
+.right_11,
+.right_12,
+.right_13,
+.right_14,
+.right_15,
+.right_16,
+.right_17,
+.right_18,
+.right_19,
+.right_20,
+.right_21,
+.right_22,
+.right_23,
+.right_24{
+    _margin-right:0 ;
+}
+.left_1,
+.left_2,
+.left_3,
+.left_4,
+.left_5,
+.left_6,
+.left_7,
+.left_8,
+.left_9,
+.left_10,
+.left_11,
+.left_12,
+.left_13,
+.left_14,
+.left_15,
+.left_16,
+.left_17,
+.left_18,
+.left_19,
+.left_20,
+.left_21,
+.left_22,
+.left_23,
+.left_24{
+    _margin-left:0 ;
+}
+
+/*ui_list.css*/
+.ui_list li{
+    *display:inline; /*for IE6、IE7*/
+    zoom:1; /*for IE6、IE7*/
+}
+.item_inner p{
+    _display:table;
+}
+
+/*ui_nav.css*/
+.ui_navbar{
+    *display: inline;
+    *zoom: 1;
+}
+.ui_nav_h{
+    *display: inline;
+    *zoom: 1;
+}
+.ui_nav_v li{
+    _display:inline;
+}
+.ui_navbar_style01{
+    *display: inline;
+    *zoom:1;
+}
+.ui_navbar_style01 .ui_nav_v li{
+    _display:inline;
+}
+.submenu-panel dl dd .thi_menu:link{
+    _margin-right:2px;
+}
+/* Holly Hack for IE \*/
+* html .ddsmoothmenu{height: 1%;} /*Holly Hack for IE7 and below*/
+/* ------------------------------------------------------------------------------------
+
+/*ui_page.css*/
+.ui_pagination ul{
+    *display: inline;
+    *zoom: 1;
+    _border-left:1px solid #ddd;
+}
+.ui_pagination_small ul{
+    *display: inline;
+    *zoom: 1;
+}
+.ui_pagination .count select{
+    *margin:5px 0 0 0;
+
+}
+.ui_pagination .jump{
+    _margin-top:-1px ;
+}
+.ui_pagination .jump a{
+    *margin: 0 0 16px 0;
+}
+.ui_pagination_small ul{
+    _border-left:1px solid #ddd;
+}
+
+/*ui_select*/
+.user_div_input {
+    _font-size: 0; /*修复IE6下div高度无法定义导致选人组件的input的高度太高*/
+    _overflow: hidden;
+}
+.select_div {
+    _margin_right:20px
+}
+.select_img{
+    _margin:5px 7px 0 0;
+}
+.show_select li{
+    *height:16px;
+}
+
+/*ui_taskbar*/
+.taskbar_menu li a,
+.taskbar_menu li a:link{
+    _background: url(../images/common/taskbar/ie6/taskbar_menu_left.png) no-repeat left;
+}
+.taskbar_menu li a:hover{
+    _background: url(../images/common/taskbar/ie6/taskbar_menu_left_over.png) no-repeat left;
+}
+.taskbar_menu li  a:hover b {
+    _background: url(../images/common/taskbar/ie6/taskbar_menu_right_over.png) no-repeat right;
+}
+.taskbar_menu li b{
+    _background: url(../images/common/taskbar/ie6/taskbar_menu_right.png) no-repeat right;
+}
+.taskbar_menu .menu_close{
+    _background: url(../images/common/taskbar/ie6/taskbar_menu_close.png) no-repeat;
+}
+.taskbar_menu .tl-selected b{
+    _background: url(../images/common/taskbar/ie6/taskbar_menu_right_selected.png) no-repeat right;
+}
+.taskbar_menu .tl-selected a:link,
+.taskbar_menu .tl-selected a{
+    _background: url(../images/common/taskbar/ie6/taskbar_menu_left_selected.png) no-repeat left;
+}
+
+/*ui_thumbnails*/
+.ui_thumbnails li{
+    _overflow: hidden;/*修复IE6下问题*/
+}
+
+/*.ui_toolbar */
+.ui_toolbar  .toolbar_a{
+    *display: inline;
+    zoom: 1;
+}
+/*
+*        修复IE6下 line-height失效问题  by宋士杰
+*/
+.ui_toolbar  .toolbar_a i {
+    _margin:7px 0;
+    _vertical-align: middle;
+    *margin-right: 2px;
+}
+.top_toolbar li{
+    _width: 30px;
+    _white-space: nowrap;
+}
+
+/*ui_widget*/
+.ui_widget {
+    *display: inline;
+    *zoom: 1;
+}
+.ui_widget .ui_widget_head{
+    *display: inline;
+    *zoom: 1;/* 修复图列表问题*/
+}
+.ui_widget .ui_widget_check{
+    _font-size:0;/*解决IE6最小高度问题*/
+}
+.ui_widget .inline p{
+    *display: inline;
+    *zoom: 1;
+    _width:30px; /*暂时解决IE6下p占满一行的问题， sjsong01@wisedu.com */
+}
+.ui_widget .checkbox {
+    *vertical-align: -4px;
+    *display: inline;
+    *zoom: 1;
+}

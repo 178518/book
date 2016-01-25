@@ -1,0 +1,289 @@
+/* --------------
+
+	   ui_base.css: 浏览器样式重置，定义一些基础样式
+	   author: xiangxu@wisedu.com
+
+ ------------ */
+html {
+	height:100%;
+}
+body {
+	font-family:Arial, sans-serif;
+	font-size: 12px;
+
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+	margin:0;
+	padding:0;
+	font-family:Arial, Helvetica, sans-serif;
+}
+fieldset, img {
+	border:0;
+}
+address, caption, cite, code, dfn, th, var {
+	font-style:normal;
+	font-weight:normal;
+}
+caption, th {
+	text-align:left;
+}
+q:before, q:after {
+	content:'';
+}
+abbr, acronym {
+	border:0;
+	font-variant:normal;
+}
+sup {
+	vertical-align:text-top;
+}
+sub {
+	vertical-align:text-bottom;
+}
+iframe{ 
+    border: 0;
+	width:100%;
+	margin:0;
+	padding:0;
+}
+code, pre {
+    border-radius: 3px;
+    color: #333;
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    font-size: 12px;
+    padding: 0 3px 2px;
+}
+code {
+    background-color: #F7F7F9;
+    border: 1px solid #E1E1E8;
+    color: #DD1144;
+    padding: 2px 4px;
+    white-space: nowrap;
+}
+pre {
+    background-color: #F5F5F5;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px 4px 4px 4px;
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    margin: 0 0 10px;
+    padding: 9.5px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+pre.prettyprint {
+    margin-bottom: 20px;
+}
+pre code{
+    background-color: transparent;
+    border: 0 none;
+    color: inherit;
+    padding: 0;
+}
+ul, ol, li {
+	list-style:none outside none;
+}
+legend {
+	color:#555;
+}
+h1, h3 {
+	display:block;
+	font-weight:bold;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: inherit;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: 1;
+    margin: 10px 0;
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+    color: #999999;
+    font-weight: normal;
+    line-height: 1;
+}
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+}
+h2 {
+    font-size: 30px;
+    line-height: 40px;
+}
+h3 {
+    font-size: 24px;
+    line-height: 40px;
+}
+h4 {
+    font-size: 18px;
+    line-height: 20px;
+}
+h5 {
+    font-size: 14px;
+    line-height: 20px;
+}
+h6 {
+    font-size: 12px;
+    line-height: 20px;
+}
+h1 small {
+    font-size: 24px;
+}
+h2 small {
+    font-size: 18px;
+}
+h3 small {
+    font-size: 14px;
+}
+h4 small {
+    font-size: 14px;
+}
+del, ins {
+    text-decoration: none;
+}
+/* 链接样式
+----------------------------------------------------------------------------------------------------*/
+a {
+	font-size:12px;
+	outline:none;
+    bblr:expression(this.onFocus=this.blur()); /* 去掉链接点击的虚线框 */
+}
+a:link, a:visited {
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+
+/* 图标Cut
+a[href^="http:"], a[href^="https:"],
+a[href^="http:"]:visited, a[href^="https:"]:visited,
+a[href^="mailto:"], a[href$=".pdf"], a[href$=".doc"], a[href$=".xls"],
+a[href$=".rss"], a[href$=".rdf"], a[href^="aim:"] {
+  padding:2px 22px 2px 0;
+  margin:-2px 0;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+ */
+/* 扩展 
+a[href$=".rss"]           { background-image: url(../images/icons/icon_rss.png); }
+a[href$=".xls"]           { background-image: url(../images/icons/icon_xls.png); }
+a[href$=".doc"]           { background-image: url(../images/icons/icon_doc.png); }
+a[href$=".pdf"]           { background-image: url(../images/icons/icon_pdf.png); }
+a[href^="http:"]          { background-image: url(../images/icons/external.png); }
+a[href^="https:"]         { background-image: url(../images/icons/lock.png); }
+a[href^="mailto:"]        { background-image: url(../images/icons/email.png); }
+a[href^="http:"]:visited  { background-image: url(../images/icons/visited.png); }
+*/
+/* 文件 */
+
+
+/* IE8 fieldset和legend的有关于padding的hack
+----------------------------------------------------------------------------------------------------*/
+/*fieldset {*/
+	/*padding:0 1.4em 1.4em 1.4em;*/
+	/*margin: 0 0 1.5em 0;*/
+	/*border: 1px solid #ccc;*/
+/*}*/
+legend {
+	font-weight: bold;
+	font-size:1.2em;
+	margin-top:-0.2em;
+	margin-bottom:1em;
+}
+/*fieldset, #IE8#HACK {*/
+	/*padding-top:1.4em;*/
+/*}*/
+legend, #IE8#HACK {
+	margin-top:0;
+	margin-bottom:0;
+}
+/* 表单控件初始化
+----------------------------------------------------------------------------------------------------*/
+textarea, 
+input[type="text"], 
+input[type="password"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"], 
+input[type="email"], 
+input[type="url"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="color"], 
+.uneditable-input {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;*/
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	color: #555;
+    display: inline-block;
+    padding: 4px 6px;
+	border-radius: 2px;
+    line-height: 12px;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+    outline: 0 none;
+}
+select {
+	background:#fff url(../images/icons/input_bg.gif) repeat-x top left;
+	border:1px solid #ccc;
+	color:#333;
+	padding:5px 3px 5px 0;
+    border-radius: 2px;
+    outline: none;
+}
+textarea {
+	overflow:auto;
+	background:#fff url(../images/icons/input_bg.gif) repeat-x top left;
+	border:1px solid #ccc;
+	color: #555;
+}
+/*此处去掉了一个line-height：18px;*/
+input {
+	background:#fff url(../images/icons/input_bg.gif) repeat-x top left;
+	border:1px solid #ccc;
+	padding:4px 6px;
+	color: #555;
+	display: inline-block;
+    height: 20px;
+    vertical-align: middle;
+}
+input[type=radio], input[type=checkbox] {
+	vertical-align:middle;
+	margin-bottom:1px;
+	margin-right:5px;
+
+	border:0;
+	background:none;
+}
+select, input[type="file"] {
+
+}
+select[multiple], select[size]{
+	height:auto;
+}

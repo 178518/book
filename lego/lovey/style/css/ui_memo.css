@@ -1,0 +1,48 @@
+/* --------------
+
+	   ui_memo.css:便签
+	   author: xiangxu@wisedu.com
+
+ ------------ */
+.ui_memo{
+    height:200px;
+    width:200px;
+    position:relative;
+}
+.ui_memo_content{
+    background:#fff55c url(../images/common/memo/sticky-bg2.png) repeat-x bottom;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index: 99;
+
+}
+.ui_memo_content p{
+    color: #333;
+    display: block;
+    font-size: 12px;
+    font-weight:bold;
+    padding: 20px 20px 0 15px;
+
+}
+.ui_memo .ui_memo_shadow{
+    background:#888;
+    position:absolute;
+    top:0;
+    left:-7px;
+    height:100%;
+    width:100%;
+    margin:4px 0 0 3px;
+    z-index:98;
+}
+.ui_memo .ui_memo_close{
+    position:absolute;
+    right:-5px;
+    top:-6px;
+    height:14px;
+    width:14px;
+    cursor:pointer;
+    background:url(../images/common/memo/delete.png) no-repeat;
+    z-index: 100;
+}
