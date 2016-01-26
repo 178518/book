@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="2.5" data-basepath="." data-revision="1453735682213">
+    <div class="book" data-level="2.5" data-basepath="." data-revision="1453801360605">
     
 
 <div class="book-summary">
@@ -400,7 +400,75 @@
                     <section class="normal" id="section-gitbook_13">
                     
                         <h1 id="git-">Git 使用帮助</h1>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png" alt="Git工作流程"></p>
+<p>下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。</p>
+<blockquote>
+<p>Workspace：工作区</p>
+<p>Index / Stage：暂存区</p>
+<p>Repository：仓库区（或本地仓库）</p>
+<p>Remote：远程仓库</p>
+</blockquote>
+<h3 id="">配置别名(全局)</h3>
+<pre><code>vi ~/.gitconfig
+#别名查看
+git config --list
+#别名配置
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.br branch
+</code></pre><h3 id="">新建代码库</h3>
+<p>新建一个目录，将其初始化为Git代码库</p>
+<pre><code>git init [project-name]
+</code></pre><h3 id="">远程分支的创建</h3>
+<p>把本地仓库提交到远程仓库的master分支中</p>
+<pre><code>git push git@github.com:178518/lego.git master
+</code></pre><h3 id="">合作开发人员常用命令</h3>
+<pre><code>#检出仓库
+git clone git@github.com:178518/lego.git [仓库名]
+
+#查看本地分支
+git br 
+
+#查看远程分支
+git br -r
+
+#删除本地分支
+git br -d [branch-name]
+
+#改动添加到暂存器
+git add .
+
+#提交改动信息
+git cm -m &quot;代码提交注释信息&quot;
+
+#远程分支信息查看
+git fetch
+
+#切换到指定分支，并更新工作区
+git co [branch-name]
+
+#合并主干代码
+git checkout master &amp;&amp; git pull &amp;&amp;git branch
+git co [分支名称]
+git merge origin/master
+
+#提交本地master分支作为远程的test分支
+git push origin master:test
+
+#删除远程分支
+git push origin --delete test
+
+#推送一个空分支到远程分支，其实就相当于删除远程分支
+git push origin :[branchName]
+</code></pre><h3 id="">资料文献</h3>
 <ul>
+<li><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-workflow.html" target="_blank">Git 工作流程</a></p>
+</li>
+<li><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank">常用 Git 命令清单</a></p>
+</li>
+<li><p><a href="https://git-scm.com/book/zh/v2" target="_blank">Git Book</a></p>
+</li>
 <li><p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375234012342f90be1fc4d81446c967bbdc19e7c03d3000" target="_blank">Git教程</a></p>
 </li>
 <li><p><a href="http://www.worldhello.net/gotgit/" target="_blank">Git权威指南</a></p>
