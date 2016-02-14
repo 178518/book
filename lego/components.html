@@ -19,7 +19,7 @@
         
     
     
-    <link rel="next" href="../raspbian/readMe.html" />
+    <link rel="next" href="../lego/react-native.html" />
     
     
     <link rel="prev" href="../lego/platform.html" />
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.7" data-basepath=".." data-revision="1454494106621">
+    <div class="book" data-level="4.7" data-basepath=".." data-revision="1455439638771">
     
 
 <div class="book-summary">
@@ -421,6 +421,22 @@
             
         </li>
     
+        
+        <li class="chapter " data-level="4.8" data-path="lego/react-native.html">
+            
+                
+                    <a href="../lego/react-native.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.</b>
+                        
+                         React Native
+                    </a>
+                
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -439,6 +455,76 @@
                     </a>
                 
             
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="5.1" data-path="raspbian/burn.html">
+            
+                
+                    <a href="../raspbian/burn.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                         MacOS 烧录树莓派
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.2" data-path="raspbian/login.html">
+            
+                
+                    <a href="../raspbian/login.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                         Raspbian的配置
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.3" data-path="raspbian/lamp.html">
+            
+                
+                    <a href="../raspbian/lamp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                         Raspbian安装Apache2/PHP5/MySQL5
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.4" data-path="raspbian/android.html">
+            
+                
+                    <a href="../raspbian/android.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                         Raspbian的安卓应用
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -531,7 +617,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_18">
+                    <section class="normal" id="section-gitbook_20">
                     
                         <h1 id="">组件化实践</h1>
 <h3 id="webcomponents-">WebComponents 标准</h3>
@@ -559,6 +645,7 @@
 <p>“可相互组合”—— 组件正在强大的地方，组件间组装整合</p>
 <p>“数据配置化”—— 基于元数据、PATH解析器来实现数据差异化和组件的分离，保持组件层的数据模型的独立性和稳定性</p>
 <p>“接口规范化”—— 组件接口有统一规范，或者是生命周期的管理</p>
+<p>“可插拔无指令污染”—— 这个不是组件化的范畴，但是作为一个解决方案应尽可能的减小对于使用方的侵入，前端的编译、打包、合并应全部是线下解决，线上就是一个静态托管环境，避免各种指令对第三方的污染。</p>
 </blockquote>
 <p>个人认为，模板能力是基础能力，跟是否组件化没有强联系，所以没有提出一个大点。</p>
 <h3 id="jsx">JSX很丑，但是组件内聚的关键</h3>
@@ -572,6 +659,7 @@
 <p>“可相互组合”—— (50%)  可组合，但缺乏有效的加载方式</p>
 <p>“数据配置化”—— (100%) props </p>
 <p>“接口规范化”—— (100%) 组件生命周期方法</p>
+<p>“可插拔无指令污染”—— (100%) 非指令方式，基于虚拟DOM解决污染问题</p>
 </blockquote>
 <h3 id="webpack-">Webpack 资源组件化</h3>
 <p>对于组件化的资源独立性，一般的模块加载工具和构建流程视乎变得吃力。组件化的构建工程化，不再是之前我们常见的，css合二，js合三，而是体验在组件间的依赖于加载关系。webpack正好符合需求点，一方面填补组件化能力点，另一方帮助我们完善组件化的整体构建环境。</p>
@@ -614,7 +702,7 @@
         <a href="../lego/platform.html" class="navigation navigation-prev " aria-label="Previous page: 平台差异处理"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../raspbian/readMe.html" class="navigation navigation-next " aria-label="Next page: 树莓派"><i class="fa fa-angle-right"></i></a>
+        <a href="../lego/react-native.html" class="navigation navigation-next " aria-label="Next page: React Native"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
