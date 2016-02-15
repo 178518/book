@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.1" data-basepath=".." data-revision="1455439638771">
+    <div class="book" data-level="5.1" data-basepath=".." data-revision="1455521339033">
     
 
 <div class="book-summary">
@@ -635,6 +635,46 @@
 </code></pre><p><img src="../assets/raspbian/burning.png" alt="png"></p>
 <p>開始將映像檔燒錄到 SD 卡。其中的「if」，是「Input File」的縮寫。「of」是「Output File」的縮寫。「bs」是「Block Size」的縮寫。</p>
 <p>﻿等待一會兒，您的 SD 卡燒錄完畢，就可以直接使用了。这个过程比较久一定要耐心等待。</p>
+<h3 id="linuxetcprofileetcbashrcbash_profilebashrc">浅析linux下的/etc/profile、/etc/bashrc、~/.bash_profile、~/.bashrc文件</h3>
+<p>1、/etc/profile </p>
+<p>全局（公有）配置，不管是哪个用户，登录时都会读取该文件。 </p>
+<p>2、~/.bash_profile<br>只有bash是以login形式执行时，才会读取此文件。通常该配置文件还会配置成去读取~/.bashrc。</p>
+<p>立即生效需要执行：source ~/.bash_profile</p>
+<p>终端中再次输入命令：echo $PATH</p>
+<p>3、如果新装的系统，运行一些很正常的诸如：shutdown，fdisk的命令时，悍然提示：bash:command not found。那么
+首先就要考虑root 的$PATH里是否已经包含了这些环境变量。
+主要是这四个：/bin ,/usr/bin,/sbin,/usr/sbin。</p>
+<p>四个主要存放的东东：</p>
+<p>./bin: 
+bin为binary的简写主要放置一些系统的必备执行档例如:cat、cp、chmod df、dmesg、gzip、kill、ls、mkdir、more、mount、rm、su、tar等。 </p>
+<p>/usr/bin: 
+主要放置一些应用软体工具的必备执行档例如c++、g++、gcc、chdrv、diff、dig、du、eject、elm、free、gnome<em>、 gzip、htpasswd、kfm、ktop、last、less、locale、m4、make、man、mcopy、ncftp、 newaliases、nslookup passwd、quota、smb</em>、wget等。 </p>
+<p>/sbin: 
+主要放置一些系统管理的必备程式例如:cfdisk、dhcpcd、dump、e2fsck、fdisk、halt、ifconfig、ifup、 ifdown、init、insmod、lilo、lsmod、mke2fs、modprobe、quotacheck、reboot、rmmod、 runlevel、shutdown等。 </p>
+<p>/usr/sbin: 
+放置一些网路管理的必备程式例如:dhcpd、httpd、imap、in.*d、inetd、lpd、named、netconfig、nmbd、samba、sendmail、squid、swap、tcpd、tcpdump等。</p>
+<p>可以在~目录下查看.bash_profile里的PATH。如果是：PATH=$PATH:$HOME/bin则需要添加成如下：</p>
+<p>PATH=$PATH:$HOME/bin:/sbin:/usr/bin:/usr/sbin</p>
+<p>4、Mac 启动加载文件位置</p>
+<p>1.首先要知道你使用的Mac OS X是什么样的Shell，使用命令
+echo $SHELL
+如果输出的是：csh或者是tcsh，那么你用的就是C Shell。
+如果输出的是：bash，sh，zsh，那么你的用的可能就是Bourne Shell的一个变种。
+Mac OS X 10.2之前默认的是C Shell。
+Mac OS X 10.3之后默认的是Bourne Shell。</p>
+<p>2.如果是Bourne Shell。
+那么你可以把你要添加的环境变量添加到你主目录下面的.profile或者.bash_profile，如果存在没有关系添加进去即可，如果没有生成一个。</p>
+<p>5、Mac配置环境变量的地方</p>
+<p>1./etc/profile   （建议不修改这个文件 ）
+全局（公有）配置，不管是哪个用户，登录时都会读取该文件。</p>
+<p>2./etc/bashrc    （一般在这个文件中添加系统级环境变量）
+全局（公有）配置，bash shell执行时，不管是何种方式，都会读取此文件。</p>
+<p>3.~/.bash_profile  （一般在这个文件中添加用户级环境变量）
+每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次</p>
+<p>4.查看PATH环境变量
+echo $PATH</p>
+<p>5.mac PATH全局配置
+nano /etc/paths</p>
 
                     
                     </section>
