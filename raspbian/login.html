@@ -19,7 +19,7 @@
         
     
     
-    <link rel="next" href="../raspbian/lamp.html" />
+    <link rel="next" href="../raspbian/lnmp.html" />
     
     
     <link rel="prev" href="../raspbian/burn.html" />
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.2" data-basepath=".." data-revision="1455521711348">
+    <div class="book" data-level="6.2" data-basepath=".." data-revision="1455713310371">
     
 
 <div class="book-summary">
@@ -272,13 +272,29 @@
         </li>
     
         
-        <li class="chapter " data-level="3.3" data-path="2016/study.html">
+        <li class="chapter " data-level="3.3" data-path="2016/pm2.html">
+            
+                
+                    <a href="../2016/pm2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         PM2&amp;keymetrics
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.4" data-path="2016/study.html">
             
                 
                     <a href="../2016/study.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>3.3.</b>
+                            <b>3.4.</b>
                         
                          React Native资料
                     </a>
@@ -443,13 +459,51 @@
         </li>
     
         
-        <li class="chapter " data-level="5" data-path="raspbian/readMe.html">
+        <li class="chapter " data-level="5" data-path="node-webkit/index.html">
+            
+                
+                    <a href="../node-webkit/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         Node-Webkit
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="5.1" data-path="2016/setup.html">
+            
+                
+                    <a href="../2016/setup.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                         环境配置
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="raspbian/readMe.html">
             
                 
                     <a href="../raspbian/readMe.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>5.</b>
+                            <b>6.</b>
                         
                          树莓派
                     </a>
@@ -460,13 +514,13 @@
                 
     
         
-        <li class="chapter " data-level="5.1" data-path="raspbian/burn.html">
+        <li class="chapter " data-level="6.1" data-path="raspbian/burn.html">
             
                 
                     <a href="../raspbian/burn.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>5.1.</b>
+                            <b>6.1.</b>
                         
                          MacOS 烧录树莓派
                     </a>
@@ -476,13 +530,13 @@
         </li>
     
         
-        <li class="chapter active" data-level="5.2" data-path="raspbian/login.html">
+        <li class="chapter active" data-level="6.2" data-path="raspbian/login.html">
             
                 
                     <a href="../raspbian/login.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>5.2.</b>
+                            <b>6.2.</b>
                         
                          Raspbian的配置
                     </a>
@@ -492,13 +546,13 @@
         </li>
     
         
-        <li class="chapter " data-level="5.3" data-path="raspbian/lamp.html">
+        <li class="chapter " data-level="6.3" data-path="raspbian/lnmp.html">
             
                 
-                    <a href="../raspbian/lamp.html">
+                    <a href="../raspbian/lnmp.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>5.3.</b>
+                            <b>6.3.</b>
                         
                          Raspbian安装Apache2/PHP5/MySQL5
                     </a>
@@ -508,13 +562,13 @@
         </li>
     
         
-        <li class="chapter " data-level="5.4" data-path="raspbian/android.html">
+        <li class="chapter " data-level="6.4" data-path="raspbian/android.html">
             
                 
                     <a href="../raspbian/android.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.</b>
+                            <b>6.4.</b>
                         
                          Raspbian的安卓应用
                     </a>
@@ -617,7 +671,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_28">
+                    <section class="normal" id="section-gitbook_30">
                     
                         <h1 id="raspbian">Raspbian的配置</h1>
 <blockquote>
@@ -648,10 +702,17 @@ deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free r
 deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main non-free contrib
 </code></pre><p>Ctrl+O保存，Ctrl+X退出</p>
 <h3 id="">更新软件</h3>
-<pre><code>#更新软件源数据
+<pre><code># 更新软件源数据
 sudo apt-get update
-#更新已安装软件
+# 更新已安装软件
 sudo apt-get upgrade
+这三个命令主要清理升级缓存以及无用包的。
+# 清理旧版本的软件缓存
+apt-get autoclean
+# 清理所有软件缓存
+apt-get clean
+# 删除系统不再使用的孤立软件
+apt-get autoremove
 </code></pre><h3 id="raspi-config">使用raspi-config配置树莓派</h3>
 <pre><code>raspi-config
 </code></pre><h3 id="">无线网卡配置</h3>
@@ -875,14 +936,46 @@ sudo useradd yzhao
 #向smb添加用戶和密碼，輸兩次密碼的喲
 sudo smbpasswd -a yzhao 
 #最後重啟Samba服務
-sudo /etc/init.d/samba restart
-检查当前配置：sudo testparm
-关闭服务器可用 smbcontrol 这个程序。命令格式如下：
-sudo smbcontrol smbd shutdown
+先看一下samba的服务到底启动了没有：ps -aux | grep samba 
+先查看samba服务的端口 
+netstat -ntulp |grep 139
+可以看到端口号为139和445 
+sudo service smbd restart
 </code></pre><h1 id="ip">重启自动上报IP</h1>
 <pre><code>sudo nano /etc/rc.local
 </code></pre><p>在文件末尾 ，在exit 0 这一行之前，加入一行：python /home/xbian/pifind.py</p>
 <h1 id="">树莓派断网自动重连</h1>
+<p>sudo nano /etc/network/interfaces</p>
+<p>auto lo</p>
+<p>iface lo inet loopback
+iface eth0 inet dhcp</p>
+<p>allow-hotplug wlan0
+iface wlan0 inet dhcp</p>
+<h1 id="iface-wlan0-inet-manual-">iface wlan0 inet manual 设置多个网络连接的话</h1>
+<p>wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</p>
+<h1 id="wpa-roam-etcwpa_supplicantwpa_supplicantconf-">wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf 设置多个网络连接的话</h1>
+<p>iface default inet dhcp</p>
+<p>iface wlan0 inet dhcp
+wpa_conf /etc/wpa_supplicant/wpa_supplicant.conf</p>
+<p><img src="http://i.cmgine.net/wp-content/uploads/2015/05/7cd8ea49-867d-4852-948a-b03b2cd9ed8e-675x425.png" alt="interfaces"></p>
+<p>除/etc/network/interfaces之外，你还需要修改/etc/wpa_supplicant/wpa_supplicant.conf。所有的WiFi连接配置都在这里了。</p>
+<p>network={
+ssid=&quot;WiFi-name1&quot;
+psk=&quot;WiFi-password1&quot;
+priority=5
+}</p>
+<p>network={
+ssid=&quot;WiFi-name2&quot;
+psk=&quot;WiFi-password2&quot;
+priority=4
+}</p>
+<p>priority 是指连接优先级，数字越大优先级越高（不可以是负数）。</p>
+<p>连接WiFi
+sudo ifup wlan0
+断开WiFi
+sudo ifdown wlan0</p>
+<p>到这里，一切都配置好了。下次开机的时候，树莓派将自动连接有效的WiFi。</p>
+<p>你可以试验一下WiFi的掉线自动重连功能，比如重启一下无线路由器，看树莓派还能不能重新连接上无线路由器。</p>
 <p>由于树莓派断网并不会自动重新连网，假如当我在外地想远程登录控制树莓派怎么办呢，网都连不上，怎么控制呀。
 解决办法是：写一个自动断网重连的脚本，让pi定时执行并检查网络是否连通，如断网则自动重新连接。
 在 /etc/network/if-down.d/ 文件夹下新建net_restart.sh，net_restart.sh脚本用于当网络断开时重新启动网络：</p>
@@ -1003,7 +1096,7 @@ sudo  su
         <a href="../raspbian/burn.html" class="navigation navigation-prev " aria-label="Previous page: MacOS 烧录树莓派"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../raspbian/lamp.html" class="navigation navigation-next " aria-label="Next page: Raspbian安装Apache2/PHP5/MySQL5"><i class="fa fa-angle-right"></i></a>
+        <a href="../raspbian/lnmp.html" class="navigation navigation-next " aria-label="Next page: Raspbian安装Apache2/PHP5/MySQL5"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

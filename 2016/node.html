@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3" data-basepath=".." data-revision="1455521711348">
+    <div class="book" data-level="3" data-basepath=".." data-revision="1455713310371">
     
 
 <div class="book-summary">
@@ -272,13 +272,29 @@
         </li>
     
         
-        <li class="chapter " data-level="3.3" data-path="2016/study.html">
+        <li class="chapter " data-level="3.3" data-path="2016/pm2.html">
+            
+                
+                    <a href="../2016/pm2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         PM2&amp;keymetrics
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.4" data-path="2016/study.html">
             
                 
                     <a href="../2016/study.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>3.3.</b>
+                            <b>3.4.</b>
                         
                          React Native资料
                     </a>
@@ -443,13 +459,51 @@
         </li>
     
         
-        <li class="chapter " data-level="5" data-path="raspbian/readMe.html">
+        <li class="chapter " data-level="5" data-path="node-webkit/index.html">
+            
+                
+                    <a href="../node-webkit/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         Node-Webkit
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="5.1" data-path="2016/setup.html">
+            
+                
+                    <a href="../2016/setup.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                         环境配置
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="raspbian/readMe.html">
             
                 
                     <a href="../raspbian/readMe.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>5.</b>
+                            <b>6.</b>
                         
                          树莓派
                     </a>
@@ -460,13 +514,13 @@
                 
     
         
-        <li class="chapter " data-level="5.1" data-path="raspbian/burn.html">
+        <li class="chapter " data-level="6.1" data-path="raspbian/burn.html">
             
                 
                     <a href="../raspbian/burn.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>5.1.</b>
+                            <b>6.1.</b>
                         
                          MacOS 烧录树莓派
                     </a>
@@ -476,13 +530,13 @@
         </li>
     
         
-        <li class="chapter " data-level="5.2" data-path="raspbian/login.html">
+        <li class="chapter " data-level="6.2" data-path="raspbian/login.html">
             
                 
                     <a href="../raspbian/login.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>5.2.</b>
+                            <b>6.2.</b>
                         
                          Raspbian的配置
                     </a>
@@ -492,13 +546,13 @@
         </li>
     
         
-        <li class="chapter " data-level="5.3" data-path="raspbian/lamp.html">
+        <li class="chapter " data-level="6.3" data-path="raspbian/lnmp.html">
             
                 
-                    <a href="../raspbian/lamp.html">
+                    <a href="../raspbian/lnmp.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>5.3.</b>
+                            <b>6.3.</b>
                         
                          Raspbian安装Apache2/PHP5/MySQL5
                     </a>
@@ -508,13 +562,13 @@
         </li>
     
         
-        <li class="chapter " data-level="5.4" data-path="raspbian/android.html">
+        <li class="chapter " data-level="6.4" data-path="raspbian/android.html">
             
                 
                     <a href="../raspbian/android.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.</b>
+                            <b>6.4.</b>
                         
                          Raspbian的安卓应用
                     </a>
@@ -617,7 +671,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_9">
+                    <section class="normal" id="section-gitbook_7">
                     
                         <h1 id="">前置条件</h1>
 <h3 id="nodenpm">node&amp;npm版本要求</h3>
@@ -651,6 +705,39 @@ export PS1=&#39;\[\033[01;33m\]\u@\h\[\033[01;31m\] \W\$\[\033[00m\] &#39;
 alias grep=&#39;grep --color=always&#39;
 # nvm快捷方式
 source ~/.nvm/nvm.sh
+</code></pre><h3 id="linuxnodejs">Linux下部署nodejs（两种方式）</h3>
+<p>1、下载源码，手动编译二进制，即是部署过程。
+需要先安装编译环境 比如 node编译依赖于gcc make gcc-c++ openssl-devel等三方模块，因此需要提前自己先安装依赖（使用 sudo apt-get install gcc make gcc-c++ openssl-devel 即可）</p>
+<p>wget <a href="http://nodejs.org/dist/v4.3.0/node-v0.10.33.tar.gz" target="_blank">http://nodejs.org/dist/v4.3.0/node-v0.10.33.tar.gz</a>
+tar -zxf node-v0.10.33.tar.gz
+cd node-v0.10.33
+./configure &amp;&amp; make &amp;&amp; sudo make install</p>
+<p>编译时间需要很久
+测试一下看装好了没有，用命令查看node和npm版本
+node -v
+npm -v</p>
+<p>2、NodeJS二进制文件的部署安装
+首先下载NodeJS的二进制文件，<a href="http://nodejs.org/dist/v4.3.0/node-v4.3.0-linux-armv7l.tar.gz。在" target="_blank">http://nodejs.org/dist/v4.3.0/node-v4.3.0-linux-armv7l.tar.gz。在</a> Linux Binaries (.tar.gz)行处根据自己系统的位数选择</p>
+<p>放在了/opt下面,依次执行如下命令，可看到
+tar zxvf node-v4.3.0-linux-armv7l.tar.gz
+进入解压后的目录bin目录下，执行ls会看到两个文件node,npm. 然后执行./node -v ，如果显示出 版本号说明我们下载的程序包是没有问题的。 依次运行如下三条命令</p>
+<pre><code>cd /opt/node-v4.3.0-linux-armv7l/bin
+ls
+./node -v
+</code></pre><p>因为node-v4.3.0-linux-armv7l/bin这个目录是不在环境变量中的，所以只能到该目录下才能node的程序。如果在其他的目录下执行node命令的话 ，必须通过绝对路径访问才可以的</p>
+<p>如果要在任意目录可以访问的话，需要将node 所在的目录，添加PATH环境变量里面，或者通过软连接的形式将node和npm链接到系统默认的PATH目录下的一个，以下别介绍</p>
+<h3 id="">软连接方式</h3>
+<pre><code>ln -s /opt/node-v4.3.0-linux-armv7l/bin/node /usr/local/bin/node
+ln -s /opt/node-v4.3.0-linux-armv7l/bin/npm /usr/local/bin/npm
+</code></pre><p>通过如此，就可以访问Node了，同时node部署也已经完毕。</p>
+<h3 id="">环境变量配置</h3>
+<pre><code>sudo nano /etc/profile
+末尾添加一行
+PATH=$PATH:/opt/node-v4.3.0-linux-armv7l/bin
+保持并退出
+source /etc/profile 可以是变量生效，
+
+然后执行 echo $PATH ，看看输出内容是否包含自己添加的内容
 </code></pre>
                     
                     </section>

@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>环境配置 | 乐高</title>
+        <title>Raspbian安装Apache2/PHP5/MySQL5 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../raspbian/readMe.html" />
+    <link rel="next" href="../raspbian/android.html" />
     
     
-    <link rel="prev" href="../node-webkit/index.html" />
+    <link rel="prev" href="../raspbian/login.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.1" data-basepath=".." data-revision="1455713310371">
+    <div class="book" data-level="6.3" data-basepath=".." data-revision="1455713310371">
     
 
 <div class="book-summary">
@@ -240,7 +240,7 @@
                 
     
         
-        <li class="chapter active" data-level="3.1" data-path="2016/setup.html">
+        <li class="chapter " data-level="3.1" data-path="2016/setup.html">
             
                 
                     <a href="../2016/setup.html">
@@ -476,7 +476,7 @@
                 
     
         
-        <li class="chapter active" data-level="5.1" data-path="2016/setup.html">
+        <li class="chapter " data-level="5.1" data-path="2016/setup.html">
             
                 
                     <a href="../2016/setup.html">
@@ -546,7 +546,7 @@
         </li>
     
         
-        <li class="chapter " data-level="6.3" data-path="raspbian/lnmp.html">
+        <li class="chapter active" data-level="6.3" data-path="raspbian/lnmp.html">
             
                 
                     <a href="../raspbian/lnmp.html">
@@ -671,42 +671,81 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_11">
+                    <section class="normal" id="section-gitbook_31">
                     
-                        <h1 id="">安装步骤</h1>
-<h3 id="1cnpmnpm">1、使用cnpm代理npm，并切换到国内源</h3>
-<pre><code class="lang-javascript">npm install -g cnpm --registry=https:<span class="hljs-comment">//registry.npm.taobao.org</span>
-</code></pre>
-<h3 id="2webpack">2、安装webpack和各种依赖</h3>
+                        <h1 id="ngixphp5mysql5">安装Ngix/PHP5/MySQL5</h1>
+<h3 id="">准备篇</h3>
 <blockquote>
-<p>推荐&quot;node-dev&quot;这个工具，代码改动会自动重启node进程</p>
+<p>配置防火墙，开启80端口、3306端口</p>
+<p>说明：debian默认安装是没有开启任何防火墙的，为了服务器的安全，建议大家安装启用防火墙设置，这里推荐使用iptables防火墙。</p>
 </blockquote>
-<pre><code class="lang-javascript">cnpm install -g webpack gulp node-dev
-</code></pre>
-<h3 id="3">3、安装本地热部署和各种依赖工具包</h3>
-<blockquote>
-<p>webpack必选安装到本地，前面只是安装webpack命令，这里需要特别注意</p>
-</blockquote>
-<pre><code class="lang-javascript">cnpm install
-</code></pre>
-<h3 id="5">5、编译工程</h3>
-<blockquote>
-<p>基于gulp对整个工程进行线下预处理，预编译，同时基于内容进行hash解决线上缓存问题。</p>
-</blockquote>
-<pre><code class="lang-javascript">cnpm run build
-</code></pre>
-<h3 id="6">6、启动应用</h3>
-<pre><code class="lang-javascript">cnpm run start
-</code></pre>
-<h3 id="7">7、启动应用，模拟生产环境</h3>
-<pre><code class="lang-javascript">cnpm run production
-</code></pre>
-<h3 id="10npm">10、npm包预处理</h3>
-<pre><code class="lang-javascript">cnpm run prepublish
-</code></pre>
-<h3 id="10npm">10、npm包发布</h3>
-<pre><code class="lang-javascript">cnpm run npmpublish
-</code></pre>
+<pre><code>whereis iptables   #查看系统是否安装防火墙
+iptables: /sbin/iptables /usr/share/iptables /usr/share/man/man8/iptables.8.gz  #表示已经安装iptables
+sudo apt-get install iptables   #如果默认没有安装，请运行此命令安装防火墙
+sudo iptables -L  #查看防火墙配置信息，显示如下：
+#####################################################
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+
+sudo nano /etc/iptables.default.rules    #添加以下内容
+
+*filter
+# Allows all loopback (lo0) traffic and drop all traffic to 127/8 that doesn&#39;t use lo0
+-A INPUT -i lo -j ACCEPT
+# Accepts all established inbound connections
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+# Allows all outbound traffic
+# You could modify this to only allow certain traffic
+-A OUTPUT -j ACCEPT
+# Allows HTTP and MySQLconnections from anywhere (the normal ports for websites)
+-A INPUT -p tcp --dport 80 -j ACCEPT
+-A INPUT -p udp --dport 137,138 -j ACCEPT
+-A INPUT -p tcp --dport 139 -j ACCEPT
+-A INPUT -p tcp --dport 443 -j ACCEPT
+-A INPUT -p tcp --dport 3306 -j ACCEPT
+-A INPUT -p tcp --dport 6800 -j ACCEPT
+# Allows SSH connections for script kiddies
+# THE -dport NUMBER IS THE SAME ONE YOU SET UP IN THE SSHD_CONFIG FILE
+-A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
+# Now you should read up on iptables rules and consider whether ssh access
+# for everyone is really desired. Most likely you will only allow access from certain IPs.
+# Allow ping
+-A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
+# log iptables denied calls (access via &#39;dmesg&#39; command)
+-A INPUT -m limit --limit 5/min -j LOG --log-prefix &quot;iptables denied: &quot; --log-level 7
+# Reject all other inbound - default deny unless explicitly allowed policy:
+-A INPUT -j REJECT
+-A FORWARD -j REJECT
+COMMIT
+
+ctrl+o  #保存
+ctrl+x  #退出
+备注：80是指web服务器端口、3306是指MySQL数据库链接端口、22是指SSH远程管理端口
+sudo iptables-restore &lt; /etc/iptables.default.rules    #使防火墙规则生效
+sudo nano  /etc/network/if-pre-up.d/iptables   #创建文件，添加以下内容，使防火墙开机启动
+
+#!/bin/bash
+sudo /sbin/iptables-restore &lt; /etc/iptables.default.rules
+
+sudo chmod 777 /etc/network/if-pre-up.d/iptables  #添加执行权限
+</code></pre><h3 id="">安装篇</h3>
+<pre><code>登陆后运行：screen -S lnmp
+
+如果提示screen: command not found 命令不存在可以执行：sudo apt-get install screen
+
+wget -c http://soft.vpser.net/lnmp/lnmp1.2-full.tar.gz &amp;&amp; tar zxf lnmp1.2-full.tar.gz &amp;&amp; cd lnmp1.2-full &amp;&amp; ./install.sh lnmp
+</code></pre><p>文献资料</p>
+<ul>
+<li><a href="http://lnmp.org/install.html" target="_blank">LNMP</a></li>
+<li><a href="http://lnmp.org/faq/lnmp-software-list.html" target="_blank">LNMP安装了哪些软件？安装目录在哪？</a></li>
+<li><a href="http://lnmp.org/faq/lnmp-status-manager.html" target="_blank">LNMP状态管理命令</a></li>
+</ul>
 
                     
                     </section>
@@ -717,10 +756,10 @@
         </div>
 
         
-        <a href="../node-webkit/index.html" class="navigation navigation-prev " aria-label="Previous page: Node-Webkit"><i class="fa fa-angle-left"></i></a>
+        <a href="../raspbian/login.html" class="navigation navigation-prev " aria-label="Previous page: Raspbian的配置"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../raspbian/readMe.html" class="navigation navigation-next " aria-label="Next page: 树莓派"><i class="fa fa-angle-right"></i></a>
+        <a href="../raspbian/android.html" class="navigation navigation-next " aria-label="Next page: Raspbian的安卓应用"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
