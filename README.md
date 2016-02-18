@@ -1,4 +1,4 @@
-![png](assets/lego.png)
+<img src="assets/lego.svg" width="100">
 
 ### 乐高
 
@@ -33,3 +33,9 @@
 
 ### 事件
 > 为页面上的组件和组件、组件和业务组件、组件和页面交互提供一种协同的行为操作。让原本静态的页面，能够拥有动态的展现能力。关于组件化的动作设计我们将在后面的文章详细介绍。
+
+```
+<script>
+window.open("lego/lego.html");
+</script>
+```

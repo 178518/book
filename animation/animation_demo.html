@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate动画</title>
+    <link rel="stylesheet" href="../css/animate.min.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<header class="site__header island">
+    <div class="wrap">
+        <span id="animationSandbox" style="display: block;"><h1 class="site__title mega">Animate.css</h1></span>
+        <span class="beta subhead">Just-add-water CSS animations</span>
+    </div>
+</header>
+
+<form>
+    <select class="input input--dropdown js--animations">
+        <optgroup label="基本效果">
+            <option value="bounce">弹起</option>
+            <option value="flash">闪光灯</option>
+            <option value="pulse">脉冲</option>
+            <option value="rubberBand">橡皮筋</option>
+            <option value="shake">摇</option>
+            <option value="swing">摆动</option>
+            <option value="tada">tada</option>
+            <option value="wobble">晃动</option>
+            <option value="jello">果冻</option>
+        </optgroup>
+
+        <optgroup label="弹跳进入效果">
+            <option value="bounceIn">弹跳进入</option>
+            <option value="bounceInDown">弹跳上方进入</option>
+            <option value="bounceInLeft">弹跳左边进入</option>
+            <option value="bounceInRight">弹跳右边进入</option>
+            <option value="bounceInUp">弹跳下方进入</option>
+        </optgroup>
+
+        <optgroup label="弹跳退出效果">
+            <option value="bounceOut">弹跳退出</option>
+            <option value="bounceOutDown">弹跳下方淡出</option>
+            <option value="bounceOutLeft">弹跳左边淡出</option>
+            <option value="bounceOutRight">弹跳右淡出</option>
+            <option value="bounceOutUp">弹跳上方淡出</option>
+        </optgroup>
+
+        <optgroup label="淡入效果">
+            <option value="fadeIn">淡入</option>
+            <option value="fadeInDown">淡入上方进入</option>
+            <option value="fadeInDownBig">淡入上方进入大距离</option>
+            <option value="fadeInLeft">淡入左边进入</option>
+            <option value="fadeInLeftBig">淡入左边进入大距离</option>
+            <option value="fadeInRight">淡入右边进入</option>
+            <option value="fadeInRightBig">淡入右边进入大距离</option>
+            <option value="fadeInUp">淡入下方进入</option>
+            <option value="fadeInUpBig">淡入下方进入大距离</option>
+        </optgroup>
+
+        <optgroup label="淡出效果">
+            <option value="fadeOut">淡出</option>
+            <option value="fadeOutDown">淡出下方离开</option>
+            <option value="fadeOutDownBig">淡出下方离开大距离</option>
+            <option value="fadeOutLeft">淡出左边离开</option>
+            <option value="fadeOutLeftBig">淡出左边离开大距离</option>
+            <option value="fadeOutRight">淡出右边离开</option>
+            <option value="fadeOutRightBig">淡出右边离开大距离</option>
+            <option value="fadeOutUp">淡出上方离开大距离</option>
+            <option value="fadeOutUpBig">淡出上方离开大距离</option>
+        </optgroup>
+
+        <optgroup label="翻转效果">
+            <option value="flip">翻转</option>
+            <option value="flipInX">X轴翻转进入</option>
+            <option value="flipInY">Y轴翻转进入</option>
+            <option value="flipOutX">X轴翻转淡出</option>
+            <option value="flipOutY">Y轴翻转淡出</option>
+        </optgroup>
+
+        <optgroup label="光速效果">
+            <option value="lightSpeedIn">进入</option>
+            <option value="lightSpeedOut">离开</option>
+        </optgroup>
+
+        <optgroup label="旋转进入效果">
+            <option value="rotateIn">旋转进入</option>
+            <option value="rotateInDownLeft">旋转进入，左边固定，上方滑入</option>
+            <option value="rotateInDownRight">旋转进入，右边固定，上方滑入</option>
+            <option value="rotateInUpLeft">旋转进入，左边固定，下方滑入</option>
+            <option value="rotateInUpRight">旋转进入，右边固定，下方滑入</option>
+        </optgroup>
+
+        <optgroup label="旋转退出效果">
+            <option value="rotateOut">旋转退出</option>
+            <option value="rotateOutDownLeft">旋转退出，左边固定，下方滑出</option>
+            <option value="rotateOutDownRight">旋转退出，右边固定，下方滑出</option>
+            <option value="rotateOutUpLeft">旋转退出，左边固定，上方滑出</option>
+            <option value="rotateOutUpRight">旋转退出，右边固定，上方滑出</option>
+        </optgroup>
+
+        <optgroup label="滑动进入效果">
+            <option value="slideInUp">向下滑入</option>
+            <option value="slideInDown">上方滑入</option>
+            <option value="slideInLeft">左边滑入</option>
+            <option value="slideInRight">右边滑入</option>
+
+        </optgroup>
+        <optgroup label="滑动退出效果">
+            <option value="slideOutUp">向上滑出</option>
+            <option value="slideOutDown">向下滑出</option>
+            <option value="slideOutLeft">向左滑出</option>
+            <option value="slideOutRight">向右滑出</option>
+        </optgroup>
+
+        <optgroup label="变焦进入效果">
+            <option value="zoomIn">变焦进入</option>
+            <option value="zoomInDown">从上方变焦进入</option>
+            <option value="zoomInLeft">丛左边变焦进入</option>
+            <option value="zoomInRight">丛右边变焦缴入</option>
+            <option value="zoomInUp">丛下方变焦缴入</option>
+        </optgroup>
+
+        <optgroup label="变焦离开效果">
+            <option value="zoomOut">变焦离开</option>
+            <option value="zoomOutDown">丛下方变焦离开</option>
+            <option value="zoomOutLeft">丛左边变焦离开</option>
+            <option value="zoomOutRight">丛右边变焦离开</option>
+            <option value="zoomOutUp">从上方变焦离开</option>
+        </optgroup>
+
+        <optgroup label="特效">
+            <option value="hinge">掉链</option>
+            <option value="rollIn">滚动进入</option>
+            <option value="rollOut">滚动淡出</option>
+        </optgroup>
+    </select>
+
+    <button class="butt js--triggerAnimation">Animate it</button>
+</form>
+
+<a href="http://daneden.github.io/animate.css/">animate</a>
+
+
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script>
+    function testAnim(x) {
+        $('#animationSandbox').removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            $(this).removeClass();
+        });
+    }
+
+    $(document).ready(function(){
+        $('.js--triggerAnimation').click(function(e){
+            e.preventDefault();
+            var anim = $('.js--animations').val();
+            testAnim(anim);
+        });
+
+        $('.js--animations').change(function(){
+            var anim = $(this).val();
+            testAnim(anim);
+        });
+    });
+
+</script>
+</body>
+</html>
