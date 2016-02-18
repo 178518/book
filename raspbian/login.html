@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="6.2" data-basepath=".." data-revision="1455713310371">
+    <div class="book" data-level="6.2" data-basepath=".." data-revision="1455794116950">
     
 
 <div class="book-summary">
@@ -671,7 +671,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_30">
+                    <section class="normal" id="section-gitbook_31">
                     
                         <h1 id="raspbian">Raspbian的配置</h1>
 <blockquote>
@@ -688,18 +688,16 @@
 </code></pre><p>这样就可以解锁root账户了。切换root命令</p>
 <pre><code>su root
 </code></pre><h3 id="">树莓派重启</h3>
-<pre><code>reboot
-shutdown -r now
+<pre><code>sudo reboot
+sudo shutdown -r now
 </code></pre><h3 id="">树莓派关机</h3>
-<pre><code>shutdown -h now
-halt
-poweroff
-init 0
+<pre><code>sudo shutdown -h now
+sudo halt
+sudo poweroff
 </code></pre><h3 id="">源更改</h3>
 <pre><code>sudo nano /etc/apt/sources.list
 
-deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi
-deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main non-free contrib
+deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free rpi
 </code></pre><p>Ctrl+O保存，Ctrl+X退出</p>
 <h3 id="">更新软件</h3>
 <pre><code># 更新软件源数据
@@ -714,32 +712,58 @@ apt-get clean
 # 删除系统不再使用的孤立软件
 apt-get autoremove
 </code></pre><h3 id="raspi-config">使用raspi-config配置树莓派</h3>
-<pre><code>raspi-config
+<pre><code>sudo raspi-config
+sudo xbian-config
 </code></pre><h3 id="">无线网卡配置</h3>
 <p>无线网卡插入树莓派</p>
 <pre><code>sudo nano /etc/network/interfaces
 
-#加入如下内容
+内容如下：
 auto lo
+auto eth0
 
 iface eth0 inet dhcp
 iface lo inet loopback
 
 allow-hotplug wlan0
 iface wlan0 inet dhcp
+wpa_conf /etc/wpa_supplicant/wpa_supplicant.conf
 
-wpa-ssid 无线SSID
-wpa-psk 无线密码
-
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+内容如下：
 iface default inet dhcp
+
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+ ssid=&quot;无线SSID&quot;
+ psk=&quot;无线密码&quot;
+ priority=5
+}
 
 重启网关
 /etc/init.d/networking restart
+
+priority 是指连接优先级，数字越大优先级越高（不可以是负数）。
+
+连接WiFi
+sudo ifup wlan0
+断开WiFi
+sudo ifdown wlan0
+
+到这里，一切都配置好了。下次开机的时候，树莓派将自动连接有效的WiFi。
+
+你可以试验一下WiFi的掉线自动重连功能，比如重启一下无线路由器，看树莓派还能不能重新连接上无线路由器。
 </code></pre><h3 id="aria2-apache2-git">aria2 apache2 git安装</h3>
-<pre><code>sudo apt-get install aria2 apache2 git 
+<pre><code>sudo apt-get install aria2 nginx git 
+
 安装结束后：
 
 产生的启动和停止文件是：/etc/init.d/apache2
+ps -ef|grep apache
+
+http://www.cnblogs.com/peida/archive/2012/12/19/2824418.html
 
 启动：sudo apache2ctl -k start
 
@@ -857,7 +881,7 @@ bt-seed-unverified=true
 # 保存磁力链接元数据为种子文件(.torrent文件), 默认:false
 bt-save-metadata=true
 
-完了后运行：aria2c –conf-path=/home/xbian/.aria2/aria2.conf
+完了后运行：sudo aria2c –-conf-path=/home/xbian/.aria2/aria2.conf
 测试有没有错误，如果没有错误的话Ctrl + C终止程序继续下一步，有错误会提示你conf文件哪里错误。
 把aria2做成系统的服务：
 sudo nano /etc/init.d/aria2c
@@ -942,40 +966,15 @@ netstat -ntulp |grep 139
 可以看到端口号为139和445 
 sudo service smbd restart
 </code></pre><h1 id="ip">重启自动上报IP</h1>
-<pre><code>sudo nano /etc/rc.local
-</code></pre><p>在文件末尾 ，在exit 0 这一行之前，加入一行：python /home/xbian/pifind.py</p>
-<h1 id="">树莓派断网自动重连</h1>
-<p>sudo nano /etc/network/interfaces</p>
-<p>auto lo</p>
-<p>iface lo inet loopback
-iface eth0 inet dhcp</p>
-<p>allow-hotplug wlan0
-iface wlan0 inet dhcp</p>
-<h1 id="iface-wlan0-inet-manual-">iface wlan0 inet manual 设置多个网络连接的话</h1>
-<p>wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</p>
-<h1 id="wpa-roam-etcwpa_supplicantwpa_supplicantconf-">wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf 设置多个网络连接的话</h1>
-<p>iface default inet dhcp</p>
-<p>iface wlan0 inet dhcp
-wpa_conf /etc/wpa_supplicant/wpa_supplicant.conf</p>
-<p><img src="http://i.cmgine.net/wp-content/uploads/2015/05/7cd8ea49-867d-4852-948a-b03b2cd9ed8e-675x425.png" alt="interfaces"></p>
-<p>除/etc/network/interfaces之外，你还需要修改/etc/wpa_supplicant/wpa_supplicant.conf。所有的WiFi连接配置都在这里了。</p>
-<p>network={
-ssid=&quot;WiFi-name1&quot;
-psk=&quot;WiFi-password1&quot;
-priority=5
-}</p>
-<p>network={
-ssid=&quot;WiFi-name2&quot;
-psk=&quot;WiFi-password2&quot;
-priority=4
-}</p>
-<p>priority 是指连接优先级，数字越大优先级越高（不可以是负数）。</p>
-<p>连接WiFi
-sudo ifup wlan0
-断开WiFi
-sudo ifdown wlan0</p>
-<p>到这里，一切都配置好了。下次开机的时候，树莓派将自动连接有效的WiFi。</p>
-<p>你可以试验一下WiFi的掉线自动重连功能，比如重启一下无线路由器，看树莓派还能不能重新连接上无线路由器。</p>
+<pre><code>python pifind.py
+sudo nano /etc/rc.local
+</code></pre><p>在文件末尾 ，在exit 0 这一行之前，加入一行：python /opt/pifind.py
+/opt/report-network.sh
+加入如下内容
+python /opt/pifind.py
+设置定时任务
+m h day mon dow user  command
+<em>/60 </em> <em> </em> * /opt/report-network.sh</p>
 <p>由于树莓派断网并不会自动重新连网，假如当我在外地想远程登录控制树莓派怎么办呢，网都连不上，怎么控制呀。
 解决办法是：写一个自动断网重连的脚本，让pi定时执行并检查网络是否连通，如断网则自动重新连接。
 在 /etc/network/if-down.d/ 文件夹下新建net_restart.sh，net_restart.sh脚本用于当网络断开时重新启动网络：</p>
@@ -1072,18 +1071,58 @@ fi
 sudo chmod 777 /etc/network/if-down.d/net_reboot.sh
 
 进入root用户权限下：
-sudo  su
-输入：crontab -e
+命令将以哪个用户的名义执行（在文件 /etc/crontab和 /etc/cron.d/中，而不是在用户自己的调度文件中）
+
+![crontab](http://images.cnitblog.com/blog/34483/201301/08090352-4e0aa3fe4f404b3491df384758229be1.png)
+
+在以上各个字段中，还可以使用以下特殊字符：
+星号（*）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。
+逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”
+中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
+正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。
+
+sudo nano /etc/crontab
 在文件尾添加：
 */20 * * * * /etc/network/if-down.d/net_restart.sh
 0 17 */1 * * /etc/network/if-down.d/net_reboot.sh
+
+0 * * * * /opt/report-network.sh
 表示每20分钟执行一次net_restart.sh脚本，检查网络是否连通。每天的17:00执行net_reboot.sh，如网络断开则重启一次树莓派。
+每个小时0分钟上报一次pi的地址
 最后，还要使cron定时任务生效：
 /etc/init.d/cron restart
+
+查看任务：
+nano /etc/crontab
 注意问题：
 1、有童鞋问了，这2个脚本都差不多啊，干嘛要2个，只写一个就行了嘛。然而这2个脚本是有差别的。net_restart.sh脚本里的关键语句/etc/init.d/networking restart  重启网络命令并不一定能使网络好转，实际跟理论的区别啊，重启一次树莓派就好多了。
 2、上文的crontab -e 打开的cron定时任务文件并不是 /etc/crontab ，而是在 /var/spool/cron/crontabs/ 目录下的文件：pi ，root 。每个用户（pi ，root）分别有cron定时任务的。
-</code></pre>
+</code></pre><h3 id="">树莓派看门狗</h3>
+<p>modprobe bcm2708_wdog
+sudo nano /etc/modules
+添加一行：bcm2708_wdog
+sudo apt-get install chkconfig watchdog
+sudo nano /etc/watchdog.conf
+去掉 watchdog-device = /dev/watchdog 前的#号，让看门狗设备对应树莓派的硬件看门狗</p>
+<p>取消掉 max-load-1 = 24 前的注释#号，当1分钟load进程超过24个的时候（一般5个就是超高负载了，再<FONT face="Courier New">高可以认为是死机，这在遭遇DDOS攻击的时候很容易遇到）就触发重启</FONT>
+还可以设置如温度到了多少度就重启，如 取消掉
+temperature-device =
+max-temperature = 120
+前的注释#号，改为
+temperature-device = /sys/class/thermal/thermal_zone0/temp
+max-temperature = 70000
+（温度一般不超过85度就不会损坏芯片，/sys/class/thermal/thermal_zone0/temp记录的是实时的温度，单位为千分之一摄氏度，所以75000就是75℃）
+还可以设置内存耗尽就重启，如min-memory =1 前的注释#号去掉
+还可以设置监控的间隔，如 interval = 1 前的注释#号去掉，该1为任意数字，单位是秒，默认是10秒一次健康检查
+配置看门狗程序，开机自动运行
+chkconfig watchdog on
+/etc/init.d/watchdog start 
+<a href="http://blog.csdn.net/c80486/article/details/8545656" target="_blank">http://blog.csdn.net/c80486/article/details/8545656</a></p>
+<p>树莓派假死字符串
+: (){ :|:&amp; };:
+如果正常过一会树莓派会自动重启</p>
+<p><a href="https://debian-handbook.info/browse/zh-CN/stable/" target="_blank">https://debian-handbook.info/browse/zh-CN/stable/</a></p>
+
                     
                     </section>
                 

@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="6.3" data-basepath=".." data-revision="1455713310371">
+    <div class="book" data-level="6.3" data-basepath=".." data-revision="1455794116950">
     
 
 <div class="book-summary">
@@ -671,7 +671,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_31">
+                    <section class="normal" id="section-gitbook_30">
                     
                         <h1 id="ngixphp5mysql5">安装Ngix/PHP5/MySQL5</h1>
 <h3 id="">准备篇</h3>
@@ -705,7 +705,8 @@ sudo nano /etc/iptables.default.rules    #添加以下内容
 -A OUTPUT -j ACCEPT
 # Allows HTTP and MySQLconnections from anywhere (the normal ports for websites)
 -A INPUT -p tcp --dport 80 -j ACCEPT
--A INPUT -p udp --dport 137,138 -j ACCEPT
+-A INPUT -p udp --dport 137 -j ACCEPT
+-A INPUT -p udp --dport 138 -j ACCEPT
 -A INPUT -p tcp --dport 139 -j ACCEPT
 -A INPUT -p tcp --dport 443 -j ACCEPT
 -A INPUT -p tcp --dport 3306 -j ACCEPT
