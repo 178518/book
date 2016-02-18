@@ -32,10 +32,6 @@ sudo nano /etc/iptables.default.rules    #添加以下内容
 -A OUTPUT -j ACCEPT
 # Allows HTTP and MySQLconnections from anywhere (the normal ports for websites)
 -A INPUT -p tcp --dport 80 -j ACCEPT
--A INPUT -p udp --dport 137 -j ACCEPT
--A INPUT -p udp --dport 138 -j ACCEPT
--A INPUT -p tcp --dport 139 -j ACCEPT
--A INPUT -p tcp --dport 443 -j ACCEPT
 -A INPUT -p tcp --dport 3306 -j ACCEPT
 -A INPUT -p tcp --dport 6800 -j ACCEPT
 # Allows SSH connections for script kiddies
@@ -56,7 +52,7 @@ ctrl+o  #保存
 ctrl+x  #退出
 备注：80是指web服务器端口、3306是指MySQL数据库链接端口、22是指SSH远程管理端口
 sudo iptables-restore < /etc/iptables.default.rules    #使防火墙规则生效
-sudo nano  /etc/network/if-pre-up.d/iptables   #创建文件，添加以下内容，使防火墙开机启动
+sudo nano /etc/network/if-pre-up.d/iptables   #创建文件，添加以下内容，使防火墙开机启动
 
 #!/bin/bash
 sudo /sbin/iptables-restore < /etc/iptables.default.rules
@@ -66,6 +62,11 @@ sudo chmod 777 /etc/network/if-pre-up.d/iptables  #添加执行权限
 
 ### 安装篇
 ```
+sudo apt-get install apache2 mysql-server php5 php5-mysql
+
+sudo /etc/init.d/apache2 start/stop/restart
+sudo /etc/init.d/mysql start/stop/restart
+
 登陆后运行：screen -S lnmp
 
 如果提示screen: command not found 命令不存在可以执行：sudo apt-get install screen
