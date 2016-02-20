@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="6.3" data-basepath=".." data-revision="1455796134818">
+    <div class="book" data-level="6.3" data-basepath=".." data-revision="1455930021084">
     
 
 <div class="book-summary">
@@ -671,7 +671,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_29">
+                    <section class="normal" id="section-gitbook_30">
                     
                         <h1 id="ngixphp5mysql5">安装Ngix/PHP5/MySQL5</h1>
 <h3 id="">准备篇</h3>
@@ -705,6 +705,11 @@ sudo nano /etc/iptables.default.rules    #添加以下内容
 -A OUTPUT -j ACCEPT
 # Allows HTTP and MySQLconnections from anywhere (the normal ports for websites)
 -A INPUT -p tcp --dport 80 -j ACCEPT
+-A INPUT -p udp --dport 137 -j ACCEPT
+-A INPUT -p udp --dport 138 -j ACCEPT
+-A INPUT -p tcp --dport 139 -j ACCEPT
+-A INPUT -p tcp --dport 443 -j ACCEPT
+-A INPUT -p tcp --dport 445 -j ACCEPT
 -A INPUT -p tcp --dport 3306 -j ACCEPT
 -A INPUT -p tcp --dport 6800 -j ACCEPT
 # Allows SSH connections for script kiddies
@@ -734,8 +739,13 @@ sudo chmod 777 /etc/network/if-pre-up.d/iptables  #添加执行权限
 </code></pre><h3 id="">安装篇</h3>
 <pre><code>sudo apt-get install apache2 mysql-server php5 php5-mysql
 
+chkconfig apache2 on
+chkconfig mysql on
+
 sudo /etc/init.d/apache2 start/stop/restart
 sudo /etc/init.d/mysql start/stop/restart
+sudo service apache2 restart
+sudo service mysql restart
 
 登陆后运行：screen -S lnmp
 
