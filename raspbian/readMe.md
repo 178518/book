@@ -22,46 +22,12 @@ Raspberry Pi（树莓派）是一款只有信用卡大小、使用基于 Debian 
 ![树莓派的种类](../assets/raspbian/type.png)
 
 ### 树莓派参数
-B型：
-处理器	  BroadcomBCM2835（CPU，GPU，DSP和SDRAM，USB）
+![Raspberry各版本](../assets/raspbian/version.png)
 
-CPU       ARM1176JZF-S核心（ARM11系列）700MHz
-
-GPU       Broadcom VideoCrore IV，OpenGL ES 2.0,1080p 30 h.264/MPEG-4 AVC高清解码器
-
-内存      512MByte
-
-USB 2.0   2（支持USB hub扩展）
-
-影像输出   Composite RCA（PAL & NTSC），HDMI（rev 1.3 & 1.4），raw LCD Panels via DSI 14 HDMI resolution from 640x350 to 1920x1200 plus various PAL andNTSC standards
-
-音源输出   3.5mm插孔，HDMI
-
-板载存储   SD/MMC/SDIO卡插槽
-
-网络接口   10/100以太网接口
-
-外设       8xGPIO、UART、I2C、带两个选择的SPI总线，+3.3V，+5V，ground（负极）
-
-额定功率   700mA（3.5W）
-
-电源输入   5V / 通过MicroUSB或GPIO头
-
-总体尺寸   85.60 x 53.98 mm（3.370 x 2.125 in）
-
-操作系统   Debian GNU/linux，Fedora，Arch Linux ARM，RISC OS, XBMC
-
-B+改进
-• 更多的GPIO：B+将通用输入输出引脚增加到了40个，而Model B则只有26个；
-• 更多的USB：B+提供了4个USB端口，对热插拔有着更好的兼容性(Model B只有2个)；
-• 支持microSD：旧款的SD卡插槽，已经被换成了更漂亮的推入式microSD卡槽；
-• 更低的功耗：将线性式稳压器换成了开关式，功耗降低了0.5W到1W；
-• 更好的音频：音频电路部分采用了专用的低噪供电；
-• 简洁的外形：USB接口被推到了主板的一边，复合视频移到了3.5mm音频口的位置，此外还增加了4个独立的安装孔。
 
 ![Raspberry Pi 上的接口](../assets/raspbian/interface.jpg)
 
-Raspberry Pi 上的接口
+### Raspberry Pi 上的接口
 
 准确地说，它是一款基于 ARM 的电脑主板，以 SD 卡做启动、储存磁盘。购买 Rasberry Pi 之后，你还需一个 2G 以上的 SD 卡，将系统安装进去，具体安装[方法见此](http://www.cnblogs.com/abel/p/3441175.html)
 

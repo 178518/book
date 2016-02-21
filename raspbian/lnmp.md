@@ -32,8 +32,15 @@ sudo nano /etc/iptables.default.rules    #添加以下内容
 -A OUTPUT -j ACCEPT
 # Allows HTTP and MySQLconnections from anywhere (the normal ports for websites)
 -A INPUT -p tcp --dport 80 -j ACCEPT
+-A INPUT -p udp --dport 137 -j ACCEPT
+-A INPUT -p udp --dport 138 -j ACCEPT
+-A INPUT -p tcp --dport 139 -j ACCEPT
+-A INPUT -p tcp --dport 443 -j ACCEPT
+-A INPUT -p tcp --dport 445 -j ACCEPT
 -A INPUT -p tcp --dport 3306 -j ACCEPT
 -A INPUT -p tcp --dport 6800 -j ACCEPT
+-A INPUT -p tcp --dport 8080 -j ACCEPT
+-A INPUT -p tcp --dport 8090 -j ACCEPT
 # Allows SSH connections for script kiddies
 # THE -dport NUMBER IS THE SAME ONE YOU SET UP IN THE SSHD_CONFIG FILE
 -A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
@@ -56,16 +63,36 @@ sudo nano /etc/network/if-pre-up.d/iptables   #创建文件，添加以下内容
 
 #!/bin/bash
 sudo /sbin/iptables-restore < /etc/iptables.default.rules
-
 sudo chmod 777 /etc/network/if-pre-up.d/iptables  #添加执行权限
+
 ```
 
 ### 安装篇
 ```
-sudo apt-get install apache2 mysql-server php5 php5-mysql
+sudo apt-get install mysql-server php5 php5-mysql
+
+安装结束后，新建一个php页面，放入探针代码测试下：
+<?php echo phpinfo();?>
+
+chkconfig apache2 on
+chkconfig mysql on
 
 sudo /etc/init.d/apache2 start/stop/restart
 sudo /etc/init.d/mysql start/stop/restart
+sudo service apache2 restart
+sudo service mysql restart
+
+sudo /etc/apache2/apache2.conf
+
+关闭目录浏览
+
+<Directory /var/www/>
+        Options FollowSymLinks
+        AllowOverride None
+        Require all granted
+</Directory>
+
+Linux一键安装包
 
 登陆后运行：screen -S lnmp
 
@@ -73,6 +100,22 @@ sudo /etc/init.d/mysql start/stop/restart
 
 wget -c http://soft.vpser.net/lnmp/lnmp1.2-full.tar.gz && tar zxf lnmp1.2-full.tar.gz && cd lnmp1.2-full && ./install.sh lnmp
 ```
+
+> 至此我有了一个基于看门狗的24小时不断网，可以自动重启的服务器，他提供下载，共享，LNAMP，Java等服务，并且可以搭建一个小型NAS，如果放在客厅还可以作为视频播放盒。
+
+### 外网访问篇
+
+以上这些仅限局域网使用，比如我们出门或者分享给朋友就需要通过路由器配置虚拟服务器提供服务了。
+
+一般家庭路由在不断网的情况下会分配一个动态IP，这个IP在路由不重启的时候是可以通过路由器进行简单配置，让外网的访问透传到内部指定的机器上，这样我们相当于有一个公网的服务器。
+
+网络拓扑图：
+
+![IP](http://www.192ly.com/wp-content/uploads/2014/07/TL-WR882N-DKYS-TP.png)
+
+虚拟服务器：
+
+![IP](http://www.192ly.com/wp-content/uploads/2014/07/TL-WR882N-DKYS-JC.png)
 
 文献资料
 - [LNMP](http://lnmp.org/install.html)

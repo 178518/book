@@ -88,9 +88,10 @@ allow-hotplug wlan0
 iface wlan0 inet dhcp
 wpa_conf /etc/wpa_supplicant/wpa_supplicant.conf
 
+iface default inet dhcp
+
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 内容如下：
-iface default inet dhcp
 
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
@@ -102,7 +103,7 @@ network={
 }
 
 重启网关
-/etc/init.d/networking restart
+sudo /etc/init.d/networking restart
 
 priority 是指连接优先级，数字越大优先级越高（不可以是负数）。
 
@@ -118,14 +119,9 @@ sudo ifdown wlan0
 
 ### aria2 apache2 git安装
 ```
-sudo apt-get install aria2 nginx git 
+sudo apt-get install aria2 apache2 nginx git 
 
-安装结束后：
-
-产生的启动和停止文件是：/etc/init.d/apache2
 ps -ef|grep apache
-
-http://www.cnblogs.com/peida/archive/2012/12/19/2824418.html
 
 启动：sudo apache2ctl -k start
 
@@ -133,9 +129,13 @@ http://www.cnblogs.com/peida/archive/2012/12/19/2824418.html
 
 重新启动：sudo apache2ctl -k restart
 
-默认的是/var/www
+Web默认的是/var/www/html
 
 配置文件保存在：/etc/apache2
+
+aria2配置
+
+备注：file-allocation=none，大容量磁盘不要预分配，会造成大文件无法下载。
 
 mkdir /home/xbian/.aria2
 touch /home/xbian/.aria2/aria2.session
@@ -154,7 +154,7 @@ dir=/home/xbian/hdd/download
 # 预分配所需时间: none < falloc ? trunc < prealloc
 # falloc和trunc则需要文件系统和内核支持
 # NTFS建议使用falloc, EXT3/4建议trunc, MAC 下需要注释此项
-file-allocation=falloc
+file-allocation=none
 # 断点续传
 continue=true
 
@@ -178,7 +178,7 @@ split=10
 # 单个任务上传速度限制, 默认:0
 #max-upload-limit=0
 # 禁用IPv6, 默认:false
-disable-ipv6=true
+#disable-ipv6=true
 
 ## 进度保存相关 ##
 
@@ -272,13 +272,14 @@ Ctrl + O 保存后退出
 sudo chmod 777 /etc/init.d/aria2c
 
 试服务是否可以启动：
-sudo service aria2c start
+sudo service aria2c start/stop
 如果只显示Starting aria2c，没有其他错误提示的话就成功了。命令可用检查下
 sudo ps x |grep aria2
 添加aria2c服务自动运行：
 sudo update-rc.d aria2c defaults
 Aria2相关的好了，下面开始网页控制aria2下载。
 git clone https://github.com/wzhy90/yaaw
+git clone https://github.com/ghostry/webui-aria2.git
 sudo /etc/init.d/nginx start
 管理器用的是yaaw，网上的是英文的，我已经翻译好中文了。
 
@@ -290,7 +291,7 @@ sudo /etc/init.d/nginx start
 
 [使用aria2打造下载利器](http://ju.outofmemory.cn/entry/146734)
 
-### 安装NTFS模块
+### 安装NTFS模块(新版系统已不需要安装)
 ```
 #安装所需软件包
 sudo apt-get install fuse-utils ntfs-3g
@@ -298,7 +299,7 @@ sudo apt-get install fuse-utils ntfs-3g
 modprobe fuse
 ```
 
-### 通过etc/fstab实现自动挂载
+### 通过etc/fstab实现自动挂载 (新版系统已自动挂载)
 ```
 查看挂载情况
 sudo fdisk -l或者df –lh
@@ -311,21 +312,65 @@ sudo mount -a
 sudo chmod 777 /home/pi/hdd
 ```
 
-### Samba配置
+### Samba配置(新版系统默认自带)
 ```
 sudo apt-get install samba samba-common-bin
 
 sudo nano /etc/samba/smb.conf
 
+guest ok=no 禁止匿名用户访问
+
+hosts allow = 192.168.1.? 开放指定IP访问,多个IP之间用空格隔开
+
+valid users = yzhao    //有效的用户和组，多个空格隔开
+
 [global]
-log file = /var/log/samba/log.%m
-workgroup = WORKGROUP
-security = user 
-[share]
-path = /home/xbian/hdd/download
-public = yes
-read only = yes
-writable = yes  
+ server string = XBIAN
+ guest ok = no
+ security = user
+ socket options = TCP_NODELAY SO_RCVBUF=65535 SO_SNDBUF=65535
+ registry shares = yes
+ syslog = 0
+ map to guest = bad user
+ workgroup = WORKGROUP
+ bind interfaces only = No
+ encrypt passwords = true
+ log level = 0
+ hosts allow = 192.168.1.100 192.168.1.102
+# smb ports = 445
+ unix extensions = No
+ wide links = yes
+
+ include = /etc/samba/user.conf
+ include = /etc/samba/shares.conf  
+ 
+ [xbian]
+     path = /home/xbian
+     guest ok = no
+     read only = no
+     force user = xbian
+     browseable = no
+ 
+ [xbian-xbmc]
+     path = /home/xbian/.xbmc
+     guest ok = no
+     read only = yes
+     force user = xbian
+     browseable = no
+ 
+ [xbian-kodi]
+     path = /home/xbian/.kodi
+     guest ok = no
+     read only = yes
+     force user = xbian
+     browseable = no
+ 
+ [system-logs]
+     path = /var/log
+     guest ok = no
+     read only = yes
+     force user = root
+     browseable = no
 
 #添加账户
 添加的Samba用户首先必须是Linux用户
@@ -338,32 +383,191 @@ sudo smbpasswd -a yzhao
 netstat -ntulp |grep 139
 可以看到端口号为139和445 
 sudo service smbd restart
+
+查看smb是否开启动：
+
+chkconfig --list |grep smbd
+
+执行结果：0:关闭 1:关闭 2:启用 3:启用 4:启用 5:启用 6:关闭
+
+如果2至5是关闭，表示每次开机不是自动启动，反之。
+
+设置smbd开机启动：chkconfig smbd on
+
+service smbd status命令可以查看运行状态.
 ```
 
 #重启自动上报IP
 ```
-python pifind.py
-sudo nano /etc/rc.local
+python /opt/pifind.py
+
+pifind的内容如下：
+#!/usr/bin/env python2.7
+import smtplib, httplib, string, subprocess
+# pifind.py by Alex Eames http://RasPi.tv
+# pifind.py gets the system parameters you want to know and
+# emails them through gmail to a destination of your choice
+
+# INSTALLING pifind
+# Add this line to /etc/rc.local
+#   python /home/pi/pifind.py
+# And place this file, pifind.py in your /home/pi folder, then
+#   sudo chmod 755 /home/pi/pifind.py
+
+# Settings
+fromaddr = '发件人邮箱'
+toaddr  = ['收件人邮箱']
+
+#mail login details
+username = '用户名'
+password = '密码'
+smtp_server = 'smtp.163.com'
+
+
+#get ip config info
+output_if = subprocess.Popen(['ifconfig'], stdout=subprocess.PIPE).communicate()[0]
+
+#get cpu info
+output_cpu = open('/proc/cpuinfo', 'r').read()
+
+#find cpu serial no in cpu info
+keyword = "Serial"
+cpu_serial = output_cpu[output_cpu.find(keyword)+ len(keyword) :]
+cpu_serial = cpu_serial[cpu_serial.find(":")+ 1 :].strip()
+
+#get external IP address
+connection = httplib.HTTPConnection("checkip.dyndns.org")
+connection.request('get','/')
+external_ip = connection.getresponse().read()
+connection.close()
+
+#find ip address in text
+keyword = "Address:"
+external_ip = external_ip[external_ip.find(keyword)+ len(keyword) :]
+external_ip = external_ip[:external_ip.find("<"):].strip()
+
+BODY = string.join((
+        "From: %s" % fromaddr,
+        "To: %s" % toaddr,
+        "Subject: Your Raspberry Pi "+cpu_serial+" just booted",
+        "",
+        "The CPU serial no :" + cpu_serial +"\n",
+        "The external IP address:" + external_ip +"\n",
+        "You may locate this IP address in http://whatismyipaddress.com \n",
+        "==========================================",
+        "\n\nDetailed IP info\n\n",
+        output_if,
+        "==========================================",
+        "\n\nDetailed CPU info\n\n",
+        output_cpu,
+        ), "\r\n")
+
+# send the email
+server = smtplib.SMTP(smtp_server)
+server.starttls()
+server.login(username,password)
+server.sendmail(fromaddr, toaddr, BODY)
+server.quit()
+
+# emailing code from http://www.nixtutor.com/linux/send-mail-through-gmail-with-python/
+# BODY bit http://www.blog.pythonlibrary.org/2010/05/14/how-to-send-email-with-python/
 ```
+sudo nano /etc/rc.local
 
 在文件末尾 ，在exit 0 这一行之前，加入一行：python /opt/pifind.py
+
+## 定时上报PI的IP
+
+![crontab](http://my.csdn.net/uploads/201207/20/1342769209_5435.png)
+
 /opt/report-network.sh
+
 加入如下内容
+
 python /opt/pifind.py
+
 设置定时任务
+
+sudo nano /etc/crontab
+
 m h day mon dow user  command
-*/60 * * * * /opt/report-network.sh
+
+0 * * * * root /opt/report-network.sh
+
+sudo /etc/init.d/cron restart
+
+这样我们的PI基本不会丢失，结合看门狗可以实现自动重启自动联网
+
+### 树莓派看门狗
+启用模块 bcm2708_wdog
+
+sudo modprobe bcm2708_wdog
+
+sudo nano /etc/modules
+
+在文件最后一行，添加一行
+
+bcm2708_wdog
+
+启用模块后，则系统增加了一个设备  /dev/watchdog
+
+每10秒必须喂一下这个狗
+
+
+sudo apt-get install chkconfig watchdog
+
+启动watchdog 软件
+
+sudo /etc/init.d/watchdog start
+
+sudo nano /etc/watchdog.conf
+
+去掉 watchdog-device = /dev/watchdog 前的#号，让看门狗设备对应树莓派的硬件看门狗
+
+取消掉 max-load-1 = 24 前的注释#号，当1分钟load进程超过24个的时候（一般5个就是超高负载了，再<FONT face="Courier New">高可以认为是死机，这在遭遇DDOS攻击的时候很容易遇到）就触发重启</FONT>
+还可以设置如温度到了多少度就重启，如 取消掉
+
+temperature-device =
+
+max-temperature = 120
+
+前的注释#号去掉，改为
+
+temperature-device = /sys/class/thermal/thermal_zone0/temp
+
+max-temperature = 70000
+
+(温度一般不超过85度就不会损坏芯片，/sys/class/thermal/thermal_zone0/temp记录的是实时的温度，单位为千分之一摄氏度，所以75000就是75℃)
+还可以设置内存耗尽就重启，如min-memory =1 前的注释#号去掉
+还可以设置监控的间隔，如 interval = 1 前的注释#号去掉，该1为任意数字，单位是秒，默认是10秒一次健康检查
+
+配置看门狗程序，开机自动运行
+
+sudo chkconfig watchdog on
+
+sudo /etc/init.d/watchdog restart 
+
+输入下述命令(forkbomb)，测试一下看门狗
+
+树莓派假死字符串
+
+: (){ :|:& };:
+
+如果正常过一会树莓派会自动重启
+
+***
+
+以下是老方法仅供学习
 
 由于树莓派断网并不会自动重新连网，假如当我在外地想远程登录控制树莓派怎么办呢，网都连不上，怎么控制呀。
 解决办法是：写一个自动断网重连的脚本，让pi定时执行并检查网络是否连通，如断网则自动重新连接。
 在 /etc/network/if-down.d/ 文件夹下新建net_restart.sh，net_restart.sh脚本用于当网络断开时重新启动网络：
-
 ```
-sudo nano  /etc/network/if-down.d/net_restart.sh
+sudo nano /etc/network/if-down.d/net_restart.sh
+
 编辑net_restart.sh脚本，输入：
+
 #!/bin/bash
- 
- 
 #value define
 urls=("www.baidu.com" "www.hao123.com")
 http_code=("200" "301" "302" "404")
@@ -407,14 +611,11 @@ sudo chmod 777 /etc/network/if-down.d/net_restart.sh
 同理，新建 net_reboot.sh脚本，net_reboot.sh脚本用于当网络断开时重启树莓派：
 
 #!/bin/bash
- 
- 
 #value define
 urls=("www.baidu.com" "www.hao123.com")
 http_code=("200" "301" "302" "404")
 count=${#urls}
 connected=0
- 
  
 echo "check net is OK or not!"
 echo "if not,then will reboot"
@@ -452,6 +653,7 @@ fi
 sudo chmod 777 /etc/network/if-down.d/net_reboot.sh
 
 进入root用户权限下：
+
 命令将以哪个用户的名义执行（在文件 /etc/crontab和 /etc/cron.d/中，而不是在用户自己的调度文件中）
 
 ![crontab](http://images.cnitblog.com/blog/34483/201301/08090352-4e0aa3fe4f404b3491df384758229be1.png)
@@ -473,43 +675,17 @@ sudo nano /etc/crontab
 最后，还要使cron定时任务生效：
 /etc/init.d/cron restart
 
+编辑当前用户的cron任务
+crontab -e
+查看当前用户的cron任务
+crontab -l
+
+如果有root权限，那么要查看用户wangyu的cron任务，使用 -u 参数：
+sudo crontab -u [用户名] -l
+
 查看任务：
 nano /etc/crontab
 注意问题：
 1、有童鞋问了，这2个脚本都差不多啊，干嘛要2个，只写一个就行了嘛。然而这2个脚本是有差别的。net_restart.sh脚本里的关键语句/etc/init.d/networking restart  重启网络命令并不一定能使网络好转，实际跟理论的区别啊，重启一次树莓派就好多了。
 2、上文的crontab -e 打开的cron定时任务文件并不是 /etc/crontab ，而是在 /var/spool/cron/crontabs/ 目录下的文件：pi ，root 。每个用户（pi ，root）分别有cron定时任务的。
 ```
-
-### 树莓派看门狗
-
-modprobe bcm2708_wdog
-sudo nano /etc/modules
-添加一行：bcm2708_wdog
-sudo apt-get install chkconfig watchdog
-sudo nano /etc/watchdog.conf
-去掉 watchdog-device = /dev/watchdog 前的#号，让看门狗设备对应树莓派的硬件看门狗
- 
-
-取消掉 max-load-1 = 24 前的注释#号，当1分钟load进程超过24个的时候（一般5个就是超高负载了，再<FONT face="Courier New">高可以认为是死机，这在遭遇DDOS攻击的时候很容易遇到）就触发重启</FONT>
-还可以设置如温度到了多少度就重启，如 取消掉
-temperature-device =
-max-temperature = 120
-前的注释#号，改为
-temperature-device = /sys/class/thermal/thermal_zone0/temp
-max-temperature = 70000
-（温度一般不超过85度就不会损坏芯片，/sys/class/thermal/thermal_zone0/temp记录的是实时的温度，单位为千分之一摄氏度，所以75000就是75℃）
-还可以设置内存耗尽就重启，如min-memory =1 前的注释#号去掉
-还可以设置监控的间隔，如 interval = 1 前的注释#号去掉，该1为任意数字，单位是秒，默认是10秒一次健康检查
-配置看门狗程序，开机自动运行
-chkconfig watchdog on
-/etc/init.d/watchdog start 
-http://blog.csdn.net/c80486/article/details/8545656
-
-树莓派假死字符串
-: (){ :|:& };:
-如果正常过一会树莓派会自动重启
-
-
-https://debian-handbook.info/browse/zh-CN/stable/
-
-
