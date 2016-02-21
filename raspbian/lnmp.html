@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="6.3" data-basepath=".." data-revision="1455970560142">
+    <div class="book" data-level="6.3" data-basepath=".." data-revision="1456038792933">
     
 
 <div class="book-summary">
@@ -752,10 +752,12 @@ sudo nano /etc/network/if-pre-up.d/iptables   #创建文件，添加以下内容
 
 #!/bin/bash
 sudo /sbin/iptables-restore &lt; /etc/iptables.default.rules
-
 sudo chmod 777 /etc/network/if-pre-up.d/iptables  #添加执行权限
 </code></pre><h3 id="">安装篇</h3>
-<pre><code>sudo apt-get install apache2 mysql-server php5 php5-mysql
+<pre><code>sudo apt-get install mysql-server php5 php5-mysql
+
+安装结束后，新建一个php页面，放入探针代码测试下：
+&lt;?php echo phpinfo();?&gt;
 
 chkconfig apache2 on
 chkconfig mysql on
@@ -767,20 +769,32 @@ sudo service mysql restart
 
 sudo /etc/apache2/apache2.conf
 
+关闭目录浏览
+
 &lt;Directory /var/www/&gt;
         Options FollowSymLinks
         AllowOverride None
         Require all granted
 &lt;/Directory&gt;
 
-关闭目录浏览
+Linux一键安装包
 
 登陆后运行：screen -S lnmp
 
 如果提示screen: command not found 命令不存在可以执行：sudo apt-get install screen
 
 wget -c http://soft.vpser.net/lnmp/lnmp1.2-full.tar.gz &amp;&amp; tar zxf lnmp1.2-full.tar.gz &amp;&amp; cd lnmp1.2-full &amp;&amp; ./install.sh lnmp
-</code></pre><p>文献资料</p>
+</code></pre><blockquote>
+<p>至此我有了一个基于看门狗的24小时不断网，可以自动重启的服务器，他提供下载，共享，LNAMP，Java等服务，并且可以搭建一个小型NAS，如果放在客厅还可以作为视频播放盒。</p>
+</blockquote>
+<h3 id="">外网访问篇</h3>
+<p>以上这些仅限局域网使用，比如我们出门或者分享给朋友就需要通过路由器配置虚拟服务器提供服务了。</p>
+<p>一般家庭路由在不断网的情况下会分配一个动态IP，这个IP在路由不重启的时候是可以通过路由器进行简单配置，让外网的访问透传到内部指定的机器上，这样我们相当于有一个公网的服务器。</p>
+<p>网络拓扑图：</p>
+<p><img src="http://www.192ly.com/wp-content/uploads/2014/07/TL-WR882N-DKYS-TP.png" alt="IP"></p>
+<p>虚拟服务器：</p>
+<p><img src="http://www.192ly.com/wp-content/uploads/2014/07/TL-WR882N-DKYS-JC.png" alt="IP"></p>
+<p>文献资料</p>
 <ul>
 <li><a href="http://lnmp.org/install.html" target="_blank">LNMP</a></li>
 <li><a href="http://lnmp.org/faq/lnmp-software-list.html" target="_blank">LNMP安装了哪些软件？安装目录在哪？</a></li>
