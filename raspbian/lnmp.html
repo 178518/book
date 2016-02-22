@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="6.3" data-basepath=".." data-revision="1456038792933">
+    <div class="book" data-level="6.3" data-basepath=".." data-revision="1456152113623">
     
 
 <div class="book-summary">
@@ -687,7 +687,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_31">
+                    <section class="normal" id="section-gitbook_32">
                     
                         <h1 id="ngixphp5mysql5">安装Ngix/PHP5/MySQL5</h1>
 <h3 id="">准备篇</h3>
@@ -761,6 +761,12 @@ sudo chmod 777 /etc/network/if-pre-up.d/iptables  #添加执行权限
 
 chkconfig apache2 on
 chkconfig mysql on
+
+nano /etc/mysql/my.cnf
+
+注释bind-address  =127.0.0.1,开启外网访问
+
+重启：/etc/init.d/mysql restart
 
 sudo /etc/init.d/apache2 start/stop/restart
 sudo /etc/init.d/mysql start/stop/restart

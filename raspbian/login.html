@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="6.2" data-basepath=".." data-revision="1456038792933">
+    <div class="book" data-level="6.2" data-basepath=".." data-revision="1456152113623">
     
 
 <div class="book-summary">
@@ -687,7 +687,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_32">
+                    <section class="normal" id="section-gitbook_33">
                     
                         <h1 id="raspbian">Raspbian的配置</h1>
 <blockquote>
@@ -704,17 +704,30 @@
 </code></pre><p>这样就可以解锁root账户了。切换root命令</p>
 <pre><code>su root
 </code></pre><h3 id="">树莓派重启</h3>
-<pre><code>sudo reboot
+<p>shutdown的語法</p>
+<p>-r：在將系統的服務停掉之後就重新開機(常用)
+-h：將系統的服務停掉後，立即關機。 (常用)</p>
+<pre><code>sudo reboot             #系統重新開機
 sudo shutdown -r now
 </code></pre><h3 id="">树莓派关机</h3>
-<pre><code>sudo shutdown -h now
-sudo halt
-sudo poweroff
-</code></pre><h3 id="">源更改</h3>
+<pre><code>sudo shutdown -h now 
+sudo halt               #系統停止～螢幕可能會保留系統已經停止的訊息！
+sudo poweroff           #系統關機
+</code></pre><h3 id="linux">Linux系统运行级别</h3>
+<p>linux运行级别：
+0级关闭系统，相当于halt，
+1级单用户模式，只有一个控制台终端，一般供root做系统维护，
+2级多用户模式，但是没有NFS，即无网络服务的多用户模式
+3级标准的运行级别，有网络服务的多用户模式
+4级未定义
+5级有网络和X Window的多用户图形界面，X11
+6级重启，相当于reboot。</p>
+<h3 id="">源更改</h3>
 <pre><code>sudo nano /etc/apt/sources.list
 
 deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free rpi
-</code></pre><p>Ctrl+O保存，Ctrl+X退出</p>
+</code></pre><p>中文字体设置：<a href="http://tieba.baidu.com/p/4330953657" target="_blank">http://tieba.baidu.com/p/4330953657</a></p>
+<p>Ctrl+O保存，Ctrl+X退出</p>
 <h3 id="">更新软件</h3>
 <pre><code># 更新软件源数据
 sudo apt-get update
@@ -769,7 +782,7 @@ sudo ifup wlan0
 断开WiFi
 sudo ifdown wlan0
 
-到这里，一切都配置好了。下次开机的时候，树莓派将自动连接有效的WiFi。
+到这里，一切都配置好了。下次开机的时候，树莓派将t连接有效的WiFi。
 
 你可以试验一下WiFi的掉线自动重连功能，比如重启一下无线路由器，看树莓派还能不能重新连接上无线路由器。
 </code></pre><h3 id="aria2-apache2-git">aria2 apache2 git安装</h3>
@@ -967,6 +980,8 @@ hosts allow = 192.168.1.? 开放指定IP访问,多个IP之间用空格隔开
 
 valid users = yzhao    //有效的用户和组，多个空格隔开
 
+如果树莓派外挂了移动硬盘或U盘，XBian系统会自动挂载分区，目录在根目录下的media这个文件夹内。
+
 [global]
  server string = XBIAN
  guest ok = no
@@ -1026,6 +1041,10 @@ sudo smbpasswd -a yzhao
 netstat -ntulp |grep 139
 可以看到端口号为139和445 
 sudo service smbd restart
+
+查看配置：
+
+testparm
 
 查看smb是否开启动：
 
