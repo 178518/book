@@ -28,18 +28,34 @@ su root
 
 ### 树莓派重启
 
+shutdown的語法
+
+-r：在將系統的服務停掉之後就重新開機(常用)
+-h：將系統的服務停掉後，立即關機。 (常用)
+
 ```
-sudo reboot
+sudo reboot             #系統重新開機
 sudo shutdown -r now
 ```
 
 ### 树莓派关机
 
 ```
-sudo shutdown -h now
-sudo halt
-sudo poweroff
+sudo shutdown -h now 
+sudo halt               #系統停止～螢幕可能會保留系統已經停止的訊息！
+sudo poweroff           #系統關機
 ```
+
+### Linux系统运行级别
+
+linux运行级别：
+0级关闭系统，相当于halt，
+1级单用户模式，只有一个控制台终端，一般供root做系统维护，
+2级多用户模式，但是没有NFS，即无网络服务的多用户模式
+3级标准的运行级别，有网络服务的多用户模式
+4级未定义
+5级有网络和X Window的多用户图形界面，X11
+6级重启，相当于reboot。
 
 ### 源更改
 
@@ -48,6 +64,9 @@ sudo nano /etc/apt/sources.list
 
 deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free rpi
 ```
+
+中文字体设置：http://tieba.baidu.com/p/4330953657
+
 Ctrl+O保存，Ctrl+X退出
 
 ### 更新软件
@@ -112,7 +131,7 @@ sudo ifup wlan0
 断开WiFi
 sudo ifdown wlan0
 
-到这里，一切都配置好了。下次开机的时候，树莓派将自动连接有效的WiFi。
+到这里，一切都配置好了。下次开机的时候，树莓派将t连接有效的WiFi。
 
 你可以试验一下WiFi的掉线自动重连功能，比如重启一下无线路由器，看树莓派还能不能重新连接上无线路由器。
 ```
@@ -187,7 +206,7 @@ input-file=/home/xbian/.aria2/aria2.session
 # 在Aria2退出时保存`错误/未完成`的下载任务到会话文件
 save-session=/home/xbian/.aria2/aria2.session 
 # 定时保存会话, 0为退出时才保存, 需1.16.1以上版本, 默认:0
-#save-session-interval=60
+save-session-interval=60
 
 ## RPC相关设置 ##
 
@@ -235,7 +254,7 @@ user-agent=Transmission/2.77
 seed-ratio=0
 # 强制保存会话, 即使任务已经完成, 默认:false
 # 较新的版本开启后会在任务完成后依然保留.aria2文件
-#force-save=false
+force-save=true
 # BT校验相关, 默认:true
 #bt-hash-check-seed=true
 # 继续之前的BT任务时, 无需再次校验, 默认:false
@@ -324,6 +343,8 @@ hosts allow = 192.168.1.? 开放指定IP访问,多个IP之间用空格隔开
 
 valid users = yzhao    //有效的用户和组，多个空格隔开
 
+如果树莓派外挂了移动硬盘或U盘，XBian系统会自动挂载分区，目录在根目录下的media这个文件夹内。
+
 [global]
  server string = XBIAN
  guest ok = no
@@ -383,6 +404,10 @@ sudo smbpasswd -a yzhao
 netstat -ntulp |grep 139
 可以看到端口号为139和445 
 sudo service smbd restart
+
+查看配置：
+
+testparm
 
 查看smb是否开启动：
 

@@ -36,3 +36,11 @@ npm unpublish rc-lego@0.0.1
 ```
 npm deprecate rc-lego@"<0.0.3" "bug fixed in v0.0.3"
 ```
+
+### aeproxy & whistle 启动停止
+aeproxy start/restart/stop
+whistle start/restart/stop
+
+简化版
+w2 start/restart/stop
+w2 start -p 9527(在指定端口上提供服务)

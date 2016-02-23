@@ -77,6 +77,12 @@ sudo apt-get install mysql-server php5 php5-mysql
 chkconfig apache2 on
 chkconfig mysql on
 
+nano /etc/mysql/my.cnf
+
+注释bind-address  =127.0.0.1,开启外网访问
+
+重启：/etc/init.d/mysql restart
+
 sudo /etc/init.d/apache2 start/stop/restart
 sudo /etc/init.d/mysql start/stop/restart
 sudo service apache2 restart
