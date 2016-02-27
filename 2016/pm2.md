@@ -77,6 +77,9 @@ pm2 link your-secret-key your-public-key 178518
 
 此时，pm2会把搜集到的统计信息实时的推送到Keymetrics，我们可以在Keymetrics的中实时的查到node.js的运行信息。
 
+![moint](../assets/node/keymetrics.png)
+
 ***
+### 参考文献
 
 [PM2](https://www.gitbook.com/book/wohugb/pm2)
