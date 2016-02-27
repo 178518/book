@@ -9,7 +9,7 @@ body{
     left: 0;
     background: #2db7f5;
     display: none;
-    transition: left .3s cubic-bezier(.075, .82, .165, 1), width 1.5s cubic-bezier(.075, .82, .165, 1);
+    transition: left .3s cubic-bezier(.075, .82, .165, 1);
 }
 
 .logo img {
