@@ -31,6 +31,7 @@ sudo nano /etc/iptables.default.rules    #添加以下内容
 # You could modify this to only allow certain traffic
 -A OUTPUT -j ACCEPT
 # Allows HTTP and MySQLconnections from anywhere (the normal ports for websites)
+-A INPUT -p tcp --dport 21 -j ACCEPT
 -A INPUT -p tcp --dport 80 -j ACCEPT
 -A INPUT -p udp --dport 137 -j ACCEPT
 -A INPUT -p udp --dport 138 -j ACCEPT

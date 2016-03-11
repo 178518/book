@@ -27,5 +27,6 @@
  - [MacOS 烧录树莓派](raspbian/burn.md)
  - [Raspbian的配置](raspbian/login.md)
  - [Raspbian安装Apache2/PHP5/MySQL5](raspbian/lnmp.md)
+ - [Raspbian安装ftp](raspbian/ftp.md)
  - [Java 环境安装](raspbian/java.md)
  - [Raspbian的安卓应用](raspbian/android.md)
