@@ -87,6 +87,8 @@ sudo apt-get update
 # 更新已安装软件
 sudo apt-get upgrade
 这三个命令主要清理升级缓存以及无用包的。
+apt-get remove xxxx 卸载但不删除配置
+apt-get purge xxxx 卸载并且删除相关配置
 # 清理旧版本的软件缓存
 apt-get autoclean
 # 清理所有软件缓存

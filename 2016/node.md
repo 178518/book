@@ -60,15 +60,15 @@ npm -v
 
 uname -a
 
-首先下载NodeJS的二进制文件，https://nodejs.org/dist/v4.3.0/node-v4.3.0-linux-armv6l.tar.gz   
+首先下载NodeJS的二进制文件，http://nodejs.org/dist/v4.3.0/node-v4.3.0-linux-armv6l.tar.gz   
 
 在Linux Binaries (.tar.gz)行处根据自己系统的位数选择
 
-sudo wget http://nodejs.org/dist/v4.3.0/node-v4.3.0-linux-armv6l.tar.gz
+sudo wget -c http://nodejs.org/dist/v4.3.0/node-v4.3.0-linux-armv6l.tar.gz
 
 放在了/opt下面,依次执行如下命令
 
-tar zxvf node-v4.3.0-linux-armv6l.tar.gz
+sudo tar zxvf node-v4.3.0-linux-armv6l.tar.gz
 
 进入解压后的目录bin目录下，执行ls会看到两个文件node,npm. 
 

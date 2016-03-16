@@ -29,4 +29,5 @@
  - [Raspbian安装Apache2/PHP5/MySQL5](raspbian/lnmp.md)
  - [Raspbian安装ftp](raspbian/ftp.md)
  - [Java 环境安装](raspbian/java.md)
+ - [FTP配置](raspbian/ftp.md)
  - [Raspbian的安卓应用](raspbian/android.md)
