@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="6.2" data-basepath=".." data-revision="1456591670848">
+    <div class="book" data-level="6.2" data-basepath=".." data-revision="1458137217621">
     
 
 <div class="book-summary">
@@ -562,13 +562,29 @@
         </li>
     
         
-        <li class="chapter " data-level="6.4" data-path="raspbian/java.html">
+        <li class="chapter " data-level="6.4" data-path="raspbian/ftp.html">
+            
+                
+                    <a href="../raspbian/ftp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                         Raspbian安装ftp
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.5" data-path="raspbian/java.html">
             
                 
                     <a href="../raspbian/java.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>6.4.</b>
+                            <b>6.5.</b>
                         
                          Java 环境安装
                     </a>
@@ -578,13 +594,29 @@
         </li>
     
         
-        <li class="chapter " data-level="6.5" data-path="raspbian/android.html">
+        <li class="chapter " data-level="6.6" data-path="raspbian/ftp.html">
+            
+                
+                    <a href="../raspbian/ftp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.6.</b>
+                        
+                         FTP配置
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.7" data-path="raspbian/android.html">
             
                 
                     <a href="../raspbian/android.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>6.5.</b>
+                            <b>6.7.</b>
                         
                          Raspbian的安卓应用
                     </a>
@@ -687,7 +719,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_32">
+                    <section class="normal" id="section-gitbook_34">
                     
                         <h1 id="raspbian">Raspbian的配置</h1>
 <blockquote>
@@ -713,7 +745,13 @@ sudo shutdown -r now
 <pre><code>sudo shutdown -h now 
 sudo halt               #系統停止～螢幕可能會保留系統已經停止的訊息！
 sudo poweroff           #系統關機
-</code></pre><h3 id="linux">Linux系统运行级别</h3>
+</code></pre><h3 id="">树莓派手动释放内存</h3>
+<p>1、查看内存使用情况</p>
+<p>free -m</p>
+<p>2、开始清理</p>
+<p>清理必须以root身份进入</p>
+<p>echo 1 &gt; /proc/sys/vm/drop_caches</p>
+<h3 id="linux">Linux系统运行级别</h3>
 <p>linux运行级别：
 0级关闭系统，相当于halt，
 1级单用户模式，只有一个控制台终端，一般供root做系统维护，
@@ -734,6 +772,8 @@ sudo apt-get update
 # 更新已安装软件
 sudo apt-get upgrade
 这三个命令主要清理升级缓存以及无用包的。
+apt-get remove xxxx 卸载但不删除配置
+apt-get purge xxxx 卸载并且删除相关配置
 # 清理旧版本的软件缓存
 apt-get autoclean
 # 清理所有软件缓存
@@ -910,7 +950,7 @@ bt-seed-unverified=true
 # 保存磁力链接元数据为种子文件(.torrent文件), 默认:false
 bt-save-metadata=true
 
-完了后运行：sudo aria2c –-conf-path=/home/xbian/.aria2/aria2.conf
+完了后运行：sudo aria2c –-conf-path=/home/xbian/.aria2/aria2.conf,如果报错执行这个试试aria2c –-conf-path=/home/xbian/.aria2/aria2.conf 
 测试有没有错误，如果没有错误的话Ctrl + C终止程序继续下一步，有错误会提示你conf文件哪里错误。
 把aria2做成系统的服务：
 sudo nano /etc/init.d/aria2c
@@ -981,6 +1021,7 @@ hosts allow = 192.168.1.? 开放指定IP访问,多个IP之间用空格隔开
 valid users = yzhao    //有效的用户和组，多个空格隔开
 
 如果树莓派外挂了移动硬盘或U盘，XBian系统会自动挂载分区，目录在根目录下的media这个文件夹内。
+force user 必须具有相应的目录权限
 
 [global]
  server string = XBIAN

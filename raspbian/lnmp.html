@@ -19,7 +19,7 @@
         
     
     
-    <link rel="next" href="../raspbian/java.html" />
+    <link rel="next" href="../raspbian/ftp.html" />
     
     
     <link rel="prev" href="../raspbian/login.html" />
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="6.3" data-basepath=".." data-revision="1456591670848">
+    <div class="book" data-level="6.3" data-basepath=".." data-revision="1458137217621">
     
 
 <div class="book-summary">
@@ -562,13 +562,29 @@
         </li>
     
         
-        <li class="chapter " data-level="6.4" data-path="raspbian/java.html">
+        <li class="chapter " data-level="6.4" data-path="raspbian/ftp.html">
+            
+                
+                    <a href="../raspbian/ftp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                         Raspbian安装ftp
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.5" data-path="raspbian/java.html">
             
                 
                     <a href="../raspbian/java.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>6.4.</b>
+                            <b>6.5.</b>
                         
                          Java 环境安装
                     </a>
@@ -578,13 +594,29 @@
         </li>
     
         
-        <li class="chapter " data-level="6.5" data-path="raspbian/android.html">
+        <li class="chapter " data-level="6.6" data-path="raspbian/ftp.html">
+            
+                
+                    <a href="../raspbian/ftp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.6.</b>
+                        
+                         FTP配置
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.7" data-path="raspbian/android.html">
             
                 
                     <a href="../raspbian/android.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>6.5.</b>
+                            <b>6.7.</b>
                         
                          Raspbian的安卓应用
                     </a>
@@ -687,7 +719,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_34">
+                    <section class="normal" id="section-gitbook_33">
                     
                         <h1 id="ngixphp5mysql5">安装Ngix/PHP5/MySQL5</h1>
 <h3 id="">准备篇</h3>
@@ -720,6 +752,7 @@ sudo nano /etc/iptables.default.rules    #添加以下内容
 # You could modify this to only allow certain traffic
 -A OUTPUT -j ACCEPT
 # Allows HTTP and MySQLconnections from anywhere (the normal ports for websites)
+-A INPUT -p tcp --dport 21 -j ACCEPT
 -A INPUT -p tcp --dport 80 -j ACCEPT
 -A INPUT -p udp --dport 137 -j ACCEPT
 -A INPUT -p udp --dport 138 -j ACCEPT
@@ -819,7 +852,7 @@ wget -c http://soft.vpser.net/lnmp/lnmp1.2-full.tar.gz &amp;&amp; tar zxf lnmp1.
         <a href="../raspbian/login.html" class="navigation navigation-prev " aria-label="Previous page: Raspbian的配置"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../raspbian/java.html" class="navigation navigation-next " aria-label="Next page: Java 环境安装"><i class="fa fa-angle-right"></i></a>
+        <a href="../raspbian/ftp.html" class="navigation navigation-next " aria-label="Next page: Raspbian安装ftp"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
