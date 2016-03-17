@@ -297,12 +297,15 @@ server {
         proxy_pass http://192.168.1.118:9000;
         # proxy_set_header nginx作为反向代理服务器，将请求转发给后端真实服务器，如果不行host的重写，所有的真是服务器都会误认为是nginx服务器发送的请求。
         # proxy_set_header就是用于将客户端真实的host, ip信息，传送给后端服务器。
-        proxy_set_header Host $host;
-        #proxy_set_header Host $host:$server_port;
-        # 在这里X-Real-IP是一个自定义的变量名，名字可以随意取，在web端可以用request.getAttribute("X-Real-IP")  获取IP
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header   Referer http://$host;
+        # proxy_set_header Host $host;
+         proxy_set_header Host $host:$server_port;
+         proxy_set_header Web-Server-Type nginx;
+         proxy_set_header X-Forward-For $remote_addr;
+         proxy_set_header WL-Proxy-Client-IP $remote_addr;
+         # 在这里X-Real-IP是一个自定义的变量名，名字可以随意取，在web端可以用request.getAttribute("X-Real-IP")  获取IP
+         proxy_set_header X-Real-IP $remote_addr;
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         #proxy_set_header   Referer http://$host;
 
         # With php5-cgi alone:
         #        fastcgi_index index.php;

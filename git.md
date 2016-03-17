@@ -14,6 +14,9 @@
 
 ### 配置别名(全局)
 ```
+用户信息
+git config --global user.name "yunyi.zy"
+git config --global user.email 178518@gmail.com
 nano ~/.gitconfig
 #别名查看
 git config --list
@@ -24,6 +27,32 @@ git config --global alias.ci commit
 git config --global alias.br branch
 git config --global alias.last 'log -1'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
+
+### 生成SSH密钥过程
+```
+1.查看是否已经有了ssh密钥
+cd ~/.ssh
+
+如果没有密钥则不会有此文件夹，有则备份删除
+
+2.生存密钥
+
+ssh-keygen -t rsa -C "178518@gmail.com"
+
+按3个回车，密码为空
+
+3.添加到SSH agent中
+ssh-agent bash
+ssh-add id_rsa
+
+4.SSH放到github上
+把这个SSH放到github上。用公钥。先在GitHub上注册一个用户，然后进入account-setting ，把id_rsa.pub的内容复制进去就可以了。
+
+5.将公钥添加到GitHub，然后用ssh访问GitHub
+ssh -T git@github.com
+显示了一条成功信息，并且退出
+Hi 178518! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
 ### 新建代码库
