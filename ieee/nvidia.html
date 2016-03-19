@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>目录结构规范 | 乐高</title>
+        <title>Nvidia开发板 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../lego/component.html" />
+    <link rel="next" href="../raspbian/burn.html" />
     
     
-    <link rel="prev" href="../lego/index.html" />
+    <link rel="prev" href="../ieee/ieee.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.4" data-basepath=".." data-revision="1458371095913">
+    <div class="book" data-level="7.2" data-basepath=".." data-revision="1458371095913">
     
 
 <div class="book-summary">
@@ -412,7 +412,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5.4" data-path="lego/catalog.html">
+        <li class="chapter " data-level="5.4" data-path="lego/catalog.html">
             
                 
                     <a href="../lego/catalog.html">
@@ -568,7 +568,7 @@
         </li>
     
         
-        <li class="chapter " data-level="7.2" data-path="ieee/nvidia.html">
+        <li class="chapter active" data-level="7.2" data-path="ieee/nvidia.html">
             
                 
                     <a href="../ieee/nvidia.html">
@@ -789,30 +789,40 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_24">
+                    <section class="normal" id="section-gitbook_20">
                     
-                        <h1 id="">目录结构规范</h1>
-<p>LEGO 推荐使用以下目录结构</p>
-<pre><code>├── scripts
-│   └── start.js
-├── src                                   &lt;--源码目录
-│   ├── Components                        &lt;--组件
-│   │   └── ComponentName                 &lt;--组件名
-│   │       ├── ComponentName.android.js  &lt;--组件对应各端的实现
-│   │       ├── ComponentName.ios.js
-│   │       └── ComponentName.web.js
-│   ├── DemoApp.android.js                &lt;--对应各端的项目入口文件
-│   ├── DemoApp.ios.js
-│   ├── DemoApp.web.js
-│   ├── __tests__
-│   │   └── app-test.js
-│   └── index.html                        &lt;--对应web端的demo页
-├── assets.map.json                       &lt;--基于wepack的打包配置映射关系文件
-├── webpack.config.js                     &lt;--webpack配置文件
-├── node_modules
-├── package.json
-└── README.md
-</code></pre>
+                        <h1 id="nvidiajetson-tx1">NVIDIA嵌入平台Jetson TX1</h1>
+<blockquote>
+<p>NVIDIA也借着人机大战的热潮，在首都北京宣布其嵌入式计算平台Jetson TX1正式来到国内，该平台 正是主要面向人工智能设备的开发。</p>
+</blockquote>
+<p>近期人机大战的AlphaGO出尽风头，让大家再次意识到AI人工智能的强大，NVIDIA也借着这股热潮，在首都北京宣布其嵌入式计算平台Jetson TX1正式来到国内，该平台正是涉及到人工智能学习神经网络，面向移动设备智能化的开发。</p>
+<p><img src="http://www.wokeji.com/guojipindao/guojiqianyan/201603/W020160317554616089086.jpg" alt="jpg"></p>
+<p>作为与移动设备渐行渐远的Tegra处理器，从上一代Tegra K1开始就推出了类似的开发板Jetson TK1，而此次推出的Jetson TX1不同之处在于，Nvidia把计算模块从I/O扩展开发平台独立了出来，所以能够把核心嵌入式组件做到一张信用卡的大小。</p>
+<p><img src="http://www.wokeji.com/guojipindao/guojiqianyan/201603/W020160317554616259341.jpg" alt="jpg"></p>
+<p>以下是该产品的技术参数：</p>
+<p>GPU：TeraFlop级浮点运算、256核Maxwell架构GPU；</p>
+<p>CPU：4*A57；</p>
+<p>视频：4K视频编解码；</p>
+<p>相机：支持1400万像素/秒；</p>
+<p>内存：4GB MPDDR4 RAM、25.6 Gb/s；</p>
+<p>存储：16GB eMMC；</p>
+<p>网络：802.11ac 2x2 Wi-Fi + 蓝牙 + 1Gbps以太网；</p>
+<p>系统：支持Linux for Tegra；</p>
+<p>尺寸：50 mm x 87 mm</p>
+<p>与Jetson TK1中的Tegra K1相比，新的TX1所搭载的Tegra X1在浮点运算性能达到了1T-Flops，架构也升级为了最新的Maxwell，核心数也由上一代的192提升为了256。不过耐人寻味的是，Jetson TX1所搭载的Tegra X1并非标准版的4<em>A53+4</em>A57大小核结构，而是4*A57的结构。</p>
+<p><img src="http://www.wokeji.com/guojipindao/guojiqianyan/201603/W020160317554616375493.jpg" alt="jpg"></p>
+<p>另一方面，整个模块的功耗被控制在了10W，虽然这对于移动设备来说仍然烫手，但对于无人机和机器人而言，这一数字已经足够低了。</p>
+<p>Nvidia官方表示，Jetson TX1上搭载的Tegra X1具有很强的可扩展性和并行计算能力，能够在复杂的多维空间里实时处理外界信息，并通过“端到端训练部署”在使用中持续进行自学习。</p>
+<p><img src="http://www.wokeji.com/guojipindao/guojiqianyan/201603/W020160317554616531989.jpg" alt="jpg"></p>
+<p>所谓“端到端训练部署”就是让Jetson TX1通过神经网络与云端的Digits Devbox（用于加速深度学习研究的桌面级工作平台）进行信息交换。当TX1无法作出判断时，TX1会将信息提交给Digits Devbox，Digits Devbox通过深度学习的方式做出判断后再反馈给TX1，使之“学会”如何处理。</p>
+<p>“深度学习赋予了机器自我学习并执行更加复杂任务的能力。Jetson TX1的推出，正是为了让深度学习与机械智能化变得更加得心应手，同时也让无人驾驶、无人机技术能够更加普及。”</p>
+<p>——Nvidia中国区总经理 张建中</p>
+<p>在现场，Nvidia展示了基于Jetson TX1开发出的两款案例，一个是博瑞空间的无人机，另一个是米文动力的机器人，不过由于空间有限并未进行实际演示。</p>
+<p><img src="http://www.wokeji.com/guojipindao/guojiqianyan/201603/W020160317554616639931.jpg" alt="jpg"></p>
+<p>而在谈及与友商Intel在CES上大秀Yuneec “台风 H” 无人机的避障功能时，Nvidia方面直言：</p>
+<p>“在并行计算能力上，GPU与CPU相比有着天生的绝对优势，而且Nvidia的开发平台也更加成熟。从Jetson TX1上我们也可以看到，我们所能够支持的接口非常全面，工作环境的适应力也更强。再加上我们的Maxwell架构，可以说，目前我们的能耗比占据着绝对优势，能够领先第二名5倍之多。”</p>
+<p>虽然该产品已于去年11月12日正式发布并在美国开放预定，但中国并未同步发售，开发者需要等到今年5月才能开始拿到该产品。根据Nvidia给出的官方售卖链接来看，单颗Jetson TX1 Module嵌入式组件的售价为2380元，搭配全套开发者组件的产品售价为4680元，这里是Nvidia给出的淘宝官方预售链接。</p>
+
                     
                     </section>
                 
@@ -822,10 +832,10 @@
         </div>
 
         
-        <a href="../lego/index.html" class="navigation navigation-prev " aria-label="Previous page: 乐高前端解决方案"><i class="fa fa-angle-left"></i></a>
+        <a href="../ieee/ieee.html" class="navigation navigation-prev " aria-label="Previous page: 嵌入式"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../lego/component.html" class="navigation navigation-next " aria-label="Next page: 组件开发规范"><i class="fa fa-angle-right"></i></a>
+        <a href="../raspbian/burn.html" class="navigation navigation-next " aria-label="Next page: MacOS 烧录树莓派"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
