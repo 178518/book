@@ -1,5 +1,24 @@
 # 反向代理设置Nginx+Apache
 
+### Nginx 升级
+
+```
+sudo nano /etc/apt/sources.list
+```
+
+添加如下源
+> deb http://nginx.org/packages/debian/ squeeze nginx
+> deb-src http://nginx.org/packages/debian/ squeeze nginx
+
+然后运行 apt-get update 并重新安装 nginx即可：
+```
+sudo apt-get update
+sudo apt-get install nginx
+```
+
+[强大的 apt-get 命令](http://www.cnblogs.com/xiangzi888/archive/2012/03/18/2405075.html)
+[apt-get 命令](http://www.cnblogs.com/indiepop/archive/2011/11/10/2244903.html)
+
 /etc/nginx/nginx.conf
 
 ```
@@ -161,10 +180,21 @@ server {
         # 如果没有与客户端匹配的server区段，nginx会选择第一个server区段。该指令接受通配符
         server_name www.yuuso.com yuuso.com;
         location / {
-                # First attempt to serve request as file, then
-                # as directory, then fall back to displaying a 404.
-                try_files $uri $uri/ =404;
-        }
+                        # First attempt to serve request as file, then
+                        # as directory, then fall back to displaying a 404.
+                        try_files $uri $uri/ =404;
+                        # 禁用缓存
+                        proxy_buffering off;
+                        # 打开concat 功能
+                        # 默认关闭
+                        concat on;
+                        # 最大合并文件数 (默认: 10)
+                        concat_max_files 20;
+                        # 只允许同类型文件合并 默认是开启的
+                        concat_unique on;
+                        # 允许合并的文件类型，多个以逗号分隔。如：application/x-javascript, text/css
+                        concat_types application/javascript text/css;
+         }
 
         location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
             {
