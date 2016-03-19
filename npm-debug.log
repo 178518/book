@@ -1,0 +1,91 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.3.6
+3 info using node@v5.0.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/yunyi/nodespace/book',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/yunyi/.npm/gitbook/0.0.1/package.tgz not in flight; packing
+9 info lifecycle gitbook@0.0.1~prepublish: gitbook@0.0.1
+10 silly lifecycle gitbook@0.0.1~prepublish: no script for prepublish, continuing
+11 verbose tar pack [ '/Users/yunyi/.npm/gitbook/0.0.1/package.tgz',
+11 verbose tar pack   '/Users/yunyi/nodespace/book' ]
+12 verbose tarball /Users/yunyi/.npm/gitbook/0.0.1/package.tgz
+13 verbose folder /Users/yunyi/nodespace/book
+14 verbose addLocalTarball adding from inside cache /Users/yunyi/.npm/gitbook/0.0.1/package.tgz
+15 silly cache afterAdd gitbook@0.0.1
+16 verbose afterAdd /Users/yunyi/.npm/gitbook/0.0.1/package/package.json not in flight; writing
+17 verbose afterAdd /Users/yunyi/.npm/gitbook/0.0.1/package/package.json written
+18 silly publish { name: 'gitbook',
+18 silly publish   version: '0.0.1',
+18 silly publish   description: 'gitbook',
+18 silly publish   repository: { type: 'git', url: 'git+https://github.com/178518/book.git' },
+18 silly publish   author: { name: '178518', email: '178518@gmail.com' },
+18 silly publish   scripts: { publish: 'gitbook build && gulp deploy' },
+18 silly publish   dependencies: { gulp: '3.6.x', 'gulp-gh-pages': '^0.3.3' },
+18 silly publish   devDependencies: { gitbook: '1.5.0' },
+18 silly publish   readme: '<img src="assets/lego.svg" width="100">\n\n### 乐高\n\n> [乐高](http://baike.baidu.com/view/292192.htm)公司创办于丹麦，至今已有80年的发展历史，追本溯源，还得从它的金字招牌LEGO说起。商标“LEGO”的使用是从1934年开始，其语来自丹麦语“LEg GOdt”，意为“play well”（玩得快乐），并且该名字首先迅速成为乐高公司在Billund地区玩具工厂生产的优质玩具的代名词。\n  多年来，“LEGO”图标也变化了多种形式，最新的图标是1998年制作，它是在1973年的版本基础上稍作调整而成，使之更便于在媒体上传播和识别。第一个生产地在丹麦的一所红房子中，那里就是乐高开始的地方。\n  \n### 品牌介绍\n  \n> 乐高积木是儿童喜爱的玩具。这种塑胶积木一头有凸粒，另一头\n  有可嵌入凸粒的孔，形状有1300多种，每一种形状都有12种不同的颜色，以红、黄、蓝、白、黑为主。它靠小朋友自己动脑动手，可以拼插出变化无穷的造型，令人爱不释手，被称为“魔术塑料积木”。乐高积木的故乡就在丹麦比隆。\n  \n### Web Compontents\n> [模块化](http://fex.baidu.com/blog/2014/05/web-components-future-oriented/)是指解决一个复杂问题时自顶向下逐层把系统划分成若干模块的过程，有多种属性，分别反映其内部特性。模块化本体是指具有模块结构的本体（知识库的一种表现形式）。模块化用来分割，组织和打包软件。模块化是一种处理复杂系统分解成为更好的可管理模块的方式。一种是基于非经典语义的逻辑语言扩展，如分布式描述逻辑，E-连接和基于包的描述逻辑；另外一种途径是基于经典描述逻辑语义，但限制对外部符号的使用以保证各模块可安全的合并。\n\n### 元数据\n\n> [元数据](http://baike.baidu.com/view/107838.htm)（Metadata），又称中介数据、中继数据，为描述数据的数据（data about data），主要是描述数据属性（property）的信息，用来支持如指示存储位置、历史数据、资源查找、文件记录等功能。元数据算是一种电子式目录，为了达到编制目录的目的，必须在描述并收藏数据的内容或特色，进而达成协助数据检索的目的。都柏林核心集（Dublin Core Metadata Initiative，DCMI）是元数据的一种应用，是1995年2月由国际图书馆电脑中心（OCLC）和美国国家超级计算应用中心（National Center for Supercomputing Applications，NCSA）所联合赞助的研讨会，在邀请52位来自图书馆员、电脑专家，共同制定规格，创建一套描述网络上电子文件之特征。\n  元数据是关于数据的组织、数据域及其关系的信息，简言之，元数据就是关于数据的数据。\n  \n### 组件化页面\n> 就是我们通过http请求访问的一个具体页面，只是这个页面的元素是由一个或多个“业务组件组”拼凑而成，比如一个查询页面是由一个“查询业务组”和一个“结果集业务组”组合而成。 \n\n### 业务组件组\n> “业务组件组”由一系列“业务组件”和“功能组件”组合而成，可以表示业务上定义的某一类分组，如“查询业务组”需要一些查询过滤条件，而这些过滤条件在页面的具体展现就是一些业务组件或功能组件的组合。\n\n### 业务组件\n\n> 由“功能组件”被赋予具有业务含义的属性，如下拉功能组件，赋予货主数据源、标题和非空校验等属性，就能显示具有“货主下拉数据”、展现标题、表单提交时自动进行非空校验的能力，这样便形成一个具有独立功能、可复用、可沉淀的业务组件。 \n\n### 基础组件\n> 表示某种类型的组件，不同的“基础组件”具有不同的功能和样式，如文本(text)、图片(image)、链接(link)等基础组件。 \n\n### 事件\n> 为页面上的组件和组件、组件和业务组件、组件和页面交互提供一种协同的行为操作。让原本静态的页面，能够拥有动态的展现能力。关于组件化的动作设计我们将在后面的文章详细介绍。',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: 'dd654e0da0801f9f2728007554a499a08b717d61',
+18 silly publish   bugs: { url: 'https://github.com/178518/book/issues' },
+18 silly publish   homepage: 'https://github.com/178518/book#readme',
+18 silly publish   _id: 'gitbook@0.0.1',
+18 silly publish   _shasum: 'f19517f7cc2d71d15536d9bd724fa042e09740ad',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name gitbook
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry http://registry.npmjs.org/
+23 silly mapToRegistry uri http://registry.npmjs.org/gitbook
+24 verbose publish registryBase http://registry.npmjs.org/
+25 silly publish uploading /Users/yunyi/.npm/gitbook/0.0.1/package.tgz
+26 verbose request uri http://registry.npmjs.org/gitbook
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 14:54:07
+29 verbose request using bearer token for auth
+30 verbose request id 27f4510b8fde6784
+31 http request PUT http://registry.npmjs.org/gitbook
+32 http 403 http://registry.npmjs.org/gitbook
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '99',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Sat, 19 Mar 2016 06:54:39 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-lcy1133-LCY',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1458370455.213236,VS0,VE23930' }
+34 verbose request invalidating /Users/yunyi/.npm/registry.npmjs.org/gitbook on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: You do not have permission to publish 'gitbook'. Are you logged in as the correct user? : gitbook
+36 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+36 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+36 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:87:13)
+36 verbose stack     at Request.emit (events.js:172:7)
+36 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1063:14)
+36 verbose stack     at emitOne (events.js:82:20)
+36 verbose stack     at Request.emit (events.js:169:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+37 verbose statusCode 403
+38 verbose pkgid gitbook
+39 verbose cwd /Users/yunyi/nodespace/book
+40 error Darwin 15.3.0
+41 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+42 error node v5.0.0
+43 error npm  v3.3.6
+44 error code E403
+45 error You do not have permission to publish 'gitbook'. Are you logged in as the correct user? : gitbook
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
