@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3.1" data-basepath=".." data-revision="1458371095913">
+    <div class="book" data-level="3.1" data-basepath=".." data-revision="1458401287298">
     
 
 <div class="book-summary">
@@ -792,6 +792,18 @@
                     <section class="normal" id="section-gitbook_22">
                     
                         <h1 id="nginxapache">反向代理设置Nginx+Apache</h1>
+<h3 id="nginx-">Nginx 升级</h3>
+<pre><code>sudo nano /etc/apt/sources.list
+</code></pre><p>添加如下源</p>
+<blockquote>
+<p>deb <a href="http://nginx.org/packages/debian/" target="_blank">http://nginx.org/packages/debian/</a> squeeze nginx
+deb-src <a href="http://nginx.org/packages/debian/" target="_blank">http://nginx.org/packages/debian/</a> squeeze nginx</p>
+</blockquote>
+<p>然后运行 apt-get update 并重新安装 nginx即可：</p>
+<pre><code>sudo apt-get update
+sudo apt-get install nginx
+</code></pre><p><a href="http://www.cnblogs.com/xiangzi888/archive/2012/03/18/2405075.html" target="_blank">强大的 apt-get 命令</a>
+<a href="http://www.cnblogs.com/indiepop/archive/2011/11/10/2244903.html" target="_blank">apt-get 命令</a></p>
 <p>/etc/nginx/nginx.conf</p>
 <pre><code>user www-data;
 worker_processes 4;
@@ -947,10 +959,21 @@ server {
         # 如果没有与客户端匹配的server区段，nginx会选择第一个server区段。该指令接受通配符
         server_name www.yuuso.com yuuso.com;
         location / {
-                # First attempt to serve request as file, then
-                # as directory, then fall back to displaying a 404.
-                try_files $uri $uri/ =404;
-        }
+                        # First attempt to serve request as file, then
+                        # as directory, then fall back to displaying a 404.
+                        try_files $uri $uri/ =404;
+                        # 禁用缓存
+                        proxy_buffering off;
+                        # 打开concat 功能
+                        # 默认关闭
+                        concat on;
+                        # 最大合并文件数 (默认: 10)
+                        concat_max_files 20;
+                        # 只允许同类型文件合并 默认是开启的
+                        concat_unique on;
+                        # 允许合并的文件类型，多个以逗号分隔。如：application/x-javascript, text/css
+                        concat_types application/javascript text/css;
+         }
 
         location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
             {
