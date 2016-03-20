@@ -17,7 +17,10 @@ sudo apt-get install nginx
 ```
 
 [强大的 apt-get 命令](http://www.cnblogs.com/xiangzi888/archive/2012/03/18/2405075.html)
+
 [apt-get 命令](http://www.cnblogs.com/indiepop/archive/2011/11/10/2244903.html)
+
+[Nginx学习笔记九Nginx的HTTP模块](http://blog.sina.com.cn/s/blog_664553710101061x.html)
 
 /etc/nginx/nginx.conf
 
