@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="7.4" data-basepath=".." data-revision="1458438789336">
+    <div class="book" data-level="7.4" data-basepath=".." data-revision="1458568237353">
     
 
 <div class="book-summary">
@@ -821,7 +821,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_40">
+                    <section class="normal" id="section-gitbook_39">
                     
                         <h1 id="raspbian">Raspbian的配置</h1>
 <blockquote>
@@ -1138,7 +1138,7 @@ force user 必须具有相应的目录权限
  encrypt passwords = true
  log level = 0
  hosts allow = 192.168.1.100 192.168.1.102
-# smb ports = 445
+ # smb ports = 445
  unix extensions = No
  wide links = yes
 
@@ -1200,7 +1200,11 @@ chkconfig --list |grep smbd
 设置smbd开机启动：chkconfig smbd on
 
 service smbd status命令可以查看运行状态.
-</code></pre><h1 id="ip">重启自动上报IP</h1>
+</code></pre><p>smbclient -L //192.168.1.118</p>
+<p>smbclient -L //192.168.1.118 -U [用户名]</p>
+<p>结果如下图则成功了：</p>
+<p><img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6b8d22800100y38z&amp;url=http://s10.sinaimg.cn/orignal/6b8d2280hb8f4c531a749" alt="png"></p>
+<h1 id="ip">重启自动上报IP</h1>
 <pre><code>python /opt/pifind.py
 
 pifind的内容如下：
