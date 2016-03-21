@@ -75,4 +75,24 @@ location / {
 
 ![png](../assets/nginx/3.png)        
 
-![png](../assets/nginx/4.png)        
+![png](../assets/nginx/4.png) 
+       
+### 负载均衡配置
+       
+        upstream Load_Balance_Server {
+                #down 表示单前的server暂时不参与负载
+                #weight  默认为1.weight越大，负载的权重就越大。
+                #max_fails ：允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream 模块定义的错误
+                #fail_timeout:max_fails 次失败后，暂停的时间。
+                #backup： 其它所有的非backup机器down或者忙的时候，请求backup机器。所以这台机器压力会最轻。
+
+                #ip_hash;
+                server IP:9000 weight=3;
+                server IP:80 weight=1;
+        }       
+
+        location = /lb {
+                proxy_pass  http://Load_Balance_Server;
+        }
+        
+        这样会按照树莓派3:树莓派2B+ 为3:1进行负载均衡

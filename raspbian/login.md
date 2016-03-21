@@ -372,7 +372,7 @@ force user 必须具有相应的目录权限
  encrypt passwords = true
  log level = 0
  hosts allow = 192.168.1.100 192.168.1.102
-# smb ports = 445
+ # smb ports = 445
  unix extensions = No
  wide links = yes
 
@@ -435,6 +435,14 @@ chkconfig --list |grep smbd
 
 service smbd status命令可以查看运行状态.
 ```
+
+smbclient -L //192.168.1.118
+
+smbclient -L //192.168.1.118 -U [用户名]
+
+结果如下图则成功了：
+
+![png](http://photo.blog.sina.com.cn/showpic.html#blogid=6b8d22800100y38z&url=http://s10.sinaimg.cn/orignal/6b8d2280hb8f4c531a749)
 
 #重启自动上报IP
 ```
