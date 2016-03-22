@@ -1,6 +1,8 @@
 # 前端网站大全
 
 - [前端网址导航](http://www.daqianduan.com/nav)
+- [Github上值得关注的前端项目](https://segmentfault.com/a/1190000002804472)
+- [前端组件库](https://github.com/JingwenTian/awesome-frontend)
 
 ### JS
 - [JavaScript 标准参考教程（alpha）](http://javascript.ruanyifeng.com/)
