@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="7.4" data-basepath=".." data-revision="1458658881635">
+    <div class="book" data-level="7.4" data-basepath=".." data-revision="1458748057705">
     
 
 <div class="book-summary">
@@ -837,7 +837,12 @@
 <pre><code>sudo passwd --unlock root
 </code></pre><p>这样就可以解锁root账户了。切换root命令</p>
 <pre><code>su root
-</code></pre><h3 id="">树莓派重启</h3>
+</code></pre><h3 id="ssh">SSH修改端口号</h3>
+<p>sudo /etc/ssh/sshd_config
+ssh localhost -p
+sudo /etc/init.d/ssh restart
+ssh [用户名]@[IP] -p [端口号]</p>
+<h3 id="">树莓派重启</h3>
 <p>shutdown的語法</p>
 <p>-r：在將系統的服務停掉之後就重新開機(常用)
 -h：將系統的服務停掉後，立即關機。 (常用)</p>
