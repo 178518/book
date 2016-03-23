@@ -26,6 +26,13 @@ sudo passwd --unlock root
 su root
 ```
 
+### SSH修改端口号
+
+sudo /etc/ssh/sshd_config
+ssh localhost -p
+sudo /etc/init.d/ssh restart
+ssh [用户名]@[IP] -p [端口号]
+
 ### 树莓派重启
 
 shutdown的語法
