@@ -36,4 +36,5 @@
  - [Raspbian安装ftp](raspbian/ftp.md)
  - [Java 环境安装](raspbian/java.md)
  - [FTP配置](raspbian/ftp.md)
+ - [NFS配置](raspbian/nfs.md)
  - [Raspbian的安卓应用](raspbian/android.md)
