@@ -19,7 +19,6 @@
 * [乐高整体架构](2016/jiagou.md)
  - [CSS动画](animation/animation.md) 
  - [乐高前端解决方案](lego/index.md)
- - [乐高前端解决方案](lego/index.md)
  - [目录结构规范](lego/catalog.md)
  - [组件开发规范](lego/component.md)
  - [平台差异处理](lego/platform.md)
