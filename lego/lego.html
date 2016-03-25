@@ -220,27 +220,22 @@
             var index = $('.nav li').index(this);
             $('.nav .bar').css({'left': index * 72 + 'px'});
         });
-
         var line1 = setTimeout(function () {
             clearTimeout(line1);
             $('.section1-line1').removeClass('hide');
         }, 1000);
-
         var line2 = setTimeout(function () {
             clearTimeout(line2);
             $('.section1-line2').removeClass('hide');
         }, 1300);
-
         var line3 = setTimeout(function () {
             clearTimeout(line3);
             $('.section1-line3').removeClass('hide');
         }, 1600);
-
         var line4 = setTimeout(function () {
             clearTimeout(line4);
             $('.section1-line4').removeClass('hide');
         }, 1900);
-
         $.fn.fullpage({
             verticalCentered: false,
             anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
@@ -259,10 +254,8 @@
                         $('[data-anchor=page' + (index - 1) + ']').find('.animated').removeClass('hide');
                     }, 500);
                 }
-
             }
         });
-
     });
 </script>
 </body>
