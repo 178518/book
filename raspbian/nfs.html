@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="7.9" data-basepath=".." data-revision="1458995375139">
+    <div class="book" data-level="7.9" data-basepath=".." data-revision="1458996217864">
     
 
 <div class="book-summary">
@@ -845,6 +845,9 @@ apt-get install nfs-common nfs-kernel-server</p>
 <p>创建需要共享的目录：</p>
 <p>mkdir /home/pi/share</p>
 <p>chmod a+w /home/pi/share</p>
+<p>sudo nano /etc/exports</p>
+<p>/nfs/public 192.168.16.0/24(rw,async) *(ro)</p>
+<p><a href="http://blog.sina.com.cn/s/blog_517e2e1b0100p7dm.html" target="_blank">NFS配置</a></p>
 <p>2.客户端安装
 apt-get install nfs-common</p>
 <p>mkdir /mnt/upload</p>
