@@ -33,3 +33,5 @@
 
 ### 事件
 > 为页面上的组件和组件、组件和业务组件、组件和页面交互提供一种协同的行为操作。让原本静态的页面，能够拥有动态的展现能力。关于组件化的动作设计我们将在后面的文章详细介绍。
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258212428'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1258212428%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>

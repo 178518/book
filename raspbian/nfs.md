@@ -9,6 +9,12 @@ mkdir /home/pi/share
  
 chmod a+w /home/pi/share
 
+sudo nano /etc/exports
+
+/nfs/public 192.168.16.0/24(rw,async) *(ro)
+
+[NFS配置](http://blog.sina.com.cn/s/blog_517e2e1b0100p7dm.html)
+
 2.客户端安装
 apt-get install nfs-common
 
