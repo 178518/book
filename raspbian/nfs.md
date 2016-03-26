@@ -30,6 +30,6 @@ sudo showmount -e 192.168.1.118
 
 sudo nano /etc/rc.local
 
-sudo mount -t nfs 192.168.1.118:/var/www/html/discuz/data /var/www/html/discuz/data
+sudo -u root mount -t nfs 192.168.1.118:/var/www/html/discuz/data /var/www/html/discuz/data
 
 sudo umount /var/www/html/discuz/data
