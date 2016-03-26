@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="7.9" data-basepath=".." data-revision="1458930759986">
+    <div class="book" data-level="7.9" data-basepath=".." data-revision="1458995375139">
     
 
 <div class="book-summary">
@@ -856,7 +856,7 @@ apt-get install nfs-common</p>
 <p>sudo showmount -e 192.168.1.118</p>
 <p>在/etc/rc.local下输入：</p>
 <p>sudo nano /etc/rc.local</p>
-<p>sudo mount -t nfs 192.168.1.118:/var/www/html/discuz/data /var/www/html/discuz/data</p>
+<p>sudo -u root mount -t nfs 192.168.1.118:/var/www/html/discuz/data /var/www/html/discuz/data</p>
 <p>sudo umount /var/www/html/discuz/data</p>
 
                     
