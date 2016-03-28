@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.4" data-basepath=".." data-revision="1458996567214">
+    <div class="book" data-level="5.4" data-basepath=".." data-revision="1459171121285">
     
 
 <div class="book-summary">
@@ -840,7 +840,11 @@
                     <section class="normal" id="section-gitbook_29">
                     
                         <h1 id="">文件加载方案</h1>
-<h3 id="">开发阶段</h3>
+<p>所谓天下合久必分,分久必合,以前一个页面会有很多CSS/JS请求,后来提倡雅虎优化军规,尽可能减少重复发起请求,所以有了combo进行文件合并,但是这个带来的问题是不同的页面之间的公共文件无法使用浏览器缓存.</p>
+<p>Lego提供二级缓存机制:
+1.核心的类库,在打包阶段就分离出来,并使用combo进行合并,核心文件应该尽可能的少变更</p>
+<pre><code>&lt;script src=&quot;http://www.yuuso.com/static/js/??react.min.js,react-dom.min.js,jquery-2.1.4.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>2.页面的模块使用webpack打包成一体化的文件,配合assets.map.json实现按内容hash解决缓存问题</p>
 
                     
                     </section>
