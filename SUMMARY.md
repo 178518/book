@@ -20,6 +20,7 @@
  - [CSS动画](animation/animation.md) 
  - [乐高前端解决方案](lego/index.md)
  - [目录结构规范](lego/catalog.md)
+ - [Promise](promise/file.md)
  - [文件加载方式](lego/file.md)
  - [组件开发规范](lego/component.md)
  - [平台差异处理](lego/platform.md)
