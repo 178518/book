@@ -22,6 +22,7 @@ $ pm2 start app.js -i 4 #后台运行pm2，启动4个app.js
                                 # 也可以把'max' 参数传递给 start
                                 # 正确的进程数目依赖于Cpu的核心数目
 $ pm2 start app.js --name my-api # 命名进程
+$ pm2 start restful.js -i max --name restful
 $ pm2 list               # 显示所有进程状态
 $ pm2 monit              # 监视所有进程
 $ pm2 logs               #  显示所有进程日志
@@ -67,7 +68,12 @@ pm2 monit
 
 登录后并new bucket，进入控制面板，看到分配的public key 和secret key。输出以下命令：
 
+### 安装监控服务器模块
+
+Ports 80 (tcp out) and 43554 (tcp in/out) must be opened
+
 ```
+pm2 install pm2-server-monit
 pm2 link your-secret-key your-public-key 178518
 ```
 
@@ -83,3 +89,5 @@ pm2 link your-secret-key your-public-key 178518
 ### 参考文献
 
 [PM2](https://www.gitbook.com/book/wohugb/pm2)
+
+[pm2-web](https://www.ijser.cn/pm2-web/)

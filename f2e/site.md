@@ -1,8 +1,13 @@
 # 前端网站大全
 
+- [Material design](http://www.google.com/design/spec/material-design/introduction.html)
+- [React Material design](http://www.material-ui.com/)
+- [Material Design 中文版](http://wiki.jikexueyuan.com/project/material-design/)
 - [前端网址导航](http://www.daqianduan.com/nav)
 - [Github上值得关注的前端项目](https://segmentfault.com/a/1190000002804472)
 - [前端组件库](https://github.com/JingwenTian/awesome-frontend)
+- [Lazy Load](http://www.appelsiini.net/projects/lazyload/enabled.html)
+- [MATERIAL DESIGN框架](http://www.htmleaf.com/ziliaoku/qianduanjiaocheng/201505151842.html)
 
 ### JS
 - [JavaScript 标准参考教程（alpha）](http://javascript.ruanyifeng.com/)
