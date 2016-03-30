@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="4.3" data-basepath=".." data-revision="1459299572968">
+    <div class="book" data-level="4.3" data-basepath=".." data-revision="1459341706527">
     
 
 <div class="book-summary">
@@ -853,7 +853,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_12">
+                    <section class="normal" id="section-gitbook_13">
                     
                         <h1 id="keymetricsnodejs">运用keymetrics实时监控Node.js</h1>
 <p>node-dev 用于开发环境可以实现修改JS后自动重启</p>
@@ -869,6 +869,7 @@ pm2 web
                                 # 也可以把&#39;max&#39; 参数传递给 start
                                 # 正确的进程数目依赖于Cpu的核心数目
 $ pm2 start app.js --name my-api # 命名进程
+$ pm2 start restful.js -i max --name restful
 $ pm2 list               # 显示所有进程状态
 $ pm2 monit              # 监视所有进程
 $ pm2 logs               #  显示所有进程日志
@@ -907,7 +908,10 @@ $ pm2 start my-python-script.py -x --interpreter python
 <p><a href="https://app.keymetrics.io/#/register" target="_blank">https://app.keymetrics.io/#/register</a></p>
 </blockquote>
 <p>登录后并new bucket，进入控制面板，看到分配的public key 和secret key。输出以下命令：</p>
-<pre><code>pm2 link your-secret-key your-public-key 178518
+<h3 id="">安装监控服务器模块</h3>
+<p>Ports 80 (tcp out) and 43554 (tcp in/out) must be opened</p>
+<pre><code>pm2 install pm2-server-monit
+pm2 link your-secret-key your-public-key 178518
 </code></pre><p>监控成功，会有类似的提示：</p>
 <p>[Keymetrics.io] [Agent created] Agent ACTIVE - Web Access: <a href="https://app.keymetrics.io/" target="_blank">https://app.keymetrics.io/</a></p>
 <p>此时，pm2会把搜集到的统计信息实时的推送到Keymetrics，我们可以在Keymetrics的中实时的查到node.js的运行信息。</p>
@@ -915,6 +919,7 @@ $ pm2 start my-python-script.py -x --interpreter python
 <hr>
 <h3 id="">参考文献</h3>
 <p><a href="https://www.gitbook.com/book/wohugb/pm2" target="_blank">PM2</a></p>
+<p><a href="https://www.ijser.cn/pm2-web/" target="_blank">pm2-web</a></p>
 
                     
                     </section>
