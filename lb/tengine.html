@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3.3" data-basepath=".." data-revision="1459341706527">
+    <div class="book" data-level="3.3" data-basepath=".." data-revision="1459432213675">
     
 
 <div class="book-summary">
@@ -853,7 +853,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_25">
+                    <section class="normal" id="section-gitbook_26">
                     
                         <h1 id="tengine-">tengine 安装</h1>
 <h3 id="tengine">下载tengine</h3>
@@ -876,7 +876,7 @@ sudo apt-get install libpcre3 libpcre3-dev
 sudo apt-get install zlib1g zlib1g-dev
 sudo apt-get install openssl libcurl4-openssl-dev</p>
 <p>cd tengine-2.1.2
-sudo ./configure --prefix=/opt/webserver/tengine --with-http_concat_module --with-http_headers_module
+sudo ./configure --prefix=/opt/webserver/tengine --with-http_concat_module --with-http_ssl_module --with-http_spdy_module --with-http_stub_status_module --with-pcre --with-http_headers_module
 sudo make &amp;&amp; make install</p>
 <h3 id="nginx">替换原有的nginx</h3>
 <p>sudo cp nginx /usr/sbin/</p>

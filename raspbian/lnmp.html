@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="7.5" data-basepath=".." data-revision="1459341706527">
+    <div class="book" data-level="7.5" data-basepath=".." data-revision="1459432213675">
     
 
 <div class="book-summary">
@@ -853,7 +853,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_43">
+                    <section class="normal" id="section-gitbook_42">
                     
                         <h1 id="ngixphp5mysql5">安装Ngix/PHP5/MySQL5</h1>
 <h3 id="chkconfig">chkconfig命令</h3>
@@ -872,15 +872,15 @@ chkconfig mysql on        #设定mysql在各等级为on，“各等级”包括2
 <p>Debian 6因为缺少LBS，安装软件时会提示一下错误</p>
 <p>解决方法：
 编辑/etc/init.d/<em>*</em> 启动脚本,在前面加入如下内容:</p>
-<h3 id="begin-init-info">BEGIN INIT INFO</h3>
-<h1 id="provides-aria2">Provides: Aria2</h1>
-<h1 id="required-start-network-remote_fs-syslog-time">Required-Start: $network $remote_fs $syslog $time</h1>
-<h1 id="required-stop">Required-Stop:</h1>
-<h1 id="default-start-2-3-4-5">Default-Start: 2 3 4 5</h1>
-<h1 id="default-stop-0-1-6">Default-Stop: 0 1 6</h1>
-<h1 id="short-description-aria2-download">Short-Description: Aria2 Download</h1>
-<h3 id="end-init-info">END INIT INFO</h3>
-<h3 id="">准备篇</h3>
+<pre><code>### BEGIN INIT INFO
+# Provides: Aria2
+# Required-Start: $network $remote_fs $syslog $time
+# Required-Stop:
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Aria2 Download
+### END INIT INFO
+</code></pre><h3 id="">准备篇</h3>
 <blockquote>
 <p>配置防火墙，开启80端口、3306端口</p>
 <p>说明：debian默认安装是没有开启任何防火墙的，为了服务器的安全，建议大家安装启用防火墙设置，这里推荐使用iptables防火墙。</p>
