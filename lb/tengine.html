@@ -22,7 +22,7 @@
     <link rel="next" href="../2016/node.html" />
     
     
-    <link rel="prev" href="../lb/nginx.html" />
+    <link rel="prev" href="../lb/ssl.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3.3" data-basepath=".." data-revision="1459432497739">
+    <div class="book" data-level="3.4" data-basepath=".." data-revision="1459488651026">
     
 
 <div class="book-summary">
@@ -272,13 +272,29 @@
         </li>
     
         
-        <li class="chapter active" data-level="3.3" data-path="lb/tengine.html">
+        <li class="chapter " data-level="3.3" data-path="lb/ssl.html">
+            
+                
+                    <a href="../lb/ssl.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         SSL配置
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="3.4" data-path="lb/tengine.html">
             
                 
                     <a href="../lb/tengine.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>3.3.</b>
+                            <b>3.4.</b>
                         
                          Tengine配置
                     </a>
@@ -853,7 +869,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_26">
+                    <section class="normal" id="section-gitbook_27">
                     
                         <h1 id="tengine-">tengine 安装</h1>
 <h3 id="tengine">下载tengine</h3>
@@ -876,7 +892,7 @@ sudo apt-get install libpcre3 libpcre3-dev
 sudo apt-get install zlib1g zlib1g-dev
 sudo apt-get install openssl libcurl4-openssl-dev</p>
 <p>cd tengine-2.1.2
-sudo ./configure --prefix=/opt/webserver/tengine --with-http_concat_module --with-http_ssl_module --with-http_spdy_module --with-http_stub_status_module --with-pcre --with-http_headers_module
+sudo ./configure --prefix=/opt/webserver/tengine --with-http_concat_module --with-http_ssl_module --with-http_spdy_module --with-http_stub_status_module --with-pcre --with-http_v2_module --with-http_headers_module
 sudo make &amp;&amp; make install</p>
 <h3 id="nginx">替换原有的nginx</h3>
 <p>sudo cp nginx /usr/sbin/</p>
@@ -934,7 +950,7 @@ sudo make &amp;&amp; make install</p>
         </div>
 
         
-        <a href="../lb/nginx.html" class="navigation navigation-prev " aria-label="Previous page: Nginx配置"><i class="fa fa-angle-left"></i></a>
+        <a href="../lb/ssl.html" class="navigation navigation-prev " aria-label="Previous page: SSL配置"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../2016/node.html" class="navigation navigation-next " aria-label="Next page: 基本安装"><i class="fa fa-angle-right"></i></a>
