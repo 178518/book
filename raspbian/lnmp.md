@@ -22,6 +22,7 @@ Debian 6因为缺少LBS，安装软件时会提示一下错误
 解决方法：
 编辑/etc/init.d/*** 启动脚本,在前面加入如下内容:
 
+```
 ### BEGIN INIT INFO
 # Provides: Aria2
 # Required-Start: $network $remote_fs $syslog $time
@@ -30,6 +31,7 @@ Debian 6因为缺少LBS，安装软件时会提示一下错误
 # Default-Stop: 0 1 6
 # Short-Description: Aria2 Download
 ### END INIT INFO
+```
 
 ### 准备篇
 > 配置防火墙，开启80端口、3306端口

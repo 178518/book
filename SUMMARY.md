@@ -10,6 +10,7 @@
 * [负载均衡](lb/index.md)
  - [Combo配置](lb/combo.md) 
  - [Nginx配置](lb/nginx.md) 
+ - [SSL配置](lb/ssl.md) 
  - [Tengine配置](lb/tengine.md) 
 * [基本安装](2016/node.md)
  - [环境配置](2016/setup.md)

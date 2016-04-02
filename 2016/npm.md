@@ -44,3 +44,8 @@ whistle start/restart/stop
 简化版
 w2 start/restart/stop
 w2 start -p 9527(在指定端口上提供服务)
+
+***
+### 参考文献
+
+[npm模块管理器](http://javascript.ruanyifeng.com/nodejs/npm.html)

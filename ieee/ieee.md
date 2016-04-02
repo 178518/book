@@ -8,9 +8,15 @@
 ### 参考文献
 
 [Cubieboard4 CC-A80 开发板](http://www.waveshare.net/shop/Cubieboard4-CC-A80.htm)
+
 [FireFly RK3288 开发板](https://t-firefly.taobao.com/)
+
 [FireFly开源团队](http://www.t-firefly.com/zh/)
+
 [入门指南(初学者必看)](http://wiki.t-firefly.com/index.php/Firefly-RK3288/Starter_guide)
+
 [维基教程](http://wiki.t-firefly.com/index.php/Firefly-RK3288/Starter_guide)
+
 [资料下载](http://www.t-firefly.com/zh/firenow/firefly_rk3288/download/)
+
 [Firefly-RK3288全部资料下载](http://pan.baidu.com/s/1dDhDNGX#path=%252FDevBoard%252FFirefly-RK3288)

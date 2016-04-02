@@ -35,7 +35,7 @@ sudo apt-get install zlib1g zlib1g-dev
 sudo apt-get install openssl libcurl4-openssl-dev
 
 cd tengine-2.1.2
-sudo ./configure --prefix=/opt/webserver/tengine --with-http_concat_module --with-http_headers_module
+sudo ./configure --prefix=/opt/webserver/tengine --with-http_concat_module --with-http_ssl_module --with-http_spdy_module --with-http_stub_status_module --with-pcre --with-http_v2_module --with-http_headers_module
 sudo make && make install
 
 ### 替换原有的nginx
