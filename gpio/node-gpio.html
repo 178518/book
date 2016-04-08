@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="7.1" data-basepath=".." data-revision="1460037118377">
+    <div class="book" data-level="7.1" data-basepath=".." data-revision="1460093425875">
     
 
 <div class="book-summary">
@@ -911,11 +911,11 @@
                     
                         <h1 id="gpio-">gpio 库</h1>
 <h3 id="gpio">安装编译GPIO库</h3>
-<p>git clone git://github.com/quick2wire/quick2wire-gpio-admin.git
-cd quick2wire-gpio-admin
-sudo make
-sudo make install</p>
-<p>var http = require(&#39;http&#39;)
+<p>git clone git://github.com/quick2wire/quick2wire-gpio-admin.git</p>
+<p>cd quick2wire-gpio-admin</p>
+<p>sudo make</p>
+<p>sudo make install</p>
+<pre><code>var http = require(&#39;http&#39;)
 var gpio = require(&#39;pi-gpio&#39;)
 var fs = require(&#39;fs&#39;)
 var errHandler = function (err){
@@ -942,8 +942,8 @@ http.createServer(function (req, res){
     res.writeHead(200, {&#39;Content-Type&#39;: &#39;text/html&#39;});
     res.end(fs.readFileSync(&#39;index.html&#39;));
 }).listen(1984);
-console.log(&#39;server runn at 1984&#39;);</p>
-
+console.log(&#39;server runn at 1984&#39;);
+</code></pre>
                     
                     </section>
                 
