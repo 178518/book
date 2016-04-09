@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>LEGO组件化 | 乐高</title>
+        <title>GPIO远程控制电灯 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../lego/react-native.html" />
+    <link rel="next" href="../raspbian/readMe.html" />
     
     
-    <link rel="prev" href="../lego/platform.html" />
+    <link rel="prev" href="../gpio/node-gpio.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.8" data-basepath=".." data-revision="1460168373018">
+    <div class="book" data-level="7.2" data-basepath=".." data-revision="1460168373018">
     
 
 <div class="book-summary">
@@ -524,7 +524,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5.8" data-path="lego/components.html">
+        <li class="chapter " data-level="5.8" data-path="lego/components.html">
             
                 
                     <a href="../lego/components.html">
@@ -632,7 +632,7 @@
         </li>
     
         
-        <li class="chapter " data-level="7.2" data-path="gpio/light.html">
+        <li class="chapter active" data-level="7.2" data-path="gpio/light.html">
             
                 
                     <a href="../gpio/light.html">
@@ -923,78 +923,80 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_32">
+                    <section class="normal" id="section-gitbook_20">
                     
-                        <h1 id="">组件化实践</h1>
-<h3 id="webcomponents-">WebComponents 标准</h3>
-<p>传统jQuery组件化使用所需要的步奏：</p>
-<blockquote>
-<p>1、引入插件js</p>
-<p>2、引入插件所需的css（如果有）</p>
-<p>3、copy 组件的所需的html片段</p>
-<p>4、添加代码触发组件启动</p>
-</blockquote>
-<p>现阶段的&quot;组件&quot;基本上只能达到是某个功能单元上的集合。他的资源都是松散地分散在三种资源文件中，尤其是CSS文件对于组件调用者来说是黑盒。</p>
-<p>WebCompoents的四部分功能：</p>
-<blockquote>
-<p>1、template定义组件的HTML模板能力</p>
-<p>2、Shadow Dom封装组件的内部结构，并且保持其独立性</p>
-<p>3、Custom Element 对外提供组件的标签，实现自定义标签</p>
-<p>4、import解决组件结合和依赖加载</p>
-</blockquote>
-<h3 id="">组件化实践方案</h3>
-<p>官方的标准看完了，我们思考一下。一份真正成熟可靠的组件化方案，需要具备的能力。</p>
-<blockquote>
-<p>“资源高内聚”—— 组件资源内部高内聚，组件资源由自身加载控制，组件使用者无需关注内部细节</p>
-<p>“作用域独立”—— 内部结构密封，不与全局或其他组件产生影响 </p>
-<p>“自定义标签”—— 定义组件的使用方式，</p>
-<p>“可相互组合”—— 组件正在强大的地方，组件间组装整合</p>
-<p>“数据配置化”—— 基于元数据、PATH解析器来实现数据差异化和组件的分离，保持组件层的数据模型的独立性和稳定性</p>
-<p>“接口规范化”—— 组件接口有统一规范，或者是生命周期的管理</p>
-<p>“可插拔无指令污染”—— 这个不是组件化的范畴，但是作为一个解决方案应尽可能的减小对于使用方的侵入，前端的编译、打包、合并应全部是线下解决，线上就是一个静态托管环境，避免各种指令对第三方的污染。</p>
-</blockquote>
-<p>个人认为，模板能力是基础能力，跟是否组件化没有强联系，所以没有提出一个大点。</p>
-<h3 id="jsx">JSX很丑，但是组件内聚的关键</h3>
-<p>技术方案【Webpack】+【React】将会是这套方案的核心技术。</p>
-<p>学习完React这个组件化框架后，看看组件化能力点的完成情况</p>
-<p><img src="../assets/jiagou/jsx.png" alt="React"></p>
-<blockquote>
-<p>“资源高内聚”—— (33%) html与js内聚</p>
-<p>“作用域独立”—— (50%) js的作用域独立</p>
-<p>“自定义标签”—— (100%) jsx</p>
-<p>“可相互组合”—— (50%)  可组合，但缺乏有效的加载方式</p>
-<p>“数据配置化”—— (100%) props </p>
-<p>“接口规范化”—— (100%) 组件生命周期方法</p>
-<p>“可插拔无指令污染”—— (100%) 非指令方式，基于虚拟DOM解决污染问题</p>
-</blockquote>
-<h3 id="webpack-">Webpack 资源组件化</h3>
-<p>对于组件化的资源独立性，一般的模块加载工具和构建流程视乎变得吃力。组件化的构建工程化，不再是之前我们常见的，css合二，js合三，而是体验在组件间的依赖于加载关系。webpack正好符合需求点，一方面填补组件化能力点，另一方帮助我们完善组件化的整体构建环境。</p>
-<p>首先要申明一点是，webpack是一个模块加载打包工具，用于管理你的模块资源依赖打包问题。这跟我们熟悉的requirejs模块加载工具，和grunt/gulp构建工具的概念，多多少少有些出入又有些雷同。</p>
-<p><img src="../assets/jiagou/webpack.jpg" alt="Webpack"></p>
-<p><img src="../assets/jiagou/webpack2.png" alt="Webpack"></p>
-<h3 id="">组件一体输出</h3>
-<p>如果说，react使到html和js合为一体。
-那么加上webpack，两者结合一起的话。js，css，png(base64)，html 所有web资源都能合成一个JS文件。
-这正是这套方案的核心所在：组件独立一体化。如果要引用一个组件，仅仅require(&#39;./comm-list.js&#39;) 即可完成。</p>
-<p>加入webpack的模块加载器之后，我们组件的加载问题，内聚问题也都成功地解决掉</p>
-<blockquote>
-<p>“资源高内聚”—— (100%) 所有资源可以一js输出</p>
-<p>“可相互组合”—— (100%) 可组合可依赖加载</p>
-</blockquote>
-<h3 id="">组件化之路还在继续</h3>
-<p>配搭gulp补充webpack构建能力，webpack的react-hotloader神器。热加载的开发模式绝对是下一代前端开发必备。
-严格说，如果没有了热加载，我会很果断地放弃这套方案，即使这套方案再怎么优秀，我都讨厌react需要5~6s的编译时间。
-但是hotloader可以在我不刷新页面的情况下，动态修改代码，而且不单单是样式，连逻辑也是即时生效。
-最终经过测试的模块统一被推送到npm上，使用者类似Java的二方库的方式引入使用，解决了开发更新问题。</p>
-<pre><code>    &quot;start&quot;: &quot;node-dev app&quot;,
-    &quot;production&quot;: &quot;NODE_ENV=prduction node app&quot;,
-    &quot;build&quot;: &quot;gulp&quot;,
-    &quot;lint&quot;:&quot;npm run eslint&quot;,
-    &quot;eslint&quot;: &quot;eslint src/js/components --ext &#39;.js,.jsx&#39;&quot;,
-    &quot;prepublish&quot;: &quot;rm -rf lib &amp;&amp; npm run lint &amp;&amp; babel src/js/components --out-dir lib &amp;&amp; rm -rf lib/style &amp;&amp; node scripts/prenpm.js&quot;,
-    &quot;postpub&quot;:&quot;npm run prepublish &amp;&amp; cd lib &amp;&amp; npm publish&quot;
-</code></pre><p><img src="../assets/jiagou/hot-loader-done.gif" alt="Webpack"></p>
-<p>如上在form表单内。使用热加载，表单不需要重新填写，修改submit的逻辑立刻生效。这样的开发效率真不是提高仅仅一个档次。</p>
+                        <h1 id="">通过树莓派控制电灯开关</h1>
+<h3 id="">需要的材料</h3>
+<p>1.杜邦线</p>
+<p>2.继电器</p>
+<p>3.电灯</p>
+<p>4.铜线若干</p>
+<h3 id="gpio">GPIO说明</h3>
+<p><img src="../assets/gpio/gpio.png" alt="png"></p>
+<h3 id="">继电器说明</h3>
+<p><img src="https://img.alicdn.com/imgextra/i4/738263294/TB2iEqgfXXXXXatXXXXXXXXXXXX_!!738263294.jpg" alt="jpg"></p>
+<p>输入部分：</p>
+<p>VCC:接5V电源正极（按继电器电压供电）</p>
+<p>GND:接5V电源负极</p>
+<p>IN: 继电器模组信号触发端（低电平触发有效）</p>
+<p>高电平与低电平含义：</p>
+<p>高电平触发指的是用VCC端的正极电压与触发端连接的一种触发方式，当触发端有正极电压或达到触发的电压时，继电器则吸合。</p>
+<p>低电平触发指的是用GND端的负极电压与触发端连接的一种触发方式，当触发端有0V电压或电压低到可以触发时，继电器则吸合。</p>
+<p>产品使用说明：</p>
+<p>1.模组的供电：电源一定要直流，电压要与继电器的电压相符</p>
+<p>2.继电器的公共端，常开，常闭，只是单刀双掷的开关，接线方法如下</p>
+<p>常开端的接线方法：</p>
+<p><img src="https://img.alicdn.com/imgextra/i3/738263294/TB2aHtZfXXXXXbnXpXXXXXXXXXX_!!738263294.jpg" alt="jpg"></p>
+<p>当信号触发端有低电平触发时，公共端与常开端会接通，设备有电而工作</p>
+<p>常闭端的接线方法：</p>
+<p><img src="https://img.alicdn.com/imgextra/i4/738263294/TB2Cx8RfXXXXXcNXpXXXXXXXXXX_!!738263294.jpg" alt="jpg"></p>
+<p>当信号触发端有低电平触发时，公共端与常闭端会断开，设备无电不工作</p>
+<h3 id="">电路图</h3>
+<p><img src="http://img1.tuicool.com/rEnquqr.jpg!web" alt="jpg"></p>
+<h3 id="python-">python 控制脚本</h3>
+<p>打开电灯</p>
+<pre><code>#!/usr/bin/env python
+# encoding: utf-8
+
+import RPi.GPIO as GPIO
+import time
+
+# 指定GPIO口的选定模式为GPIO引脚编号模式（而非主板编号模式）
+GPIO.setmode(GPIO.BCM)
+
+# 指定GPIO14（就是LED长针连接的GPIO针脚）的模式为输出模式
+# 如果上面GPIO口的选定模式指定为主板模式的话，这里就应该指定8号而不是14号。
+GPIO.setup(14, GPIO.OUT)
+
+# 让GPIO14输出低电平（风扇启动）    
+GPIO.output(14, False)
+
+# 最后清理GPIO口,清理完毕后就没有电位了（不做也可以，建议每次程序结束时清理一下，好习惯）
+#GPIO.cleanup()
+</code></pre><p>关闭电灯</p>
+<pre><code>!/usr/bin/env python
+# encoding: utf-8
+
+import RPi.GPIO as GPIO
+import time
+
+# 指定GPIO口的选定模式为GPIO引脚编号模式（而非主板编号模式）
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
+# 指定GPIO14（就是LED长针连接的GPIO针脚）的模式为输出模式
+# 如果上面GPIO口的选定模式指定为主板模式的话，这里就应该指定8号而不是14号。
+GPIO.setup(14, GPIO.OUT)
+
+# 让GPIO14输出低电平（风扇启动）    
+#GPIO.cleanup()
+GPIO.output(14, True)
+
+# 最后清理GPIO口（不做也可以，建议每次程序结束时清理一下，好习惯）
+GPIO.cleanup()
+</code></pre><h3 id="">完整的效果图</h3>
+<p><img src="../assets/gpio/20160409_094027.jpg" alt="jpg"></p>
+<p>后续可以通过node JS的pi-node GPIO写一个网页控制面板,就可以实现远程控制家用电器了</p>
 
                     
                     </section>
@@ -1005,10 +1007,10 @@
         </div>
 
         
-        <a href="../lego/platform.html" class="navigation navigation-prev " aria-label="Previous page: 平台差异处理"><i class="fa fa-angle-left"></i></a>
+        <a href="../gpio/node-gpio.html" class="navigation navigation-prev " aria-label="Previous page: Node GPIO"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../lego/react-native.html" class="navigation navigation-next " aria-label="Next page: React Native"><i class="fa fa-angle-right"></i></a>
+        <a href="../raspbian/readMe.html" class="navigation navigation-next " aria-label="Next page: 树莓派"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
