@@ -449,7 +449,7 @@ smbclient -L //192.168.1.118 -U [用户名]
 
 结果如下图则成功了：
 
-![png](http://photo.blog.sina.com.cn/showpic.html#blogid=6b8d22800100y38z&url=http://s10.sinaimg.cn/orignal/6b8d2280hb8f4c531a749)
+![png](http://s10.sinaimg.cn/middle/6b8d2280hb8f4c531a749&690)
 
 #重启自动上报IP
 ```

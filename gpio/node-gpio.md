@@ -3,10 +3,14 @@
 ### 安装编译GPIO库
 
 git clone git://github.com/quick2wire/quick2wire-gpio-admin.git
+
 cd quick2wire-gpio-admin
+
 sudo make
+
 sudo make install
 
+```
 var http = require('http')
 var gpio = require('pi-gpio')
 var fs = require('fs')
@@ -35,3 +39,4 @@ http.createServer(function (req, res){
     res.end(fs.readFileSync('index.html'));
 }).listen(1984);
 console.log('server runn at 1984');
+```

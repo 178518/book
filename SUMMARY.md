@@ -31,6 +31,7 @@
  - [环境配置](2016/setup.md)
 * [GPIO](gpio/index.md)
  - [Node GPIO](gpio/node-gpio.md)
+ - [GPIO远程控制电灯](gpio/light.md)
 * [树莓派](raspbian/readMe.md)
  - [嵌入式](ieee/ieee.md)
  - [Nvidia开发板](ieee/nvidia.md)
