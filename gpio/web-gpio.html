@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>乐高前端解决方案 | 乐高</title>
+        <title>Web GPIO | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../lego/catalog.html" />
+    <link rel="next" href="../raspbian/readMe.html" />
     
     
-    <link rel="prev" href="../animation/animation.html" />
+    <link rel="prev" href="../gpio/light.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.2" data-basepath=".." data-revision="1460460256736">
+    <div class="book" data-level="7.3" data-basepath=".." data-revision="1460460256736">
     
 
 <div class="book-summary">
@@ -428,7 +428,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5.2" data-path="lego/index.html">
+        <li class="chapter " data-level="5.2" data-path="lego/index.html">
             
                 
                     <a href="../lego/index.html">
@@ -648,7 +648,7 @@
         </li>
     
         
-        <li class="chapter " data-level="7.3" data-path="gpio/web-gpio.html">
+        <li class="chapter active" data-level="7.3" data-path="gpio/web-gpio.html">
             
                 
                     <a href="../gpio/web-gpio.html">
@@ -939,10 +939,31 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_36">
+                    <section class="normal" id="section-gitbook_20">
                     
-                        <p><img src="../assets/lego.svg" width="100"></p>
-<h3 id="">乐高前端解决方案</h3>
+                        <h1 id="gpio">通过网页远程控制树莓派的GPIO</h1>
+<h3 id="webiopi">下载和安装WebIOPi</h3>
+<p>(WebIOPi)[<a href="https://sourceforge.net/projects/webiopi/files/" target="_blank">https://sourceforge.net/projects/webiopi/files/</a>]</p>
+<p>$tar xvzf WebIOPi-0.7.1.tar.gz</p>
+<p>$cd WebIOPi-0.7.1</p>
+<p>$sudo ./setup.sh</p>
+<h3 id="webiopi">运行WebIOPi</h3>
+<p>sudo python -m webiopi [port]</p>
+<p>注：port为端口号，不配的话默认是8000</p>
+<p>关闭程序是“ctrl+z”</p>
+<h3 id="webiopi">后台运行或者关闭WebIOPi</h3>
+<p>$sudo /etc/init.d/webiopi start</p>
+<p>$sudo /etc/init.d/webiopi stop</p>
+<h3 id="webiopi">启动自动运行WebIOPi</h3>
+<p>$sudo update-rc.d webiopi defaults
+$sudo update-rc.d -f webiopi remove</p>
+<p>运行WebIOPi后，在PC上打开IE浏览器，输入树莓派的ip和端口（之前步骤中设置过）</p>
+<p>帐号：webiopi</p>
+<p>密码：raspberry</p>
+<h3 id="">测试安装是否成功</h3>
+<p>webiopi -h</p>
+<p>(node JS GPIO)[<a href="http://cnodejs.org/topic/54032efa9769c2e93797cd06" target="_blank">http://cnodejs.org/topic/54032efa9769c2e93797cd06</a>]
+(webiopi安装与入门)[<a href="http://blog.csdn.net/xukai871105/article/details/20799551" target="_blank">http://blog.csdn.net/xukai871105/article/details/20799551</a>]</p>
 
                     
                     </section>
@@ -953,10 +974,10 @@
         </div>
 
         
-        <a href="../animation/animation.html" class="navigation navigation-prev " aria-label="Previous page: CSS动画"><i class="fa fa-angle-left"></i></a>
+        <a href="../gpio/light.html" class="navigation navigation-prev " aria-label="Previous page: GPIO远程控制电灯"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../lego/catalog.html" class="navigation navigation-next " aria-label="Next page: 目录结构规范"><i class="fa fa-angle-right"></i></a>
+        <a href="../raspbian/readMe.html" class="navigation navigation-next " aria-label="Next page: 树莓派"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
