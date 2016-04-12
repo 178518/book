@@ -10,6 +10,9 @@ sudo make
 
 sudo make install
 
+### 安装pi-gpio库
+https://github.com/rakeshpai/pi-gpio
+
 ```
 var http = require('http')
 var gpio = require('pi-gpio')

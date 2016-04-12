@@ -32,6 +32,7 @@
 * [GPIO](gpio/index.md)
  - [Node GPIO](gpio/node-gpio.md)
  - [GPIO远程控制电灯](gpio/light.md)
+ - [Web GPIO](gpio/web-gpio.md)
 * [树莓派](raspbian/readMe.md)
  - [嵌入式](ieee/ieee.md)
  - [Nvidia开发板](ieee/nvidia.md)
