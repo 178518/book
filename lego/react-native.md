@@ -49,3 +49,7 @@ var Platform = require('ReactPlatform');
 ```
 
 这里我们按需 require 封装后的组件：ReactAppRegistry/ReactView/...。 封装后的组件使我们不再需要关心平台的差异(Web/iOS/Android)。像上面提到的，HasteResolverPlugin 插件会帮助 webpack 做好代码的编译和打包工作。
+
+### 资料文献
+
+- [React Native 中文网](http://reactnative.cn/)

@@ -43,4 +43,5 @@ $zip -r lego.app/Contents/Resources/app.nw *
 ### 资料文献
 
 - [官网](http://nwjs.io/)
+- [nwjs-doc](https://wizardforcel.gitbooks.io/nwjs-doc/content/)
 - [gitHub](https://github.com/nwjs/nw.js)
