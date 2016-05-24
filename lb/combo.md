@@ -45,6 +45,8 @@ sudo cp -a nginx /usr/sbin/
 
 sudo nginx -t  
 
+sudo /etc/init.d/nginx (start|stop|restart|reload|force-reload|status|configtest|rotate|upgrade)
+
 nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 
 nginx: configuration file /etc/nginx/nginx.conf test is successful
