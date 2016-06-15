@@ -3,3 +3,5 @@
 Thumbs.db
 /_book/
 /node_modules/
+/.idea/
+*.log
