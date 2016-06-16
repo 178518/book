@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Tengine配置 | 乐高</title>
+        <title>虚拟化 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../2016/node.html" />
+    <link rel="next" href="../docker/setup.html" />
     
     
-    <link rel="prev" href="../lb/ssl.html" />
+    <link rel="prev" href="../raspbian/android.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3.4" data-basepath=".." data-revision="1466061798455">
+    <div class="book" data-level="9" data-basepath=".." data-revision="1466061798455">
     
 
 <div class="book-summary">
@@ -288,7 +288,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="3.4" data-path="lb/tengine.html">
+        <li class="chapter " data-level="3.4" data-path="lb/tengine.html">
             
                 
                     <a href="../lb/tengine.html">
@@ -845,7 +845,7 @@
         </li>
     
         
-        <li class="chapter " data-level="9" data-path="docker/index.html">
+        <li class="chapter active" data-level="9" data-path="docker/index.html">
             
                 
                     <a href="../docker/index.html">
@@ -971,78 +971,11 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_33">
+                    <section class="normal" id="section-gitbook_17">
                     
-                        <h1 id="tengine-">tengine 安装</h1>
-<h3 id="tengine">下载tengine</h3>
-<p><a href="http://tengine.taobao.org/index_cn.html" target="_blank">Tengine</a></p>
-<p>sudo wget -c <a href="http://tengine.taobao.org/download/tengine-2.1.2.tar.gz" target="_blank">http://tengine.taobao.org/download/tengine-2.1.2.tar.gz</a></p>
-<h3 id="">安装必要的编译环境好</h3>
-<p>sudo apt-get install gcc autoconf automake</p>
-<h3 id="">安装需要的组件</h3>
-<p>cd /usr/local/src</p>
-<p>sudo wget -c ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.gz</p>
-<p>sudo tar zxvf pcre-8.37.tar.gz</p>
-<p>cd pcre-8.37</p>
-<p>sudo ./configure --prefix=/usr/local/pcre</p>
-<p>sudo make &amp;&amp; make install</p>
-<h3 id="">解压</h3>
-<p>sudo tar -xvf tengine-2.1.2.tar.gz</p>
-<h3 id="">源码编译</h3>
-<p>sudo apt-get install gcc
-sudo apt-get install libpcre3 libpcre3-dev
-sudo apt-get install zlib1g zlib1g-dev
-sudo apt-get install openssl libcurl4-openssl-dev</p>
-<p>cd tengine-2.1.2
-sudo ./configure --prefix=/opt/webserver/tengine --with-http_concat_module --with-http_ssl_module --with-http_spdy_module --with-http_stub_status_module --with-pcre --with-http_v2_module --with-http_headers_module
-sudo make &amp;&amp; make install</p>
-<h3 id="nginx">替换原有的nginx</h3>
-<p>sudo cp nginx /usr/sbin/</p>
-<h3 id="">确认替换成功</h3>
-<p>nginx -v</p>
-<p>Tengine version: Tengine/2.1.2 (nginx/1.6.2)</p>
-<h3 id="comboexpires_by_types">开启combo功能和expires_by_types</h3>
-<p>location / {</p>
-<pre><code>        #root   /var/www/html;
-        #index  index.html index.htm index.php;
-            # 禁用缓存
-            proxy_buffering off;
-            # 打开concat 功能
-            # 默认关闭
-            concat on;
-            # 最大合并文件数 (默认: 10)
-            concat_max_files 20;
-            # 只允许同类型文件合并 默认是开启的
-            concat_unique on;
-            # 允许合并的文件类型，多个以逗号分隔。如：application/x-javascript, text/css
-            concat_types application/javascript text/css;
-            #支持根据Content-Type来设置过期时间
-            expires_by_types       30d text/css;
-            expires_by_types       30d application/javascript;
-    }
-</code></pre><p><img src="../assets/nginx/1.png" alt="png">        </p>
-<p><img src="../assets/nginx/2.png" alt="png">        </p>
-<p><img src="../assets/nginx/3.png" alt="png">        </p>
-<p><img src="../assets/nginx/4.png" alt="png"> </p>
-<h3 id="">负载均衡配置</h3>
-<pre><code>    upstream Load_Balance_Server {
-            #down 表示单前的server暂时不参与负载
-            #weight  默认为1.weight越大，负载的权重就越大。
-            #max_fails ：允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream 模块定义的错误
-            #fail_timeout:max_fails 次失败后，暂停的时间。
-            #backup： 其它所有的非backup机器down或者忙的时候，请求backup机器。所以这台机器压力会最轻。
+                        <h1 id="docker">Docker</h1>
+<p><a href="http://baike.baidu.com/link?url=RwzIQTy9dC1dU4tViaU_-I57YuPARiBRcAbYLHpqUrw_vlp1eYSInWxfqltmQkHLvqJ0g0StAY7AuCs8ssJtyq" target="_blank">Docker</a> 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
 
-            #ip_hash;
-            server IP:9000 weight=3;
-            server IP:80 weight=1;
-    }       
-
-    location = /lb {
-            proxy_pass  http://Load_Balance_Server;
-    }
-
-    这样会按照树莓派3:树莓派2B+ 为3:1进行负载均衡
-</code></pre>
                     
                     </section>
                 
@@ -1052,10 +985,10 @@ sudo make &amp;&amp; make install</p>
         </div>
 
         
-        <a href="../lb/ssl.html" class="navigation navigation-prev " aria-label="Previous page: SSL配置"><i class="fa fa-angle-left"></i></a>
+        <a href="../raspbian/android.html" class="navigation navigation-prev " aria-label="Previous page: Raspbian的安卓应用"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../2016/node.html" class="navigation navigation-next " aria-label="Next page: 基本安装"><i class="fa fa-angle-right"></i></a>
+        <a href="../docker/setup.html" class="navigation navigation-next " aria-label="Next page: Docker"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
