@@ -5,6 +5,7 @@
  - [SM-900V Note3升级4.4](android/android4.4.md)
  - [SM-900V Note3升级5.1](android/android5.1.md)
  - [MAC开发 Android USB 真机调试](android/debugger.md)
+ - [MAC安装 Genymotion调试](android/genymotion.md)
  - [Git 使用帮助](git.md)
  - [GitBook使用帮助](help.md) 
 * [负载均衡](lb/index.md)
