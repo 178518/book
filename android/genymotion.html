@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>虚拟化 | 乐高</title>
+        <title>MAC安装 Genymotion调试 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../docker/setup.html" />
+    <link rel="next" href="../git.html" />
     
     
-    <link rel="prev" href="../raspbian/android.html" />
+    <link rel="prev" href="../android/debugger.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="9" data-basepath=".." data-revision="1467554080762">
+    <div class="book" data-level="2.6" data-basepath=".." data-revision="1467554080762">
     
 
 <div class="book-summary">
@@ -186,7 +186,7 @@
         </li>
     
         
-        <li class="chapter " data-level="2.6" data-path="android/genymotion.html">
+        <li class="chapter active" data-level="2.6" data-path="android/genymotion.html">
             
                 
                     <a href="../android/genymotion.html">
@@ -861,7 +861,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="9" data-path="docker/index.html">
+        <li class="chapter " data-level="9" data-path="docker/index.html">
             
                 
                     <a href="../docker/index.html">
@@ -987,10 +987,27 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_18">
+                    <section class="normal" id="section-gitbook_16">
                     
-                        <h1 id="docker">Docker</h1>
-<p><a href="http://baike.baidu.com/link?url=RwzIQTy9dC1dU4tViaU_-I57YuPARiBRcAbYLHpqUrw_vlp1eYSInWxfqltmQkHLvqJ0g0StAY7AuCs8ssJtyq" target="_blank">Docker</a> 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+                        <h3 id="mac-genymotion">MAC安装 Genymotion调试</h3>
+<p>Android 模拟器一直以速度奇慢无比著称，基本慢到不可用。本文介绍我一直在用的 Genymotion，速度不亚于真机。而且功能齐全，使用简单。
+Genymotion 来自于 AndroVM 这个开源项目，基于 x86 和 VirtualBox，支持 OpenGL 加速，可以用于 Mac/Win/Linux。最近发布了新版，支持了 Android2.3/4.3，新增了拖拽安装 apk，移除了 Google 市场（后面提供解决方案）。另外增加了功能更丰富的付费版，个人可以继续使用免费版。</p>
+<h1 id="">如何使用</h1>
+<p>简单介绍下如何获取和使用 Genymotion：</p>
+<p>1.<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">下载</a>并安装 VirtualBox；</p>
+<p>2.注册<a href="https://cloud.genymotion.com/page/customer/login/" target="_blank">Genymotion</a>帐号并登录；</p>
+<p>3.根据自己的系统<a href="https://cloud.genymotion.com/page/launchpad/download/" target="_blank">下载</a>并安装 Genymotion</p>
+<p>然后就可以启动 Genymotion 程序了：
+<img src="../assets/genymotion/genymotion1.png" alt="png"> </p>
+<p>主界面的 Settings 按钮，可以用来设置 VirtualBox 及 ADB 路径等信息。点击 Add 按钮，用 Genymotion 帐号登录后，会显示可用的 Android 虚拟设备：
+<img src="../assets/genymotion/genymotion2.png" alt="png"> </p>
+<p>找到想要的机型和版本，装好之后，回到主界面点 Play 按钮启动它：
+<img src="../assets/genymotion/genymotion3.png" alt="png"> 
+<img src="../assets/genymotion/genymotion4.png" alt="png"> </p>
+<p>要安装应用，直接把 apk 文件拖进虚拟机就可以了：</p>
+<p>键盘 esc 是虚拟机的后退键，f1 是 menu 键。可以看到虽然 Genymotion 底层使用 VirtualBox，但是整个过程中，VirtualBox 一直是幕后英雄，不会露面。
+另外，如果安装了 Genymotion 的 Eclipse 插件，以后就可以在 Eclipse 里管理和使用虚拟机了。如果在 Genymotion 里指定了 ADB 路径，调试 Android 应用也很方便。
+Genymotion 虚拟机运行于本机，所以本机拥有的内网权限，虚拟机也有。</p>
 
                     
                     </section>
@@ -1001,10 +1018,10 @@
         </div>
 
         
-        <a href="../raspbian/android.html" class="navigation navigation-prev " aria-label="Previous page: Raspbian的安卓应用"><i class="fa fa-angle-left"></i></a>
+        <a href="../android/debugger.html" class="navigation navigation-prev " aria-label="Previous page: MAC开发 Android USB 真机调试"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../docker/setup.html" class="navigation navigation-next " aria-label="Next page: Docker"><i class="fa fa-angle-right"></i></a>
+        <a href="../git.html" class="navigation navigation-next " aria-label="Next page: Git 使用帮助"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

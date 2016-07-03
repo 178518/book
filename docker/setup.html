@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="9.1" data-basepath=".." data-revision="1466061798455">
+    <div class="book" data-level="9.1" data-basepath=".." data-revision="1467554080762">
     
 
 <div class="book-summary">
@@ -184,13 +184,29 @@
         </li>
     
         
-        <li class="chapter " data-level="2.6" data-path="git.html">
+        <li class="chapter " data-level="2.6" data-path="android/genymotion.html">
+            
+                
+                    <a href="../android/genymotion.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                         MAC安装 Genymotion调试
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.7" data-path="git.html">
             
                 
                     <a href="../git.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.6.</b>
+                            <b>2.7.</b>
                         
                          Git 使用帮助
                     </a>
@@ -200,13 +216,13 @@
         </li>
     
         
-        <li class="chapter " data-level="2.7" data-path="help.html">
+        <li class="chapter " data-level="2.8" data-path="help.html">
             
                 
                     <a href="../help.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.7.</b>
+                            <b>2.8.</b>
                         
                          GitBook使用帮助
                     </a>
@@ -972,17 +988,52 @@
                     <section class="normal" id="section-gitbook_19">
                     
                         <h1 id="-docker">树莓派上安装 Docker</h1>
-<h3 id="1docker">1.安装Docker</h3>
+<p>树莓派官方系统并不支持Docker,需要安装<a href="http://blog.hypriot.com/downloads/" target="_blank">集成Dcoker的树莓派系统</a></p>
+<h3 id="1mac-docker">1.Mac 安装Docker</h3>
+<pre><code>brew install boot2docker
+# 初始化
+boot2docker init
+# 启动
+boot2docker start  
+# 测试
+docker run hello-world
+# 排错
+boot2docker -v info
+# 进入虚拟机控制台
+boot2docker ssh 
+# 查看虚拟机IP
+boot2docker ip
+</code></pre><h3 id="2docker">2.安装Docker</h3>
 <pre><code>sudo apt-get install docker.io
-</code></pre><h3 id="2">2.检查安装版本信息</h3>
+</code></pre><h3 id="3">3.检查安装版本信息</h3>
 <pre><code>docker --version
-</code></pre><h3 id="3docker">3.docker信息查看</h3>
+</code></pre><h3 id="4docker">4.docker信息查看</h3>
 <pre><code>sudo docker info
-</code></pre><h3 id="4docker">4.启动docker守护进程</h3>
+</code></pre><h3 id="5docker">5.启动docker守护进程</h3>
 <pre><code>sudo docker -d
-</code></pre><h3 id="5docker">5.注册docker账户</h3>
+</code></pre><h3 id="6docker">6.注册docker账户</h3>
 <p>填写<a href="https://hub.docker.com/account/signup/" target="_blank">注册表单</a>，选择您的用户名和密码并指定您的电子邮箱。你也可以报名参加 Docker 邮件列表，会有很多关于 Docker 的信息。</p>
-<h1 id="">参考资料</h1>
+<h3 id="7docker">7.升级docker</h3>
+<pre><code>sudo apt-get install apt-transport-https
+
+# Add the Docker repository key to your local keychain  
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9  
+
+# Add the Docker repository to your apt sources list.  
+sudo sh -c &quot;echo deb https://get.docker.io/ubuntu docker main &gt; /etc/apt/sources.list.d/docker.list&quot;  
+
+# update your sources list  
+sudo apt-get update  
+
+# 之后通过下面命令来安装最新版本的docker：  
+sudo apt-get install -y lxc-docker  
+
+# 以后更新则：  
+sudo apt-get update -y lxc-docker  
+
+# 启用新版docker  
+sudo ln -sf /usr/bin/docker /usr/local/bin/docker
+</code></pre><h1 id="">参考资料</h1>
 <ul>
 <li><a href="http://docker.widuu.com/" target="_blank">Docker</a></li>
 </ul>
