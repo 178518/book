@@ -21,8 +21,11 @@ Genymotion 来自于 AndroVM 这个开源项目，基于 x86 和 VirtualBox，�
 ![png](../assets/genymotion/genymotion3.png) 
 ![png](../assets/genymotion/genymotion4.png) 
 
-要安装应用，直接把 apk 文件拖进虚拟机就可以了：
+要安装应用，直接把 apk 文件拖进虚拟机就可以了,如果出现系统上安装应用出现“应用未安装”,因为新版Genymotion移除了Google市场和对ARM library的支持。可以按如下方法解决：
 
+1）下载[GenyMotion-ARM-Translation_v1.1.zip](../assets/Genymotion-ARM-Translation_v1.1.zip)。
+
+2）将你的虚拟器运行起来，将下载好的zip包用鼠标拖到虚拟机窗口中，出现确认对跨框点OK就行。然后重启你的虚拟机。
 
 键盘 esc 是虚拟机的后退键，f1 是 menu 键。可以看到虽然 Genymotion 底层使用 VirtualBox，但是整个过程中，VirtualBox 一直是幕后英雄，不会露面。
 另外，如果安装了 Genymotion 的 Eclipse 插件，以后就可以在 Eclipse 里管理和使用虚拟机了。如果在 Genymotion 里指定了 ADB 路径，调试 Android 应用也很方便。
