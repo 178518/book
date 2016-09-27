@@ -20,7 +20,7 @@ APP备份软件(备份和回复)
 ### 升级步骤
 - 准备软件
 大概用到Odin、官方ROM包，基于线刷模式，知道怎么进入挖煤模式
-Note3挖煤模式进入方法：音量下+HOME+电源键，手机震动后松开，这个时候会看到一个类似这个画面说明成功了。
+Note3挖煤模式进入方法：音量上+HOME+电源键，手机震动后松开，这个时候会看到一个类似这个画面说明成功了。
 
 ![挖煤界面](http://cdn8.sm-img5.com/?src=http%3A%2F%2Fwww.shuaji.net%2Fuploads%2Fallimg%2F140809%2F1_140809154321_1.jpg&restype=3&from=derive&pi=)
 

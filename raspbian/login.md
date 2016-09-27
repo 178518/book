@@ -451,6 +451,10 @@ smbclient -L //192.168.1.118 -U [用户名]
 
 ![png](http://s10.sinaimg.cn/middle/6b8d2280hb8f4c531a749&690)
 
+文献资料
+- [Samba配置与使用详细解析](http://blog.csdn.net/xkq_lyx/article/details/12905863)
+- [Samba服务器的基本配置](http://kuangkuang.blog.51cto.com/838/243773)
+
 #重启自动上报IP
 ```
 python /opt/pifind.py

@@ -8,6 +8,7 @@
  - [MAC安装 Genymotion调试](android/genymotion.md)
  - [Git 使用帮助](git.md)
  - [GitBook使用帮助](help.md) 
+* [Mac疑难杂症](mac/index.md)
 * [负载均衡](lb/index.md)
  - [Combo配置](lb/combo.md) 
  - [Nginx配置](lb/nginx.md) 
@@ -47,6 +48,9 @@
  - [Raspbian的安卓应用](raspbian/android.md)
  - [netdata应用](raspbian/netdata.md)
  - [http-load](raspbian/http-load.md)
+ - [迅雷远程下载](raspbian/xunlei.md)
+ - [minidlna配置](raspbian/dlna.md)
+ - [iperf局域网测速](raspbian/iperf.md)
 * [虚拟化](docker/index.md)
  - [Docker](docker/setup.md)
 
