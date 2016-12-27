@@ -81,6 +81,8 @@ linux运行级别：
 sudo nano /etc/apt/sources.list
 
 deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free rpi
+
+deb http://mirrors.aliyun.com/debian stable main contrib
 ```
 
 中文字体设置：http://tieba.baidu.com/p/4330953657
@@ -282,7 +284,7 @@ bt-seed-unverified=true
 # 保存磁力链接元数据为种子文件(.torrent文件), 默认:false
 bt-save-metadata=true
 
-完了后运行：sudo aria2c –-conf-path=/home/xbian/.aria2/aria2.conf,如果报错执行这个试试aria2c –-conf-path=/home/xbian/.aria2/aria2.conf 
+完了后运行：sudo aria2c --conf-path=/home/xbian/.aria2/aria2.conf,如果报错执行这个试试aria2c --conf-path=/home/xbian/.aria2/aria2.conf 
 测试有没有错误，如果没有错误的话Ctrl + C终止程序继续下一步，有错误会提示你conf文件哪里错误。
 把aria2做成系统的服务：
 sudo nano /etc/init.d/aria2c
