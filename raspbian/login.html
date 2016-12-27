@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="9.4" data-basepath=".." data-revision="1474974623679">
+    <div class="book" data-level="9.4" data-basepath=".." data-revision="1482824292944">
     
 
 <div class="book-summary">
@@ -1083,7 +1083,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_58">
+                    <section class="normal" id="section-gitbook_56">
                     
                         <h1 id="raspbian">Raspbian的配置</h1>
 <blockquote>
@@ -1133,6 +1133,8 @@ sudo poweroff           #系統關機
 <pre><code>sudo nano /etc/apt/sources.list
 
 deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free rpi
+
+deb http://mirrors.aliyun.com/debian stable main contrib
 </code></pre><p>中文字体设置：<a href="http://tieba.baidu.com/p/4330953657" target="_blank">http://tieba.baidu.com/p/4330953657</a></p>
 <p>Ctrl+O保存，Ctrl+X退出</p>
 <h3 id="">更新软件</h3>
@@ -1319,7 +1321,7 @@ bt-seed-unverified=true
 # 保存磁力链接元数据为种子文件(.torrent文件), 默认:false
 bt-save-metadata=true
 
-完了后运行：sudo aria2c –-conf-path=/home/xbian/.aria2/aria2.conf,如果报错执行这个试试aria2c –-conf-path=/home/xbian/.aria2/aria2.conf 
+完了后运行：sudo aria2c --conf-path=/home/xbian/.aria2/aria2.conf,如果报错执行这个试试aria2c --conf-path=/home/xbian/.aria2/aria2.conf 
 测试有没有错误，如果没有错误的话Ctrl + C终止程序继续下一步，有错误会提示你conf文件哪里错误。
 把aria2做成系统的服务：
 sudo nano /etc/init.d/aria2c
