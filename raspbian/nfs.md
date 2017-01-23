@@ -39,3 +39,6 @@ sudo nano /etc/rc.local
 sudo -u root mount -t nfs 192.168.1.118:/var/www/html/discuz/data /var/www/html/discuz/data
 
 sudo umount /var/www/html/discuz/data
+
+sudo mount -t cifs -o username="Username",password="Password",rw,dir_mode=0777,file_mode=0777 //IP/share /mnt/smb
+sudo umount /mnt/smb
