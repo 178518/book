@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>乐高整体架构 | 乐高</title>
+        <title>Resilio Sync | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../animation/animation.html" />
+    <link rel="next" href="../docker/index.html" />
     
     
-    <link rel="prev" href="../2016/study.html" />
+    <link rel="prev" href="../cloud/owncloud.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="6" data-basepath=".." data-revision="1485441999585">
+    <div class="book" data-level="10.2" data-basepath=".." data-revision="1485441999585">
     
 
 <div class="book-summary">
@@ -443,7 +443,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6" data-path="2016/jiagou.html">
+        <li class="chapter " data-level="6" data-path="2016/jiagou.html">
             
                 
                     <a href="../2016/jiagou.html">
@@ -990,7 +990,7 @@
         </li>
     
         
-        <li class="chapter " data-level="10.2" data-path="cloud/resilio_sync.html">
+        <li class="chapter active" data-level="10.2" data-path="cloud/resilio_sync.html">
             
                 
                     <a href="../cloud/resilio_sync.html">
@@ -1175,20 +1175,32 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_2">
+                    <section class="normal" id="section-gitbook_19">
                     
-                        <h3 id="">页面组成</h3>
-<p><img src="../assets/jiagou/page.png" alt="png"></p>
-<h3 id="">选型比对</h3>
-<p><img src="../assets/jiagou/compare.png" alt="png"></p>
-<h3 id="">设计标准</h3>
-<p><img src="../assets/jiagou/desgin.png" alt="png"></p>
-<h3 id="">分层结构</h3>
-<p><img src="../assets/jiagou/compontent.png" alt="png"></p>
-<h3 id="">组件配置</h3>
-<p><img src="../assets/jiagou/config.png" alt="png"></p>
-<h3 id="">整体架构</h3>
-<p><img src="../assets/jiagou/jiagou.png" alt="png"></p>
+                        <p>利用Resilio Sync搭建私有云</p>
+<p>一般情况我们会使用现成的网盘，可是，各种内置的后门多的数不过来，不知道那天就被请去喝咖啡了，怎么才能私密一点？很多人都发现了，放在百度网盘的小电影都变成8秒短片了，呵呵。。。然后，催生了我们的新式分享工具—-BTSync</p>
+<p>BTSync是免费跨平台文件同步软件。不需第三方服务器即可在多台电脑之间同步和共享文件，全程AES加密。它采用基于类似BT下载的P2P分布式技术而来，速度快而且可通过密钥文件共享，可设置完整权限同步或者让接收方只读，还可以发送 24 小时有效期的密钥，过期作废。</p>
+<p>也就是说，你发布一个密钥，其他人就可以同步你共享的文件，更可以做到增量式（差异）同步，同步的人越多速度越快，和BT下载一个道理。
+Btsync支持超多的系统，从桌面系统到嵌入式、手机等等，最好的莫过于有ARM-linux版</p>
+<p>访问 <a href="https://www.getsync.com/platforms/desktop" target="_blank">https://www.getsync.com/platforms/desktop</a> 下载ARM版</p>
+<p>然后解压到你的树莓派的某一目录下</p>
+<p>进入目录，输入命令</p>
+<p>./rslsync --webui.listen 0.0.0.0:8090</p>
+<p>sudo mount -t cifs -o username=&quot;Username&quot;,password=&quot;Password&quot;,rw,dir_mode=0777,file_mode=0777 //IP/share /mnt/smb
+sudo umount /mnt/smb</p>
+<p>sudo nano /etc/rc.local</p>
+<p>在文件末尾 ，在exit 0 这一行之前，加入二行</p>
+<p>cd /var/www/html/btsync</p>
+<p>./rslsync --webui.listen 0.0.0.0:8090</p>
+<p>文献资料</p>
+<ul>
+<li><a href="http://ukonline2000.com/?p=887" target="_blank">通过树莓派和BTSync搭建个人云存储</a></li>
+<li><a href="http://ukonline2000.com/?p=887" target="_blank">Resilio(BtSync)搭建</a></li>
+<li><a href="http://ukonline2000.com/?p=887" target="_blank">利用Resilio Sync搭建私有云</a></li>
+<li><a href="http://www.wuliaole.com/post/use_btsync_to_sync_files_among_terminals_based_on_raspberry_pi/" target="_blank">树莓派折腾之：BTSYNC同步所有电脑和手机</a></li>
+<li><a href="http://www.macode.net/bittorrent-sync-private-cloud-stroage/" target="_blank">用BitTorrent Sync在5分钟内打造类似Dropbox的私有云存储服务</a></li>
+<li><a href="http://www.iplaysoft.com/daemon-sync.html" target="_blank">Daemon Sync - 超简单搭建私有云！全自动同步备份手机照片视频到电脑</a></li>
+</ul>
 
                     
                     </section>
@@ -1199,10 +1211,10 @@
         </div>
 
         
-        <a href="../2016/study.html" class="navigation navigation-prev " aria-label="Previous page: React Native资料"><i class="fa fa-angle-left"></i></a>
+        <a href="../cloud/owncloud.html" class="navigation navigation-prev " aria-label="Previous page: owncloud"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../animation/animation.html" class="navigation navigation-next " aria-label="Next page: CSS动画"><i class="fa fa-angle-right"></i></a>
+        <a href="../docker/index.html" class="navigation navigation-next " aria-label="Next page: 虚拟化"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
