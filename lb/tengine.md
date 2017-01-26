@@ -40,7 +40,9 @@ sudo make && make install
 
 ### 替换原有的nginx
 
-sudo cp nginx /usr/sbin/
+sudo cp nginx /usr/sbin/ 
+
+注意，需要重启服务器
 
 ### 确认替换成功
 

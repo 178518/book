@@ -127,9 +127,10 @@ sudo /etc/apache2/apache2.conf
 关闭目录浏览
 
 <Directory /var/www/>
-        Options FollowSymLinks
-        AllowOverride None
-        Require all granted
+    Options FollowSymLinks
+    AllowOverride None
+    Require all granted
+    DirectoryIndex index.html index.htm index.php
 </Directory>
 
 Linux一键安装包

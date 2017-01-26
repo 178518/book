@@ -15,7 +15,18 @@ Btsync支持超多的系统，从桌面系统到嵌入式、手机等等，最�
 
 进入目录，输入命令
 
-./rslsync --webui.listen 0.0.0.0:8888
+./rslsync --webui.listen 0.0.0.0:8090
+
+sudo mount -t cifs -o username="Username",password="Password",rw,dir_mode=0777,file_mode=0777 //IP/share /mnt/smb
+sudo umount /mnt/smb
+
+sudo nano /etc/rc.local
+
+在文件末尾 ，在exit 0 这一行之前，加入二行
+
+cd /var/www/html/btsync
+
+./rslsync --webui.listen 0.0.0.0:8090
 
 
 文献资料

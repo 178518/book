@@ -40,6 +40,8 @@ cd ~/.ssh
 
 ssh-keygen -t rsa -C "178518@gmail.com"
 
+ssh-keygen -t rsa -C "178518@gmail.com" -f [id_rsa_gitlab_home]
+
 按3个回车，密码为空
 
 3.添加到SSH agent中
@@ -112,6 +114,8 @@ git push origin :[branchName]
 
 
 ### 资料文献
+
+- [gitlab/github 多账户下设置 ssh keys](https://segmentfault.com/a/1190000002994742)
 
 - [Git 工作流程](http://www.ruanyifeng.com/blog/2015/12/git-workflow.html)
 
