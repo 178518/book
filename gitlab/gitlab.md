@@ -31,6 +31,47 @@ http://树莓派IP或本地访问http://localhost
 
 ### 增加swap空间
 
+一般来说可以按照如下规则设置swap大小：
+
+4G以内的物理内存，SWAP 设置为内存的2倍。
+
+4-8G的物理内存，SWAP 等于内存大小。
+
+8-64G 的物理内存，SWAP 设置为8G。
+
+64-256G物理内存，SWAP 设置为16G。
+
+实际上，系统中交换分区的大小并不取决于物理内存的量，而是取决于系统中内存的负荷，所以在安装系统时要根据具体的业务来设置SWAP的值。
+
+### 什么情况下才会使用SWAP？
+实际上，并不是等所有的物理内存都消耗完毕之后，才去使用swap的空间，什么时候使用是由swappiness 参数值控制。
+
+cat /proc/sys/vm/swappiness
+
+60
+ 
+该值默认值是60.
+
+swappiness=0的时候表示最大限度使用物理内存，然后才是 swap空间，
+
+swappiness＝100的时候表示积极的使用swap分区，并且把内存上的数据及时的搬运到swap空间里面。
+
+### 如何修改swappiness参数？
+
+--临时性修改：
+
+sysctl vm.swappiness=10
+
+--永久修改：
+
+在/etc/sysctl.conf 文件里添加如下参数：
+
+vm.swappiness=10
+
+或者：echo 'vm.swappiness=10' >>/etc/sysctl.conf
+
+保存，重启，就生效了。
+
 gitlab推荐2G内存，树莓派2只有1G内存空间，可以通过增加1G的swap空间来提升性能。
 
 修改/etc/dphys-swapfile文件，然后重启树莓派sudo reboot。

@@ -51,6 +51,8 @@
  - [迅雷远程下载](raspbian/xunlei.md)
  - [minidlna配置](raspbian/dlna.md)
  - [iperf局域网测速](raspbian/iperf.md)
+* [Debian](debian/index.md)
+ - [debian安装](debian/setup.md)
 * [私有云](cloud/index.md)
  - [owncloud](cloud/owncloud.md)
  - [Resilio Sync](cloud/resilio_sync.md)

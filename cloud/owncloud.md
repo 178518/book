@@ -76,6 +76,7 @@ LimitRequestBody 600000000
 nano /var/www/owncloud/config/config.php
 
 注意：挂载的时候必须制定gid和uid，文件的权限
+
 sudo mount -t cifs -o username="Username",password="Password",rw,gid=www-data,uid=www-data,dir_mode=0770,file_mode=0770 //IP/share /mnt/smb
 
 sudo umount /mnt/smb
