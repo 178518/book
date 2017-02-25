@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>环境配置 | 乐高</title>
+        <title>debian安装 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../2016/study.html" />
+    <link rel="next" href="../cloud/index.html" />
     
     
-    <link rel="prev" href="../2016/pm2.html" />
+    <link rel="prev" href="../debian/index.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="5.4" data-basepath=".." data-revision="1487990592843">
+    <div class="book" data-level="10.1" data-basepath=".." data-revision="1487990592843">
     
 
 <div class="book-summary">
@@ -358,7 +358,7 @@
                 
     
         
-        <li class="chapter active" data-level="5.1" data-path="2016/setup.html">
+        <li class="chapter " data-level="5.1" data-path="2016/setup.html">
             
                 
                     <a href="../2016/setup.html">
@@ -406,7 +406,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5.4" data-path="2016/setup.html">
+        <li class="chapter " data-level="5.4" data-path="2016/setup.html">
             
                 
                     <a href="../2016/setup.html">
@@ -974,7 +974,7 @@
                 
     
         
-        <li class="chapter " data-level="10.1" data-path="debian/setup.html">
+        <li class="chapter active" data-level="10.1" data-path="debian/setup.html">
             
                 
                     <a href="../debian/setup.html">
@@ -1213,43 +1213,29 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_9">
+                    <section class="normal" id="section-gitbook_22">
                     
-                        <h1 id="">安装步骤</h1>
-<h3 id="1cnpmnpm">1、使用cnpm代理npm，并切换到国内源</h3>
-<pre><code class="lang-javascript">npm install -g cnpm --registry=https:<span class="hljs-comment">//registry.npm.taobao.org</span>
-</code></pre>
-<h3 id="2webpack">2、安装webpack和各种依赖</h3>
-<blockquote>
-<p>推荐&quot;node-dev&quot;这个工具，代码改动会自动重启node进程</p>
-</blockquote>
-<pre><code class="lang-javascript">cnpm install -g webpack gulp node-dev
-</code></pre>
-<h3 id="3">3、安装本地热部署和各种依赖工具包</h3>
-<blockquote>
-<p>webpack必选安装到本地，前面只是安装webpack命令，这里需要特别注意</p>
-</blockquote>
-<pre><code class="lang-javascript">cnpm install
-</code></pre>
-<h3 id="5">5、编译工程</h3>
-<blockquote>
-<p>基于gulp对整个工程进行线下预处理，预编译，同时基于内容进行hash解决线上缓存问题。</p>
-</blockquote>
-<pre><code class="lang-javascript">cnpm run build
-</code></pre>
-<h3 id="6">6、启动应用</h3>
-<pre><code class="lang-javascript">cnpm run start
-</code></pre>
-<h3 id="7">7、启动应用，模拟生产环境</h3>
-<pre><code class="lang-javascript">cnpm run production
-</code></pre>
-<h3 id="10npm">10、npm包预处理</h3>
-<pre><code class="lang-javascript">cnpm run prepublish
-</code></pre>
-<h3 id="10npm">10、npm包发布</h3>
-<pre><code class="lang-javascript">cnpm run npmpublish
-</code></pre>
+                        <h3 id="sudo-">sudo 命令无法使用</h3>
+<p>网络安装的镜像安完的debian是什么都没有的，包括gcc和sudo。 首先你需要切换到root用户，输入root用户的口令。</p>
+<pre><code>apt-get install sudo
 
+nano /etc/sudoers
+
+root    ALL=(ALL:ALL) ALL
+
+%sudo   ALL=(ALL:ALL) ALL
+
+username ALL=(ALL) NOPASSWD: ALL
+</code></pre><h3 id="ifconfig-command-not-found">ifconfig: command not found</h3>
+<p>原因：ifconfig命令所在路径/sbin未包含在系统环境变量PATH中</p>
+<pre><code>nano ~/.bashrc
+
+PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+让配置生效
+
+source ~/.bashrc
+</code></pre>
                     
                     </section>
                 
@@ -1259,10 +1245,10 @@
         </div>
 
         
-        <a href="../2016/pm2.html" class="navigation navigation-prev " aria-label="Previous page: PM2&amp;keymetrics"><i class="fa fa-angle-left"></i></a>
+        <a href="../debian/index.html" class="navigation navigation-prev " aria-label="Previous page: Debian"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../2016/study.html" class="navigation navigation-next " aria-label="Next page: React Native资料"><i class="fa fa-angle-right"></i></a>
+        <a href="../cloud/index.html" class="navigation navigation-next " aria-label="Next page: 私有云"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

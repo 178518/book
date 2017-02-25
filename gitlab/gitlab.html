@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="12.1" data-basepath=".." data-revision="1485441999585">
+    <div class="book" data-level="13.1" data-basepath=".." data-revision="1487990592843">
     
 
 <div class="book-summary">
@@ -955,13 +955,51 @@
         </li>
     
         
-        <li class="chapter " data-level="10" data-path="cloud/index.html">
+        <li class="chapter " data-level="10" data-path="debian/index.html">
+            
+                
+                    <a href="../debian/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                         Debian
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="10.1" data-path="debian/setup.html">
+            
+                
+                    <a href="../debian/setup.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                         debian安装
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11" data-path="cloud/index.html">
             
                 
                     <a href="../cloud/index.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>10.</b>
+                            <b>11.</b>
                         
                          私有云
                     </a>
@@ -972,13 +1010,13 @@
                 
     
         
-        <li class="chapter " data-level="10.1" data-path="cloud/owncloud.html">
+        <li class="chapter " data-level="11.1" data-path="cloud/owncloud.html">
             
                 
                     <a href="../cloud/owncloud.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>10.1.</b>
+                            <b>11.1.</b>
                         
                          owncloud
                     </a>
@@ -988,13 +1026,13 @@
         </li>
     
         
-        <li class="chapter " data-level="10.2" data-path="cloud/resilio_sync.html">
+        <li class="chapter " data-level="11.2" data-path="cloud/resilio_sync.html">
             
                 
                     <a href="../cloud/resilio_sync.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>10.2.</b>
+                            <b>11.2.</b>
                         
                          Resilio Sync
                     </a>
@@ -1009,13 +1047,13 @@
         </li>
     
         
-        <li class="chapter " data-level="11" data-path="docker/index.html">
+        <li class="chapter " data-level="12" data-path="docker/index.html">
             
                 
                     <a href="../docker/index.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>11.</b>
+                            <b>12.</b>
                         
                          虚拟化
                     </a>
@@ -1026,13 +1064,13 @@
                 
     
         
-        <li class="chapter " data-level="11.1" data-path="docker/setup.html">
+        <li class="chapter " data-level="12.1" data-path="docker/setup.html">
             
                 
                     <a href="../docker/setup.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>11.1.</b>
+                            <b>12.1.</b>
                         
                          Docker
                     </a>
@@ -1047,13 +1085,13 @@
         </li>
     
         
-        <li class="chapter " data-level="12" data-path="gitlab/index.html">
+        <li class="chapter " data-level="13" data-path="gitlab/index.html">
             
                 
                     <a href="../gitlab/index.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>12.</b>
+                            <b>13.</b>
                         
                          gitLab
                     </a>
@@ -1064,13 +1102,13 @@
                 
     
         
-        <li class="chapter active" data-level="12.1" data-path="gitlab/gitlab.html">
+        <li class="chapter active" data-level="13.1" data-path="gitlab/gitlab.html">
             
                 
                     <a href="../gitlab/gitlab.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>12.1.</b>
+                            <b>13.1.</b>
                         
                          gitlab
                     </a>
@@ -1173,7 +1211,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_26">
+                    <section class="normal" id="section-gitbook_27">
                     
                         <h1 id="gitlab">安装gitlab</h1>
 <h3 id="">安装相关软件包</h3>
@@ -1187,6 +1225,27 @@
 </code></pre><h3 id="">访问</h3>
 <pre><code>http://树莓派IP或本地访问http://localhost
 </code></pre><h3 id="swap">增加swap空间</h3>
+<p>一般来说可以按照如下规则设置swap大小：</p>
+<p>4G以内的物理内存，SWAP 设置为内存的2倍。</p>
+<p>4-8G的物理内存，SWAP 等于内存大小。</p>
+<p>8-64G 的物理内存，SWAP 设置为8G。</p>
+<p>64-256G物理内存，SWAP 设置为16G。</p>
+<p>实际上，系统中交换分区的大小并不取决于物理内存的量，而是取决于系统中内存的负荷，所以在安装系统时要根据具体的业务来设置SWAP的值。</p>
+<h3 id="swap">什么情况下才会使用SWAP？</h3>
+<p>实际上，并不是等所有的物理内存都消耗完毕之后，才去使用swap的空间，什么时候使用是由swappiness 参数值控制。</p>
+<p>cat /proc/sys/vm/swappiness</p>
+<p>60</p>
+<p>该值默认值是60.</p>
+<p>swappiness=0的时候表示最大限度使用物理内存，然后才是 swap空间，</p>
+<p>swappiness＝100的时候表示积极的使用swap分区，并且把内存上的数据及时的搬运到swap空间里面。</p>
+<h3 id="swappiness">如何修改swappiness参数？</h3>
+<p>--临时性修改：</p>
+<p>sysctl vm.swappiness=10</p>
+<p>--永久修改：</p>
+<p>在/etc/sysctl.conf 文件里添加如下参数：</p>
+<p>vm.swappiness=10</p>
+<p>或者：echo &#39;vm.swappiness=10&#39; &gt;&gt;/etc/sysctl.conf</p>
+<p>保存，重启，就生效了。</p>
 <p>gitlab推荐2G内存，树莓派2只有1G内存空间，可以通过增加1G的swap空间来提升性能。</p>
 <p>修改/etc/dphys-swapfile文件，然后重启树莓派sudo reboot。</p>
 <pre><code>CONF_SWAPSIZE=1024
