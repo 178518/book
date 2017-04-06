@@ -12,7 +12,9 @@
 
 ssh-add id_rsa_gitlab_home
 
-## 修改config文件
+## 修改.ssh目录下的config文件
+
+注意这里的gitlab配置的域名要和/etc/gitlab/gitlab.rb里面配置的短地址对应，不然ssh方式拉取代码不成功。
 
 ```
 #github
