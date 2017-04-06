@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>minidlna配置 | 乐高</title>
+        <title>阿里云Docker镜像加速 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../raspbian/iperf.html" />
+    <link rel="next" href="../docker/container.html" />
     
     
-    <link rel="prev" href="../raspbian/xunlei.html" />
+    <link rel="prev" href="../docker/debian-setup.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="9.14" data-basepath=".." data-revision="1491479308639">
+    <div class="book" data-level="12.2" data-basepath=".." data-revision="1491479308639">
     
 
 <div class="book-summary">
@@ -920,7 +920,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="9.14" data-path="raspbian/dlna.html">
+        <li class="chapter " data-level="9.14" data-path="raspbian/dlna.html">
             
                 
                     <a href="../raspbian/dlna.html">
@@ -1082,7 +1082,7 @@
         </li>
     
         
-        <li class="chapter " data-level="12.2" data-path="docker/jiasu.html">
+        <li class="chapter active" data-level="12.2" data-path="docker/jiasu.html">
             
                 
                     <a href="../docker/jiasu.html">
@@ -1277,42 +1277,23 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_61">
+                    <section class="normal" id="section-gitbook_26">
                     
-                        <h1 id="minidlna">安装MiniDLNA</h1>
-<h3 id="">安装</h3>
-<pre><code>sudo apt-get install minidlna
-</code></pre><h3 id="">修改配置</h3>
-<pre><code>#打开配置文件
-sudo nano /etc/minidlna.conf
-#可参考修改的项有：
-#媒体文件目录：
-media_dir=/mnt/myusbdrive/
-#数据库目录，minidlna使用的是sqlite数据库来索引文件
-db_dir=/var/lib/minidlna
-#服务器IP
-listening_ip=192.168.1.106
-#端口
-port=8200
-#网络名称，用于其它设备发现当前设备
-friendly_name=DLNA
-</code></pre><h3 id="minidlna">让minidlna随机启动</h3>
-<pre><code>sudo update-rc.d minidlna defaults
-</code></pre><h3 id="minidlna">启动minidlna服务</h3>
-<pre><code>sudo service minidlna start
-</code></pre><h3 id="minidlna">当你修改配置文件及媒体资源更新时，需要强制刷新，以便minidlna将最新的媒体文件进行索引</h3>
-<pre><code>sudo service minidlna force-reload
-</code></pre><h3 id="">查看资源个数</h3>
-<pre><code>http://ip:8200/
-</code></pre><h3 id="minidlna">取消minidlna的开机自动启动</h3>
-<pre><code>sudo update-rc.d -f minidlna remove
-</code></pre><h3 id="minidlna">停止minidlna服务</h3>
-<pre><code>sudo service minidlna stop
-</code></pre><h3 id="minidlna">停止minidlna所有进程</h3>
-<pre><code>sudo killall minidlna
-</code></pre><h3 id="minidlna">卸载minidlna</h3>
-<pre><code>sudo atp-get remove --purge minidlna
-</code></pre>
+                        <h1 id="docker-">Docker 镜像加速器</h1>
+<p>我们使用Docker的第一步，应该是获取一个官方的镜像，例如mysql、wordpress，基于这些基础镜像我们可以开发自己个性化的应用。我们可以使用Docker命令行工具来下载官方镜像。
+但是因为网络原因，我们下载一个300M的镜像需要很长的时间，甚至下载失败。因为这个原因，阿里云容器Hub服务提供了官方的镜像站点加速官方镜像的下载速度。</p>
+<p>使用镜像加速器
+在不同的系统下面，配置加速器的方式有一些不同，所以我们介绍主要的几个操作系统的配置方法。
+关于加速器的地址，你只需要登录容器Hub服务的控制台，左侧的加速器帮助页面就会显示为你独立分配的加速地址。</p>
+<p>当你的docker版本较新时
+当你下载安装的Docker Version不低于1.10时，建议直接通过daemon config进行配置。
+使用配置文件 /etc/docker/daemon.json（没有时新建该文件）</p>
+<p><a href="http://cr.console.aliyun.com/" target="_blank">阿里云Docker镜像</a></p>
+<pre><code>{
+    &quot;registry-mirrors&quot;: [&quot;&lt;your accelerate address&gt;&quot;]
+}
+</code></pre><p>重启Docker就可以了。</p>
+
                     
                     </section>
                 
@@ -1322,10 +1303,10 @@ friendly_name=DLNA
         </div>
 
         
-        <a href="../raspbian/xunlei.html" class="navigation navigation-prev " aria-label="Previous page: 迅雷远程下载"><i class="fa fa-angle-left"></i></a>
+        <a href="../docker/debian-setup.html" class="navigation navigation-prev " aria-label="Previous page: Docker"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../raspbian/iperf.html" class="navigation navigation-next " aria-label="Next page: iperf局域网测速"><i class="fa fa-angle-right"></i></a>
+        <a href="../docker/container.html" class="navigation navigation-next " aria-label="Next page: Docker 容器"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

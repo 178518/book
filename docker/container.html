@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>minidlna配置 | 乐高</title>
+        <title>Docker 容器 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../raspbian/iperf.html" />
+    <link rel="next" href="../gitlab/index.html" />
     
     
-    <link rel="prev" href="../raspbian/xunlei.html" />
+    <link rel="prev" href="../docker/jiasu.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="9.14" data-basepath=".." data-revision="1491479308639">
+    <div class="book" data-level="12.3" data-basepath=".." data-revision="1491479308639">
     
 
 <div class="book-summary">
@@ -920,7 +920,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="9.14" data-path="raspbian/dlna.html">
+        <li class="chapter " data-level="9.14" data-path="raspbian/dlna.html">
             
                 
                     <a href="../raspbian/dlna.html">
@@ -1098,7 +1098,7 @@
         </li>
     
         
-        <li class="chapter " data-level="12.3" data-path="docker/container.html">
+        <li class="chapter active" data-level="12.3" data-path="docker/container.html">
             
                 
                     <a href="../docker/container.html">
@@ -1277,42 +1277,55 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_61">
+                    <section class="normal" id="section-gitbook_23">
                     
-                        <h1 id="minidlna">安装MiniDLNA</h1>
-<h3 id="">安装</h3>
-<pre><code>sudo apt-get install minidlna
-</code></pre><h3 id="">修改配置</h3>
-<pre><code>#打开配置文件
-sudo nano /etc/minidlna.conf
-#可参考修改的项有：
-#媒体文件目录：
-media_dir=/mnt/myusbdrive/
-#数据库目录，minidlna使用的是sqlite数据库来索引文件
-db_dir=/var/lib/minidlna
-#服务器IP
-listening_ip=192.168.1.106
-#端口
-port=8200
-#网络名称，用于其它设备发现当前设备
-friendly_name=DLNA
-</code></pre><h3 id="minidlna">让minidlna随机启动</h3>
-<pre><code>sudo update-rc.d minidlna defaults
-</code></pre><h3 id="minidlna">启动minidlna服务</h3>
-<pre><code>sudo service minidlna start
-</code></pre><h3 id="minidlna">当你修改配置文件及媒体资源更新时，需要强制刷新，以便minidlna将最新的媒体文件进行索引</h3>
-<pre><code>sudo service minidlna force-reload
-</code></pre><h3 id="">查看资源个数</h3>
-<pre><code>http://ip:8200/
-</code></pre><h3 id="minidlna">取消minidlna的开机自动启动</h3>
-<pre><code>sudo update-rc.d -f minidlna remove
-</code></pre><h3 id="minidlna">停止minidlna服务</h3>
-<pre><code>sudo service minidlna stop
-</code></pre><h3 id="minidlna">停止minidlna所有进程</h3>
-<pre><code>sudo killall minidlna
-</code></pre><h3 id="minidlna">卸载minidlna</h3>
-<pre><code>sudo atp-get remove --purge minidlna
-</code></pre>
+                        <h1 id="docker">Docker概念</h1>
+<p><img src="https://raw.githubusercontent.com/arkulo56/thought/master/fotosay/dockerlnmp.png" alt="png"></p>
+<p>官方的 nginx 容器里，连 vim 都没有，这是个比较苦恼的事情，所以可以先启动容器进入交互界面安装 vim。</p>
+<pre><code>docker run -t -i -p 1983:80 nginx /bin/bash
+</code></pre><p>这里进入的是 bash，-p 1983:80 是将容器里的80端口与主机的1983端口进行绑定。</p>
+<p>进入容器后，会发现并不能访问容器里的 nginx 欢迎界面，这是因为 nginx 服务并没有启动。</p>
+<p>使用命令</p>
+<pre><code>/etc/init.d/nginx start
+</code></pre><h3 id="">运行一个容器</h3>
+<p>官方的 nginx 容器里，连 vim 都没有，这是个比较苦恼的事情，所以可以先启动容器进入交互界面安装 vim</p>
+<p>这里进入的是 bash，-p 1983:80 是将主机的1983端口与容器里的80端口进行绑定。</p>
+<pre><code>bash 模式
+sudo docker run -t -i -p 1983:80 nginx /bin/bash
+
+后台模式
+sudo docker run -idt --pid=host -p 1983:80 nginx
+
+容器中/etc/nginx/conf.d目录下的文件将与宿主机中/nginx/conf.d目录下的文件保持同步，Docker使用:从容器路径拆分主机的路径，主机路径始终是第一位的。
+为容器添卷时，还可以通过rw或ro参数指定容器内目录的读写状态,默认读写。如，设置为只读状态：
+
+sudo docker run -idt -v /var/www/html:/var/www/html --pid=host -p 1983:80 nginx
+
+进入容器
+sudo docker attach [CONTAINER ID]
+
+取得运行容器的PID
+sudo docker inspect --format &quot;{{ .State.Pid }}&quot; [CONTAINER ID]
+
+通过PID进入容器
+sudo nsenter --target 8900 --mount --uts --ipc --net --pid
+
+更新源
+apt-get update
+
+安装nano命令
+apt-get install nano
+</code></pre><h3 id="">停止一个容器</h3>
+<pre><code>docker stop [CONTAINER ID]
+</code></pre><h3 id="">删除一个容器,删除之前必须先停止</h3>
+<pre><code>docker rm [CONTAINER ID]
+</code></pre><h1 id="">参考资料</h1>
+<ul>
+<li><a href="http://xinqiu.me/2015/11/13/docker+nginx/" target="_blank">docker 使用</a></li>
+<li><a href="https://yeasy.gitbooks.io/docker_practice/content/container/enter.html" target="_blank">docker book</a></li>
+<li><a href="http://www.jianshu.com/p/712a756bae1e" target="_blank">docker 命令</a></li>
+</ul>
+
                     
                     </section>
                 
@@ -1322,10 +1335,10 @@ friendly_name=DLNA
         </div>
 
         
-        <a href="../raspbian/xunlei.html" class="navigation navigation-prev " aria-label="Previous page: 迅雷远程下载"><i class="fa fa-angle-left"></i></a>
+        <a href="../docker/jiasu.html" class="navigation navigation-prev " aria-label="Previous page: 阿里云Docker镜像加速"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../raspbian/iperf.html" class="navigation navigation-next " aria-label="Next page: iperf局域网测速"><i class="fa fa-angle-right"></i></a>
+        <a href="../gitlab/index.html" class="navigation navigation-next " aria-label="Next page: gitLab"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

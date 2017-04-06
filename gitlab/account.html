@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Docker | 乐高</title>
+        <title>account | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../gitlab/index.html" />
+    <link rel="next" href="../gitlab/backup.html" />
     
     
-    <link rel="prev" href="../docker/index.html" />
+    <link rel="prev" href="../gitlab/gitlab.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="12.1" data-basepath=".." data-revision="1487990592843">
+    <div class="book" data-level="13.2" data-basepath=".." data-revision="1491479308639">
     
 
 <div class="book-summary">
@@ -1066,15 +1066,47 @@
                 
     
         
-        <li class="chapter active" data-level="12.1" data-path="docker/setup.html">
+        <li class="chapter " data-level="12.1" data-path="docker/debian-setup.html">
             
                 
-                    <a href="../docker/setup.html">
+                    <a href="../docker/debian-setup.html">
                         <i class="fa fa-check"></i>
                         
                             <b>12.1.</b>
                         
                          Docker
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.2" data-path="docker/jiasu.html">
+            
+                
+                    <a href="../docker/jiasu.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.2.</b>
+                        
+                         阿里云Docker镜像加速
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.3" data-path="docker/container.html">
+            
+                
+                    <a href="../docker/container.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.3.</b>
+                        
+                         Docker 容器
                     </a>
                 
             
@@ -1113,6 +1145,38 @@
                             <b>13.1.</b>
                         
                          gitlab
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="13.2" data-path="gitlab/account.html">
+            
+                
+                    <a href="../gitlab/account.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.2.</b>
+                        
+                         account
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13.3" data-path="gitlab/backup.html">
+            
+                
+                    <a href="../gitlab/backup.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.3.</b>
+                        
+                         backup
                     </a>
                 
             
@@ -1213,58 +1277,36 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_24">
+                    <section class="normal" id="section-gitbook_29">
                     
-                        <h1 id="-docker">树莓派上安装 Docker</h1>
-<p>树莓派官方系统并不支持Docker,需要安装<a href="http://blog.hypriot.com/downloads/" target="_blank">集成Dcoker的树莓派系统</a></p>
-<h3 id="1mac-docker">1.Mac 安装Docker</h3>
-<pre><code>brew install boot2docker
-# 初始化
-boot2docker init
-# 启动
-boot2docker start  
-# 测试
-docker run hello-world
-# 排错
-boot2docker -v info
-# 进入虚拟机控制台
-boot2docker ssh 
-# 查看虚拟机IP
-boot2docker ip
-</code></pre><h3 id="2docker">2.安装Docker</h3>
-<pre><code>sudo apt-get install docker.io
-</code></pre><h3 id="3">3.检查安装版本信息</h3>
-<pre><code>docker --version
-</code></pre><h3 id="4docker">4.docker信息查看</h3>
-<pre><code>sudo docker info
-</code></pre><h3 id="5docker">5.启动docker守护进程</h3>
-<pre><code>sudo docker -d
-</code></pre><h3 id="6docker">6.注册docker账户</h3>
-<p>填写<a href="https://hub.docker.com/account/signup/" target="_blank">注册表单</a>，选择您的用户名和密码并指定您的电子邮箱。你也可以报名参加 Docker 邮件列表，会有很多关于 Docker 的信息。</p>
-<h3 id="7docker">7.升级docker</h3>
-<pre><code>sudo apt-get install apt-transport-https
+                        <h1 id="github-gitlab-">github gitlab 多账户管理</h1>
+<p>具体操作是利用ssh在本地生成一对公私秘钥（keys），然后将公钥添加到注册的gitlab/github账户配置ssh key的地方即可。默认情况下本地生成的秘钥位于/Users/mac用户名/.ssh/（mac平台，本文针对os x系统介绍）。</p>
+<h2 id="githubgitlab">生成github秘钥、gitlab秘钥</h2>
+<p>命令：ssh-keygen -t rsa -C &quot;178518@gmail.com&quot;</p>
+<p>现在：ssh-keygen -t rsa -C &quot;178518@gmail.com&quot; -f id_rsa_gitlab_home，相当于起一个别名</p>
+<h2 id="">添加私钥</h2>
+<p>ssh-add id_rsa_gitlab_home</p>
+<h2 id="sshconfig">修改.ssh目录下的config文件</h2>
+<p>注意这里的gitlab配置的域名要和/etc/gitlab/gitlab.rb里面配置的短地址对应，不然ssh方式拉取代码不成功。</p>
+<pre><code>#github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+User 178518@gmail.com
 
-# Add the Docker repository key to your local keychain  
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9  
-
-# Add the Docker repository to your apt sources list.  
-sudo sh -c &quot;echo deb https://get.docker.io/ubuntu docker main &gt; /etc/apt/sources.list.d/docker.list&quot;  
-
-# update your sources list  
-sudo apt-get update  
-
-# 之后通过下面命令来安装最新版本的docker：  
-sudo apt-get install -y lxc-docker  
-
-# 以后更新则：  
-sudo apt-get update -y lxc-docker  
-
-# 启用新版docker  
-sudo ln -sf /usr/bin/docker /usr/local/bin/docker
-</code></pre><h1 id="">参考资料</h1>
-<ul>
-<li><a href="http://docker.widuu.com/" target="_blank">Docker</a></li>
-</ul>
+#gitlab
+Host 52pi.cc
+HostName 52pi.cc
+port [端口] //gitlab 服务器端口设定，非默认22端口需要指定
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_gitlab_home
+User yzhao
+</code></pre><h2 id="githubgitlab">在github和gitlab上添加公钥即可</h2>
+<h2 id="">测试</h2>
+<p>ssh -T git@52pi.cc</p>
+<p>显示了一条成功信息，并且退出</p>
+<p>Welcome to GitLab, yzhao!</p>
 
                     
                     </section>
@@ -1275,10 +1317,10 @@ sudo ln -sf /usr/bin/docker /usr/local/bin/docker
         </div>
 
         
-        <a href="../docker/index.html" class="navigation navigation-prev " aria-label="Previous page: 虚拟化"><i class="fa fa-angle-left"></i></a>
+        <a href="../gitlab/gitlab.html" class="navigation navigation-prev " aria-label="Previous page: gitlab"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../gitlab/index.html" class="navigation navigation-next " aria-label="Next page: gitLab"><i class="fa fa-angle-right"></i></a>
+        <a href="../gitlab/backup.html" class="navigation navigation-next " aria-label="Next page: backup"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

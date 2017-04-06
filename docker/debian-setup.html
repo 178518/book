@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>minidlna配置 | 乐高</title>
+        <title>Docker | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../raspbian/iperf.html" />
+    <link rel="next" href="../docker/jiasu.html" />
     
     
-    <link rel="prev" href="../raspbian/xunlei.html" />
+    <link rel="prev" href="../docker/index.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="9.14" data-basepath=".." data-revision="1491479308639">
+    <div class="book" data-level="12.1" data-basepath=".." data-revision="1491479308639">
     
 
 <div class="book-summary">
@@ -920,7 +920,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="9.14" data-path="raspbian/dlna.html">
+        <li class="chapter " data-level="9.14" data-path="raspbian/dlna.html">
             
                 
                     <a href="../raspbian/dlna.html">
@@ -1066,7 +1066,7 @@
                 
     
         
-        <li class="chapter " data-level="12.1" data-path="docker/debian-setup.html">
+        <li class="chapter active" data-level="12.1" data-path="docker/debian-setup.html">
             
                 
                     <a href="../docker/debian-setup.html">
@@ -1277,41 +1277,42 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_61">
+                    <section class="normal" id="section-gitbook_24">
                     
-                        <h1 id="minidlna">安装MiniDLNA</h1>
-<h3 id="">安装</h3>
-<pre><code>sudo apt-get install minidlna
-</code></pre><h3 id="">修改配置</h3>
-<pre><code>#打开配置文件
-sudo nano /etc/minidlna.conf
-#可参考修改的项有：
-#媒体文件目录：
-media_dir=/mnt/myusbdrive/
-#数据库目录，minidlna使用的是sqlite数据库来索引文件
-db_dir=/var/lib/minidlna
-#服务器IP
-listening_ip=192.168.1.106
-#端口
-port=8200
-#网络名称，用于其它设备发现当前设备
-friendly_name=DLNA
-</code></pre><h3 id="minidlna">让minidlna随机启动</h3>
-<pre><code>sudo update-rc.d minidlna defaults
-</code></pre><h3 id="minidlna">启动minidlna服务</h3>
-<pre><code>sudo service minidlna start
-</code></pre><h3 id="minidlna">当你修改配置文件及媒体资源更新时，需要强制刷新，以便minidlna将最新的媒体文件进行索引</h3>
-<pre><code>sudo service minidlna force-reload
-</code></pre><h3 id="">查看资源个数</h3>
-<pre><code>http://ip:8200/
-</code></pre><h3 id="minidlna">取消minidlna的开机自动启动</h3>
-<pre><code>sudo update-rc.d -f minidlna remove
-</code></pre><h3 id="minidlna">停止minidlna服务</h3>
-<pre><code>sudo service minidlna stop
-</code></pre><h3 id="minidlna">停止minidlna所有进程</h3>
-<pre><code>sudo killall minidlna
-</code></pre><h3 id="minidlna">卸载minidlna</h3>
-<pre><code>sudo atp-get remove --purge minidlna
+                        <h1 id="debian-docker">debian Docker</h1>
+<p>Docker不支持32位的Linux系统，而且Linux内核必须为3.10以上。用uname -r命令来查看Debian系统是32位的还是64位的。</p>
+<pre><code>user@debian8:~$ uname -m
+x86_64
+</code></pre><p>Debian 8的Linux内核版本为3.16.0，用uname -r命令来查看Linux内核版本。</p>
+<pre><code>user@debian8:~$ uname -r
+3.16.0-4-amd64
+</code></pre><p>使用下面的命令升级到Debian 8的最新Linux内核</p>
+<pre><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade &amp;&amp; sudo apt-get dist-upgrade
+</code></pre><h3 id="debin-8-jessiedocker-engine">Debin 8 Jessie安装Docker engine</h3>
+<p>添加Docker的GPG密钥。</p>
+<pre><code>sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+</code></pre><p>在/etc/apt/sources.list.d目录下为docker创建一个源列表文件。</p>
+<pre><code>sudo nano /etc/apt/sources.list.d/docker.list
+</code></pre><p>在文件中添加下面一行文字</p>
+<pre><code>deb https://apt.dockerproject.org/repo debian-jessie main
+</code></pre><p>由于docker的官方软件源要求使用HTTPS连接，所以我们在安装Docker前还需要安装apt-transport-https。这样APT就能与软件源建立HTTPS连接。</p>
+<pre><code>sudo apt-get install apt-transport-https ca-certificates
+</code></pre><p>更新本地软件包索引，然后安装docker-engine。</p>
+<pre><code>sudo apt-get update &amp;&amp; sudo apt-get install docker-engine
+</code></pre><p>启动docker服务</p>
+<pre><code>sudo systemctl start docker
+</code></pre><p>设置docker开机自启动</p>
+<pre><code>sudo systemctl enable docker
+</code></pre><p>查看docker运行状态。</p>
+<pre><code>systemctl status docker
+</code></pre><p>查看docker是否正常运行。</p>
+<pre><code>sudo docker run hello-world
+</code></pre><p>如果看见如下信息，说明docker安装正确并能正常运行。</p>
+<pre><code>Hello from Docker.
+This message shows that your installation appears to be working correctly.
+</code></pre><p>查看Docker的版本。</p>
+<pre><code>user@debian8:~$ docker --version
+Docker version 1.13.1, build 092cba3
 </code></pre>
                     
                     </section>
@@ -1322,10 +1323,10 @@ friendly_name=DLNA
         </div>
 
         
-        <a href="../raspbian/xunlei.html" class="navigation navigation-prev " aria-label="Previous page: 迅雷远程下载"><i class="fa fa-angle-left"></i></a>
+        <a href="../docker/index.html" class="navigation navigation-prev " aria-label="Previous page: 虚拟化"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../raspbian/iperf.html" class="navigation navigation-next " aria-label="Next page: iperf局域网测速"><i class="fa fa-angle-right"></i></a>
+        <a href="../docker/jiasu.html" class="navigation navigation-next " aria-label="Next page: 阿里云Docker镜像加速"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
