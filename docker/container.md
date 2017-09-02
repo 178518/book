@@ -63,6 +63,11 @@ docker stop [CONTAINER ID]
 docker rm [CONTAINER ID]
 ```
 
+### 删除一个容器,删除之前必须先停止
+```
+docker rmi [IMAGE ID]
+```
+
 # 参考资料
 
 * [docker 使用](http://xinqiu.me/2015/11/13/docker+nginx/)
