@@ -64,3 +64,4 @@
  - [gitlab](gitlab/gitlab.md) 
  - [account](gitlab/account.md) 
  - [backup](gitlab/backup.md) 
+* [IOT](iot/setup.md)
