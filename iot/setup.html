@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Nginx配置 | 乐高</title>
+        <title>IOT | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../lb/ssl.html" />
     
-    
-    <link rel="prev" href="../lb/combo.html" />
+    <link rel="prev" href="../gitlab/backup.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="4.2" data-basepath=".." data-revision="1518414459072">
+    <div class="book" data-level="14" data-basepath=".." data-revision="1518414459072">
     
 
 <div class="book-summary">
@@ -288,7 +286,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="4.2" data-path="lb/nginx.html">
+        <li class="chapter " data-level="4.2" data-path="lb/nginx.html">
             
                 
                     <a href="../lb/nginx.html">
@@ -1189,7 +1187,7 @@
         </li>
     
         
-        <li class="chapter " data-level="14" data-path="iot/setup.html">
+        <li class="chapter active" data-level="14" data-path="iot/setup.html">
             
                 
                     <a href="../iot/setup.html">
@@ -1293,256 +1291,278 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_46">
+                    <section class="normal" id="section-gitbook_41">
                     
-                        <h1 id="nginxapache">反向代理设置Nginx+Apache</h1>
-<h3 id="nginx-">Nginx 升级</h3>
-<pre><code>sudo nano /etc/apt/sources.list
-</code></pre><p>添加如下源</p>
-<blockquote>
-<p>deb <a href="http://nginx.org/packages/debian/" target="_blank">http://nginx.org/packages/debian/</a> squeeze nginx
-deb-src <a href="http://nginx.org/packages/debian/" target="_blank">http://nginx.org/packages/debian/</a> squeeze nginx</p>
-</blockquote>
-<p>然后运行 apt-get update 并重新安装 nginx即可：</p>
-<pre><code>sudo apt-get update
-sudo apt-get install nginx
-</code></pre><p><a href="http://www.cnblogs.com/xiangzi888/archive/2012/03/18/2405075.html" target="_blank">强大的 apt-get 命令</a></p>
-<p><a href="http://www.cnblogs.com/indiepop/archive/2011/11/10/2244903.html" target="_blank">apt-get 命令</a></p>
-<p><a href="http://blog.sina.com.cn/s/blog_664553710101061x.html" target="_blank">Nginx学习笔记九Nginx的HTTP模块</a></p>
-<p>/etc/nginx/nginx.conf</p>
-<pre><code>user www-data;
-worker_processes 4;
-pid /run/nginx.pid;
-# 更改worker进程的最大打开文件数限制
-worker_rlimit_nofile 100000;
+                        <h1 id="iot">IOT</h1>
+<h2 id="mongodb-">MongoDB 配置&amp;开启认证</h2>
+<h3 id="">配置文件</h3>
+<pre><code>nano /usr/local/etc/mongod.conf
 
-events {
-        # 定义一个worker进程能够同时连接的数量
-        worker_connections 1024;
-        # 告诉nginx收到一个新连接通知后接受尽可能多的连接。
-        multi_accept on;
-        # 设置用于复用客户端线程的轮询方法 如果你使用Linux 2.6+，你应该使用epoll。如果你使用*BSD，你应该使用kqueue。
-        use epoll;
+systemLog:
+  destination: file
+  path: /usr/local/var/log/mongodb/mongo.log
+  logAppend: true
+storage:
+  dbPath: /data/db
+  auth=true
+net:
+  bindIp: 127.0.0.1
+</code></pre><h3 id="">配置数据库</h3>
+<pre><code>1、登录数据库
+mongo
+2、使用超表管理数据库
+use admin
+3、创建admin账户
+db.createUser(
+  {
+    user: &quot;adminUser&quot;,
+    pwd: &quot;adminPass&quot;,
+    roles: [ { role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; } ]
+  }
+)
+4、开启认证，并重启MongoDB
+sudo mongod --auth
+5、创建对应文档的账户
+db.auth(&#39;username&#39;,&#39;password&#39;)
+// 输出 1 表示验证成功
+show dbs
+use db
+db.createUser({user:&quot;username&quot;,pwd:&quot;password&quot;,roles:[&quot;root&quot;]})
+选择对应的表，创建表用户，并赋予权限，db.createUser({user:&quot;username&quot;,pwd:&quot;password&quot;,roles:[{role: &quot;readWrite&quot;, db: &quot;mqtt&quot; }]})
+6、内建角色
+Read：允许用户读取指定数据库
+readWrite：允许用户读写指定数据库
+dbAdmin：允许用户在指定数据库中执行管理函数，如索引创建、删除，查看统计或访问system.profile
+userAdmin：允许用户向system.users集合写入，可以找指定数据库里创建、删除和管理用户
+clusterAdmin：只在admin数据库中可用，赋予用户所有分片和复制集相关函数的管理权限。
+readAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的读权限
+readWriteAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的读写权限
+userAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的userAdmin权限
+dbAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的dbAdmin权限。
+root：只在admin数据库中可用。超级账号，超级权限
+</code></pre><h2 id="mqtt">安装MQTT</h2>
+<h3 id="">安装与使用</h3>
+<pre><code>npm install mqtt -g
+</code></pre><h3 id="">在浏览器中使用</h3>
+<p>node &gt;=v8.9.1，建议卸载cnpm避免各种奇怪的问题。</p>
+<pre><code>npm install mqtt -g
+</code></pre><h4 id="browserify">Browserify导出</h4>
+<p>Browserify模块可以将MQTT.js绑定为浏览器可用的，也可以导出为一个单独的浏览器端模块。其导出的模块兼容AMD或CMD标准，且会在添加对象到全局空间。</p>
+<pre><code>npm install -g browserify // 安装 browserify 
+cd node_modules/mqtt
+npm install . // 安装 dev dependencies 
+browserify mqtt.js -s mqtt &gt; browserMqtt.js // 需要在客户端使用的mqtt
+</code></pre><h4 id="webpack">Webpack导出</h4>
+<p>与Browserify类似，该模块也会导出一个浏览器端使用的类库，且会在添加对象到全局空间，导出后可以像var mqtt = xxx这样使用MQTT.js。导出时可以设置AMD、CMD或其它导出格式。</p>
+<pre><code>npm install -g webpack // install webpack 
+
+cd node_modules/mqtt
+npm install . // install dev dependencies 
+webpack mqtt.js ./browserMqtt.js --output-library mqtt
+</code></pre><h4 id="">做为命令行工具使用</h4>
+<pre><code>### 匿名
+mqtt pub -t &#39;gpsStatus&#39; -h &#39;127.0.0.1&#39; -p &#39;1883&#39; -m &#39;from Command&#39;
+
+### 认证
+mqtt pub -u &#39;admin&#39; -P &#39;public&#39; -t &#39;gpsStatus&#39; -h &#39;127.0.0.1&#39; -p &#39;1883&#39; -m &#39;from Command&#39;
+
+### 关闭匿名
+mqtt.allow_anonymous = false
+</code></pre><h3 id="node-serverclient">node server&amp;client使用</h3>
+<h4 id="mcu">MCU设备</h4>
+<pre><code>温度传感器检测
+void dh11() {
+  // 温度传感器检测
+  byte temperature = 0;
+  byte humidity = 0;
+  int err = SimpleDHTErrSuccess;
+  if ((err = dht11.read(pinDHT11, &amp;temperature, &amp;humidity, NULL)) != SimpleDHTErrSuccess) {
+    String log = F(&quot;Read DHT11 failed, err=&quot;);
+    log += err;
+    addLog(log);
+
+    return;
+  }
+
+  String str = F(&quot;温度：&quot;);
+  str += temperature;
+  str += F(&quot; 湿度：&quot;);
+  str += humidity;
+  str += F(&quot;%&quot;);
+
+  addLog(str);
+
+  /**
+    开一个字符串空间，把字符拷贝进空间,字符串有结束符，要+1
+  */
+  int strlength = str.length();
+  char tempStr[strlength + 1];
+
+  str.toCharArray(tempStr, strlength + 1);
+
+  client.publish(dh_topic, tempStr);
 }
 
-http {
-        ##
-        # Basic Settings
-        ##
+红外传感器
+void hcsr() {
+  String hasBody = &quot;0&quot;;
+  if (digitalRead(pinHcsr) == HIGH) {
+    Serial.println(&quot;Someone here!&quot;);
+    hasBody = &quot;1&quot;;
+  }
 
-        # 如果该指令被启用，Nginx将使用sendFile 内核来调用文件传递。如果禁用，那么nginx将自己处理文件传递
-        sendfile on;
-        # 该选项只用于sendfile已启动的情况。若为on, 那么nginx将尝试单个TCP数据包中发送整个HTTP响应头
-        tcp_nopush on;
-        tcp_nodelay on;
-        keepalive_timeout 65;
-        client_header_timeout   30s;
-        # 指定持有客户端请求主体的缓存大小，如果超过这个大小，那么主体将被写到磁盘
-        client_body_buffer_size 32k;
-        types_hash_max_size 2048;
-        # 隐藏nginx的版本号,出现400 500 页面时候不会显示nginx服务器的版本号,避免漏洞
-        server_tokens off;
+  int strlength = hasBody.length();
+  char tempStr[strlength + 1];
 
-        # server_names_hash_bucket_size 64;
-        # server_name_in_redirect off;
+  hasBody.toCharArray(tempStr, strlength + 1);
 
-        include /etc/nginx/mime.types;
-        default_type application/octet-stream;
-
-        ##
-        # SSL Settings
-        ##
-
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # Dropping SSLv3, ref: POODLE
-        ssl_prefer_server_ciphers on;
-
-        include /etc/nginx/mime.types;
-        default_type application/octet-stream;
-
-        ##
-        # SSL Settings
-        ##
-
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # Dropping SSLv3, ref: POODLE
-        ssl_prefer_server_ciphers on;
-
-        ##
-        # Logging Settings
-        ##
-
-        access_log /var/log/nginx/access.log;
-        error_log /var/log/nginx/error.log;
-
-        ##
-        # Gzip Settings
-        ##
-        #开启gzip模块  off为关闭
-        gzip on;
-        gzip_disable &quot;msie6&quot;;
-
-        # gzip_static on;
-        # 设置允许压缩的页面最小字节数，默认为0，页面多大都压缩
-        gzip_min_length  1k;
-        # 有的浏览器支持压缩，有的不支持，为了避免浪费，根据HTTP头来判断是否需要压缩
-        gzip_vary on;
-        # 允许或者禁止压缩基于请求和响应的响应流。我们设置为any，意味着将会压缩所有的请求。
-        gzip_proxied any;
-        # gzip压缩比，1压缩比最小，9压缩比最大，相应的速度也会变慢
-        gzip_comp_level 6;
-        # 设置系统获取几个单位的缓存用于存储gzip的压缩结果数据流
-        gzip_buffers 64 8k;
-        # 识别http的协议版本
-        gzip_http_version 1.1;
-        gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
-
-        ##
-        # Virtual Host Configs
-        ##
-
-        include /etc/nginx/conf.d/*.conf;
-        include /etc/nginx/sites-enabled/*;
+  client.publish(hcsr_topic, tempStr);
 }
 
-#mail {
-#       # See sample authentication script at:
-#       # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
-#
-#       # auth_http localhost/auth.php;
-#       # pop3_capabilities &quot;TOP&quot; &quot;USER&quot;;
-#       # imap_capabilities &quot;IMAP4rev1&quot; &quot;UIDPLUS&quot;;
-#
-#       server {
-#               listen     localhost:110;
-#               protocol   pop3;
-#               proxy      on;
-#       }
-#
-#       server {
-#               listen     localhost:143;
-#               protocol   imap;
-#               proxy      on;
-#       }
-#}
-</code></pre><p>/etc/nginx/sites-enabled/default </p>
-<pre><code>##
-# You should look at the following URL&#39;s in order to grasp a solid understanding
-# of Nginx configuration files in order to fully unleash the power of Nginx.
-# http://wiki.nginx.org/Pitfalls
-# http://wiki.nginx.org/QuickStart
-# http://wiki.nginx.org/Configuration
-#
-# Generally, you will want to move this file somewhere, and start with a clean
-# file but keep this around for reference. Or just disable in sites-enabled.
-#
-# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
-##
+gps信息获取
 
-# Default server configuration
-#
-server {
-        # 指定用于提供web服务站点监听的套接字所使用的IP和端口
-        listen 80 default_server;
-        listen [::]:80 default_server;
+  // 必须放在GPS之前，暂时不清楚原因, 每隔30秒发一次信号
+  long now = millis();
+  if (now - lastGet &gt; 30 * 1000) {
+    lastGet = now;
+    dh11();
+  }
 
-        # SSL configuration
-        #
-        # listen 443 ssl default_server;
-        # listen [::]:443 ssl default_server;
-        #
-        # Self signed certs generated by the ssl-cert package
-        # Don&#39;t use them in a production server!
-        #
-        # include snippets/snakeoil.conf;
-        # 定义文档的根目录，该目录包含你希望为访问者提供的内容
-        root /var/www/html;
+  String log;
+  bool gpsFound = false;
+  bool gpsRead = false;
+  gps_fix fix;
 
-        # Add index.php to the list if you are using PHP
-        # 定义一个默认的页面，如果请求中没有指定文件名，nginx就会使用该页面提供服务
-        index index.html index.htm index.php index.nginx-debian.html;
+  unsigned long searchGPSTime = millis();
 
-        # 在server区段指定一个或者多个主机名（hostname）Nginx接收到HTTP请求以后，会与所有server区段相比较，然后找到与客户端请求header中Host匹配的server区段。
-        # 如果没有与客户端匹配的server区段，nginx会选择第一个server区段。该指令接受通配符
-        server_name www.yuuso.com yuuso.com;
-        location / {
-                        # First attempt to serve request as file, then
-                        # as directory, then fall back to displaying a 404.
-                        try_files $uri $uri/ =404;
-                        # 禁用缓存
-                        proxy_buffering off;
-                        # 打开concat 功能
-                        # 默认关闭
-                        concat on;
-                        # 最大合并文件数 (默认: 10)
-                        concat_max_files 20;
-                        # 只允许同类型文件合并 默认是开启的
-                        concat_unique on;
-                        # 允许合并的文件类型，多个以逗号分隔。如：application/x-javascript, text/css
-                        concat_types application/javascript text/css;
-         }
+  while (millis() - searchGPSTime &lt; 2000 &amp;&amp; !gpsRead) {
+    //如果硬件串口有数据
+    if (gps.available(gpsSerial)) {
+      log = F(&quot;Read GPS&quot;);
+      //addLog(log);
+      //从硬件串口读出一字节
+      fix = gps.read();
 
-        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
-            {
-                expires      60d;
-            }
+      //GPS 授时
+      if (fix.valid.time) {
+        log = F(&quot;GPS: Time &quot;);
+        log += fix.dateTime.hours;
+        log += F(&quot;:&quot;);
+        log += fix.dateTime.minutes;
+        log += F(&quot;:&quot;);
+        log += fix.dateTime.seconds;
+        addLog(log);
+      }
 
-        location ~ .*\.(js|css)?$
-            {
-                expires      30d;
-            }
-        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-        #
-        #location ~ \.php$ {
-        location ~ .*\.(php|php5)?$ {
-        include snippets/fastcgi-php.conf;
-        index index.php;
-        # 符合location 样式跳转地址； 这个指令设置被代理服务器的地址和被映射的URI，地址可以使用主机名或IP加端口号的形式。
-        proxy_pass http://192.168.1.118:9000;
-        # proxy_set_header nginx作为反向代理服务器，将请求转发给后端真实服务器，如果不行host的重写，所有的真是服务器都会误认为是nginx服务器发送的请求。
-        # proxy_set_header就是用于将客户端真实的host, ip信息，传送给后端服务器。
-        # proxy_set_header Host $host;
-         proxy_set_header Host $host:$server_port;
-         proxy_set_header Web-Server-Type nginx;
-         proxy_set_header X-Forward-For $remote_addr;
-         proxy_set_header WL-Proxy-Client-IP $remote_addr;
-         # 在这里X-Real-IP是一个自定义的变量名，名字可以随意取，在web端可以用request.getAttribute(&quot;X-Real-IP&quot;)  获取IP
-         proxy_set_header X-Real-IP $remote_addr;
-         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-         #proxy_set_header   Referer http://$host;
+      //GPS 经纬度
+      if (fix.valid.location) {
+        log = F(&quot;GPS: Location &quot;);
+        log += fix.latitudeL();
+        log += F(&quot;,&quot;);
+        log += fix.longitudeL();
+        addLog(log);
+        gpsFound = true;
+        break;
+      }
 
-        # With php5-cgi alone:
-        #        fastcgi_index index.php;
-        #       fastcgi_pass 127.0.0.1:9000;
-        #       # With php5-fpm:
-        #       fastcgi_pass unix:/var/run/php5-fpm.sock;
-        }
+      gpsRead = true;
+    }
 
-        # deny access to .htaccess files, if Apache&#39;s document root
-        # concurs with nginx&#39;s one
-        #
-        #location ~ /\.ht {
-        #       deny all;
-        #}
-}
+    delay(10);
+  }
 
-# Virtual Host configuration for example.com
-#
-# You can move that to a different file under sites-available/ and symlink that
-# to sites-enabled/ to enable it.
-#
-#server {
-#       listen 80;
-#       listen [::]:80;
-#
-#       server_name example.com;
-#
-#       root /var/www/example.com;
-#       index index.html;
-#
-#       location / {
-#               try_files $uri $uri/ =404;
-#       }
-# }
-</code></pre>
+  // sleep after 10s or found gps location
+  if (gpsFound) {
+    sendLocation(fix);
+    log = F(&quot;Send Location&quot;);
+    addLog(log);
+  }
+
+  delay(10 * 1000);
+</code></pre><h4 id="mosca-mqttnode">mosca MQTT服务node服务端</h4>
+<pre><code>var mosca = require(&#39;mosca&#39;);
+
+var settings = {
+    //mqtt 端口
+    port: 1883,
+    backend:{
+        type: &#39;mongo&#39;, //指定类型，mongo的写法请参考官方wiki
+        url: &#39;mongodb://username:passwd@127.0.0.1:27017/mqtt&#39;,//数据库名称,类似关系数据库中的dbName
+        pubsubCollection: &#39;ascoltatori&#39;,//表名称,类似关系数据库中的表
+        mongo: {}
+    },
+    persistence:{
+        factory: mosca.persistence.Mongo,
+        url: &quot;mongodb://username:passwd@127.0.0.1:27017/mosca&quot;
+    },
+    //ws 端口
+    http: {
+        port: 8083,
+        bundle: true,
+        static: &#39;./&#39;
+    }
+};
+
+/**
+ * 如果需要用户登录验证权限，需要改写此方法
+ * 这里以简单判断了用户名和密码为例，真实环境可以连接实际业务系统的鉴权服务
+ * @param client
+ * @param username
+ * @param password
+ * @param callback
+ */
+var authenticate = function (client, username, password, callback) {
+    var authorized = (username === &#39;yzhao&#39; &amp;&amp; password.toString() === &#39;yzhao&#39;);
+    if (authorized) client.user = username;
+    callback(null, authorized);
+};
+
+var server = new mosca.Server(settings);
+
+server.on(&#39;ready&#39;, function () {
+    server.authenticate = authenticate;
+    console.log(&#39;mosca server running&#39;);
+}).on(&#39;clientConnected&#39;, function (client) {
+    console.log(&#39;client(&#39; + client.id + &#39;) connected&#39;);
+}).on(&#39;published&#39;, function (packet, client) {
+    console.log(&#39;client(&#39; + (client ? client.id : &#39;internal&#39;) + &#39;) published topic(&#39; + packet.topic + &#39;): &#39; + packet.payload);
+}).on(&#39;subscribed&#39;, function (topic, client) {
+    console.log(&#39;client(&#39; + client.id + &#39;) subscribed topic(&#39; + topic + &#39;)&#39;);
+}).on(&#39;unsubscribed&#39;, function (topic, client) {
+    console.log(&#39;client(&#39; + client.id + &#39;) unsubscribed topic(&#39; + topic + &#39;)&#39;);
+}).on(&#39;clientDisconnecting&#39;, function (client) {
+    console.log(&#39;client(&#39; + client.id + &#39;) disconnecting&#39;);
+}).on(&#39;clientDisconnected&#39;, function (client) {
+    console.log(&#39;client(&#39; + client.id + &#39;) disconnected&#39;);
+});
+</code></pre><h4 id="">客户端</h4>
+<pre><code>var mqtt = require(&#39;mqtt&#39;);
+var client = mqtt.connect(&#39;mqtt://127.0.0.1:1883&#39;, {
+    username: &#39;username&#39;,
+    password: &#39;password&#39;
+});
+
+/**
+ * 链接MQTT服务
+ */
+client.on(&#39;connect&#39;, function () {
+    client.subscribe(&#39;gpsStatus&#39;);
+    //client.publish(&#39;hello&#39;, &#39;Hello mqtt&#39;);
+});
+
+/**
+ * 收到消息出来方式
+ */
+client.on(&#39;message&#39;, function (topic, message) {
+    // message is Buffer
+    console.log(message.toString());
+    //client.end();
+});
+</code></pre><p>文献资料</p>
+<ul>
+<li><a href="https://itbilu.com/nodejs/npm/41wDnJoDg.html" target="_blank">Node.js实现的MQTT客户端模块mqtt.js</a></li>
+</ul>
+
                     
                     </section>
                 
@@ -1552,10 +1572,8 @@ server {
         </div>
 
         
-        <a href="../lb/combo.html" class="navigation navigation-prev " aria-label="Previous page: Combo配置"><i class="fa fa-angle-left"></i></a>
+        <a href="../gitlab/backup.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: backup"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../lb/ssl.html" class="navigation navigation-next " aria-label="Next page: SSL配置"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
