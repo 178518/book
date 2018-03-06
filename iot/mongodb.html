@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>http-load | 乐高</title>
+        <title>MongoDB | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../raspbian/xunlei.html" />
     
-    
-    <link rel="prev" href="../raspbian/netdata.html" />
+    <link rel="prev" href="../iot/setup.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="9.12" data-basepath=".." data-revision="1520316345350">
+    <div class="book" data-level="14.1" data-basepath=".." data-revision="1520316345350">
     
 
 <div class="book-summary">
@@ -888,7 +886,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="9.12" data-path="raspbian/http-load.html">
+        <li class="chapter " data-level="9.12" data-path="raspbian/http-load.html">
             
                 
                     <a href="../raspbian/http-load.html">
@@ -1206,7 +1204,7 @@
                 
     
         
-        <li class="chapter " data-level="14.1" data-path="iot/mongodb.html">
+        <li class="chapter active" data-level="14.1" data-path="iot/mongodb.html">
             
                 
                     <a href="../iot/mongodb.html">
@@ -1315,42 +1313,66 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_65">
+                    <section class="normal" id="section-gitbook_41">
                     
-                        <h1 id="http-load">http-load安装</h1>
-<p>http_load以并行复用的方式运行，用以测试web服务器的吞吐量与负载。但是它不同于大多数压力测试工具，
-它可以以一个单一的进程运行，一般不会把客户机搞死。还可以测试HTTPS类的网站请求。
-下载：<a href="http://acme.com/software/http_load/" target="_blank">http://acme.com/software/http_load/</a>
-安装：
-解压后只要 make , make install 就行了</p>
-<p>环境： 需要gcc  如果是在服务器上安装的话还需要有sudo</p>
-<p>执行命令：
-./http_load
-参数说明：
--parallel 简写-p ：含义是并发的用户进程数。
--fetches 简写-f ：含义是总计的访问次数
--rate    简写-r ：含义是每秒的访问频率
--seconds简写-s ：含义是总计的访问时间</p>
-<p>准备URL文件：url.txt，文件格式是每行一个URL，URL最好超过50－100个测试效果比较好.文件格式</p>
-<p>执行及结果说明：
-./http_load -rate 5 -seconds 10 urls说明执行了一个持续时间10秒的测试，每秒的频率为5。</p>
-<p><img src="../assets/http-load/http-load.png" alt="http-load"></p>
-<p>结果分析：
-1．49 fetches, 1 max parallel, 2.04472e+06 bytes, in 10.0005 seconds 说明在上面的测试中运行了49个请求，最大的并发进程数是2.389，总计传输的数据是204463bytes，运行的时间是10.0148秒
-2．41729 mean bytes/connection   说明每一连接平均传输的数据量41729/49=581.6
-3．4.89977 fetches/sec, 204463 bytes/sec
-说明每秒的响应请求为4.89977，每秒传递的数据为204463 bytes/sec
-4．msecs/connect: 1.70367 mean, 2.389 max, 1.322 min  说明每连接的平均响应时间是1.70367 msecs
-，最大的响应时间2.389 msecs，最小的响应时间1.322 msecs
-5．msecs/first-response: 65.0539 mean, 108.677 max, 56.335 min
-6、HTTP response codes: code 200 — 49     说明打开响应页面的类型，如果403的类型过多，那可能
-要注意是否系统遇到了瓶颈。
-特殊说明：
-测试结果中主要的指标是 fetches/sec、msecs/connect 这个选项，即服务器每秒能够响应的查询次数，</p>
-<p>用这个指标来衡量性能。似乎比 apache的ab准确率要高一些，也更有说服力一些。
-Qpt-每秒响应用户数和response time，每连接响应用户时间。
-测试的结果主要也是看这两个值。当然仅有这两个指标并不能完成对性能的分析，</p>
-<p>我们还需要对服务器的cpu、men进行分析，才能得出结论</p>
+                        <h1 id="mongodb">mongodb</h1>
+<h2 id="">安装</h2>
+<h3 id="">加载公钥用于软件包管理系统</h3>
+<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+</code></pre><h3 id="-mongodb--etcaptsourceslistdmongodb-org-34list-">为 MongoDB 创建 /etc/apt/sources.list.d/mongodb-org-3.4.list 文件.</h3>
+<pre><code>echo &quot;deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+</code></pre><h3 id="">重载本地软件包数据库</h3>
+<pre><code>sudo apt-get update
+</code></pre><h3 id="-mongodb-">安装 MongoDB 软件包</h3>
+<p>安装指定版本, 你必须单独为每个组件包指定版本号, 就像下面这样：</p>
+<pre><code>sudo apt-get install -y mongodb-org=3.4.9 mongodb-org-server=3.4.9 mongodb-org-shell=3.4.9 mongodb-org-mongos=3.4.9 mongodb-org-tools=3.4.9
+</code></pre><h3 id="-mongodb-">固定 MongoDB 的版本</h3>
+<p>虽然你可以指定任何可用的 MongoDB 版本, 当一个更新的软件可用的时候, apt-get 将会更新软件包. 为了防止意外升级, 固定 MongoDB 仅限当前安装的版本, 我们可以执行以下命令:</p>
+<pre><code>echo &quot;mongodb-org hold&quot; | sudo dpkg --set-selections
+echo &quot;mongodb-org-server hold&quot; | sudo dpkg --set-selections
+echo &quot;mongodb-org-shell hold&quot; | sudo dpkg --set-selections
+echo &quot;mongodb-org-mongos hold&quot; | sudo dpkg --set-selections
+echo &quot;mongodb-org-tools hold&quot; | sudo dpkg --set-selections
+</code></pre><h3 id="">配置</h3>
+<p>sudo nano etc/mongod.conf</p>
+<h3 id="">启动</h3>
+<pre><code>mongod --auth -f /etc/mongod.conf
+</code></pre><h3 id="">停止</h3>
+<pre><code>ps -axu |grep mongo
+kill -2 pid
+</code></pre><h3 id="shell">shell</h3>
+<pre><code>1、登录数据库
+mongo
+2、使用超表管理数据库
+use admin
+3、认证
+db.auth(&#39;username&#39;,&#39;password&#39;)
+4、创建admin账户(admin只有用户管理的权限)，这里相当于创建数据库的超级管理员，用于管理用户
+db.createUser(
+  {
+    user: &quot;adminUser&quot;,
+    pwd: &quot;adminPass&quot;,
+    roles: [ { role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; } ]
+  }
+)
+5、显示库
+show dbs
+6、创建用户，用户都跟着库走，这里相当具体数据库的操作权限，终端里面登录使用的就是这个
+use mqtt
+db.createUser({user:&quot;username&quot;,pwd:&quot;password&quot;,roles:[{role: &quot;dbAdmin&quot;, db: &quot;mqtt&quot; },{ role: &quot;readWrite&quot;, db: &quot;mqtt&quot; },{ role: &quot;read&quot;, db: &quot;mqtt&quot;}]})
+6、全部创建完成之后重启mongodb
+7、查看用户
+show users
+8、删除用户
+use db
+db.dropUser(&#39;test&#39;)
+</code></pre><h3 id="">资料文献</h3>
+<ul>
+<li><a href="https://www.jianshu.com/p/f179ce608391" target="_blank">MongoDB初体验-配置文件</a></li>
+<li><a href="https://www.jianshu.com/p/f9f1454f251f" target="_blank">mongod.conf重要配置</a></li>
+<li><a href="http://ibruce.info/2015/03/03/mongodb3-auth" target="_blank">mongoDB 3.0 安全权限访问控制</a></li>
+<li><a href="https://www.jianshu.com/p/f5afc6488f9e" target="_blank">MongoDB的用户创建更新及删除</a></li>
+</ul>
 
                     
                     </section>
@@ -1361,10 +1383,8 @@ Qpt-每秒响应用户数和response time，每连接响应用户时间。
         </div>
 
         
-        <a href="../raspbian/netdata.html" class="navigation navigation-prev " aria-label="Previous page: netdata应用"><i class="fa fa-angle-left"></i></a>
+        <a href="../iot/setup.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: IOT"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../raspbian/xunlei.html" class="navigation navigation-next " aria-label="Next page: 迅雷远程下载"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
