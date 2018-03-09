@@ -91,3 +91,9 @@ pm2 link your-secret-key your-public-key 178518
 [PM2](https://www.gitbook.com/book/wohugb/pm2)
 
 [pm2-web](https://www.ijser.cn/pm2-web/)
+
+[pm2使用心得](https://www.jianshu.com/p/225b9284cfb8)
+
+[PM2实用入门指南](https://www.cnblogs.com/chyingp/p/pm2-documentation.html)
+
+[pm2进程管理工具使用总结](https://www.jianshu.com/p/7b10123c8b88)

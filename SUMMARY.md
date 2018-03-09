@@ -66,3 +66,4 @@
  - [backup](gitlab/backup.md) 
 * [IOT](iot/setup.md)
  - [MongoDB](iot/mongodb.md)
+ - [泛IOT全链路知识](iot/learn.md)
