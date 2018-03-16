@@ -94,7 +94,7 @@ Redux的确限定了开发者如何去编写程序。Redux提供了一个权衡�
 
 ### 一张图看懂Koa2
 
-![Koa2脑图](https://loulanyijian.github.io/images/koa2.svg)
+![Koa2脑图](../assets/koa2/koa2.png)
 
 
 ### 资料文献
