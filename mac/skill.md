@@ -32,6 +32,9 @@ brew install proxychains-ng
 nano /usr/local/etc/proxychains.conf
 
 socks5 127.0.0.1 1080
+
+测试
+proxychains4 curl www.google.com
 ```
 
 ### git设置代理
