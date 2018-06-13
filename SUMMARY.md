@@ -20,6 +20,7 @@
  - [PM2&keymetrics](2016/pm2.md)
  - [环境配置](2016/setup.md)
  - [React Native资料](2016/study.md)
+ - [Mac代理设置](mac/skill.md)
 * [乐高整体架构](2016/jiagou.md)
  - [CSS动画](animation/animation.md) 
  - [乐高前端解决方案](lego/index.md)
