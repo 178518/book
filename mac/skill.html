@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>前端网址导航 | 乐高</title>
+        <title>Mac代理设置 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../android/android4.4.html" />
+    <link rel="next" href="../2016/jiagou.html" />
     
     
-    <link rel="prev" href="../f2e/book.html" />
+    <link rel="prev" href="../2016/study.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="2.2" data-basepath=".." data-revision="1528858419450">
+    <div class="book" data-level="5.6" data-basepath=".." data-revision="1528858419450">
     
 
 <div class="book-summary">
@@ -122,7 +122,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="2.2" data-path="f2e/site.html">
+        <li class="chapter " data-level="2.2" data-path="f2e/site.html">
             
                 
                     <a href="../f2e/site.html">
@@ -438,7 +438,7 @@
         </li>
     
         
-        <li class="chapter " data-level="5.6" data-path="mac/skill.html">
+        <li class="chapter active" data-level="5.6" data-path="mac/skill.html">
             
                 
                     <a href="../mac/skill.html">
@@ -1363,34 +1363,43 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_27">
+                    <section class="normal" id="section-gitbook_61">
                     
-                        <h1 id="">前端网站大全</h1>
+                        <h1 id="mac">MAC设置</h1>
+<h3 id="macos-sierra">macOS Sierra安装软件提示文件已损坏问题解决</h3>
+<pre><code>sudo spctl --master-disable
+</code></pre><p>回到系统偏好设置的“安全与隐私”，勾选“允许任何来源”</p>
+<h3 id="mongodb">MongoDB安装</h3>
+<pre><code>brew install mongodb
+
+mkdir -p /data/db
+
+sudo chown -R  当前登录的用户名 /data
+
+export MONGO_PATH=/usr/local/Cellar/mongodb
+export PATH=$PATH:$MONGO_PATH/bin
+
+mongod
+</code></pre><h3 id="mac">mac下代理设置</h3>
+<h4 id="">终端代理上网</h4>
+<pre><code>brew install proxychains-ng
+
+nano /usr/local/etc/proxychains.conf
+
+socks5 127.0.0.1 1080
+
+测试
+proxychains4 curl www.google.com
+</code></pre><h3 id="git">git设置代理</h3>
+<pre><code>git config --global http.proxy http://127.0.0.1:1080
+git config --global https.proxy http://127.0.0.1:1080
+</code></pre><h3 id="npm">npm设置代理</h3>
+<pre><code>npm config set proxy http://127.0.0.1:1080
+npm config set https-proxy http://127.0.0.1:1080
+</code></pre><h3 id="">资料文献</h3>
 <ul>
-<li><a href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank">Material design</a></li>
-<li><a href="http://www.material-ui.com/" target="_blank">React Material design</a></li>
-<li><a href="http://wiki.jikexueyuan.com/project/material-design/" target="_blank">Material Design 中文版</a></li>
-<li><a href="http://www.daqianduan.com/nav" target="_blank">前端网址导航</a></li>
-<li><a href="https://segmentfault.com/a/1190000002804472" target="_blank">Github上值得关注的前端项目</a></li>
-<li><a href="https://github.com/JingwenTian/awesome-frontend" target="_blank">前端组件库</a></li>
-<li><a href="http://www.appelsiini.net/projects/lazyload/enabled.html" target="_blank">Lazy Load</a></li>
-<li><a href="http://www.htmleaf.com/ziliaoku/qianduanjiaocheng/201505151842.html" target="_blank">MATERIAL DESIGN框架</a></li>
-</ul>
-<h3 id="js">JS</h3>
-<ul>
-<li><a href="http://javascript.ruanyifeng.com/" target="_blank">JavaScript 标准参考教程（alpha）</a></li>
-<li><a href="http://es6.ruanyifeng.com/" target="_blank">ECMAScript 6入门</a></li>
-<li><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank">JavaScript教程</a></li>
-<li><a href="http://csspod.com/getting-started-with-eslint/" target="_blank">eslint</a></li>
-</ul>
-<h3 id="node-js">Node JS</h3>
-<ul>
-<li><a href="http://nodejs.cn/" target="_blank">Node JS</a></li>
-<li><a href="http://nodeapi.ucdok.com/#/api/" target="_blank">Node.js API 中文版</a></li>
-</ul>
-<h3 id="react-ui">React UI</h3>
-<ul>
-<li><a href="http://ant.design/" target="_blank">ANT DESIGN</a></li>
+<li><a href="http://www.snowdream.tech/2016/03/31/proxy-settings-with-shadowsocks/#IDEA" target="_blank">代理服务器设置 - Shadowsocks</a></li>
+<li><a href="http://haoweiguang.me/2017/05/08/Mac%E4%B8%8Bshadowsocks%E5%85%A8%E8%87%AA%E5%8A%A8%E5%9C%B0%E4%BB%A3%E7%90%86%E7%BF%BB%E5%A2%99/" target="_blank">Mac下shadowsocks全自动地代理翻墙</a></li>
 </ul>
 
                     
@@ -1402,10 +1411,10 @@
         </div>
 
         
-        <a href="../f2e/book.html" class="navigation navigation-prev " aria-label="Previous page: 前端工程化"><i class="fa fa-angle-left"></i></a>
+        <a href="../2016/study.html" class="navigation navigation-prev " aria-label="Previous page: React Native资料"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../android/android4.4.html" class="navigation navigation-next " aria-label="Next page: SM-900V Note3升级4.4"><i class="fa fa-angle-right"></i></a>
+        <a href="../2016/jiagou.html" class="navigation navigation-next " aria-label="Next page: 乐高整体架构"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

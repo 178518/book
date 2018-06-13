@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>前端网址导航 | 乐高</title>
+        <title>IOT编程语言选择 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,8 @@
         
     
     
-    <link rel="next" href="../android/android4.4.html" />
     
-    
-    <link rel="prev" href="../f2e/book.html" />
+    <link rel="prev" href="../iot/learn.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-level="2.2" data-basepath=".." data-revision="1528858419450">
+    <div class="book" data-level="14.3" data-basepath=".." data-revision="1528858419450">
     
 
 <div class="book-summary">
@@ -122,7 +120,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="2.2" data-path="f2e/site.html">
+        <li class="chapter " data-level="2.2" data-path="f2e/site.html">
             
                 
                     <a href="../f2e/site.html">
@@ -1254,7 +1252,7 @@
         </li>
     
         
-        <li class="chapter " data-level="14.3" data-path="iot/language.html">
+        <li class="chapter active" data-level="14.3" data-path="iot/language.html">
             
                 
                     <a href="../iot/language.html">
@@ -1363,34 +1361,39 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_27">
+                    <section class="normal" id="section-gitbook_41">
                     
-                        <h1 id="">前端网站大全</h1>
+                        <h1 id="">物联网编程语言选择</h1>
+<h2 id="">物联网</h2>
+<p>前几天和朋友聊到当下的技术日新月异，本质上还是硬件和网络得到了长足的发展，所以很多以前的想法变成了现实，回看技术的本质其实还是没有变。</p>
+<p>AlphaGo的强大依赖于芯片和网络技术的进度，才有了令人惊艳的表现。</p>
+<p>物联网其实是互联网的一个延伸，物联网的本质还是互联网，只不过终端不再是计算机（PC、服务器），而是嵌入式计算机系统及其配套的传感器。只要有硬件或产品连上网，发生数据交互，就叫物联网。</p>
+<p>服务器技术叫“云”，单片机叫“智能硬件”，网络单片机应用叫“物联网”，车载单片机应用叫“车联网”，数据库技术应用叫“大数据”。</p>
+<p>物联网涉及软硬件、互联网、App等多个领域，作为个人而言，只可能精其一样。</p>
+<p><img src="http://images.ofweek.com/Upload/News/2017-05/08/lime/1494224235227084156.jpg" alt="分层结构"></p>
+<p>要选择物联网项目使用的语言，您首先必须了解物联网生态系统。这一点非常重要，因为不同级别的软件和固件所使用的处理器架构和资源相差很大。</p>
+<p>底部的边缘设备：这些设备和周围的世界互动，代表了可穿戴和其他互联设备。这些设备采集并创造数据，通过致动器与世界互动。</p>
+<p>中间的网关设备：这些设备属于中间设备，用于将数据传输到其它系统，以进行处理。网关也可以从许多边缘设备中收集数据，提供一条连接终端设备的控制路径。</p>
+<p>顶部的是云：云是一系列可扩展计算、网络和存储资源，能够对终端设备和网关收集的数据进行存储、分析和可视化处理。</p>
+<h3 id="c">边缘设备(C语言)</h3>
+<p>比汇编语言更为高级，C语言支持创建资源受限型代码，提供出色的可读性和可维护性。C 语言的优势使其广泛存在于各个使用模式中。</p>
+<h3 id="python">网关设备(Python语言)</h3>
+<p>一种能够简化原型构建的解释性语言，您还可以将它用户生产环节。Python支持大量的库和模块，可以利用较少的代码完成更多的任务。适用于更强大的边缘设备、网关，甚至云。</p>
+<h3 id="javascript">云(JavaScript语言)</h3>
+<p>我偏向于使用 JavaScript， 更适合全栈物联网。</p>
+<p>JavaScript 可以用于开发各种原型软件、及大部分的客户端软件：</p>
 <ul>
-<li><a href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank">Material design</a></li>
-<li><a href="http://www.material-ui.com/" target="_blank">React Material design</a></li>
-<li><a href="http://wiki.jikexueyuan.com/project/material-design/" target="_blank">Material Design 中文版</a></li>
-<li><a href="http://www.daqianduan.com/nav" target="_blank">前端网址导航</a></li>
-<li><a href="https://segmentfault.com/a/1190000002804472" target="_blank">Github上值得关注的前端项目</a></li>
-<li><a href="https://github.com/JingwenTian/awesome-frontend" target="_blank">前端组件库</a></li>
-<li><a href="http://www.appelsiini.net/projects/lazyload/enabled.html" target="_blank">Lazy Load</a></li>
-<li><a href="http://www.htmleaf.com/ziliaoku/qianduanjiaocheng/201505151842.html" target="_blank">MATERIAL DESIGN框架</a></li>
+<li>基于mosca架设Node服务，通过mqtt协议可以将边缘设备采集的数据传输到MongoDB数据库</li>
+<li>使用 Electron 开发桌面客户端，来帮助传统</li>
+<li>使用 React 同构应用，可以开发全端应用，获取一致性的体验</li>
+<li>使用 Ruff、Tessel 开发硬件端的应用</li>
+<li>编写微信小程序直接访问蓝牙设备，进行交互与数据传输</li>
+<li>在嵌入式系统 Linux 上，又可以制作 UI 界面来加速开发</li>
 </ul>
-<h3 id="js">JS</h3>
+<h3 id="">资料文献</h3>
 <ul>
-<li><a href="http://javascript.ruanyifeng.com/" target="_blank">JavaScript 标准参考教程（alpha）</a></li>
-<li><a href="http://es6.ruanyifeng.com/" target="_blank">ECMAScript 6入门</a></li>
-<li><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank">JavaScript教程</a></li>
-<li><a href="http://csspod.com/getting-started-with-eslint/" target="_blank">eslint</a></li>
-</ul>
-<h3 id="node-js">Node JS</h3>
-<ul>
-<li><a href="http://nodejs.cn/" target="_blank">Node JS</a></li>
-<li><a href="http://nodeapi.ucdok.com/#/api/" target="_blank">Node.js API 中文版</a></li>
-</ul>
-<h3 id="react-ui">React UI</h3>
-<ul>
-<li><a href="http://ant.design/" target="_blank">ANT DESIGN</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/28419753" target="_blank">冷静审视人工智能技术的本质</a></li>
+<li><a href="https://www.zhihu.com/question/19751763" target="_blank">什么是物联网？</a></li>
 </ul>
 
                     
@@ -1402,10 +1405,8 @@
         </div>
 
         
-        <a href="../f2e/book.html" class="navigation navigation-prev " aria-label="Previous page: 前端工程化"><i class="fa fa-angle-left"></i></a>
+        <a href="../iot/learn.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 泛IOT全链路知识"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../android/android4.4.html" class="navigation navigation-next " aria-label="Next page: SM-900V Note3升级4.4"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
