@@ -1,10 +1,13 @@
 # MAC设置
 
+<<<<<<< HEAD
 ### apache启动
 ```
 sudo apachectl restart
 ```
 
+=======
+>>>>>>> ca6ad1eedd9e6a0e6cc3bbf0962d9c9658b1e77d
 ### macOS Sierra安装软件提示文件已损坏问题解决
 
 ```

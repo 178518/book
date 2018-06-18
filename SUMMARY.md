@@ -68,7 +68,11 @@
 * [IOT](iot/setup.md)
  - [MongoDB](iot/mongodb.md)
  - [泛IOT全链路知识](iot/learn.md)
+<<<<<<< HEAD
  - [IOT编程语言选择](iot/language.md)
 * [日常工作](job/index.md)
  - [仓库](job/gitlab-repository.md)
  - [问题汇总](job/qa.md)
+=======
+ - [IOT编程语言选择](iot/language.md)
+>>>>>>> ca6ad1eedd9e6a0e6cc3bbf0962d9c9658b1e77d
