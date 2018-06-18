@@ -1,0 +1,155 @@
+body{
+    background: #fff;
+}
+
+.nav .bar {
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #2db7f5;
+    display: none;
+    transition: left .3s cubic-bezier(.075, .82, .165, 1);
+}
+
+.logo img {
+    width: 30px;
+}
+
+.lego {
+    animation: rotateInDownLeft 1s;
+    -webkit-animation: rotateInDownLeft 1s;
+}
+
+.nav {
+    animation: rotateInDownRight 1s;
+    -webkit-animation: rotateInDownRight 1s;
+}
+
+.logo {
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 60s infinite linear;
+}
+
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+header {
+    position: fixed;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid transparent;
+    transition: border .5s cubic-bezier(0.455, 0.03, 0.515, 0.955), background .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+/* 右侧导航 */
+#fullPage-nav {
+    _display: none;
+    font-size: 12px;
+}
+
+#fullPage-nav li {
+    width: 90px;
+    height: 21px;
+    margin: 10px 0 0;
+    vertical-align: middle;
+}
+
+#fullPage-nav li a {
+    float: right;
+    width: 21px;
+    height: 21px;
+    color: #8F9DA4;
+    text-decoration: none;
+    text-align: right;
+    background: url(image/dot.png) 5px 5px no-repeat;
+}
+
+#fullPage-nav li .active {
+    background-position: 0 bottom;
+}
+
+#fullPage-nav span {
+    display: none;
+}
+
+.fullPage-tooltip {
+    float: left;
+    top: 0;
+    margin-right: 5px;
+    font: 12px "Microsoft Yahei";
+    color: #8F9DA4;
+    line-height: 21px;
+}
+
+.section {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+.section .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.section .bg img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.section1 {
+    padding-top: 200px;
+}
+
+.section1 .col-16 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.section1 .col-16 p {
+    font-size: 18px;
+}
+
+.section1 .section1-line1,.section1 .section1-line2,.section1 .section1-line3{
+    padding-top: 20px;
+}
+
+.section1 .col-8{
+    padding: 0 20px;
+}
+
+.section2 .layout-fixed,.section3 .layout-fixed,.section4 .layout-fixed{
+    padding-top: 200px;
+}
+
+.section2 h2,.section3 h2,.section4 h2{
+    font-size: 32px;
+    color: #666;
+}
+
+.section2 p,.section3 p,.section4 p{
+    font-size: 16px;
+    color: #999;
+}
+
+.section5 .layout-fixed{
+    padding-top: 460px;
+    font-size: 48px;
+    color: #fff;
+    text-align: center;
+}

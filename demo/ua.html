@@ -1,0 +1,30 @@
+<!DOCTYPE html >
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MQTT Debug</title>
+    <script>
+        function isWeixinBrowser() {
+            var ua = navigator.userAgent.toLowerCase();
+            return (/micromessenger/.test(ua)) ? true : false;
+        }
+
+        function isAndroid() {
+            var ua = navigator.userAgent.toLowerCase();
+            return (/android/.test(ua)) ? true : false;
+        }
+
+        function isIos() {
+            var ua = navigator.userAgent.toLowerCase();
+            return (/(iphone|ipod|ipad)/.test(ua)) ? true : false;
+        }
+
+        alert(isWeixinBrowser());
+        alert(isAndroid());
+        alert(isIos());
+    </script>
+</head>
+<body>
+</body>
+</html>

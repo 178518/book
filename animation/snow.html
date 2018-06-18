@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>首页下雪动画</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="data-spm" content="a1z3i">
+    <script src="//g.alicdn.com/mtb/??lib-flexible/0.3.2/flexible.js,lib-windvane/2.1.4/windvane.js"></script>
+    <style>html {
+        height: 100%
+    }
+
+    body {
+        margin: 0 auto;
+        width: 10rem;
+        height: 100%;
+        overflow: hidden;
+        background: red;
+    }
+
+    #snow {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden
+    }
+
+    .flake {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: url(//gw.alicdn.com/mt/TB1Gu4ZLXXXXXaxXFXXXXXXXXXX-36-36.png) no-repeat;
+        background-size: 100%
+    }</style>
+    <meta>
+    <link type="image/x-icon" href="http://gw.alicdn.com/mt/TB1AElnKVXXXXc8XXXXXXXXXXXX-40-40.jpg" rel="Shortcut Icon">
+</head>
+<body data-spm="myvlt15c5">
+<div id="snow"></div>
+<script>!function (win, doc) {
+    "use strict";
+    function query(string) {
+        return doc.querySelector(string)
+    }
+
+    //产生随机数
+    function makeRandom(min, max) {
+        return Math.floor(min + Math.random() * (max - min))
+    }
+
+    //动画的位置信息
+    function startEnd(stageObj) {
+        var beginX = makeRandom(0, 2 * stageObj.stageWidth),
+                beginY = -20,
+                endX = makeRandom(0, Math.min(beginX, stageObj.stageWidth)),
+                endY = stageObj.stageHeight + 40;
+
+        return {beginX: beginX, beginY: beginY, endX: endX, endY: endY}
+    }
+
+    //雪花粒子的高宽
+    function widthHeight() {
+        var random = makeRandom(3, 12);
+        return {width: random * win.dpr, height: random * win.dpr}
+    }
+
+    function createSnow(stageObj) {
+        var tempDiv = doc.createElement("div");
+
+        tempDiv.className = "flake";
+
+        //在WebKit引擎的浏览器中，当CSS 3的animation动画执行结束时，触发webkitAnimationEnd事件。
+
+        //动画播放完成后将自己从场景中删除
+        tempDiv.addEventListener("webkitTransitionEnd", function loopFn() {
+            this.removeEventListener("webkitTransitionEnd", loopFn, false);
+            this.parentNode.removeChild(this);
+        }, false);
+
+        var tempStartEnd = startEnd(stageObj), tempWidthHeight = widthHeight(stageObj), d = [];
+
+        //应用于CSS3动画效果，过度时间，时长为n秒
+        //transition-timing-function	规定速度效果的速度曲线。
+        //transition-delay	定义过渡效果何时开始。
+        d.push("opacity:0." + makeRandom(5, 10));
+        d.push("transition:transform " + 120 / tempWidthHeight.width + "s ease-in;");
+        d.push("-webkit-transition:-webkit-transform " + 120 / tempWidthHeight.width + "s ease-in;");
+
+        //slice() 方法可提取字符串的某个部分，并以新的字符串返回被提取的部分。这里相当于赋值
+        //tx：代表横向坐标位移向量的长度；ty：代表纵向坐标位移向量的长度；tz：代表Z轴位移向量的长度。此值不能是一个百分比值，如果取值为百分比值，将会认为无效值。
+        //动画开始位置
+        var o = d.slice();
+        o.push("width:" + tempWidthHeight.width + "px;height:" + tempWidthHeight.height + "px");
+        o.push("transform: translate3d(" + tempStartEnd.beginX + "px, " + tempStartEnd.beginY + "px, 0)");
+        o.push("-webkit-transform: translate3d(" + tempStartEnd.beginX + "px, " + tempStartEnd.beginY + "px, 0)");
+
+        //动效应用到雪花层上，初始化雪花位置
+        tempDiv.style.cssText = o.join(";");
+        stageObj.stage.appendChild(tempDiv);
+
+        //动画结束位置
+        var p = d.slice();
+        p.push("width:" + tempWidthHeight.width + "px;height:" + tempWidthHeight.height + "px");
+        p.push("transform: translate3d(" + tempStartEnd.endX + "px, " + tempStartEnd.endY + "px, 0)");
+        p.push("-webkit-transform: translate3d(" + tempStartEnd.endX + "px, " + tempStartEnd.endY + "px, 0)");
+
+        setTimeout(function () {
+            tempDiv.style.cssText = p.join(";")
+        }, 100)
+    }
+
+    function init() {
+        /**
+         * 基于CSS3的下雪动画
+         */
+        var stageEle = query("#snow"), stageObj = {
+            stage: stageEle,
+            stageWidth: stageEle.offsetWidth,
+            stageHeight: stageEle.offsetHeight
+        };
+
+        /**
+         * 设置一个定时器,300毫秒钟下3个雪花,可以控制雪花密度
+         */
+        setInterval(function () {
+            for (var t = 3, n = 0; t > n; n++) {
+                createSnow(stageObj);
+            }
+        }, 300);
+    }
+
+    doc.addEventListener("DOMContentLoaded", init, false)
+}(window, window.document);</script>
+<script>
+    //window.WindVane.call('WVPopLayer', 'display', {});
+</script>
+</body>
+</html>
