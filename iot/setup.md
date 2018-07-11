@@ -21,7 +21,7 @@ net:
 ### 配置数据库
 
 ```
-1、登录数据库
+1、登录数据库e
 mongo
 2、使用超表管理数据库
 use admin
@@ -95,7 +95,7 @@ webpack mqtt.js ./browserMqtt.js --output-library mqtt
 mqtt pub -t 'gpsStatus' -h '127.0.0.1' -p '1883' -m 'from Command'
 
 ### 认证
-mqtt pub -u 'admin' -P 'public' -t 'gpsStatus' -h '127.0.0.1' -p '1883' -m 'from Command'
+mqtt pub -u 'yzhao' -P 'yzhao' -t 'mqttTest' -h '127.0.0.1' -p '1883' -m 'from Command'
 
 ### 关闭匿名
 mqtt.allow_anonymous = false
