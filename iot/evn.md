@@ -139,4 +139,5 @@ export TNVM_DIR="/Users/yunyi/.tnvm"
 source ~/.nvm/nvm.sh
 source ~/.bash_profile
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 ```
