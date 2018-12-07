@@ -40,7 +40,11 @@ sudo nano etc/mongod.conf
 
 ### 启动
 ```
+debian
 mongod --auth -f /etc/mongod.conf
+
+mac
+mongod --auth -f /usr/local/etc/mongod.conf
 ```
 
 ### 停止
