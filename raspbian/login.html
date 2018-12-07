@@ -1,1498 +1,1269 @@
+
 <!DOCTYPE HTML>
-<html lang="en-US" >
-    
+<html lang="zh-hans" >
     <head>
-        
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Raspbian的配置 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Raspbian的配置 · 乐高</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 1.5.0">
-        <meta name="HandheldFriendly" content="true"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="178518 <178518@gmail.com>">
         
         
     
+    <link rel="stylesheet" href="../gitbook/style.css">
+
     
-    <link rel="next" href="../raspbian/lnmp.html" />
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
     
+
     
-    <link rel="prev" href="../raspbian/burn.html" />
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
     
 
         
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="lnmp.html" />
+    
+    
+    <link rel="prev" href="burn.html" />
+    
+
     </head>
     <body>
         
+<div class="book">
+    <div class="book-summary">
         
-<link rel="stylesheet" href="../gitbook/style.css">
-
-
-        
-    <div class="book" data-level="9.4" data-basepath=".." data-revision="1532615805722">
-    
-
-<div class="book-summary">
-    <div class="book-search">
-        <input type="text" placeholder="Type to search" class="form-control" />
-    </div>
-    <ul class="summary">
-        
-    	
-    	
-    	    
-            <li>
-                <a href="https://github.com/178518" target="blank" class="custom-link">178518&#39;s Github</a>
-            </li>
-    	
-    	
-
-        
-        <li class="divider"></li>
-        
-
-        
-    
-        
-        <li class="chapter " data-level="0" data-path="index.html">
-            
-                
-                    <a href="../index.html">
-                        <i class="fa fa-check"></i>
-                        
-                         Introduction
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="1" data-path="aboutMe.html">
-            
-                
-                    <a href="../aboutMe.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.</b>
-                        
-                         关于我
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2" data-path="f2e.html">
-            
-                
-                    <a href="../f2e.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.</b>
-                        
-                         前端
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="2.1" data-path="f2e/book.html">
-            
-                
-                    <a href="../f2e/book.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.1.</b>
-                        
-                         前端工程化
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.2" data-path="f2e/site.html">
-            
-                
-                    <a href="../f2e/site.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.2.</b>
-                        
-                         前端网址导航
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.3" data-path="android/android4.4.html">
-            
-                
-                    <a href="../android/android4.4.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.3.</b>
-                        
-                         SM-900V Note3升级4.4
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.4" data-path="android/android5.1.html">
-            
-                
-                    <a href="../android/android5.1.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.4.</b>
-                        
-                         SM-900V Note3升级5.1
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.5" data-path="android/debugger.html">
-            
-                
-                    <a href="../android/debugger.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.5.</b>
-                        
-                         MAC开发 Android USB 真机调试
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.6" data-path="android/genymotion.html">
-            
-                
-                    <a href="../android/genymotion.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.6.</b>
-                        
-                         MAC安装 Genymotion调试
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.7" data-path="git.html">
-            
-                
-                    <a href="../git.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.7.</b>
-                        
-                         Git 使用帮助
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.8" data-path="help.html">
-            
-                
-                    <a href="../help.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.8.</b>
-                        
-                         GitBook使用帮助
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="3" data-path="mac/index.html">
-            
-                
-                    <a href="../mac/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.</b>
-                        
-                         Mac疑难杂症
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="4" data-path="lb/index.html">
-            
-                
-                    <a href="../lb/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.</b>
-                        
-                         负载均衡
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="4.1" data-path="lb/combo.html">
-            
-                
-                    <a href="../lb/combo.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.1.</b>
-                        
-                         Combo配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="4.2" data-path="lb/nginx.html">
-            
-                
-                    <a href="../lb/nginx.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.2.</b>
-                        
-                         Nginx配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="4.3" data-path="lb/ssl.html">
-            
-                
-                    <a href="../lb/ssl.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.3.</b>
-                        
-                         SSL配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="4.4" data-path="lb/tengine.html">
-            
-                
-                    <a href="../lb/tengine.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.4.</b>
-                        
-                         Tengine配置
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5" data-path="2016/node.html">
-            
-                
-                    <a href="../2016/node.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                         基本安装
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="5.1" data-path="2016/setup.html">
-            
-                
-                    <a href="../2016/setup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.1.</b>
-                        
-                         环境配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.2" data-path="2016/npm.html">
-            
-                
-                    <a href="../2016/npm.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.2.</b>
-                        
-                         NPM模块发布
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.3" data-path="2016/pm2.html">
-            
-                
-                    <a href="../2016/pm2.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.3.</b>
-                        
-                         PM2&amp;keymetrics
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.4" data-path="2016/setup.html">
-            
-                
-                    <a href="../2016/setup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.4.</b>
-                        
-                         环境配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.5" data-path="2016/study.html">
-            
-                
-                    <a href="../2016/study.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.5.</b>
-                        
-                         React Native资料
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.6" data-path="mac/skill.html">
-            
-                
-                    <a href="../mac/skill.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.6.</b>
-                        
-                         Mac代理设置
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6" data-path="2016/jiagou.html">
-            
-                
-                    <a href="../2016/jiagou.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.</b>
-                        
-                         乐高整体架构
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="6.1" data-path="animation/animation.html">
-            
-                
-                    <a href="../animation/animation.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.1.</b>
-                        
-                         CSS动画
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.2" data-path="lego/index.html">
-            
-                
-                    <a href="../lego/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.2.</b>
-                        
-                         乐高前端解决方案
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.3" data-path="lego/catalog.html">
-            
-                
-                    <a href="../lego/catalog.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.3.</b>
-                        
-                         目录结构规范
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.4" data-path="promise/index.html">
-            
-                
-                    <a href="../promise/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.4.</b>
-                        
-                         Promise
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.5" data-path="lego/file.html">
-            
-                
-                    <a href="../lego/file.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.5.</b>
-                        
-                         文件加载方式
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.6" data-path="lego/component.html">
-            
-                
-                    <a href="../lego/component.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.6.</b>
-                        
-                         组件开发规范
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.7" data-path="lego/platform.html">
-            
-                
-                    <a href="../lego/platform.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.7.</b>
-                        
-                         平台差异处理
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.8" data-path="lego/components.html">
-            
-                
-                    <a href="../lego/components.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.8.</b>
-                        
-                         LEGO组件化
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.9" data-path="lego/react-native.html">
-            
-                
-                    <a href="../lego/react-native.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.9.</b>
-                        
-                         React Native
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="7" data-path="node-webkit/index.html">
-            
-                
-                    <a href="../node-webkit/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.</b>
-                        
-                         Node-Webkit
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="8" data-path="gpio/index.html">
-            
-                
-                    <a href="../gpio/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.</b>
-                        
-                         GPIO
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="8.1" data-path="gpio/node-gpio.html">
-            
-                
-                    <a href="../gpio/node-gpio.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.1.</b>
-                        
-                         Node GPIO
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="8.2" data-path="gpio/light.html">
-            
-                
-                    <a href="../gpio/light.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.2.</b>
-                        
-                         GPIO远程控制电灯
-                    </a>
-                
             
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="8.3" data-path="gpio/web-gpio.html">
-            
-                
-                    <a href="../gpio/web-gpio.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.3.</b>
-                        
-                         Web GPIO
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9" data-path="raspbian/readMe.html">
-            
-                
-                    <a href="../raspbian/readMe.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.</b>
-                        
-                         树莓派
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="9.1" data-path="ieee/ieee.html">
-            
-                
-                    <a href="../ieee/ieee.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.1.</b>
-                        
-                         嵌入式
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.2" data-path="ieee/nvidia.html">
-            
-                
-                    <a href="../ieee/nvidia.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.2.</b>
-                        
-                         Nvidia开发板
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.3" data-path="raspbian/burn.html">
-            
-                
-                    <a href="../raspbian/burn.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.3.</b>
-                        
-                         MacOS 烧录树莓派
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter active" data-level="9.4" data-path="raspbian/login.html">
-            
-                
-                    <a href="../raspbian/login.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.4.</b>
-                        
-                         Raspbian的配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.5" data-path="raspbian/lnmp.html">
-            
-                
-                    <a href="../raspbian/lnmp.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.5.</b>
-                        
-                         Raspbian安装Apache2/PHP5/MySQL5
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.6" data-path="raspbian/ftp.html">
-            
-                
-                    <a href="../raspbian/ftp.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.6.</b>
-                        
-                         Raspbian安装ftp
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.7" data-path="raspbian/java.html">
-            
-                
-                    <a href="../raspbian/java.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.7.</b>
-                        
-                         Java 环境安装
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.8" data-path="raspbian/ftp.html">
-            
-                
-                    <a href="../raspbian/ftp.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.8.</b>
-                        
-                         FTP配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.9" data-path="raspbian/nfs.html">
-            
-                
-                    <a href="../raspbian/nfs.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.9.</b>
-                        
-                         NFS配置&amp;Samba挂载
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.10" data-path="raspbian/android.html">
-            
-                
-                    <a href="../raspbian/android.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.10.</b>
-                        
-                         Raspbian的安卓应用
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.11" data-path="raspbian/netdata.html">
-            
-                
-                    <a href="../raspbian/netdata.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.11.</b>
-                        
-                         netdata应用
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.12" data-path="raspbian/http-load.html">
-            
-                
-                    <a href="../raspbian/http-load.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.12.</b>
-                        
-                         http-load
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.13" data-path="raspbian/xunlei.html">
-            
-                
-                    <a href="../raspbian/xunlei.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.13.</b>
-                        
-                         迅雷远程下载
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.14" data-path="raspbian/dlna.html">
-            
-                
-                    <a href="../raspbian/dlna.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.14.</b>
-                        
-                         minidlna配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.15" data-path="raspbian/iperf.html">
-            
-                
-                    <a href="../raspbian/iperf.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.15.</b>
-                        
-                         iperf局域网测速
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="10" data-path="debian/index.html">
-            
-                
-                    <a href="../debian/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>10.</b>
-                        
-                         Debian
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="10.1" data-path="debian/setup.html">
-            
-                
-                    <a href="../debian/setup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>10.1.</b>
-                        
-                         debian安装
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="11" data-path="cloud/index.html">
-            
-                
-                    <a href="../cloud/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.</b>
-                        
-                         私有云
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="11.1" data-path="cloud/owncloud.html">
-            
-                
-                    <a href="../cloud/owncloud.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.1.</b>
-                        
-                         owncloud
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="11.2" data-path="cloud/resilio_sync.html">
-            
-                
-                    <a href="../cloud/resilio_sync.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.2.</b>
-                        
-                         Resilio Sync
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="12" data-path="docker/index.html">
-            
-                
-                    <a href="../docker/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.</b>
-                        
-                         虚拟化
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="12.1" data-path="docker/debian-setup.html">
-            
-                
-                    <a href="../docker/debian-setup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.1.</b>
-                        
-                         Docker
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="12.2" data-path="docker/jiasu.html">
-            
-                
-                    <a href="../docker/jiasu.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.2.</b>
-                        
-                         阿里云Docker镜像加速
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="12.3" data-path="docker/container.html">
-            
-                
-                    <a href="../docker/container.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.3.</b>
-                        
-                         Docker 容器
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="13" data-path="gitlab/index.html">
-            
-                
-                    <a href="../gitlab/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.</b>
-                        
-                         gitLab
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="13.1" data-path="gitlab/gitlab.html">
-            
-                
-                    <a href="../gitlab/gitlab.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.1.</b>
-                        
-                         gitlab
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="13.2" data-path="gitlab/account.html">
-            
-                
-                    <a href="../gitlab/account.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.2.</b>
-                        
-                         account
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="13.3" data-path="gitlab/backup.html">
-            
-                
-                    <a href="../gitlab/backup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.3.</b>
-                        
-                         backup
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="14" data-path="iot/setup.html">
-            
-                
-                    <a href="../iot/setup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.</b>
-                        
-                         IOT
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="14.1" data-path="iot/mongodb.html">
-            
-                
-                    <a href="../iot/mongodb.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.1.</b>
-                        
-                         MongoDB
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="14.2" data-path="iot/learn.html">
-            
-                
-                    <a href="../iot/learn.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.2.</b>
-                        
-                         泛IOT全链路知识
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="14.3" data-path="iot/language.html">
-            
-                
-                    <a href="../iot/language.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.3.</b>
-                        
-                         IOT编程语言选择
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="15" data-path="job/index.html">
-            
-                
-                    <a href="../job/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>15.</b>
-                        
-                         日常工作
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="15.1" data-path="job/gitlab-repository.html">
-            
-                
-                    <a href="../job/gitlab-repository.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>15.1.</b>
-                        
-                         仓库
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="15.2" data-path="job/qa.html">
-            
-                
-                    <a href="../job/qa.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>15.2.</b>
-                        
-                         问题汇总
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-
-        
-        <li class="divider"></li>
-        <li>
-            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
-        </li>
-        
-    </ul>
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
 </div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/178518" target="_blank" class="custom-link">178518's Github</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../aboutMe.html">
+            
+                <a href="../aboutMe.html">
+            
+                    
+                    关于我
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../f2e.html">
+            
+                <a href="../f2e.html">
+            
+                    
+                    前端
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../f2e/book.html">
+            
+                <a href="../f2e/book.html">
+            
+                    
+                    前端工程化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../f2e/site.html">
+            
+                <a href="../f2e/site.html">
+            
+                    
+                    前端网址导航
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../android/android4.4.html">
+            
+                <a href="../android/android4.4.html">
+            
+                    
+                    SM-900V Note3升级4.4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../android/android5.1.html">
+            
+                <a href="../android/android5.1.html">
+            
+                    
+                    SM-900V Note3升级5.1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../android/debugger.html">
+            
+                <a href="../android/debugger.html">
+            
+                    
+                    MAC开发 Android USB 真机调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../android/genymotion.html">
+            
+                <a href="../android/genymotion.html">
+            
+                    
+                    MAC安装 Genymotion调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../git.html">
+            
+                <a href="../git.html">
+            
+                    
+                    Git 使用帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../help.html">
+            
+                <a href="../help.html">
+            
+                    
+                    GitBook使用帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../mac/">
+            
+                <a href="../mac/">
+            
+                    
+                    Mac疑难杂症
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../lb/">
+            
+                <a href="../lb/">
+            
+                    
+                    负载均衡
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../lb/combo.html">
+            
+                <a href="../lb/combo.html">
+            
+                    
+                    Combo配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../lb/nginx.html">
+            
+                <a href="../lb/nginx.html">
+            
+                    
+                    Nginx配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../lb/ssl.html">
+            
+                <a href="../lb/ssl.html">
+            
+                    
+                    SSL配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../lb/tengine.html">
+            
+                <a href="../lb/tengine.html">
+            
+                    
+                    Tengine配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../2016/node.html">
+            
+                <a href="../2016/node.html">
+            
+                    
+                    基本安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../2016/setup.html">
+            
+                <a href="../2016/setup.html">
+            
+                    
+                    环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../2016/npm.html">
+            
+                <a href="../2016/npm.html">
+            
+                    
+                    NPM模块发布
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../2016/pm2.html">
+            
+                <a href="../2016/pm2.html">
+            
+                    
+                    PM2&keymetrics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../2016/setup.html">
+            
+                <a href="../2016/setup.html">
+            
+                    
+                    环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../2016/study.html">
+            
+                <a href="../2016/study.html">
+            
+                    
+                    React Native资料
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../mac/skill.html">
+            
+                <a href="../mac/skill.html">
+            
+                    
+                    Mac代理设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../2016/jiagou.html">
+            
+                <a href="../2016/jiagou.html">
+            
+                    
+                    乐高整体架构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../animation/animation.html">
+            
+                <a href="../animation/animation.html">
+            
+                    
+                    CSS动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../lego/">
+            
+                <a href="../lego/">
+            
+                    
+                    乐高前端解决方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../lego/catalog.html">
+            
+                <a href="../lego/catalog.html">
+            
+                    
+                    目录结构规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../promise/">
+            
+                <a href="../promise/">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../lego/file.html">
+            
+                <a href="../lego/file.html">
+            
+                    
+                    文件加载方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../lego/component.html">
+            
+                <a href="../lego/component.html">
+            
+                    
+                    组件开发规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../lego/platform.html">
+            
+                <a href="../lego/platform.html">
+            
+                    
+                    平台差异处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../lego/components.html">
+            
+                <a href="../lego/components.html">
+            
+                    
+                    LEGO组件化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../lego/react-native.html">
+            
+                <a href="../lego/react-native.html">
+            
+                    
+                    React Native
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../node-webkit/">
+            
+                <a href="../node-webkit/">
+            
+                    
+                    Node-Webkit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../gpio/">
+            
+                <a href="../gpio/">
+            
+                    
+                    GPIO
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../gpio/node-gpio.html">
+            
+                <a href="../gpio/node-gpio.html">
+            
+                    
+                    Node GPIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../gpio/light.html">
+            
+                <a href="../gpio/light.html">
+            
+                    
+                    GPIO远程控制电灯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../gpio/web-gpio.html">
+            
+                <a href="../gpio/web-gpio.html">
+            
+                    
+                    Web GPIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="readMe.html">
+            
+                <a href="readMe.html">
+            
+                    
+                    树莓派
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../ieee/ieee.html">
+            
+                <a href="../ieee/ieee.html">
+            
+                    
+                    嵌入式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../ieee/nvidia.html">
+            
+                <a href="../ieee/nvidia.html">
+            
+                    
+                    Nvidia开发板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="burn.html">
+            
+                <a href="burn.html">
+            
+                    
+                    MacOS 烧录树莓派
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10.4" data-path="login.html">
+            
+                <a href="login.html">
+            
+                    
+                    Raspbian的配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="lnmp.html">
+            
+                <a href="lnmp.html">
+            
+                    
+                    Raspbian安装Apache2/PHP5/MySQL5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="ftp.html">
+            
+                <a href="ftp.html">
+            
+                    
+                    Raspbian安装ftp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="java.html">
+            
+                <a href="java.html">
+            
+                    
+                    Java 环境安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="ftp.html">
+            
+                <a href="ftp.html">
+            
+                    
+                    FTP配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="nfs.html">
+            
+                <a href="nfs.html">
+            
+                    
+                    NFS配置&Samba挂载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="android.html">
+            
+                <a href="android.html">
+            
+                    
+                    Raspbian的安卓应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="netdata.html">
+            
+                <a href="netdata.html">
+            
+                    
+                    netdata应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.12" data-path="http-load.html">
+            
+                <a href="http-load.html">
+            
+                    
+                    http-load
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.13" data-path="xunlei.html">
+            
+                <a href="xunlei.html">
+            
+                    
+                    迅雷远程下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.14" data-path="dlna.html">
+            
+                <a href="dlna.html">
+            
+                    
+                    minidlna配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.15" data-path="iperf.html">
+            
+                <a href="iperf.html">
+            
+                    
+                    iperf局域网测速
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../debian/">
+            
+                <a href="../debian/">
+            
+                    
+                    Debian
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../debian/setup.html">
+            
+                <a href="../debian/setup.html">
+            
+                    
+                    debian安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../cloud/">
+            
+                <a href="../cloud/">
+            
+                    
+                    私有云
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../cloud/owncloud.html">
+            
+                <a href="../cloud/owncloud.html">
+            
+                    
+                    owncloud
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../cloud/resilio_sync.html">
+            
+                <a href="../cloud/resilio_sync.html">
+            
+                    
+                    Resilio Sync
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../docker/">
+            
+                <a href="../docker/">
+            
+                    
+                    虚拟化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../docker/debian-setup.html">
+            
+                <a href="../docker/debian-setup.html">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../docker/jiasu.html">
+            
+                <a href="../docker/jiasu.html">
+            
+                    
+                    阿里云Docker镜像加速
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../docker/container.html">
+            
+                <a href="../docker/container.html">
+            
+                    
+                    Docker 容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../gitlab/">
+            
+                <a href="../gitlab/">
+            
+                    
+                    gitLab
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../gitlab/gitlab.html">
+            
+                <a href="../gitlab/gitlab.html">
+            
+                    
+                    gitlab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../gitlab/account.html">
+            
+                <a href="../gitlab/account.html">
+            
+                    
+                    account
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../gitlab/backup.html">
+            
+                <a href="../gitlab/backup.html">
+            
+                    
+                    backup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../iot/setup.html">
+            
+                <a href="../iot/setup.html">
+            
+                    
+                    IOT
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../iot/mongodb.html">
+            
+                <a href="../iot/mongodb.html">
+            
+                    
+                    MongoDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../iot/learn.html">
+            
+                <a href="../iot/learn.html">
+            
+                    
+                    泛IOT全链路知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../iot/language.html">
+            
+                <a href="../iot/language.html">
+            
+                    
+                    IOT编程语言选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../job/index.md">
+            
+                <span>
+            
+                    
+                    日常工作
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../job/gitlab-repository.md">
+            
+                <span>
+            
+                    
+                    仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../job/qa.md">
+            
+                <span>
+            
+                    
+                    问题汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
 
     <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header">
-    <!-- Actions Left -->
-    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
-    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
-    
-    <div id="font-settings-wrapper" class="dropdown pull-left">
-        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
-        </a>
-        <div class="dropdown-menu font-settings">
-    <div class="dropdown-caret">
-        <span class="caret-outer"></span>
-        <span class="caret-inner"></span>
-    </div>
+        
+            <div class="body-inner">
+                
+                    
 
-    <div class="buttons">
-        <button type="button" id="reduce-font-size" class="button size-2">A</button>
-        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
-    </div>
-
-    <div class="buttons font-family-list">
-        <button type="button" data-font="0" class="button">Serif</button>
-        <button type="button" data-font="1" class="button">Sans</button>
-    </div>
-
-    <div class="buttons color-theme-list">
-        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
-        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
-        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
-    </div>
-</div>
-
-    </div>
-
-    <!-- Actions Right -->
-    
-    <div class="dropdown pull-right">
-        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
-        </a>
-        <div class="dropdown-menu font-settings dropdown-left">
-            <div class="dropdown-caret">
-                <span class="caret-outer"></span>
-                <span class="caret-inner"></span>
-            </div>
-            <div class="buttons">
-                <button type="button" data-sharing="twitter" class="button">Twitter</button>
-                <button type="button" data-sharing="google-plus" class="button">Google</button>
-                <button type="button" data-sharing="facebook" class="button">Facebook</button>
-                <button type="button" data-sharing="weibo" class="button">Weibo</button>
-                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
-            </div>
-        </div>
-    </div>
-    
-
-    
-    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
-    
+<div class="book-header" role="navigation">
     
 
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >乐高</a>
+        <a href=".." >Raspbian的配置</a>
     </h1>
 </div>
 
-            <div class="page-wrapper" tabindex="-1">
-                <div class="page-inner">
-                
-                
-                    <section class="normal" id="section-gitbook_72">
-                    
-                        <h1 id="raspbian">Raspbian的配置</h1>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="raspbian&#x7684;&#x914D;&#x7F6E;">Raspbian&#x7684;&#x914D;&#x7F6E;</h1>
 <blockquote>
-<p>Raspbian第一次启动需要用有线连接的方式</p>
-<p>默认用户是pi 密码为raspberry</p>
-<p>默认用户名是xbian 密码是raspberry</p>
-<p>用命令：sudo service xbmc restart 来重启xbmc</p>
+<p>Raspbian&#x7B2C;&#x4E00;&#x6B21;&#x542F;&#x52A8;&#x9700;&#x8981;&#x7528;&#x6709;&#x7EBF;&#x8FDE;&#x63A5;&#x7684;&#x65B9;&#x5F0F;</p>
+<p>&#x9ED8;&#x8BA4;&#x7528;&#x6237;&#x662F;pi &#x5BC6;&#x7801;&#x4E3A;raspberry</p>
+<p>&#x9ED8;&#x8BA4;&#x7528;&#x6237;&#x540D;&#x662F;xbian &#x5BC6;&#x7801;&#x662F;raspberry</p>
+<p>&#x7528;&#x547D;&#x4EE4;&#xFF1A;sudo service xbmc restart &#x6765;&#x91CD;&#x542F;xbmc</p>
 </blockquote>
-<p>  重新开启root账号，可由pi用户登录后，在命令行下执行</p>
-<h3 id="">树莓派登录</h3>
+<p>  &#x91CD;&#x65B0;&#x5F00;&#x542F;root&#x8D26;&#x53F7;&#xFF0C;&#x53EF;&#x7531;pi&#x7528;&#x6237;&#x767B;&#x5F55;&#x540E;&#xFF0C;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E0B;&#x6267;&#x884C;</p>
+<h3 id="&#x6811;&#x8393;&#x6D3E;&#x767B;&#x5F55;">&#x6811;&#x8393;&#x6D3E;&#x767B;&#x5F55;</h3>
 <pre><code>sudo passwd root
-</code></pre><p>执行此命令后系统会提示输入两遍的root密码，输入你想设的密码即可，然后在执行</p>
+</code></pre><p>&#x6267;&#x884C;&#x6B64;&#x547D;&#x4EE4;&#x540E;&#x7CFB;&#x7EDF;&#x4F1A;&#x63D0;&#x793A;&#x8F93;&#x5165;&#x4E24;&#x904D;&#x7684;root&#x5BC6;&#x7801;&#xFF0C;&#x8F93;&#x5165;&#x4F60;&#x60F3;&#x8BBE;&#x7684;&#x5BC6;&#x7801;&#x5373;&#x53EF;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6267;&#x884C;</p>
 <pre><code>sudo passwd --unlock root
-</code></pre><p>这样就可以解锁root账户了。切换root命令</p>
+</code></pre><p>&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x9501;root&#x8D26;&#x6237;&#x4E86;&#x3002;&#x5207;&#x6362;root&#x547D;&#x4EE4;</p>
 <pre><code>su root
-</code></pre><h3 id="ssh">SSH修改端口号</h3>
+</code></pre><h3 id="ssh&#x4FEE;&#x6539;&#x7AEF;&#x53E3;&#x53F7;">SSH&#x4FEE;&#x6539;&#x7AEF;&#x53E3;&#x53F7;</h3>
 <p>sudo /etc/ssh/sshd_config
 ssh localhost -p
 sudo /etc/init.d/ssh restart
-ssh [用户名]@[IP] -p [端口号]</p>
-<h3 id="">树莓派重启</h3>
-<p>shutdown的語法</p>
-<p>-r：在將系統的服務停掉之後就重新開機(常用)
--h：將系統的服務停掉後，立即關機。 (常用)</p>
-<pre><code>sudo reboot             #系統重新開機
+ssh [&#x7528;&#x6237;&#x540D;]@[IP] -p [&#x7AEF;&#x53E3;&#x53F7;]</p>
+<h3 id="&#x6811;&#x8393;&#x6D3E;&#x91CD;&#x542F;">&#x6811;&#x8393;&#x6D3E;&#x91CD;&#x542F;</h3>
+<p>shutdown&#x7684;&#x8A9E;&#x6CD5;</p>
+<p>-r&#xFF1A;&#x5728;&#x5C07;&#x7CFB;&#x7D71;&#x7684;&#x670D;&#x52D9;&#x505C;&#x6389;&#x4E4B;&#x5F8C;&#x5C31;&#x91CD;&#x65B0;&#x958B;&#x6A5F;(&#x5E38;&#x7528;)
+-h&#xFF1A;&#x5C07;&#x7CFB;&#x7D71;&#x7684;&#x670D;&#x52D9;&#x505C;&#x6389;&#x5F8C;&#xFF0C;&#x7ACB;&#x5373;&#x95DC;&#x6A5F;&#x3002; (&#x5E38;&#x7528;)</p>
+<pre><code>sudo reboot             #&#x7CFB;&#x7D71;&#x91CD;&#x65B0;&#x958B;&#x6A5F;
 sudo shutdown -r now
-</code></pre><h3 id="">树莓派关机</h3>
+</code></pre><h3 id="&#x6811;&#x8393;&#x6D3E;&#x5173;&#x673A;">&#x6811;&#x8393;&#x6D3E;&#x5173;&#x673A;</h3>
 <pre><code>sudo shutdown -h now 
-sudo halt               #系統停止～螢幕可能會保留系統已經停止的訊息！
-sudo poweroff           #系統關機
-</code></pre><h3 id="">树莓派手动释放内存</h3>
-<p>1、查看内存使用情况</p>
+sudo halt               #&#x7CFB;&#x7D71;&#x505C;&#x6B62;&#xFF5E;&#x87A2;&#x5E55;&#x53EF;&#x80FD;&#x6703;&#x4FDD;&#x7559;&#x7CFB;&#x7D71;&#x5DF2;&#x7D93;&#x505C;&#x6B62;&#x7684;&#x8A0A;&#x606F;&#xFF01;
+sudo poweroff           #&#x7CFB;&#x7D71;&#x95DC;&#x6A5F;
+</code></pre><h3 id="&#x6811;&#x8393;&#x6D3E;&#x624B;&#x52A8;&#x91CA;&#x653E;&#x5185;&#x5B58;">&#x6811;&#x8393;&#x6D3E;&#x624B;&#x52A8;&#x91CA;&#x653E;&#x5185;&#x5B58;</h3>
+<p>1&#x3001;&#x67E5;&#x770B;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x60C5;&#x51B5;</p>
 <p>free -m</p>
-<p>2、开始清理</p>
-<p>清理必须以root身份进入</p>
+<p>2&#x3001;&#x5F00;&#x59CB;&#x6E05;&#x7406;</p>
+<p>&#x6E05;&#x7406;&#x5FC5;&#x987B;&#x4EE5;root&#x8EAB;&#x4EFD;&#x8FDB;&#x5165;</p>
 <p>echo 1 &gt; /proc/sys/vm/drop_caches</p>
-<h3 id="linux">Linux系统运行级别</h3>
-<p>linux运行级别：
-0级关闭系统，相当于halt，
-1级单用户模式，只有一个控制台终端，一般供root做系统维护，
-2级多用户模式，但是没有NFS，即无网络服务的多用户模式
-3级标准的运行级别，有网络服务的多用户模式
-4级未定义
-5级有网络和X Window的多用户图形界面，X11
-6级重启，相当于reboot。</p>
-<h3 id="">源更改</h3>
+<h3 id="linux&#x7CFB;&#x7EDF;&#x8FD0;&#x884C;&#x7EA7;&#x522B;">Linux&#x7CFB;&#x7EDF;&#x8FD0;&#x884C;&#x7EA7;&#x522B;</h3>
+<p>linux&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#xFF1A;
+0&#x7EA7;&#x5173;&#x95ED;&#x7CFB;&#x7EDF;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;halt&#xFF0C;
+1&#x7EA7;&#x5355;&#x7528;&#x6237;&#x6A21;&#x5F0F;&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x53F0;&#x7EC8;&#x7AEF;&#xFF0C;&#x4E00;&#x822C;&#x4F9B;root&#x505A;&#x7CFB;&#x7EDF;&#x7EF4;&#x62A4;&#xFF0C;
+2&#x7EA7;&#x591A;&#x7528;&#x6237;&#x6A21;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;NFS&#xFF0C;&#x5373;&#x65E0;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x7684;&#x591A;&#x7528;&#x6237;&#x6A21;&#x5F0F;
+3&#x7EA7;&#x6807;&#x51C6;&#x7684;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#xFF0C;&#x6709;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x7684;&#x591A;&#x7528;&#x6237;&#x6A21;&#x5F0F;
+4&#x7EA7;&#x672A;&#x5B9A;&#x4E49;
+5&#x7EA7;&#x6709;&#x7F51;&#x7EDC;&#x548C;X Window&#x7684;&#x591A;&#x7528;&#x6237;&#x56FE;&#x5F62;&#x754C;&#x9762;&#xFF0C;X11
+6&#x7EA7;&#x91CD;&#x542F;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;reboot&#x3002;</p>
+<h3 id="&#x6E90;&#x66F4;&#x6539;">&#x6E90;&#x66F4;&#x6539;</h3>
 <pre><code>sudo nano /etc/apt/sources.list
 
 deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free rpi
 
 deb http://mirrors.aliyun.com/debian stable main contrib
-</code></pre><p>中文字体设置：<a href="http://tieba.baidu.com/p/4330953657" target="_blank">http://tieba.baidu.com/p/4330953657</a></p>
-<p>Ctrl+O保存，Ctrl+X退出</p>
-<h3 id="">更新软件</h3>
-<pre><code># 更新软件源数据
+</code></pre><p>&#x4E2D;&#x6587;&#x5B57;&#x4F53;&#x8BBE;&#x7F6E;&#xFF1A;<a href="http://tieba.baidu.com/p/4330953657" target="_blank">http://tieba.baidu.com/p/4330953657</a></p>
+<p>Ctrl+O&#x4FDD;&#x5B58;&#xFF0C;Ctrl+X&#x9000;&#x51FA;</p>
+<h3 id="&#x66F4;&#x65B0;&#x8F6F;&#x4EF6;">&#x66F4;&#x65B0;&#x8F6F;&#x4EF6;</h3>
+<pre><code># &#x66F4;&#x65B0;&#x8F6F;&#x4EF6;&#x6E90;&#x6570;&#x636E;
 sudo apt-get update
-# 更新已安装软件
+# &#x66F4;&#x65B0;&#x5DF2;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;
 sudo apt-get upgrade
-这三个命令主要清理升级缓存以及无用包的。
-apt-get remove xxxx 卸载但不删除配置
-apt-get purge xxxx 卸载并且删除相关配置
-# 清理旧版本的软件缓存
+&#x8FD9;&#x4E09;&#x4E2A;&#x547D;&#x4EE4;&#x4E3B;&#x8981;&#x6E05;&#x7406;&#x5347;&#x7EA7;&#x7F13;&#x5B58;&#x4EE5;&#x53CA;&#x65E0;&#x7528;&#x5305;&#x7684;&#x3002;
+apt-get remove xxxx &#x5378;&#x8F7D;&#x4F46;&#x4E0D;&#x5220;&#x9664;&#x914D;&#x7F6E;
+apt-get purge xxxx &#x5378;&#x8F7D;&#x5E76;&#x4E14;&#x5220;&#x9664;&#x76F8;&#x5173;&#x914D;&#x7F6E;
+# &#x6E05;&#x7406;&#x65E7;&#x7248;&#x672C;&#x7684;&#x8F6F;&#x4EF6;&#x7F13;&#x5B58;
 apt-get autoclean
-# 清理所有软件缓存
+# &#x6E05;&#x7406;&#x6240;&#x6709;&#x8F6F;&#x4EF6;&#x7F13;&#x5B58;
 apt-get clean
-# 删除系统不再使用的孤立软件
+# &#x5220;&#x9664;&#x7CFB;&#x7EDF;&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x7684;&#x5B64;&#x7ACB;&#x8F6F;&#x4EF6;
 apt-get autoremove
-</code></pre><h3 id="raspi-config">使用raspi-config配置树莓派</h3>
+</code></pre><h3 id="&#x4F7F;&#x7528;raspi-config&#x914D;&#x7F6E;&#x6811;&#x8393;&#x6D3E;">&#x4F7F;&#x7528;raspi-config&#x914D;&#x7F6E;&#x6811;&#x8393;&#x6D3E;</h3>
 <pre><code>sudo raspi-config
 sudo xbian-config
-</code></pre><h3 id="">无线网卡配置</h3>
-<p>无线网卡插入树莓派</p>
+</code></pre><h3 id="&#x65E0;&#x7EBF;&#x7F51;&#x5361;&#x914D;&#x7F6E;">&#x65E0;&#x7EBF;&#x7F51;&#x5361;&#x914D;&#x7F6E;</h3>
+<p>&#x65E0;&#x7EBF;&#x7F51;&#x5361;&#x63D2;&#x5165;&#x6811;&#x8393;&#x6D3E;</p>
 <pre><code>sudo nano /etc/network/interfaces
 
-内容如下：
+&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;
 auto lo
 auto eth0
 
@@ -1506,158 +1277,158 @@ wpa_conf /etc/wpa_supplicant/wpa_supplicant.conf
 iface default inet dhcp
 
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-内容如下：
+&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;
 
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 
 network={
- ssid=&quot;无线SSID&quot;
- psk=&quot;无线密码&quot;
+ ssid=&quot;&#x65E0;&#x7EBF;SSID&quot;
+ psk=&quot;&#x65E0;&#x7EBF;&#x5BC6;&#x7801;&quot;
  priority=5
 }
 
-重启网关
+&#x91CD;&#x542F;&#x7F51;&#x5173;
 sudo /etc/init.d/networking restart
 
-priority 是指连接优先级，数字越大优先级越高（不可以是负数）。
+priority &#x662F;&#x6307;&#x8FDE;&#x63A5;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x6570;&#x5B57;&#x8D8A;&#x5927;&#x4F18;&#x5148;&#x7EA7;&#x8D8A;&#x9AD8;&#xFF08;&#x4E0D;&#x53EF;&#x4EE5;&#x662F;&#x8D1F;&#x6570;&#xFF09;&#x3002;
 
-连接WiFi
+&#x8FDE;&#x63A5;WiFi
 sudo ifup wlan0
-断开WiFi
+&#x65AD;&#x5F00;WiFi
 sudo ifdown wlan0
 
-到这里，一切都配置好了。下次开机的时候，树莓派将t连接有效的WiFi。
+&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x4E00;&#x5207;&#x90FD;&#x914D;&#x7F6E;&#x597D;&#x4E86;&#x3002;&#x4E0B;&#x6B21;&#x5F00;&#x673A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6811;&#x8393;&#x6D3E;&#x5C06;t&#x8FDE;&#x63A5;&#x6709;&#x6548;&#x7684;WiFi&#x3002;
 
-你可以试验一下WiFi的掉线自动重连功能，比如重启一下无线路由器，看树莓派还能不能重新连接上无线路由器。
-</code></pre><h3 id="aria2-apache2-git">aria2 apache2 git安装</h3>
+&#x4F60;&#x53EF;&#x4EE5;&#x8BD5;&#x9A8C;&#x4E00;&#x4E0B;WiFi&#x7684;&#x6389;&#x7EBF;&#x81EA;&#x52A8;&#x91CD;&#x8FDE;&#x529F;&#x80FD;&#xFF0C;&#x6BD4;&#x5982;&#x91CD;&#x542F;&#x4E00;&#x4E0B;&#x65E0;&#x7EBF;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x770B;&#x6811;&#x8393;&#x6D3E;&#x8FD8;&#x80FD;&#x4E0D;&#x80FD;&#x91CD;&#x65B0;&#x8FDE;&#x63A5;&#x4E0A;&#x65E0;&#x7EBF;&#x8DEF;&#x7531;&#x5668;&#x3002;
+</code></pre><h3 id="aria2-apache2-git&#x5B89;&#x88C5;">aria2 apache2 git&#x5B89;&#x88C5;</h3>
 <pre><code>sudo apt-get install aria2 apache2 nginx git 
 
 ps -ef|grep apache
 
-启动：sudo apache2ctl -k start
+&#x542F;&#x52A8;&#xFF1A;sudo apache2ctl -k start
 
-停止：sudo apache2ctl -k stop
+&#x505C;&#x6B62;&#xFF1A;sudo apache2ctl -k stop
 
-重新启动：sudo apache2ctl -k restart
+&#x91CD;&#x65B0;&#x542F;&#x52A8;&#xFF1A;sudo apache2ctl -k restart
 
-Web默认的是/var/www/html
+Web&#x9ED8;&#x8BA4;&#x7684;&#x662F;/var/www/html
 
-配置文件保存在：/etc/apache2
+&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x5728;&#xFF1A;/etc/apache2
 
-aria2配置
+aria2&#x914D;&#x7F6E;
 
-备注：file-allocation=none，大容量磁盘不要预分配，会造成大文件无法下载。
+&#x5907;&#x6CE8;&#xFF1A;file-allocation=none&#xFF0C;&#x5927;&#x5BB9;&#x91CF;&#x78C1;&#x76D8;&#x4E0D;&#x8981;&#x9884;&#x5206;&#x914D;&#xFF0C;&#x4F1A;&#x9020;&#x6210;&#x5927;&#x6587;&#x4EF6;&#x65E0;&#x6CD5;&#x4E0B;&#x8F7D;&#x3002;
 
 mkdir /home/xbian/.aria2
 touch /home/xbian/.aria2/aria2.session
 nano  /home/xbian/.aria2/aria2.conf
-aria2.conf里面写这些：
-## &#39;#&#39;开头为注释内容, 选项都有相应的注释说明, 根据需要修改 ##
-## 被注释的选项填写的是默认值, 建议在需要修改时再取消注释  ##
+aria2.conf&#x91CC;&#x9762;&#x5199;&#x8FD9;&#x4E9B;&#xFF1A;
+## &apos;#&apos;&#x5F00;&#x5934;&#x4E3A;&#x6CE8;&#x91CA;&#x5185;&#x5BB9;, &#x9009;&#x9879;&#x90FD;&#x6709;&#x76F8;&#x5E94;&#x7684;&#x6CE8;&#x91CA;&#x8BF4;&#x660E;, &#x6839;&#x636E;&#x9700;&#x8981;&#x4FEE;&#x6539; ##
+## &#x88AB;&#x6CE8;&#x91CA;&#x7684;&#x9009;&#x9879;&#x586B;&#x5199;&#x7684;&#x662F;&#x9ED8;&#x8BA4;&#x503C;, &#x5EFA;&#x8BAE;&#x5728;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x65F6;&#x518D;&#x53D6;&#x6D88;&#x6CE8;&#x91CA;  ##
 
-## 文件保存相关 ##
+## &#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x76F8;&#x5173; ##
 
-# 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
+# &#x6587;&#x4EF6;&#x7684;&#x4FDD;&#x5B58;&#x8DEF;&#x5F84;(&#x53EF;&#x4F7F;&#x7528;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x6216;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;), &#x9ED8;&#x8BA4;: &#x5F53;&#x524D;&#x542F;&#x52A8;&#x4F4D;&#x7F6E;
 dir=/home/xbian/hdd/download
-# 启用磁盘缓存, 0为禁用缓存, 需1.16以上版本, 默认:16M
+# &#x542F;&#x7528;&#x78C1;&#x76D8;&#x7F13;&#x5B58;, 0&#x4E3A;&#x7981;&#x7528;&#x7F13;&#x5B58;, &#x9700;1.16&#x4EE5;&#x4E0A;&#x7248;&#x672C;, &#x9ED8;&#x8BA4;:16M
 #disk-cache=32M
-# 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc
-# 预分配所需时间: none &lt; falloc ? trunc &lt; prealloc
-# falloc和trunc则需要文件系统和内核支持
-# NTFS建议使用falloc, EXT3/4建议trunc, MAC 下需要注释此项
+# &#x6587;&#x4EF6;&#x9884;&#x5206;&#x914D;&#x65B9;&#x5F0F;, &#x80FD;&#x6709;&#x6548;&#x964D;&#x4F4E;&#x78C1;&#x76D8;&#x788E;&#x7247;, &#x9ED8;&#x8BA4;:prealloc
+# &#x9884;&#x5206;&#x914D;&#x6240;&#x9700;&#x65F6;&#x95F4;: none &lt; falloc ? trunc &lt; prealloc
+# falloc&#x548C;trunc&#x5219;&#x9700;&#x8981;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x548C;&#x5185;&#x6838;&#x652F;&#x6301;
+# NTFS&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;falloc, EXT3/4&#x5EFA;&#x8BAE;trunc, MAC &#x4E0B;&#x9700;&#x8981;&#x6CE8;&#x91CA;&#x6B64;&#x9879;
 file-allocation=none
-# 断点续传
+# &#x65AD;&#x70B9;&#x7EED;&#x4F20;
 continue=true
 
-## 下载连接相关 ##
+## &#x4E0B;&#x8F7D;&#x8FDE;&#x63A5;&#x76F8;&#x5173; ##
 
-# 最大同时下载任务数, 运行时可修改, 默认:5
+# &#x6700;&#x5927;&#x540C;&#x65F6;&#x4E0B;&#x8F7D;&#x4EFB;&#x52A1;&#x6570;, &#x8FD0;&#x884C;&#x65F6;&#x53EF;&#x4FEE;&#x6539;, &#x9ED8;&#x8BA4;:5
 max-concurrent-downloads=10
-# 同一服务器连接数, 添加时可指定, 默认:1
+# &#x540C;&#x4E00;&#x670D;&#x52A1;&#x5668;&#x8FDE;&#x63A5;&#x6570;, &#x6DFB;&#x52A0;&#x65F6;&#x53EF;&#x6307;&#x5B9A;, &#x9ED8;&#x8BA4;:1
 max-connection-per-server=10
-# 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M
-# 假定size=10M, 文件为20MiB 则使用两个来源下载; 文件为15MiB 则使用一个来源下载
+# &#x6700;&#x5C0F;&#x6587;&#x4EF6;&#x5206;&#x7247;&#x5927;&#x5C0F;, &#x6DFB;&#x52A0;&#x65F6;&#x53EF;&#x6307;&#x5B9A;, &#x53D6;&#x503C;&#x8303;&#x56F4;1M -1024M, &#x9ED8;&#x8BA4;:20M
+# &#x5047;&#x5B9A;size=10M, &#x6587;&#x4EF6;&#x4E3A;20MiB &#x5219;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x6765;&#x6E90;&#x4E0B;&#x8F7D;; &#x6587;&#x4EF6;&#x4E3A;15MiB &#x5219;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x6765;&#x6E90;&#x4E0B;&#x8F7D;
 min-split-size=10M
-# 单个任务最大线程数, 添加时可指定, 默认:5
+# &#x5355;&#x4E2A;&#x4EFB;&#x52A1;&#x6700;&#x5927;&#x7EBF;&#x7A0B;&#x6570;, &#x6DFB;&#x52A0;&#x65F6;&#x53EF;&#x6307;&#x5B9A;, &#x9ED8;&#x8BA4;:5
 split=10
-# 整体下载速度限制, 运行时可修改, 默认:0
+# &#x6574;&#x4F53;&#x4E0B;&#x8F7D;&#x901F;&#x5EA6;&#x9650;&#x5236;, &#x8FD0;&#x884C;&#x65F6;&#x53EF;&#x4FEE;&#x6539;, &#x9ED8;&#x8BA4;:0
 #max-overall-download-limit=0
-# 单个任务下载速度限制, 默认:0
+# &#x5355;&#x4E2A;&#x4EFB;&#x52A1;&#x4E0B;&#x8F7D;&#x901F;&#x5EA6;&#x9650;&#x5236;, &#x9ED8;&#x8BA4;:0
 #max-download-limit=0
-# 整体上传速度限制, 运行时可修改, 默认:0
+# &#x6574;&#x4F53;&#x4E0A;&#x4F20;&#x901F;&#x5EA6;&#x9650;&#x5236;, &#x8FD0;&#x884C;&#x65F6;&#x53EF;&#x4FEE;&#x6539;, &#x9ED8;&#x8BA4;:0
 #max-overall-upload-limit=0
-# 单个任务上传速度限制, 默认:0
+# &#x5355;&#x4E2A;&#x4EFB;&#x52A1;&#x4E0A;&#x4F20;&#x901F;&#x5EA6;&#x9650;&#x5236;, &#x9ED8;&#x8BA4;:0
 #max-upload-limit=0
-# 禁用IPv6, 默认:false
+# &#x7981;&#x7528;IPv6, &#x9ED8;&#x8BA4;:false
 #disable-ipv6=true
 
-## 进度保存相关 ##
+## &#x8FDB;&#x5EA6;&#x4FDD;&#x5B58;&#x76F8;&#x5173; ##
 
-# 从会话文件中读取下载任务
+# &#x4ECE;&#x4F1A;&#x8BDD;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x4E0B;&#x8F7D;&#x4EFB;&#x52A1;
 input-file=/home/xbian/.aria2/aria2.session 
-# 在Aria2退出时保存`错误/未完成`的下载任务到会话文件
+# &#x5728;Aria2&#x9000;&#x51FA;&#x65F6;&#x4FDD;&#x5B58;`&#x9519;&#x8BEF;/&#x672A;&#x5B8C;&#x6210;`&#x7684;&#x4E0B;&#x8F7D;&#x4EFB;&#x52A1;&#x5230;&#x4F1A;&#x8BDD;&#x6587;&#x4EF6;
 save-session=/home/xbian/.aria2/aria2.session 
-# 定时保存会话, 0为退出时才保存, 需1.16.1以上版本, 默认:0
+# &#x5B9A;&#x65F6;&#x4FDD;&#x5B58;&#x4F1A;&#x8BDD;, 0&#x4E3A;&#x9000;&#x51FA;&#x65F6;&#x624D;&#x4FDD;&#x5B58;, &#x9700;1.16.1&#x4EE5;&#x4E0A;&#x7248;&#x672C;, &#x9ED8;&#x8BA4;:0
 save-session-interval=60
 
-## RPC相关设置 ##
+## RPC&#x76F8;&#x5173;&#x8BBE;&#x7F6E; ##
 
-# 启用RPC, 默认:false
+# &#x542F;&#x7528;RPC, &#x9ED8;&#x8BA4;:false
 enable-rpc=true
-# 允许所有来源, 默认:false
+# &#x5141;&#x8BB8;&#x6240;&#x6709;&#x6765;&#x6E90;, &#x9ED8;&#x8BA4;:false
 rpc-allow-origin-all=true
-# 允许非外部访问, 默认:false
+# &#x5141;&#x8BB8;&#x975E;&#x5916;&#x90E8;&#x8BBF;&#x95EE;, &#x9ED8;&#x8BA4;:false
 rpc-listen-all=true
-# 事件轮询方式, 取值:[epoll, kqueue, port, poll, select], 不同系统默认值不同
+# &#x4E8B;&#x4EF6;&#x8F6E;&#x8BE2;&#x65B9;&#x5F0F;, &#x53D6;&#x503C;:[epoll, kqueue, port, poll, select], &#x4E0D;&#x540C;&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x503C;&#x4E0D;&#x540C;
 #event-poll=select
-# RPC监听端口, 端口被占用时可以修改, 默认:6800
+# RPC&#x76D1;&#x542C;&#x7AEF;&#x53E3;, &#x7AEF;&#x53E3;&#x88AB;&#x5360;&#x7528;&#x65F6;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;, &#x9ED8;&#x8BA4;:6800
 #rpc-listen-port=6800
-# 设置的RPC授权令牌, v1.18.4新增功能, 取代 --rpc-user 和 --rpc-passwd 选项
+# &#x8BBE;&#x7F6E;&#x7684;RPC&#x6388;&#x6743;&#x4EE4;&#x724C;, v1.18.4&#x65B0;&#x589E;&#x529F;&#x80FD;, &#x53D6;&#x4EE3; --rpc-user &#x548C; --rpc-passwd &#x9009;&#x9879;
 #rpc-secret=&lt;TOKEN&gt;
-# 设置的RPC访问用户名, 此选项新版已废弃, 建议改用 --rpc-secret 选项
+# &#x8BBE;&#x7F6E;&#x7684;RPC&#x8BBF;&#x95EE;&#x7528;&#x6237;&#x540D;, &#x6B64;&#x9009;&#x9879;&#x65B0;&#x7248;&#x5DF2;&#x5E9F;&#x5F03;, &#x5EFA;&#x8BAE;&#x6539;&#x7528; --rpc-secret &#x9009;&#x9879;
 #rpc-user=&lt;USER&gt;
-# 设置的RPC访问密码, 此选项新版已废弃, 建议改用 --rpc-secret 选项
+# &#x8BBE;&#x7F6E;&#x7684;RPC&#x8BBF;&#x95EE;&#x5BC6;&#x7801;, &#x6B64;&#x9009;&#x9879;&#x65B0;&#x7248;&#x5DF2;&#x5E9F;&#x5F03;, &#x5EFA;&#x8BAE;&#x6539;&#x7528; --rpc-secret &#x9009;&#x9879;
 #rpc-passwd=&lt;PASSWD&gt;
 
-## BT/PT下载相关 ##
+## BT/PT&#x4E0B;&#x8F7D;&#x76F8;&#x5173; ##
 
-# 当下载的是一个种子(以.torrent结尾)时, 自动开始BT任务, 默认:true
+# &#x5F53;&#x4E0B;&#x8F7D;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x79CD;&#x5B50;(&#x4EE5;.torrent&#x7ED3;&#x5C3E;)&#x65F6;, &#x81EA;&#x52A8;&#x5F00;&#x59CB;BT&#x4EFB;&#x52A1;, &#x9ED8;&#x8BA4;:true
 #follow-torrent=true
-# BT监听端口, 当端口被屏蔽时使用, 默认:6881-6999
+# BT&#x76D1;&#x542C;&#x7AEF;&#x53E3;, &#x5F53;&#x7AEF;&#x53E3;&#x88AB;&#x5C4F;&#x853D;&#x65F6;&#x4F7F;&#x7528;, &#x9ED8;&#x8BA4;:6881-6999
 listen-port=51413
-# 单个种子最大连接数, 默认:55
+# &#x5355;&#x4E2A;&#x79CD;&#x5B50;&#x6700;&#x5927;&#x8FDE;&#x63A5;&#x6570;, &#x9ED8;&#x8BA4;:55
 #bt-max-peers=55
-# 打开DHT功能, PT需要禁用, 默认:true
+# &#x6253;&#x5F00;DHT&#x529F;&#x80FD;, PT&#x9700;&#x8981;&#x7981;&#x7528;, &#x9ED8;&#x8BA4;:true
 enable-dht=false
-# 打开IPv6 DHT功能, PT需要禁用
+# &#x6253;&#x5F00;IPv6 DHT&#x529F;&#x80FD;, PT&#x9700;&#x8981;&#x7981;&#x7528;
 #enable-dht6=false
-# DHT网络监听端口, 默认:6881-6999
+# DHT&#x7F51;&#x7EDC;&#x76D1;&#x542C;&#x7AEF;&#x53E3;, &#x9ED8;&#x8BA4;:6881-6999
 #dht-listen-port=6881-6999
-# 本地节点查找, PT需要禁用, 默认:false
+# &#x672C;&#x5730;&#x8282;&#x70B9;&#x67E5;&#x627E;, PT&#x9700;&#x8981;&#x7981;&#x7528;, &#x9ED8;&#x8BA4;:false
 #bt-enable-lpd=false
-# 种子交换, PT需要禁用, 默认:true
+# &#x79CD;&#x5B50;&#x4EA4;&#x6362;, PT&#x9700;&#x8981;&#x7981;&#x7528;, &#x9ED8;&#x8BA4;:true
 enable-peer-exchange=false
-# 每个种子限速, 对少种的PT很有用, 默认:50K
+# &#x6BCF;&#x4E2A;&#x79CD;&#x5B50;&#x9650;&#x901F;, &#x5BF9;&#x5C11;&#x79CD;&#x7684;PT&#x5F88;&#x6709;&#x7528;, &#x9ED8;&#x8BA4;:50K
 #bt-request-peer-speed-limit=50K
-# 客户端伪装, PT需要
+# &#x5BA2;&#x6237;&#x7AEF;&#x4F2A;&#x88C5;, PT&#x9700;&#x8981;
 peer-id-prefix=-TR2770-
 user-agent=Transmission/2.77
-# 当种子的分享率达到这个数时, 自动停止做种, 0为一直做种, 默认:1.0
+# &#x5F53;&#x79CD;&#x5B50;&#x7684;&#x5206;&#x4EAB;&#x7387;&#x8FBE;&#x5230;&#x8FD9;&#x4E2A;&#x6570;&#x65F6;, &#x81EA;&#x52A8;&#x505C;&#x6B62;&#x505A;&#x79CD;, 0&#x4E3A;&#x4E00;&#x76F4;&#x505A;&#x79CD;, &#x9ED8;&#x8BA4;:1.0
 seed-ratio=0
-# 强制保存会话, 即使任务已经完成, 默认:false
-# 较新的版本开启后会在任务完成后依然保留.aria2文件
+# &#x5F3A;&#x5236;&#x4FDD;&#x5B58;&#x4F1A;&#x8BDD;, &#x5373;&#x4F7F;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;, &#x9ED8;&#x8BA4;:false
+# &#x8F83;&#x65B0;&#x7684;&#x7248;&#x672C;&#x5F00;&#x542F;&#x540E;&#x4F1A;&#x5728;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x540E;&#x4F9D;&#x7136;&#x4FDD;&#x7559;.aria2&#x6587;&#x4EF6;
 force-save=true
-# BT校验相关, 默认:true
+# BT&#x6821;&#x9A8C;&#x76F8;&#x5173;, &#x9ED8;&#x8BA4;:true
 #bt-hash-check-seed=true
-# 继续之前的BT任务时, 无需再次校验, 默认:false
+# &#x7EE7;&#x7EED;&#x4E4B;&#x524D;&#x7684;BT&#x4EFB;&#x52A1;&#x65F6;, &#x65E0;&#x9700;&#x518D;&#x6B21;&#x6821;&#x9A8C;, &#x9ED8;&#x8BA4;:false
 bt-seed-unverified=true
-# 保存磁力链接元数据为种子文件(.torrent文件), 默认:false
+# &#x4FDD;&#x5B58;&#x78C1;&#x529B;&#x94FE;&#x63A5;&#x5143;&#x6570;&#x636E;&#x4E3A;&#x79CD;&#x5B50;&#x6587;&#x4EF6;(.torrent&#x6587;&#x4EF6;), &#x9ED8;&#x8BA4;:false
 bt-save-metadata=true
 
-完了后运行：sudo aria2c --conf-path=/home/xbian/.aria2/aria2.conf,如果报错执行这个试试aria2c --conf-path=/home/xbian/.aria2/aria2.conf 
-测试有没有错误，如果没有错误的话Ctrl + C终止程序继续下一步，有错误会提示你conf文件哪里错误。
-把aria2做成系统的服务：
+&#x5B8C;&#x4E86;&#x540E;&#x8FD0;&#x884C;&#xFF1A;sudo aria2c --conf-path=/home/xbian/.aria2/aria2.conf,&#x5982;&#x679C;&#x62A5;&#x9519;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x8BD5;&#x8BD5;aria2c --conf-path=/home/xbian/.aria2/aria2.conf 
+&#x6D4B;&#x8BD5;&#x6709;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#x7684;&#x8BDD;Ctrl + C&#x7EC8;&#x6B62;&#x7A0B;&#x5E8F;&#x7EE7;&#x7EED;&#x4E0B;&#x4E00;&#x6B65;&#xFF0C;&#x6709;&#x9519;&#x8BEF;&#x4F1A;&#x63D0;&#x793A;&#x4F60;conf&#x6587;&#x4EF6;&#x54EA;&#x91CC;&#x9519;&#x8BEF;&#x3002;
+&#x628A;aria2&#x505A;&#x6210;&#x7CFB;&#x7EDF;&#x7684;&#x670D;&#x52A1;&#xFF1A;
 sudo nano /etc/init.d/aria2c
 case &quot;$1&quot; in
 start)
@@ -1678,55 +1449,55 @@ sudo -u root aria2c --conf-path=/home/xbian/.aria2/aria2.conf -D
 esac
 exit
 
-Ctrl + O 保存后退出
-然后设置这个文件的权限。
+Ctrl + O &#x4FDD;&#x5B58;&#x540E;&#x9000;&#x51FA;
+&#x7136;&#x540E;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x3002;
 
 sudo chmod 777 /etc/init.d/aria2c
 
-试服务是否可以启动：
+&#x8BD5;&#x670D;&#x52A1;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#xFF1A;
 sudo service aria2c start/stop
-如果只显示Starting aria2c，没有其他错误提示的话就成功了。命令可用检查下
+&#x5982;&#x679C;&#x53EA;&#x663E;&#x793A;Starting aria2c&#xFF0C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x7684;&#x8BDD;&#x5C31;&#x6210;&#x529F;&#x4E86;&#x3002;&#x547D;&#x4EE4;&#x53EF;&#x7528;&#x68C0;&#x67E5;&#x4E0B;
 sudo ps x |grep aria2
-添加aria2c服务自动运行：
+&#x6DFB;&#x52A0;aria2c&#x670D;&#x52A1;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#xFF1A;
 sudo update-rc.d aria2c defaults
-Aria2相关的好了，下面开始网页控制aria2下载。
+Aria2&#x76F8;&#x5173;&#x7684;&#x597D;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x5F00;&#x59CB;&#x7F51;&#x9875;&#x63A7;&#x5236;aria2&#x4E0B;&#x8F7D;&#x3002;
 git clone https://github.com/wzhy90/yaaw
 git clone https://github.com/ghostry/webui-aria2.git
 sudo /etc/init.d/nginx start
-管理器用的是yaaw，网上的是英文的，我已经翻译好中文了。
+&#x7BA1;&#x7406;&#x5668;&#x7528;&#x7684;&#x662F;yaaw&#xFF0C;&#x7F51;&#x4E0A;&#x7684;&#x662F;&#x82F1;&#x6587;&#x7684;&#xFF0C;&#x6211;&#x5DF2;&#x7ECF;&#x7FFB;&#x8BD1;&#x597D;&#x4E2D;&#x6587;&#x4E86;&#x3002;
 
-用浏览器打开yaaw：http://192.168.1.14/yaaw
-如果没提示错误就可以了
-</code></pre><p><a href="http://aria2c.com/usage.html" target="_blank">Aria2设置说明</a></p>
-<p><a href="http://ju.outofmemory.cn/entry/146734" target="_blank">使用aria2打造下载利器</a></p>
-<h3 id="ntfs">安装NTFS模块(新版系统已不需要安装)</h3>
-<pre><code>#安装所需软件包
+&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;yaaw&#xFF1A;http://192.168.1.14/yaaw
+&#x5982;&#x679C;&#x6CA1;&#x63D0;&#x793A;&#x9519;&#x8BEF;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;
+</code></pre><p><a href="http://aria2c.com/usage.html" target="_blank">Aria2&#x8BBE;&#x7F6E;&#x8BF4;&#x660E;</a></p>
+<p><a href="http://ju.outofmemory.cn/entry/146734" target="_blank">&#x4F7F;&#x7528;aria2&#x6253;&#x9020;&#x4E0B;&#x8F7D;&#x5229;&#x5668;</a></p>
+<h3 id="&#x5B89;&#x88C5;ntfs&#x6A21;&#x5757;&#x65B0;&#x7248;&#x7CFB;&#x7EDF;&#x5DF2;&#x4E0D;&#x9700;&#x8981;&#x5B89;&#x88C5;">&#x5B89;&#x88C5;NTFS&#x6A21;&#x5757;(&#x65B0;&#x7248;&#x7CFB;&#x7EDF;&#x5DF2;&#x4E0D;&#x9700;&#x8981;&#x5B89;&#x88C5;)</h3>
+<pre><code>#&#x5B89;&#x88C5;&#x6240;&#x9700;&#x8F6F;&#x4EF6;&#x5305;
 sudo apt-get install fuse-utils ntfs-3g
-#加载内核模块
+#&#x52A0;&#x8F7D;&#x5185;&#x6838;&#x6A21;&#x5757;
 modprobe fuse
-</code></pre><h3 id="etcfstab-">通过etc/fstab实现自动挂载 (新版系统已自动挂载)</h3>
-<pre><code>查看挂载情况
-sudo fdisk -l或者df –lh
-編輯/etc/fstab文件，加入
+</code></pre><h3 id="&#x901A;&#x8FC7;etcfstab&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x6302;&#x8F7D;-&#x65B0;&#x7248;&#x7CFB;&#x7EDF;&#x5DF2;&#x81EA;&#x52A8;&#x6302;&#x8F7D;">&#x901A;&#x8FC7;etc/fstab&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x6302;&#x8F7D; (&#x65B0;&#x7248;&#x7CFB;&#x7EDF;&#x5DF2;&#x81EA;&#x52A8;&#x6302;&#x8F7D;)</h3>
+<pre><code>&#x67E5;&#x770B;&#x6302;&#x8F7D;&#x60C5;&#x51B5;
+sudo fdisk -l&#x6216;&#x8005;df &#x2013;lh
+&#x7DE8;&#x8F2F;/etc/fstab&#x6587;&#x4EF6;&#xFF0C;&#x52A0;&#x5165;
 cat /etc/fstab
-#硬盤位置        掛載點         格式    
+#&#x786C;&#x76E4;&#x4F4D;&#x7F6E;        &#x639B;&#x8F09;&#x9EDE;         &#x683C;&#x5F0F;    
 /dev/sda1       /home/xbian/hdd   NTFS    defaults          0       0
-接著在/home/xbian/下新建個叫“hdd”的文件夾并執行：
+&#x63A5;&#x8457;&#x5728;/home/xbian/&#x4E0B;&#x65B0;&#x5EFA;&#x500B;&#x53EB;&#x201C;hdd&#x201D;&#x7684;&#x6587;&#x4EF6;&#x593E;&#x5E76;&#x57F7;&#x884C;&#xFF1A;
 sudo mount -a
 sudo chmod 777 /home/pi/hdd
-</code></pre><h3 id="samba">Samba配置(新版系统默认自带)</h3>
+</code></pre><h3 id="samba&#x914D;&#x7F6E;&#x65B0;&#x7248;&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x81EA;&#x5E26;">Samba&#x914D;&#x7F6E;(&#x65B0;&#x7248;&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x81EA;&#x5E26;)</h3>
 <pre><code>sudo apt-get install samba samba-common-bin
 
 sudo nano /etc/samba/smb.conf
 
-guest ok=no 禁止匿名用户访问
+guest ok=no &#x7981;&#x6B62;&#x533F;&#x540D;&#x7528;&#x6237;&#x8BBF;&#x95EE;
 
-hosts allow = 192.168.1.? 开放指定IP访问,多个IP之间用空格隔开
+hosts allow = 192.168.1.? &#x5F00;&#x653E;&#x6307;&#x5B9A;IP&#x8BBF;&#x95EE;,&#x591A;&#x4E2A;IP&#x4E4B;&#x95F4;&#x7528;&#x7A7A;&#x683C;&#x9694;&#x5F00;
 
-valid users = yzhao    //有效的用户和组，多个空格隔开
+valid users = yzhao    //&#x6709;&#x6548;&#x7684;&#x7528;&#x6237;&#x548C;&#x7EC4;&#xFF0C;&#x591A;&#x4E2A;&#x7A7A;&#x683C;&#x9694;&#x5F00;
 
-如果树莓派外挂了移动硬盘或U盘，XBian系统会自动挂载分区，目录在根目录下的media这个文件夹内。
-force user 必须具有相应的目录权限
+&#x5982;&#x679C;&#x6811;&#x8393;&#x6D3E;&#x5916;&#x6302;&#x4E86;&#x79FB;&#x52A8;&#x786C;&#x76D8;&#x6216;U&#x76D8;&#xFF0C;XBian&#x7CFB;&#x7EDF;&#x4F1A;&#x81EA;&#x52A8;&#x6302;&#x8F7D;&#x5206;&#x533A;&#xFF0C;&#x76EE;&#x5F55;&#x5728;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x7684;media&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x3002;
+force user &#x5FC5;&#x987B;&#x5177;&#x6709;&#x76F8;&#x5E94;&#x7684;&#x76EE;&#x5F55;&#x6743;&#x9650;
 
 [global]
  server string = XBIAN
@@ -1776,46 +1547,46 @@ force user 必须具有相应的目录权限
      force user = root
      browseable = no
 
-#添加账户
-添加的Samba用户首先必须是Linux用户
+#&#x6DFB;&#x52A0;&#x8D26;&#x6237;
+&#x6DFB;&#x52A0;&#x7684;Samba&#x7528;&#x6237;&#x9996;&#x5148;&#x5FC5;&#x987B;&#x662F;Linux&#x7528;&#x6237;
 sudo useradd yzhao
-#向smb添加用戶和密碼，輸兩次密碼的喲
+#&#x5411;smb&#x6DFB;&#x52A0;&#x7528;&#x6236;&#x548C;&#x5BC6;&#x78BC;&#xFF0C;&#x8F38;&#x5169;&#x6B21;&#x5BC6;&#x78BC;&#x7684;&#x55B2;
 sudo smbpasswd -a yzhao 
-#最後重啟Samba服務
-先看一下samba的服务到底启动了没有：ps -aux | grep samba 
-先查看samba服务的端口 
+#&#x6700;&#x5F8C;&#x91CD;&#x555F;Samba&#x670D;&#x52D9;
+&#x5148;&#x770B;&#x4E00;&#x4E0B;samba&#x7684;&#x670D;&#x52A1;&#x5230;&#x5E95;&#x542F;&#x52A8;&#x4E86;&#x6CA1;&#x6709;&#xFF1A;ps -aux | grep samba 
+&#x5148;&#x67E5;&#x770B;samba&#x670D;&#x52A1;&#x7684;&#x7AEF;&#x53E3; 
 netstat -ntulp |grep 139
-可以看到端口号为139和445 
+&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7AEF;&#x53E3;&#x53F7;&#x4E3A;139&#x548C;445 
 sudo service smbd restart
 
-查看配置：
+&#x67E5;&#x770B;&#x914D;&#x7F6E;&#xFF1A;
 
 testparm
 
-查看smb是否开启动：
+&#x67E5;&#x770B;smb&#x662F;&#x5426;&#x5F00;&#x542F;&#x52A8;&#xFF1A;
 
 chkconfig --list |grep smbd
 
-执行结果：0:关闭 1:关闭 2:启用 3:启用 4:启用 5:启用 6:关闭
+&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF1A;0:&#x5173;&#x95ED; 1:&#x5173;&#x95ED; 2:&#x542F;&#x7528; 3:&#x542F;&#x7528; 4:&#x542F;&#x7528; 5:&#x542F;&#x7528; 6:&#x5173;&#x95ED;
 
-如果2至5是关闭，表示每次开机不是自动启动，反之。
+&#x5982;&#x679C;2&#x81F3;5&#x662F;&#x5173;&#x95ED;&#xFF0C;&#x8868;&#x793A;&#x6BCF;&#x6B21;&#x5F00;&#x673A;&#x4E0D;&#x662F;&#x81EA;&#x52A8;&#x542F;&#x52A8;&#xFF0C;&#x53CD;&#x4E4B;&#x3002;
 
-设置smbd开机启动：chkconfig smbd on
+&#x8BBE;&#x7F6E;smbd&#x5F00;&#x673A;&#x542F;&#x52A8;&#xFF1A;chkconfig smbd on
 
-service smbd status命令可以查看运行状态.
+service smbd status&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x8FD0;&#x884C;&#x72B6;&#x6001;.
 </code></pre><p>smbclient -L //192.168.1.118</p>
-<p>smbclient -L //192.168.1.118 -U [用户名]</p>
-<p>结果如下图则成功了：</p>
+<p>smbclient -L //192.168.1.118 -U [&#x7528;&#x6237;&#x540D;]</p>
+<p>&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#x5219;&#x6210;&#x529F;&#x4E86;&#xFF1A;</p>
 <p><img src="http://s10.sinaimg.cn/middle/6b8d2280hb8f4c531a749&amp;690" alt="png"></p>
-<p>文献资料</p>
+<p>&#x6587;&#x732E;&#x8D44;&#x6599;</p>
 <ul>
-<li><a href="http://blog.csdn.net/xkq_lyx/article/details/12905863" target="_blank">Samba配置与使用详细解析</a></li>
-<li><a href="http://kuangkuang.blog.51cto.com/838/243773" target="_blank">Samba服务器的基本配置</a></li>
+<li><a href="http://blog.csdn.net/xkq_lyx/article/details/12905863" target="_blank">Samba&#x914D;&#x7F6E;&#x4E0E;&#x4F7F;&#x7528;&#x8BE6;&#x7EC6;&#x89E3;&#x6790;</a></li>
+<li><a href="http://kuangkuang.blog.51cto.com/838/243773" target="_blank">Samba&#x670D;&#x52A1;&#x5668;&#x7684;&#x57FA;&#x672C;&#x914D;&#x7F6E;</a></li>
 </ul>
-<h1 id="ip">重启自动上报IP</h1>
+<h1 id="&#x91CD;&#x542F;&#x81EA;&#x52A8;&#x4E0A;&#x62A5;ip">&#x91CD;&#x542F;&#x81EA;&#x52A8;&#x4E0A;&#x62A5;IP</h1>
 <pre><code>python /opt/pifind.py
 
-pifind的内容如下：
+pifind&#x7684;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;
 #!/usr/bin/env python2.7
 import smtplib, httplib, string, subprocess
 # pifind.py by Alex Eames http://RasPi.tv
@@ -1829,20 +1600,20 @@ import smtplib, httplib, string, subprocess
 #   sudo chmod 755 /home/pi/pifind.py
 
 # Settings
-fromaddr = &#39;发件人邮箱&#39;
-toaddr  = [&#39;收件人邮箱&#39;]
+fromaddr = &apos;&#x53D1;&#x4EF6;&#x4EBA;&#x90AE;&#x7BB1;&apos;
+toaddr  = [&apos;&#x6536;&#x4EF6;&#x4EBA;&#x90AE;&#x7BB1;&apos;]
 
 #mail login details
-username = &#39;用户名&#39;
-password = &#39;密码&#39;
-smtp_server = &#39;smtp.163.com&#39;
+username = &apos;&#x7528;&#x6237;&#x540D;&apos;
+password = &apos;&#x5BC6;&#x7801;&apos;
+smtp_server = &apos;smtp.163.com&apos;
 
 
 #get ip config info
-output_if = subprocess.Popen([&#39;ifconfig&#39;], stdout=subprocess.PIPE).communicate()[0]
+output_if = subprocess.Popen([&apos;ifconfig&apos;], stdout=subprocess.PIPE).communicate()[0]
 
 #get cpu info
-output_cpu = open(&#39;/proc/cpuinfo&#39;, &#39;r&#39;).read()
+output_cpu = open(&apos;/proc/cpuinfo&apos;, &apos;r&apos;).read()
 
 #find cpu serial no in cpu info
 keyword = &quot;Serial&quot;
@@ -1851,7 +1622,7 @@ cpu_serial = cpu_serial[cpu_serial.find(&quot;:&quot;)+ 1 :].strip()
 
 #get external IP address
 connection = httplib.HTTPConnection(&quot;checkip.dyndns.org&quot;)
-connection.request(&#39;get&#39;,&#39;/&#39;)
+connection.request(&apos;get&apos;,&apos;/&apos;)
 external_ip = connection.getresponse().read()
 connection.close()
 
@@ -1886,56 +1657,56 @@ server.quit()
 # emailing code from http://www.nixtutor.com/linux/send-mail-through-gmail-with-python/
 # BODY bit http://www.blog.pythonlibrary.org/2010/05/14/how-to-send-email-with-python/
 </code></pre><p>sudo nano /etc/rc.local</p>
-<p>在文件末尾 ，在exit 0 这一行之前，加入一行：python /opt/pifind.py</p>
-<h2 id="piip">定时上报PI的IP</h2>
+<p>&#x5728;&#x6587;&#x4EF6;&#x672B;&#x5C3E; &#xFF0C;&#x5728;exit 0 &#x8FD9;&#x4E00;&#x884C;&#x4E4B;&#x524D;&#xFF0C;&#x52A0;&#x5165;&#x4E00;&#x884C;&#xFF1A;python /opt/pifind.py</p>
+<h2 id="&#x5B9A;&#x65F6;&#x4E0A;&#x62A5;pi&#x7684;ip">&#x5B9A;&#x65F6;&#x4E0A;&#x62A5;PI&#x7684;IP</h2>
 <p><img src="http://my.csdn.net/uploads/201207/20/1342769209_5435.png" alt="crontab"></p>
 <p>/opt/report-network.sh</p>
-<p>加入如下内容</p>
+<p>&#x52A0;&#x5165;&#x5982;&#x4E0B;&#x5185;&#x5BB9;</p>
 <p>python /opt/pifind.py</p>
-<p>设置定时任务</p>
+<p>&#x8BBE;&#x7F6E;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</p>
 <p>sudo nano /etc/crontab</p>
 <p>m h day mon dow user  command</p>
 <p>0 <em> </em> <em> </em> root /opt/report-network.sh</p>
 <p>sudo /etc/init.d/cron restart</p>
-<p>这样我们的PI基本不会丢失，结合看门狗可以实现自动重启自动联网</p>
-<h3 id="">树莓派看门狗</h3>
-<p>启用模块 bcm2708_wdog</p>
+<p>&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x7684;PI&#x57FA;&#x672C;&#x4E0D;&#x4F1A;&#x4E22;&#x5931;&#xFF0C;&#x7ED3;&#x5408;&#x770B;&#x95E8;&#x72D7;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#x81EA;&#x52A8;&#x8054;&#x7F51;</p>
+<h3 id="&#x6811;&#x8393;&#x6D3E;&#x770B;&#x95E8;&#x72D7;">&#x6811;&#x8393;&#x6D3E;&#x770B;&#x95E8;&#x72D7;</h3>
+<p>&#x542F;&#x7528;&#x6A21;&#x5757; bcm2708_wdog</p>
 <p>sudo modprobe bcm2708_wdog</p>
 <p>sudo nano /etc/modules</p>
-<p>在文件最后一行，添加一行</p>
+<p>&#x5728;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4E00;&#x884C;&#xFF0C;&#x6DFB;&#x52A0;&#x4E00;&#x884C;</p>
 <p>bcm2708_wdog</p>
-<p>启用模块后，则系统增加了一个设备  /dev/watchdog</p>
-<p>每10秒必须喂一下这个狗</p>
+<p>&#x542F;&#x7528;&#x6A21;&#x5757;&#x540E;&#xFF0C;&#x5219;&#x7CFB;&#x7EDF;&#x589E;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x8BBE;&#x5907;  /dev/watchdog</p>
+<p>&#x6BCF;10&#x79D2;&#x5FC5;&#x987B;&#x5582;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x72D7;</p>
 <p>sudo apt-get install chkconfig watchdog</p>
-<p>启动watchdog 软件</p>
+<p>&#x542F;&#x52A8;watchdog &#x8F6F;&#x4EF6;</p>
 <p>sudo /etc/init.d/watchdog start</p>
 <p>sudo nano /etc/watchdog.conf</p>
-<p>去掉 watchdog-device = /dev/watchdog 前的#号，让看门狗设备对应树莓派的硬件看门狗</p>
-<p>取消掉 max-load-1 = 24 前的注释#号，当1分钟load进程超过24个的时候（一般5个就是超高负载了，再<FONT face="Courier New">高可以认为是死机，这在遭遇DDOS攻击的时候很容易遇到）就触发重启</FONT>
-还可以设置如温度到了多少度就重启，如 取消掉</p>
+<p>&#x53BB;&#x6389; watchdog-device = /dev/watchdog &#x524D;&#x7684;#&#x53F7;&#xFF0C;&#x8BA9;&#x770B;&#x95E8;&#x72D7;&#x8BBE;&#x5907;&#x5BF9;&#x5E94;&#x6811;&#x8393;&#x6D3E;&#x7684;&#x786C;&#x4EF6;&#x770B;&#x95E8;&#x72D7;</p>
+<p>&#x53D6;&#x6D88;&#x6389; max-load-1 = 24 &#x524D;&#x7684;&#x6CE8;&#x91CA;#&#x53F7;&#xFF0C;&#x5F53;1&#x5206;&#x949F;load&#x8FDB;&#x7A0B;&#x8D85;&#x8FC7;24&#x4E2A;&#x7684;&#x65F6;&#x5019;&#xFF08;&#x4E00;&#x822C;5&#x4E2A;&#x5C31;&#x662F;&#x8D85;&#x9AD8;&#x8D1F;&#x8F7D;&#x4E86;&#xFF0C;&#x518D;<font face="Courier New">&#x9AD8;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x662F;&#x6B7B;&#x673A;&#xFF0C;&#x8FD9;&#x5728;&#x906D;&#x9047;DDOS&#x653B;&#x51FB;&#x7684;&#x65F6;&#x5019;&#x5F88;&#x5BB9;&#x6613;&#x9047;&#x5230;&#xFF09;&#x5C31;&#x89E6;&#x53D1;&#x91CD;&#x542F;</font>
+&#x8FD8;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5982;&#x6E29;&#x5EA6;&#x5230;&#x4E86;&#x591A;&#x5C11;&#x5EA6;&#x5C31;&#x91CD;&#x542F;&#xFF0C;&#x5982; &#x53D6;&#x6D88;&#x6389;</p>
 <p>temperature-device =</p>
 <p>max-temperature = 120</p>
-<p>前的注释#号去掉，改为</p>
+<p>&#x524D;&#x7684;&#x6CE8;&#x91CA;#&#x53F7;&#x53BB;&#x6389;&#xFF0C;&#x6539;&#x4E3A;</p>
 <p>temperature-device = /sys/class/thermal/thermal_zone0/temp</p>
 <p>max-temperature = 70000</p>
-<p>(温度一般不超过85度就不会损坏芯片，/sys/class/thermal/thermal_zone0/temp记录的是实时的温度，单位为千分之一摄氏度，所以75000就是75℃)
-还可以设置内存耗尽就重启，如min-memory =1 前的注释#号去掉
-还可以设置监控的间隔，如 interval = 1 前的注释#号去掉，该1为任意数字，单位是秒，默认是10秒一次健康检查</p>
-<p>配置看门狗程序，开机自动运行</p>
+<p>(&#x6E29;&#x5EA6;&#x4E00;&#x822C;&#x4E0D;&#x8D85;&#x8FC7;85&#x5EA6;&#x5C31;&#x4E0D;&#x4F1A;&#x635F;&#x574F;&#x82AF;&#x7247;&#xFF0C;/sys/class/thermal/thermal_zone0/temp&#x8BB0;&#x5F55;&#x7684;&#x662F;&#x5B9E;&#x65F6;&#x7684;&#x6E29;&#x5EA6;&#xFF0C;&#x5355;&#x4F4D;&#x4E3A;&#x5343;&#x5206;&#x4E4B;&#x4E00;&#x6444;&#x6C0F;&#x5EA6;&#xFF0C;&#x6240;&#x4EE5;75000&#x5C31;&#x662F;75&#x2103;)
+&#x8FD8;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5185;&#x5B58;&#x8017;&#x5C3D;&#x5C31;&#x91CD;&#x542F;&#xFF0C;&#x5982;min-memory =1 &#x524D;&#x7684;&#x6CE8;&#x91CA;#&#x53F7;&#x53BB;&#x6389;
+&#x8FD8;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x76D1;&#x63A7;&#x7684;&#x95F4;&#x9694;&#xFF0C;&#x5982; interval = 1 &#x524D;&#x7684;&#x6CE8;&#x91CA;#&#x53F7;&#x53BB;&#x6389;&#xFF0C;&#x8BE5;1&#x4E3A;&#x4EFB;&#x610F;&#x6570;&#x5B57;&#xFF0C;&#x5355;&#x4F4D;&#x662F;&#x79D2;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;10&#x79D2;&#x4E00;&#x6B21;&#x5065;&#x5EB7;&#x68C0;&#x67E5;</p>
+<p>&#x914D;&#x7F6E;&#x770B;&#x95E8;&#x72D7;&#x7A0B;&#x5E8F;&#xFF0C;&#x5F00;&#x673A;&#x81EA;&#x52A8;&#x8FD0;&#x884C;</p>
 <p>sudo chkconfig watchdog on</p>
 <p>sudo /etc/init.d/watchdog restart </p>
-<p>输入下述命令(forkbomb)，测试一下看门狗</p>
-<p>树莓派假死字符串</p>
+<p>&#x8F93;&#x5165;&#x4E0B;&#x8FF0;&#x547D;&#x4EE4;(forkbomb)&#xFF0C;&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#x770B;&#x95E8;&#x72D7;</p>
+<p>&#x6811;&#x8393;&#x6D3E;&#x5047;&#x6B7B;&#x5B57;&#x7B26;&#x4E32;</p>
 <p>: (){ :|:&amp; };:</p>
-<p>如果正常过一会树莓派会自动重启</p>
+<p>&#x5982;&#x679C;&#x6B63;&#x5E38;&#x8FC7;&#x4E00;&#x4F1A;&#x6811;&#x8393;&#x6D3E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;</p>
 <hr>
-<p>以下是老方法仅供学习</p>
-<p>由于树莓派断网并不会自动重新连网，假如当我在外地想远程登录控制树莓派怎么办呢，网都连不上，怎么控制呀。
-解决办法是：写一个自动断网重连的脚本，让pi定时执行并检查网络是否连通，如断网则自动重新连接。
-在 /etc/network/if-down.d/ 文件夹下新建net_restart.sh，net_restart.sh脚本用于当网络断开时重新启动网络：</p>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x8001;&#x65B9;&#x6CD5;&#x4EC5;&#x4F9B;&#x5B66;&#x4E60;</p>
+<p>&#x7531;&#x4E8E;&#x6811;&#x8393;&#x6D3E;&#x65AD;&#x7F51;&#x5E76;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x65B0;&#x8FDE;&#x7F51;&#xFF0C;&#x5047;&#x5982;&#x5F53;&#x6211;&#x5728;&#x5916;&#x5730;&#x60F3;&#x8FDC;&#x7A0B;&#x767B;&#x5F55;&#x63A7;&#x5236;&#x6811;&#x8393;&#x6D3E;&#x600E;&#x4E48;&#x529E;&#x5462;&#xFF0C;&#x7F51;&#x90FD;&#x8FDE;&#x4E0D;&#x4E0A;&#xFF0C;&#x600E;&#x4E48;&#x63A7;&#x5236;&#x5440;&#x3002;
+&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x662F;&#xFF1A;&#x5199;&#x4E00;&#x4E2A;&#x81EA;&#x52A8;&#x65AD;&#x7F51;&#x91CD;&#x8FDE;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x8BA9;pi&#x5B9A;&#x65F6;&#x6267;&#x884C;&#x5E76;&#x68C0;&#x67E5;&#x7F51;&#x7EDC;&#x662F;&#x5426;&#x8FDE;&#x901A;&#xFF0C;&#x5982;&#x65AD;&#x7F51;&#x5219;&#x81EA;&#x52A8;&#x91CD;&#x65B0;&#x8FDE;&#x63A5;&#x3002;
+&#x5728; /etc/network/if-down.d/ &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x65B0;&#x5EFA;net_restart.sh&#xFF0C;net_restart.sh&#x811A;&#x672C;&#x7528;&#x4E8E;&#x5F53;&#x7F51;&#x7EDC;&#x65AD;&#x5F00;&#x65F6;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x7F51;&#x7EDC;&#xFF1A;</p>
 <pre><code>sudo nano /etc/network/if-down.d/net_restart.sh
 
-编辑net_restart.sh脚本，输入：
+&#x7F16;&#x8F91;net_restart.sh&#x811A;&#x672C;&#xFF0C;&#x8F93;&#x5165;&#xFF1A;
 
 #!/bin/bash
 #value define
@@ -1970,15 +1741,15 @@ if [ $connected -eq 0 ];then
    /sbin/ifup eth0
 fi
 
-注意 if 条件判断的方括号“[&quot;、”]&quot; 左右两边都有空格,要执行这个脚本需用到curl 工具：
+&#x6CE8;&#x610F; if &#x6761;&#x4EF6;&#x5224;&#x65AD;&#x7684;&#x65B9;&#x62EC;&#x53F7;&#x201C;[&quot;&#x3001;&#x201D;]&quot; &#x5DE6;&#x53F3;&#x4E24;&#x8FB9;&#x90FD;&#x6709;&#x7A7A;&#x683C;,&#x8981;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x9700;&#x7528;&#x5230;curl &#x5DE5;&#x5177;&#xFF1A;
 
 sudo apt-get install curl
 
-Ctrl + O保存，Ctrl+X退出 给net_restart.sh添加可执行权限：
+Ctrl + O&#x4FDD;&#x5B58;&#xFF0C;Ctrl+X&#x9000;&#x51FA; &#x7ED9;net_restart.sh&#x6DFB;&#x52A0;&#x53EF;&#x6267;&#x884C;&#x6743;&#x9650;&#xFF1A;
 
 sudo chmod 777 /etc/network/if-down.d/net_restart.sh
 
-同理，新建 net_reboot.sh脚本，net_reboot.sh脚本用于当网络断开时重启树莓派：
+&#x540C;&#x7406;&#xFF0C;&#x65B0;&#x5EFA; net_reboot.sh&#x811A;&#x672C;&#xFF0C;net_reboot.sh&#x811A;&#x672C;&#x7528;&#x4E8E;&#x5F53;&#x7F51;&#x7EDC;&#x65AD;&#x5F00;&#x65F6;&#x91CD;&#x542F;&#x6811;&#x8393;&#x6D3E;&#xFF1A;
 
 #!/bin/bash
 #value define
@@ -2012,89 +1783,129 @@ if [ $connected -eq 0 ];then
     #/sbin/ifup wlan0
    #do
      #echo &quot;now reboot&quot;
-     killall motion        #这里添加重启pi前要执行的任务，比如杀死某些你启动的进程，需自己修改
+     killall motion        #&#x8FD9;&#x91CC;&#x6DFB;&#x52A0;&#x91CD;&#x542F;pi&#x524D;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x6BD4;&#x5982;&#x6740;&#x6B7B;&#x67D0;&#x4E9B;&#x4F60;&#x542F;&#x52A8;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x9700;&#x81EA;&#x5DF1;&#x4FEE;&#x6539;
 
-     reboot    #重启树莓派
+     reboot    #&#x91CD;&#x542F;&#x6811;&#x8393;&#x6D3E;
    #done
 fi
 
-保存退出，添加权限：
+&#x4FDD;&#x5B58;&#x9000;&#x51FA;&#xFF0C;&#x6DFB;&#x52A0;&#x6743;&#x9650;&#xFF1A;
 
 sudo chmod 777 /etc/network/if-down.d/net_reboot.sh
 
-进入root用户权限下：
+&#x8FDB;&#x5165;root&#x7528;&#x6237;&#x6743;&#x9650;&#x4E0B;&#xFF1A;
 
-命令将以哪个用户的名义执行（在文件 /etc/crontab和 /etc/cron.d/中，而不是在用户自己的调度文件中）
+&#x547D;&#x4EE4;&#x5C06;&#x4EE5;&#x54EA;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x540D;&#x4E49;&#x6267;&#x884C;&#xFF08;&#x5728;&#x6587;&#x4EF6; /etc/crontab&#x548C; /etc/cron.d/&#x4E2D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x7528;&#x6237;&#x81EA;&#x5DF1;&#x7684;&#x8C03;&#x5EA6;&#x6587;&#x4EF6;&#x4E2D;&#xFF09;
 
 ![crontab](http://images.cnitblog.com/blog/34483/201301/08090352-4e0aa3fe4f404b3491df384758229be1.png)
 
-在以上各个字段中，还可以使用以下特殊字符：
-星号（*）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。
-逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”
-中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
-正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。
+&#x5728;&#x4EE5;&#x4E0A;&#x5404;&#x4E2A;&#x5B57;&#x6BB5;&#x4E2D;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#xFF1A;
+&#x661F;&#x53F7;&#xFF08;*&#xFF09;&#xFF1A;&#x4EE3;&#x8868;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x503C;&#xFF0C;&#x4F8B;&#x5982;month&#x5B57;&#x6BB5;&#x5982;&#x679C;&#x662F;&#x661F;&#x53F7;&#xFF0C;&#x5219;&#x8868;&#x793A;&#x5728;&#x6EE1;&#x8DB3;&#x5176;&#x5B83;&#x5B57;&#x6BB5;&#x7684;&#x5236;&#x7EA6;&#x6761;&#x4EF6;&#x540E;&#x6BCF;&#x6708;&#x90FD;&#x6267;&#x884C;&#x8BE5;&#x547D;&#x4EE4;&#x64CD;&#x4F5C;&#x3002;
+&#x9017;&#x53F7;&#xFF08;,&#xFF09;&#xFF1A;&#x53EF;&#x4EE5;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#x7684;&#x503C;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x8303;&#x56F4;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x201C;1,2,5,7,8,9&#x201D;
+&#x4E2D;&#x6760;&#xFF08;-&#xFF09;&#xFF1A;&#x53EF;&#x4EE5;&#x7528;&#x6574;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x4E2D;&#x6760;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x8303;&#x56F4;&#xFF0C;&#x4F8B;&#x5982;&#x201C;2-6&#x201D;&#x8868;&#x793A;&#x201C;2,3,4,5,6&#x201D;
+&#x6B63;&#x659C;&#x7EBF;&#xFF08;/&#xFF09;&#xFF1A;&#x53EF;&#x4EE5;&#x7528;&#x6B63;&#x659C;&#x7EBF;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x7684;&#x95F4;&#x9694;&#x9891;&#x7387;&#xFF0C;&#x4F8B;&#x5982;&#x201C;0-23/2&#x201D;&#x8868;&#x793A;&#x6BCF;&#x4E24;&#x5C0F;&#x65F6;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x3002;&#x540C;&#x65F6;&#x6B63;&#x659C;&#x7EBF;&#x53EF;&#x4EE5;&#x548C;&#x661F;&#x53F7;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x4F8B;&#x5982;*/10&#xFF0C;&#x5982;&#x679C;&#x7528;&#x5728;minute&#x5B57;&#x6BB5;&#xFF0C;&#x8868;&#x793A;&#x6BCF;&#x5341;&#x5206;&#x949F;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x3002;
 
 sudo nano /etc/crontab
-在文件尾添加：
+&#x5728;&#x6587;&#x4EF6;&#x5C3E;&#x6DFB;&#x52A0;&#xFF1A;
 */20 * * * * /etc/network/if-down.d/net_restart.sh
 0 17 */1 * * /etc/network/if-down.d/net_reboot.sh
 
 0 * * * * /opt/report-network.sh
-表示每20分钟执行一次net_restart.sh脚本，检查网络是否连通。每天的17:00执行net_reboot.sh，如网络断开则重启一次树莓派。
-每个小时0分钟上报一次pi的地址
-最后，还要使cron定时任务生效：
+&#x8868;&#x793A;&#x6BCF;20&#x5206;&#x949F;&#x6267;&#x884C;&#x4E00;&#x6B21;net_restart.sh&#x811A;&#x672C;&#xFF0C;&#x68C0;&#x67E5;&#x7F51;&#x7EDC;&#x662F;&#x5426;&#x8FDE;&#x901A;&#x3002;&#x6BCF;&#x5929;&#x7684;17:00&#x6267;&#x884C;net_reboot.sh&#xFF0C;&#x5982;&#x7F51;&#x7EDC;&#x65AD;&#x5F00;&#x5219;&#x91CD;&#x542F;&#x4E00;&#x6B21;&#x6811;&#x8393;&#x6D3E;&#x3002;
+&#x6BCF;&#x4E2A;&#x5C0F;&#x65F6;0&#x5206;&#x949F;&#x4E0A;&#x62A5;&#x4E00;&#x6B21;pi&#x7684;&#x5730;&#x5740;
+&#x6700;&#x540E;&#xFF0C;&#x8FD8;&#x8981;&#x4F7F;cron&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x751F;&#x6548;&#xFF1A;
 /etc/init.d/cron restart
 
-编辑当前用户的cron任务
+&#x7F16;&#x8F91;&#x5F53;&#x524D;&#x7528;&#x6237;&#x7684;cron&#x4EFB;&#x52A1;
 crontab -e
-查看当前用户的cron任务
+&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7528;&#x6237;&#x7684;cron&#x4EFB;&#x52A1;
 crontab -l
 
-如果有root权限，那么要查看用户wangyu的cron任务，使用 -u 参数：
-sudo crontab -u [用户名] -l
+&#x5982;&#x679C;&#x6709;root&#x6743;&#x9650;&#xFF0C;&#x90A3;&#x4E48;&#x8981;&#x67E5;&#x770B;&#x7528;&#x6237;wangyu&#x7684;cron&#x4EFB;&#x52A1;&#xFF0C;&#x4F7F;&#x7528; -u &#x53C2;&#x6570;&#xFF1A;
+sudo crontab -u [&#x7528;&#x6237;&#x540D;] -l
 
-查看任务：
+&#x67E5;&#x770B;&#x4EFB;&#x52A1;&#xFF1A;
 nano /etc/crontab
-注意问题：
-1、有童鞋问了，这2个脚本都差不多啊，干嘛要2个，只写一个就行了嘛。然而这2个脚本是有差别的。net_restart.sh脚本里的关键语句/etc/init.d/networking restart  重启网络命令并不一定能使网络好转，实际跟理论的区别啊，重启一次树莓派就好多了。
-2、上文的crontab -e 打开的cron定时任务文件并不是 /etc/crontab ，而是在 /var/spool/cron/crontabs/ 目录下的文件：pi ，root 。每个用户（pi ，root）分别有cron定时任务的。
+&#x6CE8;&#x610F;&#x95EE;&#x9898;&#xFF1A;
+1&#x3001;&#x6709;&#x7AE5;&#x978B;&#x95EE;&#x4E86;&#xFF0C;&#x8FD9;2&#x4E2A;&#x811A;&#x672C;&#x90FD;&#x5DEE;&#x4E0D;&#x591A;&#x554A;&#xFF0C;&#x5E72;&#x561B;&#x8981;2&#x4E2A;&#xFF0C;&#x53EA;&#x5199;&#x4E00;&#x4E2A;&#x5C31;&#x884C;&#x4E86;&#x561B;&#x3002;&#x7136;&#x800C;&#x8FD9;2&#x4E2A;&#x811A;&#x672C;&#x662F;&#x6709;&#x5DEE;&#x522B;&#x7684;&#x3002;net_restart.sh&#x811A;&#x672C;&#x91CC;&#x7684;&#x5173;&#x952E;&#x8BED;&#x53E5;/etc/init.d/networking restart  &#x91CD;&#x542F;&#x7F51;&#x7EDC;&#x547D;&#x4EE4;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x80FD;&#x4F7F;&#x7F51;&#x7EDC;&#x597D;&#x8F6C;&#xFF0C;&#x5B9E;&#x9645;&#x8DDF;&#x7406;&#x8BBA;&#x7684;&#x533A;&#x522B;&#x554A;&#xFF0C;&#x91CD;&#x542F;&#x4E00;&#x6B21;&#x6811;&#x8393;&#x6D3E;&#x5C31;&#x597D;&#x591A;&#x4E86;&#x3002;
+2&#x3001;&#x4E0A;&#x6587;&#x7684;crontab -e &#x6253;&#x5F00;&#x7684;cron&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x6587;&#x4EF6;&#x5E76;&#x4E0D;&#x662F; /etc/crontab &#xFF0C;&#x800C;&#x662F;&#x5728; /var/spool/cron/crontabs/ &#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#xFF1A;pi &#xFF0C;root &#x3002;&#x6BCF;&#x4E2A;&#x7528;&#x6237;&#xFF08;pi &#xFF0C;root&#xFF09;&#x5206;&#x522B;&#x6709;cron&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x7684;&#x3002;
 </code></pre>
-                    
-                    </section>
-                
-                
-                </div>
-            </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
         </div>
-
-        
-        <a href="../raspbian/burn.html" class="navigation navigation-prev " aria-label="Previous page: MacOS 烧录树莓派"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="../raspbian/lnmp.html" class="navigation navigation-next " aria-label="Next page: Raspbian安装Apache2/PHP5/MySQL5"><i class="fa fa-angle-right"></i></a>
-        
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
     </div>
 </div>
 
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="burn.html" class="navigation navigation-prev " aria-label="Previous page: MacOS 烧录树莓派">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="lnmp.html" class="navigation navigation-next " aria-label="Next page: Raspbian安装Apache2/PHP5/MySQL5">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
         
-<script src="../gitbook/app.js"></script>
+    </div>
 
-    
-    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
-    
-
-<script>
-require(["gitbook"], function(gitbook) {
-    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
-    gitbook.start(config);
-});
-</script>
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Raspbian的配置","level":"1.10.4","depth":2,"next":{"title":"Raspbian安装Apache2/PHP5/MySQL5","level":"1.10.5","depth":2,"path":"raspbian/lnmp.md","ref":"raspbian/lnmp.md","articles":[]},"previous":{"title":"MacOS 烧录树莓派","level":"1.10.3","depth":2,"path":"raspbian/burn.md","ref":"raspbian/burn.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"178518 <178518@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"乐高","language":"zh-hans","links":{"sidebar":{"178518's Github":"https://github.com/178518"}},"gitbook":">=3.0.0","description":"乐高,前端工程化,前端组件化,React Component"},"file":{"path":"raspbian/login.md","mtime":"2018-12-04T14:15:34.360Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-07T14:36:02.739Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
 
         
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
     </body>
-    
 </html>
+

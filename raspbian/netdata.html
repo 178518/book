@@ -1,1517 +1,1328 @@
+
 <!DOCTYPE HTML>
-<html lang="en-US" >
-    
+<html lang="zh-hans" >
     <head>
-        
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>netdata应用 | 乐高</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>netdata应用 · 乐高</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 1.5.0">
-        <meta name="HandheldFriendly" content="true"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="178518 <178518@gmail.com>">
         
         
     
+    <link rel="stylesheet" href="../gitbook/style.css">
+
     
-    <link rel="next" href="../raspbian/http-load.html" />
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
     
+
     
-    <link rel="prev" href="../raspbian/android.html" />
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
     
 
         
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="http-load.html" />
+    
+    
+    <link rel="prev" href="android.html" />
+    
+
     </head>
     <body>
         
+<div class="book">
+    <div class="book-summary">
         
-<link rel="stylesheet" href="../gitbook/style.css">
-
-
-        
-    <div class="book" data-level="9.11" data-basepath=".." data-revision="1532615805722">
-    
-
-<div class="book-summary">
-    <div class="book-search">
-        <input type="text" placeholder="Type to search" class="form-control" />
-    </div>
-    <ul class="summary">
-        
-    	
-    	
-    	    
-            <li>
-                <a href="https://github.com/178518" target="blank" class="custom-link">178518&#39;s Github</a>
-            </li>
-    	
-    	
-
-        
-        <li class="divider"></li>
-        
-
-        
-    
-        
-        <li class="chapter " data-level="0" data-path="index.html">
-            
-                
-                    <a href="../index.html">
-                        <i class="fa fa-check"></i>
-                        
-                         Introduction
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="1" data-path="aboutMe.html">
-            
-                
-                    <a href="../aboutMe.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.</b>
-                        
-                         关于我
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2" data-path="f2e.html">
-            
-                
-                    <a href="../f2e.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.</b>
-                        
-                         前端
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="2.1" data-path="f2e/book.html">
-            
-                
-                    <a href="../f2e/book.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.1.</b>
-                        
-                         前端工程化
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.2" data-path="f2e/site.html">
-            
-                
-                    <a href="../f2e/site.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.2.</b>
-                        
-                         前端网址导航
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.3" data-path="android/android4.4.html">
-            
-                
-                    <a href="../android/android4.4.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.3.</b>
-                        
-                         SM-900V Note3升级4.4
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.4" data-path="android/android5.1.html">
-            
-                
-                    <a href="../android/android5.1.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.4.</b>
-                        
-                         SM-900V Note3升级5.1
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.5" data-path="android/debugger.html">
-            
-                
-                    <a href="../android/debugger.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.5.</b>
-                        
-                         MAC开发 Android USB 真机调试
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.6" data-path="android/genymotion.html">
-            
-                
-                    <a href="../android/genymotion.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.6.</b>
-                        
-                         MAC安装 Genymotion调试
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.7" data-path="git.html">
-            
-                
-                    <a href="../git.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.7.</b>
-                        
-                         Git 使用帮助
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.8" data-path="help.html">
-            
-                
-                    <a href="../help.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.8.</b>
-                        
-                         GitBook使用帮助
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="3" data-path="mac/index.html">
-            
-                
-                    <a href="../mac/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.</b>
-                        
-                         Mac疑难杂症
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="4" data-path="lb/index.html">
-            
-                
-                    <a href="../lb/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.</b>
-                        
-                         负载均衡
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="4.1" data-path="lb/combo.html">
-            
-                
-                    <a href="../lb/combo.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.1.</b>
-                        
-                         Combo配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="4.2" data-path="lb/nginx.html">
-            
-                
-                    <a href="../lb/nginx.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.2.</b>
-                        
-                         Nginx配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="4.3" data-path="lb/ssl.html">
-            
-                
-                    <a href="../lb/ssl.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.3.</b>
-                        
-                         SSL配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="4.4" data-path="lb/tengine.html">
-            
-                
-                    <a href="../lb/tengine.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.4.</b>
-                        
-                         Tengine配置
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5" data-path="2016/node.html">
-            
-                
-                    <a href="../2016/node.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                         基本安装
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="5.1" data-path="2016/setup.html">
-            
-                
-                    <a href="../2016/setup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.1.</b>
-                        
-                         环境配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.2" data-path="2016/npm.html">
-            
-                
-                    <a href="../2016/npm.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.2.</b>
-                        
-                         NPM模块发布
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.3" data-path="2016/pm2.html">
-            
-                
-                    <a href="../2016/pm2.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.3.</b>
-                        
-                         PM2&amp;keymetrics
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.4" data-path="2016/setup.html">
-            
-                
-                    <a href="../2016/setup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.4.</b>
-                        
-                         环境配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.5" data-path="2016/study.html">
-            
-                
-                    <a href="../2016/study.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.5.</b>
-                        
-                         React Native资料
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="5.6" data-path="mac/skill.html">
-            
-                
-                    <a href="../mac/skill.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.6.</b>
-                        
-                         Mac代理设置
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6" data-path="2016/jiagou.html">
-            
-                
-                    <a href="../2016/jiagou.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.</b>
-                        
-                         乐高整体架构
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="6.1" data-path="animation/animation.html">
-            
-                
-                    <a href="../animation/animation.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.1.</b>
-                        
-                         CSS动画
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.2" data-path="lego/index.html">
-            
-                
-                    <a href="../lego/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.2.</b>
-                        
-                         乐高前端解决方案
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.3" data-path="lego/catalog.html">
-            
-                
-                    <a href="../lego/catalog.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.3.</b>
-                        
-                         目录结构规范
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.4" data-path="promise/index.html">
-            
-                
-                    <a href="../promise/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.4.</b>
-                        
-                         Promise
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.5" data-path="lego/file.html">
-            
-                
-                    <a href="../lego/file.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.5.</b>
-                        
-                         文件加载方式
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.6" data-path="lego/component.html">
-            
-                
-                    <a href="../lego/component.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.6.</b>
-                        
-                         组件开发规范
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.7" data-path="lego/platform.html">
-            
-                
-                    <a href="../lego/platform.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.7.</b>
-                        
-                         平台差异处理
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.8" data-path="lego/components.html">
-            
-                
-                    <a href="../lego/components.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.8.</b>
-                        
-                         LEGO组件化
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="6.9" data-path="lego/react-native.html">
-            
-                
-                    <a href="../lego/react-native.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.9.</b>
-                        
-                         React Native
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="7" data-path="node-webkit/index.html">
-            
-                
-                    <a href="../node-webkit/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.</b>
-                        
-                         Node-Webkit
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="8" data-path="gpio/index.html">
-            
-                
-                    <a href="../gpio/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.</b>
-                        
-                         GPIO
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="8.1" data-path="gpio/node-gpio.html">
-            
-                
-                    <a href="../gpio/node-gpio.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.1.</b>
-                        
-                         Node GPIO
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="8.2" data-path="gpio/light.html">
-            
-                
-                    <a href="../gpio/light.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.2.</b>
-                        
-                         GPIO远程控制电灯
-                    </a>
-                
             
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="8.3" data-path="gpio/web-gpio.html">
-            
-                
-                    <a href="../gpio/web-gpio.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.3.</b>
-                        
-                         Web GPIO
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9" data-path="raspbian/readMe.html">
-            
-                
-                    <a href="../raspbian/readMe.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.</b>
-                        
-                         树莓派
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="9.1" data-path="ieee/ieee.html">
-            
-                
-                    <a href="../ieee/ieee.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.1.</b>
-                        
-                         嵌入式
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.2" data-path="ieee/nvidia.html">
-            
-                
-                    <a href="../ieee/nvidia.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.2.</b>
-                        
-                         Nvidia开发板
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.3" data-path="raspbian/burn.html">
-            
-                
-                    <a href="../raspbian/burn.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.3.</b>
-                        
-                         MacOS 烧录树莓派
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.4" data-path="raspbian/login.html">
-            
-                
-                    <a href="../raspbian/login.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.4.</b>
-                        
-                         Raspbian的配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.5" data-path="raspbian/lnmp.html">
-            
-                
-                    <a href="../raspbian/lnmp.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.5.</b>
-                        
-                         Raspbian安装Apache2/PHP5/MySQL5
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.6" data-path="raspbian/ftp.html">
-            
-                
-                    <a href="../raspbian/ftp.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.6.</b>
-                        
-                         Raspbian安装ftp
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.7" data-path="raspbian/java.html">
-            
-                
-                    <a href="../raspbian/java.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.7.</b>
-                        
-                         Java 环境安装
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.8" data-path="raspbian/ftp.html">
-            
-                
-                    <a href="../raspbian/ftp.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.8.</b>
-                        
-                         FTP配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.9" data-path="raspbian/nfs.html">
-            
-                
-                    <a href="../raspbian/nfs.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.9.</b>
-                        
-                         NFS配置&amp;Samba挂载
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.10" data-path="raspbian/android.html">
-            
-                
-                    <a href="../raspbian/android.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.10.</b>
-                        
-                         Raspbian的安卓应用
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter active" data-level="9.11" data-path="raspbian/netdata.html">
-            
-                
-                    <a href="../raspbian/netdata.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.11.</b>
-                        
-                         netdata应用
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.12" data-path="raspbian/http-load.html">
-            
-                
-                    <a href="../raspbian/http-load.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.12.</b>
-                        
-                         http-load
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.13" data-path="raspbian/xunlei.html">
-            
-                
-                    <a href="../raspbian/xunlei.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.13.</b>
-                        
-                         迅雷远程下载
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.14" data-path="raspbian/dlna.html">
-            
-                
-                    <a href="../raspbian/dlna.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.14.</b>
-                        
-                         minidlna配置
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="9.15" data-path="raspbian/iperf.html">
-            
-                
-                    <a href="../raspbian/iperf.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.15.</b>
-                        
-                         iperf局域网测速
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="10" data-path="debian/index.html">
-            
-                
-                    <a href="../debian/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>10.</b>
-                        
-                         Debian
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="10.1" data-path="debian/setup.html">
-            
-                
-                    <a href="../debian/setup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>10.1.</b>
-                        
-                         debian安装
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="11" data-path="cloud/index.html">
-            
-                
-                    <a href="../cloud/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.</b>
-                        
-                         私有云
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="11.1" data-path="cloud/owncloud.html">
-            
-                
-                    <a href="../cloud/owncloud.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.1.</b>
-                        
-                         owncloud
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="11.2" data-path="cloud/resilio_sync.html">
-            
-                
-                    <a href="../cloud/resilio_sync.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.2.</b>
-                        
-                         Resilio Sync
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="12" data-path="docker/index.html">
-            
-                
-                    <a href="../docker/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.</b>
-                        
-                         虚拟化
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="12.1" data-path="docker/debian-setup.html">
-            
-                
-                    <a href="../docker/debian-setup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.1.</b>
-                        
-                         Docker
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="12.2" data-path="docker/jiasu.html">
-            
-                
-                    <a href="../docker/jiasu.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.2.</b>
-                        
-                         阿里云Docker镜像加速
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="12.3" data-path="docker/container.html">
-            
-                
-                    <a href="../docker/container.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.3.</b>
-                        
-                         Docker 容器
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="13" data-path="gitlab/index.html">
-            
-                
-                    <a href="../gitlab/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.</b>
-                        
-                         gitLab
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="13.1" data-path="gitlab/gitlab.html">
-            
-                
-                    <a href="../gitlab/gitlab.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.1.</b>
-                        
-                         gitlab
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="13.2" data-path="gitlab/account.html">
-            
-                
-                    <a href="../gitlab/account.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.2.</b>
-                        
-                         account
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="13.3" data-path="gitlab/backup.html">
-            
-                
-                    <a href="../gitlab/backup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>13.3.</b>
-                        
-                         backup
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="14" data-path="iot/setup.html">
-            
-                
-                    <a href="../iot/setup.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.</b>
-                        
-                         IOT
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="14.1" data-path="iot/mongodb.html">
-            
-                
-                    <a href="../iot/mongodb.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.1.</b>
-                        
-                         MongoDB
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="14.2" data-path="iot/learn.html">
-            
-                
-                    <a href="../iot/learn.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.2.</b>
-                        
-                         泛IOT全链路知识
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="14.3" data-path="iot/language.html">
-            
-                
-                    <a href="../iot/language.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>14.3.</b>
-                        
-                         IOT编程语言选择
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="15" data-path="job/index.html">
-            
-                
-                    <a href="../job/index.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>15.</b>
-                        
-                         日常工作
-                    </a>
-                
-            
-            
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="15.1" data-path="job/gitlab-repository.html">
-            
-                
-                    <a href="../job/gitlab-repository.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>15.1.</b>
-                        
-                         仓库
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="15.2" data-path="job/qa.html">
-            
-                
-                    <a href="../job/qa.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>15.2.</b>
-                        
-                         问题汇总
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-
-        
-        <li class="divider"></li>
-        <li>
-            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
-        </li>
-        
-    </ul>
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
 </div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/178518" target="_blank" class="custom-link">178518's Github</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../aboutMe.html">
+            
+                <a href="../aboutMe.html">
+            
+                    
+                    关于我
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../f2e.html">
+            
+                <a href="../f2e.html">
+            
+                    
+                    前端
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../f2e/book.html">
+            
+                <a href="../f2e/book.html">
+            
+                    
+                    前端工程化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../f2e/site.html">
+            
+                <a href="../f2e/site.html">
+            
+                    
+                    前端网址导航
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../android/android4.4.html">
+            
+                <a href="../android/android4.4.html">
+            
+                    
+                    SM-900V Note3升级4.4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../android/android5.1.html">
+            
+                <a href="../android/android5.1.html">
+            
+                    
+                    SM-900V Note3升级5.1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../android/debugger.html">
+            
+                <a href="../android/debugger.html">
+            
+                    
+                    MAC开发 Android USB 真机调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../android/genymotion.html">
+            
+                <a href="../android/genymotion.html">
+            
+                    
+                    MAC安装 Genymotion调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../git.html">
+            
+                <a href="../git.html">
+            
+                    
+                    Git 使用帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../help.html">
+            
+                <a href="../help.html">
+            
+                    
+                    GitBook使用帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../mac/">
+            
+                <a href="../mac/">
+            
+                    
+                    Mac疑难杂症
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../lb/">
+            
+                <a href="../lb/">
+            
+                    
+                    负载均衡
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../lb/combo.html">
+            
+                <a href="../lb/combo.html">
+            
+                    
+                    Combo配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../lb/nginx.html">
+            
+                <a href="../lb/nginx.html">
+            
+                    
+                    Nginx配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../lb/ssl.html">
+            
+                <a href="../lb/ssl.html">
+            
+                    
+                    SSL配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../lb/tengine.html">
+            
+                <a href="../lb/tengine.html">
+            
+                    
+                    Tengine配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../2016/node.html">
+            
+                <a href="../2016/node.html">
+            
+                    
+                    基本安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../2016/setup.html">
+            
+                <a href="../2016/setup.html">
+            
+                    
+                    环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../2016/npm.html">
+            
+                <a href="../2016/npm.html">
+            
+                    
+                    NPM模块发布
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../2016/pm2.html">
+            
+                <a href="../2016/pm2.html">
+            
+                    
+                    PM2&keymetrics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../2016/setup.html">
+            
+                <a href="../2016/setup.html">
+            
+                    
+                    环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../2016/study.html">
+            
+                <a href="../2016/study.html">
+            
+                    
+                    React Native资料
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../mac/skill.html">
+            
+                <a href="../mac/skill.html">
+            
+                    
+                    Mac代理设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../2016/jiagou.html">
+            
+                <a href="../2016/jiagou.html">
+            
+                    
+                    乐高整体架构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../animation/animation.html">
+            
+                <a href="../animation/animation.html">
+            
+                    
+                    CSS动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../lego/">
+            
+                <a href="../lego/">
+            
+                    
+                    乐高前端解决方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../lego/catalog.html">
+            
+                <a href="../lego/catalog.html">
+            
+                    
+                    目录结构规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../promise/">
+            
+                <a href="../promise/">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../lego/file.html">
+            
+                <a href="../lego/file.html">
+            
+                    
+                    文件加载方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../lego/component.html">
+            
+                <a href="../lego/component.html">
+            
+                    
+                    组件开发规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../lego/platform.html">
+            
+                <a href="../lego/platform.html">
+            
+                    
+                    平台差异处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../lego/components.html">
+            
+                <a href="../lego/components.html">
+            
+                    
+                    LEGO组件化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../lego/react-native.html">
+            
+                <a href="../lego/react-native.html">
+            
+                    
+                    React Native
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../node-webkit/">
+            
+                <a href="../node-webkit/">
+            
+                    
+                    Node-Webkit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../gpio/">
+            
+                <a href="../gpio/">
+            
+                    
+                    GPIO
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../gpio/node-gpio.html">
+            
+                <a href="../gpio/node-gpio.html">
+            
+                    
+                    Node GPIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../gpio/light.html">
+            
+                <a href="../gpio/light.html">
+            
+                    
+                    GPIO远程控制电灯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../gpio/web-gpio.html">
+            
+                <a href="../gpio/web-gpio.html">
+            
+                    
+                    Web GPIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="readMe.html">
+            
+                <a href="readMe.html">
+            
+                    
+                    树莓派
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../ieee/ieee.html">
+            
+                <a href="../ieee/ieee.html">
+            
+                    
+                    嵌入式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../ieee/nvidia.html">
+            
+                <a href="../ieee/nvidia.html">
+            
+                    
+                    Nvidia开发板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="burn.html">
+            
+                <a href="burn.html">
+            
+                    
+                    MacOS 烧录树莓派
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="login.html">
+            
+                <a href="login.html">
+            
+                    
+                    Raspbian的配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="lnmp.html">
+            
+                <a href="lnmp.html">
+            
+                    
+                    Raspbian安装Apache2/PHP5/MySQL5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="ftp.html">
+            
+                <a href="ftp.html">
+            
+                    
+                    Raspbian安装ftp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="java.html">
+            
+                <a href="java.html">
+            
+                    
+                    Java 环境安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="ftp.html">
+            
+                <a href="ftp.html">
+            
+                    
+                    FTP配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="nfs.html">
+            
+                <a href="nfs.html">
+            
+                    
+                    NFS配置&Samba挂载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="android.html">
+            
+                <a href="android.html">
+            
+                    
+                    Raspbian的安卓应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10.11" data-path="netdata.html">
+            
+                <a href="netdata.html">
+            
+                    
+                    netdata应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.12" data-path="http-load.html">
+            
+                <a href="http-load.html">
+            
+                    
+                    http-load
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.13" data-path="xunlei.html">
+            
+                <a href="xunlei.html">
+            
+                    
+                    迅雷远程下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.14" data-path="dlna.html">
+            
+                <a href="dlna.html">
+            
+                    
+                    minidlna配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.15" data-path="iperf.html">
+            
+                <a href="iperf.html">
+            
+                    
+                    iperf局域网测速
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../debian/">
+            
+                <a href="../debian/">
+            
+                    
+                    Debian
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../debian/setup.html">
+            
+                <a href="../debian/setup.html">
+            
+                    
+                    debian安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../cloud/">
+            
+                <a href="../cloud/">
+            
+                    
+                    私有云
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../cloud/owncloud.html">
+            
+                <a href="../cloud/owncloud.html">
+            
+                    
+                    owncloud
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../cloud/resilio_sync.html">
+            
+                <a href="../cloud/resilio_sync.html">
+            
+                    
+                    Resilio Sync
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../docker/">
+            
+                <a href="../docker/">
+            
+                    
+                    虚拟化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../docker/debian-setup.html">
+            
+                <a href="../docker/debian-setup.html">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../docker/jiasu.html">
+            
+                <a href="../docker/jiasu.html">
+            
+                    
+                    阿里云Docker镜像加速
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../docker/container.html">
+            
+                <a href="../docker/container.html">
+            
+                    
+                    Docker 容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../gitlab/">
+            
+                <a href="../gitlab/">
+            
+                    
+                    gitLab
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../gitlab/gitlab.html">
+            
+                <a href="../gitlab/gitlab.html">
+            
+                    
+                    gitlab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../gitlab/account.html">
+            
+                <a href="../gitlab/account.html">
+            
+                    
+                    account
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../gitlab/backup.html">
+            
+                <a href="../gitlab/backup.html">
+            
+                    
+                    backup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../iot/setup.html">
+            
+                <a href="../iot/setup.html">
+            
+                    
+                    IOT
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../iot/mongodb.html">
+            
+                <a href="../iot/mongodb.html">
+            
+                    
+                    MongoDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../iot/learn.html">
+            
+                <a href="../iot/learn.html">
+            
+                    
+                    泛IOT全链路知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../iot/language.html">
+            
+                <a href="../iot/language.html">
+            
+                    
+                    IOT编程语言选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../job/index.md">
+            
+                <span>
+            
+                    
+                    日常工作
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../job/gitlab-repository.md">
+            
+                <span>
+            
+                    
+                    仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../job/qa.md">
+            
+                <span>
+            
+                    
+                    问题汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
 
     <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header">
-    <!-- Actions Left -->
-    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
-    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
-    
-    <div id="font-settings-wrapper" class="dropdown pull-left">
-        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
-        </a>
-        <div class="dropdown-menu font-settings">
-    <div class="dropdown-caret">
-        <span class="caret-outer"></span>
-        <span class="caret-inner"></span>
-    </div>
+        
+            <div class="body-inner">
+                
+                    
 
-    <div class="buttons">
-        <button type="button" id="reduce-font-size" class="button size-2">A</button>
-        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
-    </div>
-
-    <div class="buttons font-family-list">
-        <button type="button" data-font="0" class="button">Serif</button>
-        <button type="button" data-font="1" class="button">Sans</button>
-    </div>
-
-    <div class="buttons color-theme-list">
-        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
-        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
-        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
-    </div>
-</div>
-
-    </div>
-
-    <!-- Actions Right -->
-    
-    <div class="dropdown pull-right">
-        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
-        </a>
-        <div class="dropdown-menu font-settings dropdown-left">
-            <div class="dropdown-caret">
-                <span class="caret-outer"></span>
-                <span class="caret-inner"></span>
-            </div>
-            <div class="buttons">
-                <button type="button" data-sharing="twitter" class="button">Twitter</button>
-                <button type="button" data-sharing="google-plus" class="button">Google</button>
-                <button type="button" data-sharing="facebook" class="button">Facebook</button>
-                <button type="button" data-sharing="weibo" class="button">Weibo</button>
-                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
-            </div>
-        </div>
-    </div>
-    
-
-    
-    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
-    
+<div class="book-header" role="navigation">
     
 
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >乐高</a>
+        <a href=".." >netdata应用</a>
     </h1>
 </div>
 
-            <div class="page-wrapper" tabindex="-1">
-                <div class="page-inner">
-                
-                
-                    <section class="normal" id="section-gitbook_74">
-                    
-                        <h1 id="netdata-">netdata 应用</h1>
-<p>Netdata 是一款 Linux 性能实时监测工具,Netdata是一个高度优化的Linux守护进程，它为Linux系统，应用程序，SNMP服务等提供实时的性能监测。</p>
-<p>它用可视化的手段，将被监测者最细微的细节，展现了出来。这样，你便可以清晰地了解你的系统和应用程序此时的状况。</p>
-<h3 id="">安装准备</h3>
-<p>1.在开始安装前，你需要确保已经安装zlib，</p>
-<p>你还需要有一个基本的构建环境，git,gcc,autoconf,autogen,automake,pkg-config.</p>
-<p>2.下载netdata 地址：<a href="https://github.com/firehol/netdata，也可以使用git：" target="_blank">https://github.com/firehol/netdata，也可以使用git：</a></p>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="netdata-&#x5E94;&#x7528;">netdata &#x5E94;&#x7528;</h1>
+<p>Netdata &#x662F;&#x4E00;&#x6B3E; Linux &#x6027;&#x80FD;&#x5B9E;&#x65F6;&#x76D1;&#x6D4B;&#x5DE5;&#x5177;,Netdata&#x662F;&#x4E00;&#x4E2A;&#x9AD8;&#x5EA6;&#x4F18;&#x5316;&#x7684;Linux&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#xFF0C;&#x5B83;&#x4E3A;Linux&#x7CFB;&#x7EDF;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;SNMP&#x670D;&#x52A1;&#x7B49;&#x63D0;&#x4F9B;&#x5B9E;&#x65F6;&#x7684;&#x6027;&#x80FD;&#x76D1;&#x6D4B;&#x3002;</p>
+<p>&#x5B83;&#x7528;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x624B;&#x6BB5;&#xFF0C;&#x5C06;&#x88AB;&#x76D1;&#x6D4B;&#x8005;&#x6700;&#x7EC6;&#x5FAE;&#x7684;&#x7EC6;&#x8282;&#xFF0C;&#x5C55;&#x73B0;&#x4E86;&#x51FA;&#x6765;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x4F60;&#x4FBF;&#x53EF;&#x4EE5;&#x6E05;&#x6670;&#x5730;&#x4E86;&#x89E3;&#x4F60;&#x7684;&#x7CFB;&#x7EDF;&#x548C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6B64;&#x65F6;&#x7684;&#x72B6;&#x51B5;&#x3002;</p>
+<h3 id="&#x5B89;&#x88C5;&#x51C6;&#x5907;">&#x5B89;&#x88C5;&#x51C6;&#x5907;</h3>
+<p>1.&#x5728;&#x5F00;&#x59CB;&#x5B89;&#x88C5;&#x524D;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x786E;&#x4FDD;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;zlib&#xFF0C;</p>
+<p>&#x4F60;&#x8FD8;&#x9700;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x7684;&#x6784;&#x5EFA;&#x73AF;&#x5883;&#xFF0C;git,gcc,autoconf,autogen,automake,pkg-config.</p>
+<p>2.&#x4E0B;&#x8F7D;netdata &#x5730;&#x5740;&#xFF1A;<a href="https://github.com/firehol/netdata&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;git&#xFF1A;" target="_blank">https://github.com/firehol/netdata&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;git&#xFF1A;</a></p>
 <p>git clone <a href="https://github.com/firehol/netdata.git" target="_blank">https://github.com/firehol/netdata.git</a></p>
-<p>这里偶主要介绍ubuntu安装方式</p>
+<p>&#x8FD9;&#x91CC;&#x5076;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;ubuntu&#x5B89;&#x88C5;&#x65B9;&#x5F0F;</p>
 <p>apt-get install zlib1g-dev gcc make git autoconf autogen automake pkg-config</p>
-<p>准备工作好以后，接下来就是安装软件,这个就简单了，</p>
-<p>进入目录，然后 ./netdata-installer.sh --install /usr/local   就可以安装了</p>
-<p>安装好以后，访问地址：<a href="http://127.0.0.1:19999/" target="_blank">http://127.0.0.1:19999/</a></p>
-<p>3.Netdata启动和关闭：
-  Netdata启动：
+<p>&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x597D;&#x4EE5;&#x540E;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;,&#x8FD9;&#x4E2A;&#x5C31;&#x7B80;&#x5355;&#x4E86;&#xFF0C;</p>
+<p>&#x8FDB;&#x5165;&#x76EE;&#x5F55;&#xFF0C;&#x7136;&#x540E; ./netdata-installer.sh --install /usr/local   &#x5C31;&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#x4E86;</p>
+<p>&#x5B89;&#x88C5;&#x597D;&#x4EE5;&#x540E;&#xFF0C;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#xFF1A;<a href="http://127.0.0.1:19999/" target="_blank">http://127.0.0.1:19999/</a></p>
+<p>3.Netdata&#x542F;&#x52A8;&#x548C;&#x5173;&#x95ED;&#xFF1A;
+  Netdata&#x542F;&#x52A8;&#xFF1A;
   [root@localhost ~]#/usr/local/netdata/usr/sbin/netdata 
-4.Netdata关闭：
+4.Netdata&#x5173;&#x95ED;&#xFF1A;
   [root@localhost ~]#killall netdata
-5.配置
-安装成功后可以看到/usr/local/netdata/etc/netdata/netdata.conf配置文件 </p>
+5.&#x914D;&#x7F6E;
+&#x5B89;&#x88C5;&#x6210;&#x529F;&#x540E;&#x53EF;&#x4EE5;&#x770B;&#x5230;/usr/local/netdata/etc/netdata/netdata.conf&#x914D;&#x7F6E;&#x6587;&#x4EF6; </p>
 <p><img src="http://static.oschina.net/uploads/img/201604/03080928_Rmej.jpg" alt="Netdata"></p>
-<p>使用此软件，你可以得到：</p>
-<p>1.优美的界面：bootstrap框架下的控制界面</p>
-<p>2.自定义的控制界面：你可以使用简单的HTML代码去自定义控制界面(不需要使用javascript)</p>
-<p>3.极其的快速而高效：程序使用C进行编写(默认安装下，预计只有2%的单核CPU使用率和少许的内存使用率)</p>
-<p>4.零配置：你只需要去安装它，接着它就会自动地监测一切数据</p>
-<p>5.零依赖：它的静态网络文件和网络接口拥有自己的网络服务器</p>
-<p>6.可扩展：用它自身的插件API(可以使用许多方式来制作它的插件，从bash到node.js),你可以检测任何可以衡量的数据。</p>
-<p>7.可嵌入：它可以在任何Linux内核可以运行的地方运行</p>
-<h3 id="">监测内容：</h3>
-<p>这是它目前检测的内容（大多数都不需要进行配置，安装后即可开始监测）</p>
-<p>1.CPU的使用率,中断，软中断和频率(总量和每个单核)</p>
-<p>2.RAM，互换和内核内存的使用率（包括KSM和内核内存deduper）</p>
-<p>3.硬盘输入/输出(每个硬盘的带宽，操作，整理，利用等)</p>
+<p>&#x4F7F;&#x7528;&#x6B64;&#x8F6F;&#x4EF6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#xFF1A;</p>
+<p>1.&#x4F18;&#x7F8E;&#x7684;&#x754C;&#x9762;&#xFF1A;bootstrap&#x6846;&#x67B6;&#x4E0B;&#x7684;&#x63A7;&#x5236;&#x754C;&#x9762;</p>
+<p>2.&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x63A7;&#x5236;&#x754C;&#x9762;&#xFF1A;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x7684;HTML&#x4EE3;&#x7801;&#x53BB;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x5236;&#x754C;&#x9762;(&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;javascript)</p>
+<p>3.&#x6781;&#x5176;&#x7684;&#x5FEB;&#x901F;&#x800C;&#x9AD8;&#x6548;&#xFF1A;&#x7A0B;&#x5E8F;&#x4F7F;&#x7528;C&#x8FDB;&#x884C;&#x7F16;&#x5199;(&#x9ED8;&#x8BA4;&#x5B89;&#x88C5;&#x4E0B;&#xFF0C;&#x9884;&#x8BA1;&#x53EA;&#x6709;2%&#x7684;&#x5355;&#x6838;CPU&#x4F7F;&#x7528;&#x7387;&#x548C;&#x5C11;&#x8BB8;&#x7684;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x7387;)</p>
+<p>4.&#x96F6;&#x914D;&#x7F6E;&#xFF1A;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x53BB;&#x5B89;&#x88C5;&#x5B83;&#xFF0C;&#x63A5;&#x7740;&#x5B83;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x5730;&#x76D1;&#x6D4B;&#x4E00;&#x5207;&#x6570;&#x636E;</p>
+<p>5.&#x96F6;&#x4F9D;&#x8D56;&#xFF1A;&#x5B83;&#x7684;&#x9759;&#x6001;&#x7F51;&#x7EDC;&#x6587;&#x4EF6;&#x548C;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x62E5;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x5668;</p>
+<p>6.&#x53EF;&#x6269;&#x5C55;&#xFF1A;&#x7528;&#x5B83;&#x81EA;&#x8EAB;&#x7684;&#x63D2;&#x4EF6;API(&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8BB8;&#x591A;&#x65B9;&#x5F0F;&#x6765;&#x5236;&#x4F5C;&#x5B83;&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x4ECE;bash&#x5230;node.js),&#x4F60;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;&#x4EFB;&#x4F55;&#x53EF;&#x4EE5;&#x8861;&#x91CF;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>7.&#x53EF;&#x5D4C;&#x5165;&#xFF1A;&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;Linux&#x5185;&#x6838;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x7684;&#x5730;&#x65B9;&#x8FD0;&#x884C;</p>
+<h3 id="&#x76D1;&#x6D4B;&#x5185;&#x5BB9;&#xFF1A;">&#x76D1;&#x6D4B;&#x5185;&#x5BB9;&#xFF1A;</h3>
+<p>&#x8FD9;&#x662F;&#x5B83;&#x76EE;&#x524D;&#x68C0;&#x6D4B;&#x7684;&#x5185;&#x5BB9;&#xFF08;&#x5927;&#x591A;&#x6570;&#x90FD;&#x4E0D;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF0C;&#x5B89;&#x88C5;&#x540E;&#x5373;&#x53EF;&#x5F00;&#x59CB;&#x76D1;&#x6D4B;&#xFF09;</p>
+<p>1.CPU&#x7684;&#x4F7F;&#x7528;&#x7387;,&#x4E2D;&#x65AD;&#xFF0C;&#x8F6F;&#x4E2D;&#x65AD;&#x548C;&#x9891;&#x7387;(&#x603B;&#x91CF;&#x548C;&#x6BCF;&#x4E2A;&#x5355;&#x6838;)</p>
+<p>2.RAM&#xFF0C;&#x4E92;&#x6362;&#x548C;&#x5185;&#x6838;&#x5185;&#x5B58;&#x7684;&#x4F7F;&#x7528;&#x7387;&#xFF08;&#x5305;&#x62EC;KSM&#x548C;&#x5185;&#x6838;&#x5185;&#x5B58;deduper&#xFF09;</p>
+<p>3.&#x786C;&#x76D8;&#x8F93;&#x5165;/&#x8F93;&#x51FA;(&#x6BCF;&#x4E2A;&#x786C;&#x76D8;&#x7684;&#x5E26;&#x5BBD;&#xFF0C;&#x64CD;&#x4F5C;&#xFF0C;&#x6574;&#x7406;&#xFF0C;&#x5229;&#x7528;&#x7B49;)</p>
 <p><img src="http://static.oschina.net/uploads/img/201604/03080930_9s4K.jpg" alt="Netdata"></p>
-<p>4.IPv4网络（数据包，错误，分片）：</p>
-<p>TCP：连接，数据包，错误，握手</p>
-<p>UDP:数据包，错误</p>
-<p>广播：带宽，数据包</p>
-<p>组播：带宽，数据包</p>
-<p>5.Netfilter/iptables Linux防火墙(连接，连接跟踪事件，错误等)</p>
-<p>6.进程(运行，受阻，分叉，活动等)</p>
-<p>7.熵</p>
-<p>8.NFS文件服务器，v2,v3,v4(输入/输出，缓存，预读，RPC调用)</p>
-<p>9.网络服务质量（唯一一个可实时可视化网络状况的工具）</p>
+<p>4.IPv4&#x7F51;&#x7EDC;&#xFF08;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x9519;&#x8BEF;&#xFF0C;&#x5206;&#x7247;&#xFF09;&#xFF1A;</p>
+<p>TCP&#xFF1A;&#x8FDE;&#x63A5;&#xFF0C;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x9519;&#x8BEF;&#xFF0C;&#x63E1;&#x624B;</p>
+<p>UDP:&#x6570;&#x636E;&#x5305;&#xFF0C;&#x9519;&#x8BEF;</p>
+<p>&#x5E7F;&#x64AD;&#xFF1A;&#x5E26;&#x5BBD;&#xFF0C;&#x6570;&#x636E;&#x5305;</p>
+<p>&#x7EC4;&#x64AD;&#xFF1A;&#x5E26;&#x5BBD;&#xFF0C;&#x6570;&#x636E;&#x5305;</p>
+<p>5.Netfilter/iptables Linux&#x9632;&#x706B;&#x5899;(&#x8FDE;&#x63A5;&#xFF0C;&#x8FDE;&#x63A5;&#x8DDF;&#x8E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x9519;&#x8BEF;&#x7B49;)</p>
+<p>6.&#x8FDB;&#x7A0B;(&#x8FD0;&#x884C;&#xFF0C;&#x53D7;&#x963B;&#xFF0C;&#x5206;&#x53C9;&#xFF0C;&#x6D3B;&#x52A8;&#x7B49;)</p>
+<p>7.&#x71B5;</p>
+<p>8.NFS&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;&#xFF0C;v2,v3,v4(&#x8F93;&#x5165;/&#x8F93;&#x51FA;&#xFF0C;&#x7F13;&#x5B58;&#xFF0C;&#x9884;&#x8BFB;&#xFF0C;RPC&#x8C03;&#x7528;)</p>
+<p>9.&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x8D28;&#x91CF;&#xFF08;&#x552F;&#x4E00;&#x4E00;&#x4E2A;&#x53EF;&#x5B9E;&#x65F6;&#x53EF;&#x89C6;&#x5316;&#x7F51;&#x7EDC;&#x72B6;&#x51B5;&#x7684;&#x5DE5;&#x5177;&#xFF09;</p>
 <p><img src="http://static.oschina.net/uploads/img/201604/03080932_hf9U.jpg" alt="Netdata"></p>
-<p>11.应用程序，通过对进程树进行分组（CPU,内存，硬盘读取，硬盘写入，交换，线程，管道，套接字等）</p>
+<p>11.&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x8FDB;&#x7A0B;&#x6811;&#x8FDB;&#x884C;&#x5206;&#x7EC4;&#xFF08;CPU,&#x5185;&#x5B58;&#xFF0C;&#x786C;&#x76D8;&#x8BFB;&#x53D6;&#xFF0C;&#x786C;&#x76D8;&#x5199;&#x5165;&#xFF0C;&#x4EA4;&#x6362;&#xFF0C;&#x7EBF;&#x7A0B;&#xFF0C;&#x7BA1;&#x9053;&#xFF0C;&#x5957;&#x63A5;&#x5B57;&#x7B49;&#xFF09;</p>
 <p><img src="http://static.oschina.net/uploads/img/201604/03080934_ysuZ.gif" alt="Netdata"></p>
-<p>12.Apache Web服务器状态(v2.2, v2.4)</p>
-<p>13.Nginx Web服务器状态</p>
-<p>14.Mysql数据库（多台服务器，单个显示：带宽，查询/s, 处理者，锁，问题，临时操作，连接，二进制日志，线程，innodb引擎等）</p>
-<p>15.ISC Bind域名服务器（多个服务器，单个显示：客户，请求，查询，更新，失败等）</p>
-<p>16.Postfix邮件服务器的消息队列（条目，大小）</p>
-<p>17.Squid代理服务器（客户带宽和请求，服务带宽和请求）</p>
-<p>18.硬件传感器（温度，电压，风扇，电源，湿度等）</p>
-<p>19.NUT UPSes（负载，充电，电池电压，温度，使用指标，输出指标）</p>
+<p>12.Apache Web&#x670D;&#x52A1;&#x5668;&#x72B6;&#x6001;(v2.2, v2.4)</p>
+<p>13.Nginx Web&#x670D;&#x52A1;&#x5668;&#x72B6;&#x6001;</p>
+<p>14.Mysql&#x6570;&#x636E;&#x5E93;&#xFF08;&#x591A;&#x53F0;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5355;&#x4E2A;&#x663E;&#x793A;&#xFF1A;&#x5E26;&#x5BBD;&#xFF0C;&#x67E5;&#x8BE2;/s, &#x5904;&#x7406;&#x8005;&#xFF0C;&#x9501;&#xFF0C;&#x95EE;&#x9898;&#xFF0C;&#x4E34;&#x65F6;&#x64CD;&#x4F5C;&#xFF0C;&#x8FDE;&#x63A5;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x65E5;&#x5FD7;&#xFF0C;&#x7EBF;&#x7A0B;&#xFF0C;innodb&#x5F15;&#x64CE;&#x7B49;&#xFF09;</p>
+<p>15.ISC Bind&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;&#xFF08;&#x591A;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5355;&#x4E2A;&#x663E;&#x793A;&#xFF1A;&#x5BA2;&#x6237;&#xFF0C;&#x8BF7;&#x6C42;&#xFF0C;&#x67E5;&#x8BE2;&#xFF0C;&#x66F4;&#x65B0;&#xFF0C;&#x5931;&#x8D25;&#x7B49;&#xFF09;</p>
+<p>16.Postfix&#x90AE;&#x4EF6;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF08;&#x6761;&#x76EE;&#xFF0C;&#x5927;&#x5C0F;&#xFF09;</p>
+<p>17.Squid&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#xFF08;&#x5BA2;&#x6237;&#x5E26;&#x5BBD;&#x548C;&#x8BF7;&#x6C42;&#xFF0C;&#x670D;&#x52A1;&#x5E26;&#x5BBD;&#x548C;&#x8BF7;&#x6C42;&#xFF09;</p>
+<p>18.&#x786C;&#x4EF6;&#x4F20;&#x611F;&#x5668;&#xFF08;&#x6E29;&#x5EA6;&#xFF0C;&#x7535;&#x538B;&#xFF0C;&#x98CE;&#x6247;&#xFF0C;&#x7535;&#x6E90;&#xFF0C;&#x6E7F;&#x5EA6;&#x7B49;&#xFF09;</p>
+<p>19.NUT UPSes&#xFF08;&#x8D1F;&#x8F7D;&#xFF0C;&#x5145;&#x7535;&#xFF0C;&#x7535;&#x6C60;&#x7535;&#x538B;&#xFF0C;&#x6E29;&#x5EA6;&#xFF0C;&#x4F7F;&#x7528;&#x6307;&#x6807;&#xFF0C;&#x8F93;&#x51FA;&#x6307;&#x6807;&#xFF09;</p>
 
-                    
-                    </section>
-                
-                
-                </div>
-            </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
         </div>
-
-        
-        <a href="../raspbian/android.html" class="navigation navigation-prev " aria-label="Previous page: Raspbian的安卓应用"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="../raspbian/http-load.html" class="navigation navigation-next " aria-label="Next page: http-load"><i class="fa fa-angle-right"></i></a>
-        
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
     </div>
 </div>
 
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="android.html" class="navigation navigation-prev " aria-label="Previous page: Raspbian的安卓应用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="http-load.html" class="navigation navigation-next " aria-label="Next page: http-load">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
         
-<script src="../gitbook/app.js"></script>
+    </div>
 
-    
-    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
-    
-
-<script>
-require(["gitbook"], function(gitbook) {
-    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
-    gitbook.start(config);
-});
-</script>
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"netdata应用","level":"1.10.11","depth":2,"next":{"title":"http-load","level":"1.10.12","depth":2,"path":"raspbian/http-load.md","ref":"raspbian/http-load.md","articles":[]},"previous":{"title":"Raspbian的安卓应用","level":"1.10.10","depth":2,"path":"raspbian/android.md","ref":"raspbian/android.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"178518 <178518@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"乐高","language":"zh-hans","links":{"sidebar":{"178518's Github":"https://github.com/178518"}},"gitbook":">=3.0.0","description":"乐高,前端工程化,前端组件化,React Component"},"file":{"path":"raspbian/netdata.md","mtime":"2018-12-04T14:15:34.360Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-07T14:36:02.739Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
 
         
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
     </body>
-    
 </html>
+
