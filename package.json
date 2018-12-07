@@ -11,10 +11,7 @@
     "publish": "gitbook build && gulp deploy"
   },
   "dependencies": {
-    "gulp": "3.6.x",
-    "gulp-gh-pages": "^0.3.3"
-  },
-  "devDependencies": {
-    "gitbook": "1.5.0"
+    "gulp": "^3.6.2",
+    "gulp-gh-pages": "^0.3.4"
   }
 }
