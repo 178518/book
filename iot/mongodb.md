@@ -40,6 +40,29 @@ sudo nano etc/mongod.conf
 
 ### 启动
 ```
+# 日志
+systemLog:
+# 日志为文件
+  destination: file
+# 文件位置
+  path: /usr/local/var/log/mongodb/mongo.log
+# 是否追加
+  logAppend: true
+# 安全
+security:
+    authorization: disabled
+#进程
+processManagement:
+# 守护进程方式
+  fork: true
+storage:
+  dbPath: /usr/local/var/mongodb
+net:
+# 绑定IP，默认127.0.0.1，只能本机访问
+  bindIp: 127.0.0.1
+# 端口
+  port: 27017
+  
 debian
 mongod --auth -f /etc/mongod.conf
 
@@ -49,7 +72,7 @@ mongod --auth -f /usr/local/etc/mongod.conf
 
 ### 停止
 ```
-ps -axu |grep mongo
+ps -axu | grep mongo
 kill -2 pid
 ```
 
