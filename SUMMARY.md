@@ -72,3 +72,5 @@
 * [日常工作](job/index.md)
  - [仓库](job/gitlab-repository.md)
  - [问题汇总](job/qa.md)
+* [Node应用]()
+ - [验证码攻防实践](node/captcha.md)
