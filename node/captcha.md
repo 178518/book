@@ -146,7 +146,7 @@ async function execute(imgPath) {
 机器自动识别图片验证码，对简单的情况能有较高的准确率，但对干扰多，变形复杂的图片验证码，其准确率会很差。由于图片验证码重要度增加，复杂的图片验证码被大量使用，导致近年来出现了利用众包力量实现的人工验证码识别平台。
 其工作原理图下所示：
 
-![](https://raw.githubusercontent.com/178518/book/master/assets/a15b4afegw1fa7vs4frdaj20kq0eiwfj.jpeg)
+![](https://raw.githubusercontent.com/178518/book/master/assets/dama.jpg)
 
 >小结：至此，字符型图片验证码基本沦陷，攻守双方本质上就是一个相互转化的过程。
 
