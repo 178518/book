@@ -5,7 +5,7 @@
 Apart，简称CAPTCHA），俗称[验证码](https://x.tongdun.cn/product/captcha)，是一种区分用户是计算机或人的公共全自动程序。在CAPTCHA测试中，作为服务器的计算机会自动生成一个问题由用户来解答。这个问题可以由计算机生成并评判，但是必须只有人类才能解答。由于计算机无法解答CAPTCHA的问题，所以回答出问题的用户就可以被认为是人类。
 
 ## 2、简介
-CAPTCHA这个词最早是在2002年由卡内基梅隆大学的路易斯·冯·安、Manuel Blum、Nicholas J.Hopper以及IBM的John Langford所提出。卡内基梅隆大学曾试图申请此词使其成为注册商标[1]， 但该申请于2008年4月21日被拒绝。一种常用的CAPTCHA测试是让用户输入一个扭曲变形的图片上所显示的文字或数字，扭曲变形是为了避免被光学字符识别（OCR, Optical Character Recognition）之类的计算机程序自动识别出图片上的文数字而失去效果。由于这个测试是由计算机来考人类，而不是标准图灵测试中那样由人类来考计算机，人们有时称CAPTCHA是一种反向图灵测试。
+CAPTCHA这个词最早是在2002年由卡内基梅隆大学的路易斯·冯·安、Manuel Blum、Nicholas J.Hopper以及IBM的John Langford所提出。卡内基梅隆大学曾试图申请此词使其成为注册商标， 但该申请于2008年4月21日被拒绝。一种常用的CAPTCHA测试是让用户输入一个扭曲变形的图片上所显示的文字或数字，扭曲变形是为了避免被光学字符识别（OCR, Optical Character Recognition）之类的计算机程序自动识别出图片上的文数字而失去效果。由于这个测试是由计算机来考人类，而不是标准图灵测试中那样由人类来考计算机，人们有时称CAPTCHA是一种反向图灵测试。
 
 为了无法看到图像的身心障碍者，替代的方法是改用语音读出文数字，为了防止语音识别分析声音，声音的内容会有杂音或仍可以被人类接受的变声。
 
@@ -148,7 +148,7 @@ async function execute(imgPath) {
 机器自动识别图片验证码，对简单的情况能有较高的准确率，但对干扰多，变形复杂的图片验证码，其准确率会很差。由于图片验证码重要度增加，复杂的图片验证码被大量使用，导致近年来出现了利用众包力量实现的人工验证码识别平台。
 其工作原理图下所示：
 
-![](/assets/a15b4afegw1fa7vs4frdaj20kq0eiwfj.jpeg)
+![](https://raw.githubusercontent.com/178518/book/master/assets/a15b4afegw1fa7vs4frdaj20kq0eiwfj.jpeg)
 
 字符型图片验证码基本沦陷，验证码进入行为式验证时代。
 
@@ -158,11 +158,11 @@ async function execute(imgPath) {
 
 但是随着puppeteer的出现，行为式验证码的防御不在奏效。Puppeteer 的 Logo 很形象，顾名思义像是一个被操控的傀儡、提线木偶。
 
-![](/assets/v2-3664242bafce1256850833d08ff245d5_hd.jpg)
+![](https://raw.githubusercontent.com/178518/book/master/assets/v2-3664242bafce1256850833d08ff245d5_hd.jpg)
 
 Puppeteer 是一个 Node 库，它提供了高级的 API 并通过 DevTools 协议来控制 Chrome(或Chromium)。通俗来说就是一个 headless chrome 浏览器 (也可以配置成有 UI 的，默认是没有的)
 
-![](/assets/v2-7fc14c30037049a167ecb62b0a70627e_1200x500.jpg)
+![](https://raw.githubusercontent.com/178518/book/master/assets/v2-7fc14c30037049a167ecb62b0a70627e_1200x500.jpg)
 
 通过puppetter的page.screenshot进行指定区域截屏，如果页面上未引入jQuery通过page.addScriptTag引入，后面截屏处理需要使用到。利用resemblejs/compareImages进行图片比对取得滑动距离的图片，通过canvas将图片读入内存，取得最终滑动距离，调用puppetter加入人的行为模拟，并最终验证通过。
 
