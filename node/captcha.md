@@ -1,5 +1,7 @@
-## 1、引言
-> 全自动区分计算机和人类的公开图灵测试（英语：Completely Automated Public Turing test to tell Computers and Humans 
+>首先，非常高兴和大家来分享下我在验证码攻防方面的一些实践和探索。我主要从事[反欺诈服务](https://x.tongdun.cn/home)的相关工作，最近一段时间接触到OpenCV和Tensorflow，在一次分享会上听到Puppeteer的介绍，经过半年研究将这3个整合起来，在Node中对市面主流验证码做了一轮攻防演练。
+
+## 1、CAPTCHA
+全自动区分计算机和人类的公开图灵测试（英语：Completely Automated Public Turing test to tell Computers and Humans 
 Apart，简称CAPTCHA），俗称[验证码](https://x.tongdun.cn/product/captcha)，是一种区分用户是计算机或人的公共全自动程序。在CAPTCHA测试中，作为服务器的计算机会自动生成一个问题由用户来解答。这个问题可以由计算机生成并评判，但是必须只有人类才能解答。由于计算机无法解答CAPTCHA的问题，所以回答出问题的用户就可以被认为是人类。
 
 ## 2、简介
@@ -24,23 +26,14 @@ CAPTCHA这个词最早是在2002年由卡内基梅隆大学的路易斯·冯·�
 
 - [交易安全](https://x.tongdun.cn/product/transactionDefend)：虚假交易、恶意套现、盗卡支付
 
-## 使用到技术找
-
-- OpenCV
-- Tensorflow
-- node
-- Tesseract
-- python
-- node-tesseract & gm & node-cmd 库使用
-
-## 2、工作原理
+## 4、工作原理
 智能验证产品主要针对企业不同业务场景，利用生物行为与机器学习方式提供人机验证服务，防范非真实人类流量和恶意程序攻击，帮您降低业务风险。
 
 其工作流程如下图所示：
 
 ![](https://x.tongdun.cn/assets/image/identifyingCode-1.png)
 
-## 3、验证码的分类
+## 5、验证码的分类
 
 ### 字符型图片验证码
 
@@ -54,7 +47,16 @@ CAPTCHA这个词最早是在2002年由卡内基梅隆大学的路易斯·冯·�
 
 智能[验证码](https://x.tongdun.cn/onlineExperience/captcha)是一种基于语言认知的人机区分，考验机器语言认知能力的智能验证码，会是未来一段时间内的重要选择。典型代表有语序点选和空间推理。
 
-### 4、字符型图片验证码破解
+### 5、使用到技术找
+
+- OpenCV
+- Tensorflow
+- Node
+- Tesseract
+- Python
+- node-tesseract & gm & node-cmd 库使用
+
+### 6、字符型图片验证码破解
 
 [图像二值化](https://baike.baidu.com/item/%E5%9B%BE%E5%83%8F%E4%BA%8C%E5%80%BC%E5%8C%96)（ Image Binarization）就是将图像上的像素点的灰度值设置为0或255，也就是将整个图像呈现出明显的黑白效果的过程。
 
@@ -64,7 +66,7 @@ CAPTCHA这个词最早是在2002年由卡内基梅隆大学的路易斯·冯·�
 
 ![](https://raw.githubusercontent.com/178518/book/master/assets/ocr.png)
 
-#### 4.1、使用gm去噪处理
+#### 6.1、使用gm去噪处理
 
 主要是去掉图像里的所有干扰信息，比如背景的点，线等。
 ```
@@ -82,11 +84,11 @@ async function disposeImg(imgPath, newPath, thresholdValue) {
 }
 ```
 
-#### 4.2、使用tesseract进行OCR识别
+#### 6.2、使用tesseract进行OCR识别
 
 ![](https://tonydeng.github.io/images/blog/tesseract-to-pages.png)
 
-##### Tesseract介绍
+#### 6.3、Tesseract介绍
 
 Tesseract(/‘tesərækt/) 这个词的意思是”超立方体”，指的是几何学里的四维标准方体，又称”正八胞体”，是一款被广泛使用的开源 OCR 工具。
 
@@ -141,18 +143,26 @@ async function execute(imgPath) {
 }
 ```
 
-#### 4.3、人工分布式识别
+#### 6.4、打码平台
 
 机器自动识别图片验证码，对简单的情况能有较高的准确率，但对干扰多，变形复杂的图片验证码，其准确率会很差。由于图片验证码重要度增加，复杂的图片验证码被大量使用，导致近年来出现了利用众包力量实现的人工验证码识别平台。
 其工作原理图下所示：
 
-![](https://raw.githubusercontent.com/178518/book/master/assets/dama.jpg)
+![](/assets/a15b4afegw1fa7vs4frdaj20kq0eiwfj.jpeg)
 
->小结：至此，字符型图片验证码基本沦陷，攻守双方本质上就是一个相互转化的过程。
+字符型图片验证码基本沦陷，验证码进入行为式验证时代。
 
-### 5、行为式验证码攻防
+### 7、行为式验证码破解
 
-第二代验证码在人机交互方面有很强的改进，总体来说人很容易识别，但是机器相对来说很难识别。但是随着puppeteer的出现，这种攻防又发生的微妙的变化。
+行为式验证的核心思想是利用用户的“行为特征”来做验证安全判别。整个验证框架采用高效的“行为沙盒”主动框架, 这个框架会引导用户在“行为沙盒”内产生特定的行为数据，利用“多重复合行为判别”算法从特指、视觉、思考等多重行为信息中辨识出生物个体的特征， 从而准确快速的提供验证结果。
+
+但是随着puppeteer的出现，行为式验证码的防御不在奏效。Puppeteer 的 Logo 很形象，顾名思义像是一个被操控的傀儡、提线木偶。
+
+![](/assets/v2-3664242bafce1256850833d08ff245d5_hd.jpg)
+
+Puppeteer 是一个 Node 库，它提供了高级的 API 并通过 DevTools 协议来控制 Chrome(或Chromium)。通俗来说就是一个 headless chrome 浏览器 (也可以配置成有 UI 的，默认是没有的)
+
+![](/assets/v2-7fc14c30037049a167ecb62b0a70627e_1200x500.jpg)
 
 通过puppetter的page.screenshot进行指定区域截屏，如果页面上未引入jQuery通过page.addScriptTag引入，后面截屏处理需要使用到。利用resemblejs/compareImages进行图片比对取得滑动距离的图片，通过canvas将图片读入内存，取得最终滑动距离，调用puppetter加入人的行为模拟，并最终验证通过。
 
@@ -160,9 +170,9 @@ async function execute(imgPath) {
 
 [Puppeteer-无头浏览器简介](https://zhuanlan.zhihu.com/p/40103840)
 
-本列已腾讯的滑动验证码为列，[豆瓣重置密码](https://accounts.douban.com/resetpassword)
+以豆瓣的滑动验证码为列，[豆瓣重置密码](https://accounts.douban.com/resetpassword)
 
-#### 5.1、Puppeteer过人机检测信息
+#### 7.1、Puppeteer过人机检测信息
 ```
 await page.evaluateOnNewDocument(() => {
 		Object.defineProperty(navigator, 'webdriver', {
@@ -182,24 +192,24 @@ await page.evaluateOnNewDocument(() => {
 	});
 ```
 
-#### 5.2、截屏处理
+#### 7.2、截屏处理
 ```
 	// 截屏
 	await screenshot(captionPosition, './screenshots/douban3.png');
 	await cropImage('./screenshots/douban3.png', './screenshots/douban4.png');
 ```
 
-#### 5.3、最终效果
+#### 7.3、最终效果
 <div>
 <iframe height=498 width=510 src='http://player.youku.com/embed/XNDAwNTQ0MTI2MA==' frameborder=0 'allowfullscreen'></iframe>
 </div>
 
 
->小结：至此，第二代滑动验证码基本沦陷，Puppeteer让人和机器的界限越来越模糊，他的一切行为看起来就像一个真实的人，但是后面全部是自动化执行，本质上Google退出这个是为了实现自动化测试，对抗继续升级。
+行为式验证码基本沦陷，验证码进入AI时代。
 
-#### 6、第三代验证码攻防
+### 8、智能验证码破解
 
-第三代验证码加入语序和空间推理，传统的图片二值法或者像素比对都失效了，这里讲引入[OpenCV](https://baike.baidu.com/item/OpenCV)和[Tensorflow](https://www.tensorflow.org/?hl=zh-cn)两个工具，主要用于图片识别和深度学习。
+基于语言认知和结构化知识图谱的验证码，可以有效效避免攻击，提高人机识别的准确率。这里讲引入[OpenCV](https://baike.baidu.com/item/OpenCV)和[Tensorflow](https://www.tensorflow.org/?hl=zh-cn)两个工具，主要用于图片识别和深度学习。
 
 ![](https://raw.githubusercontent.com/178518/book/master/assets/yx.png)
 
@@ -207,7 +217,7 @@ await page.evaluateOnNewDocument(() => {
 
 Google提供的[inception5h](https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip)模型介绍
 
-#### 6.1、Inception V1
+#### 8.1、Inception V1
 GoogLeNet首次出现在2014年ILSVRC 比赛中获得冠军。这次的版本通常称其为Inception V1。Inception V1有22层深，参数量为5M。同一时期的VGGNet性能和Inception V1差不多，但是参数量也是远大于Inception V1。
 
 ![](https://raw.githubusercontent.com/178518/book/master/assets/v1.png)
@@ -216,14 +226,14 @@ Inception Module是GoogLeNet的核心组成单元，Inception Module基本组成
 
 ![](https://raw.githubusercontent.com/178518/book/master/assets/v1_1.png)
 
-#### 6.2、Inception V5图片打标分类&人脸识别
+#### 8.2、Inception V5图片打标分类&人脸识别
 最新的Inception V5训练好的模型大概可与识别1000种类别的图片，通过opencv4nodejs可以调用训练好的模型进行图片分类打标，人脸检测等各种图片识别功能。
 
 <div>
 <iframe height=498 width=510 src='http://player.youku.com/embed/XNDAwNTQ0MTkxNg==' frameborder=0 'allowfullscreen'></iframe>
 </div>
 
-##### 基于opencv4nodejs完成图片打标和人脸识别
+#### 8.3、基于opencv4nodejs完成图片打标和人脸识别
 
 ```
 const cv = require('opencv4nodejs');
@@ -359,8 +369,8 @@ testData.forEach((data) => {
 });
 ```
 
-#### 6.3、通过迁移训练来定制 TensorFlow 模型
-基于Google Inception-V3 模型，在Windows平台通过TensorFlow 利用GTX1080进行并行图学习，得到自己想要的模型结果。
+#### 8.4、通过迁移训练来定制 TensorFlow 模型
+基于Google Inception-V3 模型，在Windows平台通过TensorFlow 利用GTX1080进行并行计算学习，得到自己想要的模型结果。
 
 ![](https://raw.githubusercontent.com/178518/book/master/assets/mxxl.png)
 
@@ -401,9 +411,7 @@ const childProcess = require('child_process');
 <iframe height=498 width=510 src='http://player.youku.com/embed/XNDAwNTQ0MjU5Ng==' frameborder=0 'allowfullscreen'></iframe>
 </div>
 
-模型训练在GTX1080底下，500张图片样本，学习一次5分钟左右，TensorFlow 必须安装GPU版本
-
->小结：至此，三代验证码理论上都是可以攻破的，第一代，第二代会逐步退出市场。第三代的攻守转换将是一个长期持续的过程。
+至此，智能验证码进入AI对抗时代。
 
 ## 参考资料
 [验证码的前世今生（今生篇）](https://www.freebuf.com/articles/web/102276.html)
