@@ -38,7 +38,7 @@ Apart”（全自动区分计算机和人类的图灵测试）的缩写，是一
 
 [OpenCV二值化](http://monkeycoding.com/?p=593)
 
-![](/assets/ocr.png)
+![](https://raw.githubusercontent.com/178518/book/master/assets/ocr.png)
 
 #### 4.1、使用gm去噪处理
 
@@ -132,7 +132,7 @@ async function execute(imgPath) {
 
 通过puppetter的page.screenshot进行指定区域截屏，如果页面上未引入jQuery通过page.addScriptTag引入，后面截屏处理需要使用到。利用resemblejs/compareImages进行图片比对取得滑动距离的图片，通过canvas将图片读入内存，取得最终滑动距离，调用puppetter加入人的行为模拟，并最终验证通过。
 
-![](/assets/puppeteer.png)
+![](https://raw.githubusercontent.com/178518/book/master/assets/puppeteer.png)
 
 [Puppeteer-无头浏览器简介](https://zhuanlan.zhihu.com/p/40103840)
 
@@ -167,7 +167,7 @@ await page.evaluateOnNewDocument(() => {
 
 #### 5.3、最终效果
 <div>
-<video src="/assets/20190109_152719.mp4" width="800" height="600" controls="controls"/>
+<video src="https://raw.githubusercontent.com/178518/book/master/assets/20190109_152719.mp4" width="800" height="600" controls="controls"/>
 </div>
 
 
@@ -177,26 +177,26 @@ await page.evaluateOnNewDocument(() => {
 
 第三代验证码加入语序和空间推理，传统的图片二值法或者像素比对都失效了，这里讲引入[OpenCV](https://baike.baidu.com/item/OpenCV)和[Tensorflow](https://www.tensorflow.org/?hl=zh-cn)两个工具，主要用于图片识别和深度学习。
 
-![](/assets/yx.png)
+![](https://raw.githubusercontent.com/178518/book/master/assets/yx.png)
 
-![](/assets/kj.png)
+![](https://raw.githubusercontent.com/178518/book/master/assets/kj.png)
 
 Google提供的[inception5h](https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip)模型介绍
 
 #### 6.1、Inception V1
 GoogLeNet首次出现在2014年ILSVRC 比赛中获得冠军。这次的版本通常称其为Inception V1。Inception V1有22层深，参数量为5M。同一时期的VGGNet性能和Inception V1差不多，但是参数量也是远大于Inception V1。
 
-![](/assets/v1.png)
+![](https://raw.githubusercontent.com/178518/book/master/assets/v1.png)
 
 Inception Module是GoogLeNet的核心组成单元，Inception Module基本组成结构有四个成分。1 * 1卷积，3 * 3卷积，5 * 5卷积，3 * 3最大池化。最后对四个成分运算结果进行通道上组合。这就是Inception Module的核心思想。通过多个卷积核提取图像不同尺度的信息，最后进行融合，可以得到图像更好的表征。结构如下图：
 
-![](/assets/v1_1.png)
+![](https://raw.githubusercontent.com/178518/book/master/assets/v1_1.png)
 
 #### 6.2、Inception V5图片打标分类&人脸识别
 最新的Inception V5训练好的模型大概可与识别1000种类别的图片，通过opencv4nodejs可以调用训练好的模型进行图片分类打标，人脸检测等各种图片识别功能。
 
 <div>
-<video src="/assets/20190109_191347.mp4" width="800" height="600" controls="controls"/>
+<video src="https://raw.githubusercontent.com/178518/book/master/assets/20190109_191347.mp4" width="800" height="600" controls="controls"/>
 </div>
 
 ##### 基于opencv4nodejs完成图片打标和人脸识别
@@ -338,7 +338,7 @@ testData.forEach((data) => {
 #### 6.3、通过迁移训练来定制 TensorFlow 模型
 基于Google Inception-V3 模型，在Windows平台通过TensorFlow 利用GTX1080进行并行图学习，得到自己想要的模型结果。
 
-![](/assets/mxxl.png)
+![](https://raw.githubusercontent.com/178518/book/master/assets/mxxl.png)
 
 python训练脚本
 
@@ -374,7 +374,7 @@ const childProcess = require('child_process');
 ```
 
 <div>
-<video src="/assets/20190109_200421.mp4" width="800" height="600" controls="controls"/>
+<video src="https://raw.githubusercontent.com/178518/book/master/assets/20190109_200421.mp4" width="800" height="600" controls="controls"/>
 </div>
 
 模型训练在GTX1080底下，500张图片样本，学习一次5分钟左右，TensorFlow 必须安装GPU版本
