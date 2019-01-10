@@ -1,36 +1,60 @@
 ## 1、引言
-> [验证码](https://x.tongdun.cn/product/captcha)（CAPTCHA）是“Completely Automated Public Turing test to tell Computers and Humans 
-Apart”（全自动区分计算机和人类的图灵测试）的缩写，是一种区分用户是计算机还是人的公共全自动程序。可以防止：恶意破解密码、刷票、论坛灌水，有效防止某个黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试，实际上用验证码是现在很多网站通行的方式，我们利用比较简易的方式实现了这个功能。这个问题可以由计算机生成并评判，但是必须只有人类才能解答。由于计算机无法解答CAPTCHA的问题，所以回答出问题的用户就可以被认为是人类。
+> 全自动区分计算机和人类的公开图灵测试（英语：Completely Automated Public Turing test to tell Computers and Humans 
+Apart，简称CAPTCHA），俗称[验证码](https://x.tongdun.cn/product/captcha)，是一种区分用户是计算机或人的公共全自动程序。在CAPTCHA测试中，作为服务器的计算机会自动生成一个问题由用户来解答。这个问题可以由计算机生成并评判，但是必须只有人类才能解答。由于计算机无法解答CAPTCHA的问题，所以回答出问题的用户就可以被认为是人类。
 
+## 2、简介
+CAPTCHA这个词最早是在2002年由卡内基梅隆大学的路易斯·冯·安、Manuel Blum、Nicholas J.Hopper以及IBM的John Langford所提出。卡内基梅隆大学曾试图申请此词使其成为注册商标[1]， 但该申请于2008年4月21日被拒绝。一种常用的CAPTCHA测试是让用户输入一个扭曲变形的图片上所显示的文字或数字，扭曲变形是为了避免被光学字符识别（OCR, Optical Character Recognition）之类的计算机程序自动识别出图片上的文数字而失去效果。由于这个测试是由计算机来考人类，而不是标准图灵测试中那样由人类来考计算机，人们有时称CAPTCHA是一种反向图灵测试。
 
-## 涉及技术找
+为了无法看到图像的身心障碍者，替代的方法是改用语音读出文数字，为了防止语音识别分析声音，声音的内容会有杂音或仍可以被人类接受的变声。
+
+根据CAPTCHA测试的定义，产生验证码图片的算法必须公开，即使该算法可能有专利保护。这样做是证明想破解就需要解决一个不同的人工智能难题，而非仅靠发现原来的（秘密）算法，而后者可以用逆向工程等途径得到。
+
+## 3、作用
+防止恶意破解密码、刷票、论坛灌水、刷页。有效防止某个黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登录尝试，实际上使用验证码是现在很多网站通行的方式（比如招商银行的网上个人银行，百度社区），我们利用比较简易的方式实现了这个功能。虽然登录麻烦一点，但是对网友的密码安全来说这个功能还是很有必要，也很重要。但我们还是 提醒大家要保护好自己的密码 ，尽量使用混杂了数字、字母、符号在内的6位以上密码，不要使用诸如1234之类的简单密码或者与用户名相同、类似的密码 ，免得你的账号被人盗用给自己带来不必要的麻烦。
+
+验证码通常使用一些线条和一些不规则的字符组成，主要作用是为了防止一些黑客把密码数据化盗取。
+
+典型应用场景：
+
+- [网站安全](https://x.tongdun.cn/product/registerDefend)：垃圾注册、恶意登录、账号盗用
+
+- [数据安全](https://x.tongdun.cn/product/interfaceDefend)：数据爬取、数据破坏
+
+- [运营安全](https://x.tongdun.cn/product/marketingDefend)：恶意刷单、虚假秒杀、虚假评论
+
+- [交易安全](https://x.tongdun.cn/product/transactionDefend)：虚假交易、恶意套现、盗卡支付
+
+## 使用到技术找
 
 - OpenCV
+- Tensorflow
 - node
-- tesseract
+- Tesseract
 - python
 - node-tesseract & gm & node-cmd 库使用
 
 ## 2、工作原理
-常见的图形验证码是与web中的会话相关联的，在一个会话开始时，在需要使用验证码的地方会生成一个与当前会话相关的验证码，用户识别出验证码后通过填写表单将数据提交给服务器，服务器端会验证此次会话中的验证码是否正确。具体来说，其工作流程如图1所示：
+智能验证产品主要针对企业不同业务场景，利用生物行为与机器学习方式提供人机验证服务，防范非真实人类流量和恶意程序攻击，帮您降低业务风险。
 
-![](http://blog.nsfocus.net/wp-content/uploads/2016/12/%E5%9B%BE1-%E9%AA%8C%E8%AF%81%E7%A0%81%E6%8A%80%E6%9C%AF%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg)
+其工作流程如下图所示：
 
-## 3、验证码的划代标准
+![](https://x.tongdun.cn/assets/image/identifyingCode-1.png)
 
-### 第一代：标准验证码
+## 3、验证码的分类
 
-已[图形验证码](https://x.tongdun.cn/product/captcha)为代表，基于机器难以处理复杂的计算机视觉及语音识别问题，而人类却可以轻松的识别来区分人类及机器。这一代验证码初步利用了人类知识容易解答，而计算机难以解答的机制进行人机判断。
+### 字符型图片验证码
 
-### 第二代：创新验证码
+字符型图片[验证码](https://x.tongdun.cn/product/captcha)是由阿拉伯数字，英文字母，中文汉字按照一定规律排列，加入干扰噪点之后生产的一张图片。
 
-第二代[验证码](https://x.tongdun.cn/product/captcha)是基于第一代验证码的核心思想（通过人类知识可以解答，而计算机难以解答的问题进行人机判断）而产生的创新的交互优化型验证码。第二代验证码基于第一代验证码的核心原理－－“人机之间知识的差异”，拓展出大量创新型验证码。
+### 行为式验证码
 
-### 第三代：无感知验证码
+行为式[验证码](https://x.tongdun.cn/onlineExperience/slidingPuzzle)是一种较为流行的验证码。从字面来理解，就是通过用户的操作行为来完成验证，而无需去读懂扭曲的图片文字。常见的有两种：拖动式与点触式。
 
-第三代[验证码](https://x.tongdun.cn/product/captcha)最大的特点是不再基于知识进行人机判断，而是基于人类固有的生物特征以及操作的环境信息综合决策，来判断是人类还是机器。无知识型验证码最大特点即无需人类思考，从而不会打断用户操作，进而提供更好的用户体验。
+### 智能验证码
 
-### 4、第一代验证码攻防
+智能[验证码](https://x.tongdun.cn/onlineExperience/captcha)是一种基于语言认知的人机区分，考验机器语言认知能力的智能验证码，会是未来一段时间内的重要选择。典型代表有语序点选和空间推理。
+
+### 4、字符型图片验证码破解
 
 [图像二值化](https://baike.baidu.com/item/%E5%9B%BE%E5%83%8F%E4%BA%8C%E5%80%BC%E5%8C%96)（ Image Binarization）就是将图像上的像素点的灰度值设置为0或255，也就是将整个图像呈现出明显的黑白效果的过程。
 
@@ -122,11 +146,11 @@ async function execute(imgPath) {
 机器自动识别图片验证码，对简单的情况能有较高的准确率，但对干扰多，变形复杂的图片验证码，其准确率会很差。由于图片验证码重要度增加，复杂的图片验证码被大量使用，导致近年来出现了利用众包力量实现的人工验证码识别平台。
 其工作原理图下所示：
 
-![](http://blog.nsfocus.net/wp-content/uploads/2016/12/%E5%9B%BE3-%E4%BA%BA%E5%B7%A5%E5%88%86%E5%B8%83%E5%BC%8F%E8%AF%86%E5%88%AB.jpg)
+![](https://raw.githubusercontent.com/178518/book/master/assets/a15b4afegw1fa7vs4frdaj20kq0eiwfj.jpeg)
 
->小结：至此，第一代验证码基本沦陷，攻守双方本质上就是一个相互转化的过程。
+>小结：至此，字符型图片验证码基本沦陷，攻守双方本质上就是一个相互转化的过程。
 
-### 5、第二代验证码攻防
+### 5、行为式验证码攻防
 
 第二代验证码在人机交互方面有很强的改进，总体来说人很容易识别，但是机器相对来说很难识别。但是随着puppeteer的出现，这种攻防又发生的微妙的变化。
 
@@ -169,8 +193,6 @@ await page.evaluateOnNewDocument(() => {
 <div>
 <iframe height=498 width=510 src='http://player.youku.com/embed/XNDAwNTQ0MTI2MA==' frameborder=0 'allowfullscreen'></iframe>
 </div>
-
-
 
 
 >小结：至此，第二代滑动验证码基本沦陷，Puppeteer让人和机器的界限越来越模糊，他的一切行为看起来就像一个真实的人，但是后面全部是自动化执行，本质上Google退出这个是为了实现自动化测试，对抗继续升级。
@@ -401,3 +423,5 @@ const childProcess = require('child_process');
 [【模型解读】Inception结构，你看懂了吗](https://zhuanlan.zhihu.com/p/41691301)
 
 [通过迁移训练来定制 TensorFlow 模型](https://www.jianshu.com/p/40ad065c8cc7)
+
+[复旦大学肖仰华：12306的验证码已不再安全，未来属于智能验证码](https://www.leiphone.com/news/201704/bJ9OtS2IfrRpyoUT.html)
