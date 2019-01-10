@@ -167,8 +167,10 @@ await page.evaluateOnNewDocument(() => {
 
 #### 5.3、最终效果
 <div>
-<video src="https://raw.githubusercontent.com/178518/book/master/assets/20190109_152719.mp4" width="800" height="600" controls="controls"/>
+<iframe height=498 width=510 src='http://player.youku.com/embed/XNDAwNTQ0MTI2MA==' frameborder=0 'allowfullscreen'></iframe>
 </div>
+
+
 
 
 >小结：至此，第二代滑动验证码基本沦陷，Puppeteer让人和机器的界限越来越模糊，他的一切行为看起来就像一个真实的人，但是后面全部是自动化执行，本质上Google退出这个是为了实现自动化测试，对抗继续升级。
@@ -196,7 +198,7 @@ Inception Module是GoogLeNet的核心组成单元，Inception Module基本组成
 最新的Inception V5训练好的模型大概可与识别1000种类别的图片，通过opencv4nodejs可以调用训练好的模型进行图片分类打标，人脸检测等各种图片识别功能。
 
 <div>
-<video src="https://raw.githubusercontent.com/178518/book/master/assets/20190109_191347.mp4" width="800" height="600" controls="controls"/>
+<iframe height=498 width=510 src='http://player.youku.com/embed/XNDAwNTQ0MTkxNg==' frameborder=0 'allowfullscreen'></iframe>
 </div>
 
 ##### 基于opencv4nodejs完成图片打标和人脸识别
@@ -374,7 +376,7 @@ const childProcess = require('child_process');
 ```
 
 <div>
-<video src="https://raw.githubusercontent.com/178518/book/master/assets/20190109_200421.mp4" width="800" height="600" controls="controls"/>
+<iframe height=498 width=510 src='http://player.youku.com/embed/XNDAwNTQ0MjU5Ng==' frameborder=0 'allowfullscreen'></iframe>
 </div>
 
 模型训练在GTX1080底下，500张图片样本，学习一次5分钟左右，TensorFlow 必须安装GPU版本
