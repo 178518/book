@@ -1145,6 +1145,38 @@
             
         </li>
     
+        <li class="chapter " data-level="1.17" >
+            
+                <span>
+            
+                    
+                    Node应用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="../node/captcha.html">
+            
+                <a href="../node/captcha.html">
+            
+                    
+                    验证码攻防实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
     
 
@@ -1211,13 +1243,36 @@ echo &quot;mongodb-org-tools hold&quot; | sudo dpkg --set-selections
 </code></pre><h3 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h3>
 <p>sudo nano etc/mongod.conf</p>
 <h3 id="&#x542F;&#x52A8;">&#x542F;&#x52A8;</h3>
-<pre><code>debian
+<pre><code># &#x65E5;&#x5FD7;
+systemLog:
+# &#x65E5;&#x5FD7;&#x4E3A;&#x6587;&#x4EF6;
+  destination: file
+# &#x6587;&#x4EF6;&#x4F4D;&#x7F6E;
+  path: /usr/local/var/log/mongodb/mongo.log
+# &#x662F;&#x5426;&#x8FFD;&#x52A0;
+  logAppend: true
+# &#x5B89;&#x5168;
+security:
+    authorization: disabled
+#&#x8FDB;&#x7A0B;
+processManagement:
+# &#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x65B9;&#x5F0F;
+  fork: true
+storage:
+  dbPath: /usr/local/var/mongodb
+net:
+# &#x7ED1;&#x5B9A;IP&#xFF0C;&#x9ED8;&#x8BA4;127.0.0.1&#xFF0C;&#x53EA;&#x80FD;&#x672C;&#x673A;&#x8BBF;&#x95EE;
+  bindIp: 127.0.0.1
+# &#x7AEF;&#x53E3;
+  port: 27017
+
+debian
 mongod --auth -f /etc/mongod.conf
 
 mac
 mongod --auth -f /usr/local/etc/mongod.conf
 </code></pre><h3 id="&#x505C;&#x6B62;">&#x505C;&#x6B62;</h3>
-<pre><code>ps -axu |grep mongo
+<pre><code>ps -axu | grep mongo
 kill -2 pid
 </code></pre><h3 id="shell">shell</h3>
 <pre><code>1&#x3001;&#x767B;&#x5F55;&#x6570;&#x636E;&#x5E93;
@@ -1295,7 +1350,7 @@ db.dropUser(&apos;test&apos;)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MongoDB","level":"1.15.1","depth":2,"next":{"title":"泛IOT全链路知识","level":"1.15.2","depth":2,"path":"iot/learn.md","ref":"iot/learn.md","articles":[]},"previous":{"title":"IOT","level":"1.15","depth":1,"path":"iot/setup.md","ref":"iot/setup.md","articles":[{"title":"MongoDB","level":"1.15.1","depth":2,"path":"iot/mongodb.md","ref":"iot/mongodb.md","articles":[]},{"title":"泛IOT全链路知识","level":"1.15.2","depth":2,"path":"iot/learn.md","ref":"iot/learn.md","articles":[]},{"title":"IOT编程语言选择","level":"1.15.3","depth":2,"path":"iot/language.md","ref":"iot/language.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"178518 <178518@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"乐高","language":"zh-hans","links":{"sidebar":{"178518's Github":"https://github.com/178518"}},"gitbook":">=3.0.0","description":"乐高,前端工程化,前端组件化,React Component"},"file":{"path":"iot/mongodb.md","mtime":"2018-12-04T14:15:34.520Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-07T14:36:02.739Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MongoDB","level":"1.15.1","depth":2,"next":{"title":"泛IOT全链路知识","level":"1.15.2","depth":2,"path":"iot/learn.md","ref":"iot/learn.md","articles":[]},"previous":{"title":"IOT","level":"1.15","depth":1,"path":"iot/setup.md","ref":"iot/setup.md","articles":[{"title":"MongoDB","level":"1.15.1","depth":2,"path":"iot/mongodb.md","ref":"iot/mongodb.md","articles":[]},{"title":"泛IOT全链路知识","level":"1.15.2","depth":2,"path":"iot/learn.md","ref":"iot/learn.md","articles":[]},{"title":"IOT编程语言选择","level":"1.15.3","depth":2,"path":"iot/language.md","ref":"iot/language.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"178518 <178518@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"乐高","language":"zh-hans","links":{"sidebar":{"178518's Github":"https://github.com/178518"}},"gitbook":">=3.0.0","description":"乐高,前端工程化,前端组件化,React Component"},"file":{"path":"iot/mongodb.md","mtime":"2018-12-15T04:13:57.113Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-10T14:13:24.432Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
