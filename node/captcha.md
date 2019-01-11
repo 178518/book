@@ -411,7 +411,8 @@ const childProcess = require('child_process');
 <iframe height=498 width=510 src='http://player.youku.com/embed/XNDAwNTQ0MjU5Ng==' frameborder=0 'allowfullscreen'></iframe>
 </div>
 
-至此，智能验证码进入AI对抗时代。
+### 8、对抗
+在与黑产的对抗中，同盾科技反欺诈服务，依托大数据分析技术，提供内容安全,业务安全,云安全,人机验证,行为验证码,营销反作弊,注册保护,登录保护,图像鉴黄,文本过滤,敏感词过滤,黑产情报等产品用于黑产对抗，为企业提供安全解决方案。
 
 ## 参考资料
 [验证码的前世今生（今生篇）](https://www.freebuf.com/articles/web/102276.html)
